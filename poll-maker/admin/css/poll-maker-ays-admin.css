@@ -2261,6 +2261,25 @@ blockquote span {
     margin-top: 1em;
 }
 
+.ays_poll_settings_integration_container {
+    border-radius: 8px;
+    border-color: #E0DADA !important;
+}
+
+.ays_poll_settings_integration_container blockquote.error_message {
+    border: none;
+    background-color: #2454a60a;
+    border-radius: 8px;
+    color: #000;
+    font-style: normal;
+}
+
+.ays_poll_settings_integration_container blockquote.error_message a {
+    color: #000 !important;
+    text-decoration: underline;
+    font-size: 18px !important;
+}
+
 i.ays_poll_fa-check-square {
     color: var(--success);
 }

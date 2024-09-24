@@ -687,10 +687,7 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         $this->unique_id = $unique_id;
         $this->unique_id_in_class = $unique_id;
 
-        $poll_author = "";
-        if(is_user_logged_in()){
-            $poll_author = $this->ays_generate_current_poll_author_html( $id );
-        }
+        $poll_author = $this->ays_generate_current_poll_author_html( $id );
         return str_replace(array("\r\n", "\n", "\r"), "\n", $poll_author);
     }
 

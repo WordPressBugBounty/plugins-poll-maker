@@ -2056,7 +2056,7 @@ class Poll_Maker_Ays_Public {
 		if (!$is_expired) {
 			//CHECK IF ENABLED ONLY LOGGED IN USERS OPTION
 			if (isset($options['enable_logged_users']) && $options['enable_logged_users'] == 1 && !is_user_logged_in()) {
-				$logged_users_message = isset($options['enable_logged_users_message']) && $options['enable_logged_users_message'] != '' ? stripslashes($options['enable_logged_users_message']) : "<p>" . __('You must sign in for voting.', "poll-maker") . "</p>";
+				$logged_users_message = isset($options['enable_logged_users_message']) && $options['enable_logged_users_message'] != '' ? $this->ays_autoembed(stripslashes($options['enable_logged_users_message'])) : "<p>" . __('You must sign in for voting.', "poll-maker") . "</p>"; // smbo
 
 				$content .= "<div class='apm-need-sign-in'>".$logged_users_message."</div>";
 

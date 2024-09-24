@@ -5056,7 +5056,7 @@ $emoji = array(
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
                             <div class="ays-poll-accordion-body">
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/mailchimp_logo.png" alt="">
                                         <h5><?php echo __('MailChimp Settings', "poll-maker")?></h5>
@@ -5068,6 +5068,7 @@ $emoji = array(
                                         if($mailchimp_username == "" || $mailchimp_api_key == ""):
                                             ?>
                                             <blockquote class="error_message">
+                                                <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                 <?php echo (
                                                     /* translators: anchor tag */
                                                     sprintf( __("For enabling this option, please go to %s page and fill all options.", "poll-maker"),
@@ -5144,7 +5145,7 @@ $emoji = array(
                                     ?>
                                 </fieldset><!-- MailChimp Settings -->
                                 <hr/>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/campaignmonitor_logo.png" alt="">
                                         <h5><?php echo __('Campaign Monitor Settings', "poll-maker") ?></h5>
@@ -5189,7 +5190,7 @@ $emoji = array(
                                     </div>
                                 </fieldset><!-- Campaign Monitor Settings PRO Feature -->
                                 <hr/>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/zapier_logo.png" alt="">
                                         <h5><?php echo __('Zapier Integration Settings', "poll-maker") ?></h5>
@@ -5232,7 +5233,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- Zapier Integration Settings PRO Feature -->
                                 <hr/>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/activecampaign_logo.png" alt="">
                                         <h5><?php echo __('Active Campaign Settings', "poll-maker") ?></h5>
@@ -5294,7 +5295,7 @@ $emoji = array(
                                     </div>
                                 </fieldset><!-- Active Campaign Settings PRO Feature -->
                                 <hr/>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/slack_logo.png" alt="">
                                         <h5><?php echo __('Slack Settings', "poll-maker") ?></h5>
@@ -5340,7 +5341,7 @@ $emoji = array(
                                     </div>
                                     </fieldset> <!-- Slack Settings PRO Feature -->
                                 <hr>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/sheets_logo.png" alt="">
                                         <h5><?php echo __('Google Sheet Settings', "poll-maker") ?></h5>
@@ -5373,7 +5374,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- Google Sheet Settings PRO Feature -->
                                 <hr>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/mad-mimi-logo-min.png" alt="">
                                         <h5><?php echo __('Mad Mimi', "poll-maker") ?></h5>
@@ -5423,7 +5424,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- Mad Mimi -->
                                 <hr>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/get_response.png" alt="">
                                         <h5><?php echo __('GetResponse Settings', "poll-maker") ?></h5>
@@ -5473,7 +5474,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- GetResponse Settings -->
                                 <hr>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/convertkit_logo.png" alt="">
                                         <h5><?php echo __('ConvertKit Settings', "poll-maker")?></h5>
@@ -5518,7 +5519,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- ConvertKit Settings -->
                                 <hr/>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/klaviyo-logo.png" alt="">
                                         <h5><?php echo __('Klaviyo', "poll-maker") ?></h5>
@@ -5559,7 +5560,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- Klaviyo -->
                                 <hr>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/aweber-logo.png" alt="">
                                         <h5><?php echo __('Aweber', "poll-maker") ?></h5>
@@ -5600,7 +5601,7 @@ $emoji = array(
                                     </div>
                                 </fieldset> <!-- Aweber -->
                                 <hr>
-                                <fieldset>
+                                <fieldset class="ays_poll_settings_integration_container">
                                     <legend>
                                         <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/mail_poet.png" alt="">
                                         <h5><?php echo __('MailPoet', "poll-maker") ?></h5>
