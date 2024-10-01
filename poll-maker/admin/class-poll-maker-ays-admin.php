@@ -2546,6 +2546,7 @@ class Poll_Maker_Ays_Admin {
 			"poll_answer_box_shadow_y_offset" => 0,"poll_answer_box_shadow_z_offset" => 10,
 			"poll_answer_image_height" => 150,
 			"poll_answer_image_height_for_mobile" => "150",
+			"poll_answer_image_border_radius" => 0,
 			"ans_img_caption_style" => "outside",
 			"ans_img_caption_position" => "bottom",
 			"answers_font_size" => 15,

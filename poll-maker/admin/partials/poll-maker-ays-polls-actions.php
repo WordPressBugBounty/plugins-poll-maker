@@ -605,6 +605,9 @@ $poll_answer_image_height = (isset($options['poll_answer_image_height']) && $opt
 // Poll answer image height for mobile
 $poll_answer_image_height_for_mobile = (isset($options['poll_answer_image_height_for_mobile']) && $options['poll_answer_image_height_for_mobile'] != "") ? esc_attr($options['poll_answer_image_height_for_mobile']) : "150";
 
+// Poll answer image border radius
+$poll_answer_image_border_radius = (isset($options['poll_answer_image_border_radius']) && $options['poll_answer_image_border_radius'] != "") ? esc_attr($options['poll_answer_image_border_radius']) : 0;
+
 // Poll answer image height
 $poll_question_image_object_fit = (isset($options['poll_question_image_object_fit']) && $options['poll_question_image_object_fit'] != "") ? esc_attr($options['poll_question_image_object_fit']) : "cover";
 
@@ -2363,6 +2366,19 @@ $emoji = array(
                                                             <input type="number" class="ays-text-input ays-text-input-short  ays_enable_answer_field" id='ays_poll_answer_image_height_for_mobile' name='ays_poll_answer_image_height_for_mobile' value="<?php echo $poll_answer_image_height_for_mobile; ?>" />
                                                         </div>
                                                     </div> <!-- Answers image height for mobile-->
+                                                    <div class="ays_toggle_target ays_divider_top ays_answer_style" style="margin-top: 10px; padding-top: 10px; <?= ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
+                                                        <div>
+                                                            <label for="ays_poll_answer_image_border_radius" class="ays_enable_answer_style">
+                                                                <?php echo __('Answer image border radius (px)', "poll-maker")?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Border radius of answers images.', "poll-maker")?>">
+                                                                <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="number" class="ays-text-input ays-text-input-short  ays_enable_answer_field" id='ays_poll_answer_image_border_radius' name='ays_poll_answer_image_border_radius' value="<?php echo $poll_answer_image_border_radius; ?>" />
+                                                        </div>
+                                                    </div> <!-- Answers image border radius -->
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style" style="margin-top: 10px; padding-top: 10px; <?= ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
                                                         <div >
                                                             <label for="ays_poll_background_size">

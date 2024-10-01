@@ -1491,7 +1491,7 @@
         $('.apm-title-box h5').text(val);
     });   
     var checkAnswerStyle = $(document).find("#ays_poll_enable_answer_style").prop("checked");
-    $(document).on('change', '.ays-poll-question-font-size,#ays_poll_question_image_height,#ays_answers_view,#ays_poll_answer_img_height,#ays_poll_image_background_size,#ays_poll_answers_padding,#ays_poll_answers_margin,#ays_poll_title_font_size,#ays_poll_title_alignment,#ays_poll_text_type_placeholder,#ays_poll_question_image_object_fit,#ays_poll_answers_box_shadow_enable,#ays_poll_answers_box_shadow_color,#ays_poll_answer_border_radius,#ays_poll_answer_box_shadow_x_offset,#ays_poll_answer_box_shadow_y_offset,#ays_poll_answer_box_shadow_z_offset' , function () {
+    $(document).on('change', '.ays-poll-question-font-size,#ays_poll_question_image_height,#ays_answers_view,#ays_poll_answer_img_height,#ays_poll_answer_image_border_radius,#ays_poll_image_background_size,#ays_poll_answers_padding,#ays_poll_answers_margin,#ays_poll_title_font_size,#ays_poll_title_alignment,#ays_poll_text_type_placeholder,#ays_poll_question_image_object_fit,#ays_poll_answers_box_shadow_enable,#ays_poll_answers_box_shadow_color,#ays_poll_answer_border_radius,#ays_poll_answer_box_shadow_x_offset,#ays_poll_answer_box_shadow_y_offset,#ays_poll_answer_box_shadow_z_offset' , function () {
         var checkAnswerStyleOnChange = $(document).find("#ays_poll_enable_answer_style").prop("checked");
         refreshLivePreview(checkAnswerStyleOnChange);
     });    
@@ -1893,6 +1893,8 @@
         var borderColor = $(document).find("#ays-poll-border-color").val();
         // Image Height option        
         var imageHeight = $(document).find('#ays_poll_answer_img_height').val();
+        // Image border radius option
+        var imageBorderRadius = $(document).find('#ays_poll_answer_image_border_radius').val();
         // Answer Image object-fit
         var imageBgSizeSelect = $(document).find('#ays_poll_image_background_size');
         var imageBgSizeVal = imageBgSizeSelect.val();
@@ -1977,6 +1979,7 @@
         // Image Changes
         imageBoxes.css({
             'height': imageHeight+'px',
+            'border-radius': imageBorderRadius+'px',
             'object-fit': imageBgSizeVal
         });
 
@@ -3074,6 +3077,7 @@
         $(document).find('input#ays_poll_answer_font_size_mobile').val('16').change();
         $(document).find('input#ays_poll_answer_img_height').val('150').change();
         $(document).find('input#ays_poll_answer_image_height_for_mobile').val('150').change();
+        $(document).find('input#ays_poll_answer_image_border_radius').val('0').change();
         $(document).find('#ays_poll_image_background_size').val('cover').change();
         $(document).find('input#ays_poll_answers_padding').val('10').change();
         $(document).find('input#ays_poll_answers_margin').val('10').change();

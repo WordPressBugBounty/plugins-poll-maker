@@ -1083,11 +1083,14 @@ class Poll_Maker_Ays_Public {
 		$poll_answer_padding      = "10";
 		$poll_answer_margin 	  = "1";
 		$poll_answer_image_height_for_mobile = "150";
+		$poll_answer_image_border_radius = 0;
 		if($answer_style){
 			// Poll answer image height
 			$poll_answer_image_height = (isset($options['poll_answer_image_height']) && $options['poll_answer_image_height'] != "") ? esc_attr($options['poll_answer_image_height']) : "150";
 			// Poll answer image height for mobile
 			$poll_answer_image_height_for_mobile = (isset($options['poll_answer_image_height_for_mobile']) && $options['poll_answer_image_height_for_mobile'] != "") ? esc_attr($options['poll_answer_image_height_for_mobile']) : "150";
+			// Poll answer image border radius
+			$poll_answer_image_border_radius = (isset($options['poll_answer_image_border_radius']) && $options['poll_answer_image_border_radius'] != "") ? esc_attr($options['poll_answer_image_border_radius']) : 0;
 			// Poll answer image object fit
 			$poll_answer_object_fit   = (isset($options['poll_answer_object_fit']) && $options['poll_answer_object_fit'] != "") ? esc_attr($options['poll_answer_object_fit']) : "cover";
 			// Poll answer padding
@@ -1431,6 +1434,7 @@ class Poll_Maker_Ays_Public {
 
         #".$this_poll_id.".box-apm .apm-choosing .ays-poll-each-image{            
 			height: ".$poll_answer_image_height."px;
+			border-radius: ".$poll_answer_image_border_radius."px;
 			object-fit: ".$poll_answer_object_fit.";
         }
 

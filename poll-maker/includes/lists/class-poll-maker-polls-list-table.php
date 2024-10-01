@@ -578,6 +578,9 @@ class Polls_List_Table extends WP_List_Table {
 				$poll_answer_image_height_for_mobile = "150";
 			}
 
+			// Poll answer image border radius
+			$poll_answer_image_border_radius = (isset($data['ays_poll_answer_image_border_radius']) && $data['ays_poll_answer_image_border_radius'] != "") ? sanitize_text_field($data['ays_poll_answer_image_border_radius']) : 0;
+
 			// Poll answer image object fit
 			$poll_answer_object_fit   = (isset($data['ays_poll_image_background_size']) && $data['ays_poll_image_background_size'] != "") ? sanitize_text_field($data['ays_poll_image_background_size']) : "cover";
 
@@ -831,6 +834,7 @@ class Polls_List_Table extends WP_List_Table {
 				'poll_allow_answer_require'         => $poll_allow_answer_require,
 				'poll_answer_image_height'          => $poll_answer_image_height,
 				'poll_answer_image_height_for_mobile' => $poll_answer_image_height_for_mobile,
+				'poll_answer_image_border_radius' => $poll_answer_image_border_radius,
 				'poll_title_alignment'              => $poll_title_alignment,
 				// Text type options
 				'poll_text_type_length_enable'      => $poll_text_type_length_enable,
