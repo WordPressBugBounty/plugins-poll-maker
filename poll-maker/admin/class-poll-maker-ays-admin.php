@@ -2321,6 +2321,7 @@ class Poll_Maker_Ays_Admin {
 		$allow_not_vote = isset($_REQUEST['allow-not-vote']) && 'on' == $_REQUEST['allow-not-vote'] ? 1 : 0;
 		$show_author = isset($_REQUEST['quick-poll-show_poll_author']) && 1 == $_REQUEST['quick-poll-show_poll_author'] ? 1 : 0;
 		$hide_results = isset($_REQUEST['quick-poll-hide-results']) && 1 == $_REQUEST['quick-poll-hide-results'] ? 1 : 0;
+		$randomize_answers = isset($_REQUEST['quick-poll-randomize-answers']) && $_REQUEST['quick-poll-randomize-answers'] == 'on' ? 'on' : 'off';
 
 		if	($allow_multivote === 'on') {
 			$multivote_min_count = sanitize_text_field($_REQUEST['quick-poll-multivote-min-count']);
@@ -2454,7 +2455,7 @@ class Poll_Maker_Ays_Admin {
 			"active_camp_automation" => "",
 			"enable_active_camp" => "off",
 			"enable_zapier" => "off",
-			"randomize_answers" => "off",
+			"randomize_answers" => $randomize_answers,
 			"enable_asnwers_sound" => "off",
 			"enable_password" => "off",
 			"password_poll" => "",

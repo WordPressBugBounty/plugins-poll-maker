@@ -118,6 +118,12 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
                             <input type="checkbox" name="quick-poll-hide-results" id="quick-poll-hide-results" value="1"> 
                             <label for="quick-poll-hide-results">Toggle</label>
                         </div>
+                        <!-- Randomize answers -->
+                        <div>
+                            <span><?php echo __('Randomize answers', "poll-maker"); ?></span>
+                            <input type="checkbox" name="quick-poll-randomize-answers" id="quick-poll-randomize-answers"> 
+                            <label for="quick-poll-randomize-answers">Toggle</label>
+                        </div>
                     </div>
                     <!-- Save -->
                     <div class="quick_poll_save">
