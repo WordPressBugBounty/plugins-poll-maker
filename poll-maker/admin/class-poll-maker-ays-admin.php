@@ -2313,13 +2313,15 @@ class Poll_Maker_Ays_Admin {
 		$answers_table = esc_sql($wpdb->prefix . "ayspoll_answers");
 
 		$title = stripslashes( sanitize_text_field($_REQUEST['ays-poll-title']) );
-		$question = sanitize_text_field( $_REQUEST['ays_poll_question'] );
+		$question = wp_kses_post( $_REQUEST['ays_poll_question'] );
 
 		$answers = self::recursive_sanitize_text_field($_REQUEST['ays-poll-answers']);
 		
 		$allow_multivote = isset($_REQUEST['allow_multivote_switch']) && $_REQUEST['allow_multivote_switch'] == 'on' ? "on" : "off";
 		$allow_not_vote = isset($_REQUEST['allow-not-vote']) && 'on' == $_REQUEST['allow-not-vote'] ? 1 : 0;
 		$show_author = isset($_REQUEST['quick-poll-show_poll_author']) && 1 == $_REQUEST['quick-poll-show_poll_author'] ? 1 : 0;
+		$show_title = isset($_REQUEST['quick-poll-show-title']) && $_REQUEST['quick-poll-show-title'] == 'off' ? 0 : 1;
+		$show_creation_date = isset($_REQUEST['quick-poll-show-creation-date']) && $_REQUEST['quick-poll-show-creation-date'] == 'on' ? 1 : 0;
 		$hide_results = isset($_REQUEST['quick-poll-hide-results']) && 1 == $_REQUEST['quick-poll-hide-results'] ? 1 : 0;
 		$randomize_answers = isset($_REQUEST['quick-poll-randomize-answers']) && $_REQUEST['quick-poll-randomize-answers'] == 'on' ? 'on' : 'off';
 
@@ -2421,7 +2423,7 @@ class Poll_Maker_Ays_Admin {
 			"show_votes_count" => 1,
 			"attempts_count" => "1",
 			"poll_main_url" => '',
-			"show_create_date" => 0,
+			"show_create_date" => $show_creation_date,
 			"show_author" => $show_author,
 			"author" => $author,
 			"show_res_percent" => 1,
@@ -2582,7 +2584,7 @@ class Poll_Maker_Ays_Admin {
 			"type" => "choosing",
 			"view_type" => "list",
 			"categories" => ",1,",
-			"show_title" => 1,
+			"show_title" => $show_title,
 			"styles" => $options,
 			"theme_id" => 1,
 		));

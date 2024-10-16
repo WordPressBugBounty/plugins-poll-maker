@@ -112,6 +112,18 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
                             <input type="checkbox" name="quick-poll-show_poll_author" id="quick-poll-show-poll-author" value="1"> 
                             <label for="quick-poll-show-poll-author">Toggle</label>
                         </div>
+                        <!-- Show title -->
+                        <div>
+                            <span><?php echo __('Show title', "poll-maker"); ?></span>
+                            <input type="checkbox" name="quick-poll-show-title" id="quick-poll-show-title" checked> 
+                            <label for="quick-poll-show-title">Toggle</label>
+                        </div>
+                        <!-- Show creation date -->
+                        <div>
+                            <span><?php echo __('Show creation date', "poll-maker"); ?></span>
+                            <input type="checkbox" name="quick-poll-show-creation-date" id="quick-poll-show-creation-date"> 
+                            <label for="quick-poll-show-creation-date">Toggle</label>
+                        </div>
                         <!-- Hide results -->
                         <div>
                             <span><?php echo __('Hide results', "poll-maker"); ?></span>

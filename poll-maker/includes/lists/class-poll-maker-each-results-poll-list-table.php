@@ -45,8 +45,17 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 		}
 		$sql .= $where_cond;
 		if (!empty($_REQUEST['orderby'])) {
-			$sql .= " ORDER BY r." . esc_sql($_REQUEST['orderby']);
-			$sql .= !empty($_REQUEST['order']) ? " " . esc_sql($_REQUEST['order']) : ' DESC';
+			$order_by = ( isset( $_REQUEST['orderby'] ) && sanitize_text_field( $_REQUEST['orderby'] ) != '' ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'id';
+			$order_by .= ( ! empty( $_REQUEST['order'] ) && strtolower( $_REQUEST['order'] ) == 'asc' ) ? ' ASC' : ' DESC';
+
+			$sql_orderby = sanitize_sql_orderby($order_by);
+
+            if ( $sql_orderby ) {
+                $sql .= ' ORDER BY r.' . $sql_orderby;
+            } else {
+                $sql .= ' ORDER BY r.id DESC';
+            }
+
 		} else {
 			$sql .= " ORDER BY r.id DESC";
 		}

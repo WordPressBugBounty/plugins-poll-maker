@@ -1052,7 +1052,7 @@ $emoji = array(
                                                     <td>
                                                         <div class="ays_poll_display_flex">
                                                             <input type="hidden" class="<?php echo ( $user_added ) ? 'ays_show_user_added_hid' : ''; ?>" name="ays_poll_show_user_added[]" value="<?= $check_show_user_added ?>" />
-                                                            <input type="text" class="ays-text-input ays-answer-value <?php echo $ays_key_enter;?>" name="ays-poll-answers[]" data-id="<?php echo $index;?>" value="<?php echo $answer_val; ?>">
+                                                            <input type="text" class="ays-text-input ays-answer-value <?php echo $ays_key_enter;?>" name="ays-poll-answers[]" data-id="<?php echo $index;?>" value="<?php echo esc_html($answer_val); ?>">
                                                             <?php echo $user_add_html; ?>
                                                             <input type="hidden" name="ays-poll-answers-ids[]" data-id="<?php echo $index;?>" value="<?php echo $answer_id; ?>">
                                                         </div>

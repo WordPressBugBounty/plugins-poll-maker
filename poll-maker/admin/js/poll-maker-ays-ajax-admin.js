@@ -53,8 +53,11 @@
 
         var wp_nonce = $(document).find('#ays_poll_ajax_quick_poll_nonce').val();
 
+        var showTitle = $(document).find('#quick-poll-show-title').is(':checked') ? 'on' : 'off';
+
         var quickPollFormData = $('#ays-quick-poll-form').serializeFormJSON();
         quickPollFormData.action = 'ays_poll_maker_quick_start';
+        quickPollFormData['quick-poll-show-title'] = showTitle;
         quickPollFormData._ajax_nonce = wp_nonce;
 
         $.ajax({

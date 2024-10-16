@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.6.2
-Stable tag: 5.4.6
+Stable tag: 5.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -352,6 +352,11 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.4.7 =
+* Added: Show title option for the Quick Poll Popup
+* Added: Show creation date option for the Quick Poll Popup
+* Fixed: Security issue on the admin dashboard
 
 = 5.4.6 =
 * Added: Randomize answers option for the Quick Poll Popup

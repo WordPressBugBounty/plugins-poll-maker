@@ -241,7 +241,7 @@ class Polls_List_Table extends WP_List_Table {
 			$hide_results              = isset($data['ays-poll-hide-results']) && 'hide' == $data['ays-poll-hide-results'] ? 1 : 0;
 			$hide_result_message       = isset($data['ays_poll_result_message']) && 'hide' == $data['ays_poll_result_message'] ? 1 : 0;
 			$hide_results_text         = stripcslashes($data['ays-poll-hide-results-text']);
-			$ays_result_message        = stripcslashes($data['ays_result_message']);
+			$ays_result_message        = wp_kses_post(stripcslashes($data['ays_result_message']));
 			$allow_not_vote            = isset($data['ays-poll-allow-not-vote']) && 'allow' == $data['ays-poll-allow-not-vote'] ? 1 : 0;
 			$show_social               = isset($data['ays-poll-show-social']) && 'show' == $data['ays-poll-show-social'] ? 1 : 0;
 			$poll_social_buttons_heading = ( isset( $data[ 'ays_poll_social_buttons_heading' ] ) && $data[ 'ays_poll_social_buttons_heading' ] != '' ) ? stripslashes(wp_kses_post($data[ 'ays_poll_social_buttons_heading' ])) : '';
@@ -252,7 +252,7 @@ class Polls_List_Table extends WP_List_Table {
 			$categories                = isset($data['ays-poll-categories']) ? ',' . implode(',', $data['ays-poll-categories']) . ',' : ',1,';
 			$description               = isset($data['ays-poll-description']) && $data['ays-poll-description'] != '' ? sanitize_textarea_field($data['ays-poll-description']) : "";
 			$type                      = isset($data['ays-poll-type']) ? sanitize_text_field($data['ays-poll-type']) : "";
-			$question                  = stripcslashes($data['ays_poll_question']);
+			$question                  = wp_kses_post(stripcslashes($data['ays_poll_question']));
 			$image = isset($data['ays_poll_image']) && $data['ays_poll_image'] != '' ? sanitize_url($data['ays_poll_image']): '';
 			// if ($image != '') {
 			// 	if ( !(filter_var($image, FILTER_VALIDATE_URL) && wp_http_validate_url($image)) ) {
@@ -359,7 +359,7 @@ class Polls_List_Table extends WP_List_Table {
 			$info_form               = isset($data['ays_poll_info_form']) && 'on' == $data['ays_poll_info_form'] ? 1 : 0;
 			$form_fields             = isset($data['ays-poll-form-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-fields'])) : "";
 			$form_required_fields    = isset($data['ays-poll-form-required-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-required-fields'])) : "";
-			$info_form_title         = isset($data['ays-poll-info-form-text']) ? wpautop($data['ays-poll-info-form-text']) : "";
+			$info_form_title         = isset($data['ays-poll-info-form-text']) ? wpautop(wp_kses_post(stripslashes($data['ays-poll-info-form-text']))) : "";
 			$title_bg_color          = sanitize_text_field($data['ays_poll_title_bg_color']);
 
 			// Poll main URL

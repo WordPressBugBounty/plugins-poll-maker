@@ -558,7 +558,7 @@ msgid "Save and close"
 msgstr ""
 
 #: ../admin/partials/categories/actions/poll-maker-ays-categories-actions.php:219
-#: ../admin/partials/poll-maker-ays-admin-display.php:130
+#: ../admin/partials/poll-maker-ays-admin-display.php:142
 #: ../admin/partials/poll-maker-ays-polls-actions.php:895
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6767
 msgid "Save"
@@ -583,12 +583,12 @@ msgstr ""
 #: ../admin/partials/categories/poll-maker-ays-categories-display.php:17
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:29
 #: ../admin/partials/poll-maker-ays-admin-display.php:43
-#: ../admin/partials/poll-maker-ays-admin-display.php:160
+#: ../admin/partials/poll-maker-ays-admin-display.php:172
 msgid "Add New"
 msgstr ""
 
 #: ../admin/partials/categories/poll-maker-ays-categories-display.php:28
-#: ../admin/partials/poll-maker-ays-admin-display.php:149
+#: ../admin/partials/poll-maker-ays-admin-display.php:161
 #: ../admin/partials/results/poll-maker-ays-each-results-display.php:64
 msgid "Search"
 msgstr ""
@@ -1278,17 +1278,26 @@ msgid "Show author"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:117
+msgid "Show title"
+msgstr ""
+
+#: ../admin/partials/poll-maker-ays-admin-display.php:123
+#: ../admin/partials/poll-maker-ays-polls-actions.php:3560
+msgid "Show creation date"
+msgstr ""
+
+#: ../admin/partials/poll-maker-ays-admin-display.php:129
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5692
 #: ../admin/partials/settings/poll-maker-settings.php:2395
 #: ../admin/partials/settings/poll-maker-settings.php:2403
 msgid "Hide results"
 msgstr ""
 
-#: ../admin/partials/poll-maker-ays-admin-display.php:123
+#: ../admin/partials/poll-maker-ays-admin-display.php:135
 msgid "Randomize answers"
 msgstr ""
 
-#: ../admin/partials/poll-maker-ays-admin-display.php:165
+#: ../admin/partials/poll-maker-ays-admin-display.php:177
 msgid "Create Your First Poll in Under One Minute"
 msgstr ""
 
@@ -2724,10 +2733,6 @@ msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3545
 msgid "Write the URL link where your poll is located (in Front-end). To open your poll right from the polls page, please fill in this field and navigate to the general tab to see the 'View' button"
-msgstr ""
-
-#: ../admin/partials/poll-maker-ays-polls-actions.php:3560
-msgid "Show creation date"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3563

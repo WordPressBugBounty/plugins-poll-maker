@@ -600,7 +600,7 @@ class Poll_Maker_Ays_Public {
 		}
 
 		$info_form = !empty($options['info_form']) && !empty($options['fields']);
-		$info_form_title = !empty($options['info_form_title']) ? $options['info_form_title'] : "<div>" . __("Please fill out the form:", "poll-maker") . "</div>";
+		$info_form_title = !empty($options['info_form_title']) ? wp_kses_post(stripslashes($options['info_form_title'])) : "<div>" . __("Please fill out the form:", "poll-maker") . "</div>";
 		$fields          = !empty($options['fields']) ? explode(",", $options['fields']) : array();
 		$required_fields = !empty($options['required_fields']) ? explode(",", $options['required_fields']) : array();
 
@@ -2294,7 +2294,7 @@ class Poll_Maker_Ays_Public {
 											<div class='apm-choosing answer-$this_poll_id ". $answer_style_class ." ays-poll-field ".$pol_answer_view_type_cont."' >
 											<input type=".$poll_multivote_checkbox." name='answer' id='radio-$index-$this_poll_id' value='{$answer['id']}' {$autocomplete_attr}>
 											<label for='radio-$index-$this_poll_id' class='ays_label_poll ".$answers_sound_class." ".$redirect_after_submit." ".$disable_answer_hover." ays_label_font_size ".$answer_icon_class." ".$poll_class_for_answer_label." ".$pol_answer_view_type_label_cont."' data-answers-url='".$answer['redirect']."'>".$poll_answer_image_show." <p style='".$poll_added_style."' class='ays-poll-answers'><span class='".$pol_answer_view_type_text_show."'>"
-											. $numbering_type . stripcslashes(html_entity_decode($answer['answer'])) . 
+											. $numbering_type . wp_kses_post(stripcslashes($answer['answer'])) . 
 											"</span></p></label>
 											</div>";
 										}
@@ -2954,6 +2954,7 @@ class Poll_Maker_Ays_Public {
 			$check_admin_approval = false;
 			$flag_for_added_answer = false;
 			if($allow_add_answer && (isset($_POST['ays_poll_new_answer']) && $_POST['ays_poll_new_answer'] != "")){
+				
 				$flag_for_added_answer = true;
 				$poll_allow_answer_require = isset($options['poll_allow_answer_require']) && $options['poll_allow_answer_require'] == "on" ? true : false;
 				if($poll_allow_answer_require){
@@ -2962,7 +2963,7 @@ class Poll_Maker_Ays_Public {
 				// $poll_answers_count  = isset($poll['answers']) ? count($poll['answers']) : 0; 
 				$new_anwer_data = array(
 					'poll_id'       => $poll_id,
-					'new_answer'    => sanitize_text_field($_POST['ays_poll_new_answer']),
+					'new_answer'    => wp_kses_post(stripslashes($_POST['ays_poll_new_answer'])),
 					'admin_require' => $poll_allow_answer_require,
 					'answers_count' => $poll_answers_count,
 					'if_text_type'  => false
