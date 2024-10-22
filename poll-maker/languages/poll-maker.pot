@@ -226,7 +226,7 @@ msgstr ""
 #: ../admin/class-poll-maker-ays-admin.php:844
 #: ../admin/class-poll-maker-ays-admin.php:852
 #: ../admin/class-poll-maker-ays-admin.php:878
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:379
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:388
 msgid "Answer"
 msgstr ""
 
@@ -239,7 +239,7 @@ msgid "User Information"
 msgstr ""
 
 #: ../admin/class-poll-maker-ays-admin.php:909
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:380
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:389
 msgid "User IP"
 msgstr ""
 
@@ -776,7 +776,7 @@ msgstr ""
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:28
 #: ../includes/lists/class-poll-maker-polls-list-table.php:13
-#: ../includes/lists/class-poll-maker-results-list-table.php:295
+#: ../includes/lists/class-poll-maker-results-list-table.php:303
 msgid "Poll"
 msgstr ""
 
@@ -1308,17 +1308,17 @@ msgid "Add Image"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:46
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:383
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:392
 msgid "User Name"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:47
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:382
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:391
 msgid "User Email"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:48
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:384
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:393
 msgid "User Phone"
 msgstr ""
 
@@ -1380,13 +1380,13 @@ msgid "Current polls posted link"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:97
-#: ../public/class-poll-maker-ays-public.php:2495
+#: ../public/class-poll-maker-ays-public.php:2496
 msgid "Vote"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:98
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3829
-#: ../public/class-poll-maker-ays-public.php:808
+#: ../public/class-poll-maker-ays-public.php:809
 msgid "See Results"
 msgstr ""
 
@@ -1416,7 +1416,7 @@ msgid "The poll has expired!"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:153
-#: ../public/class-poll-maker-ays-public.php:603
+#: ../public/class-poll-maker-ays-public.php:604
 msgid "Please fill out the form:"
 msgstr ""
 
@@ -1437,8 +1437,8 @@ msgstr ""
 #: ../admin/partials/poll-maker-ays-polls-actions.php:317
 #: ../admin/partials/results/poll-maker-ays-results-display.php:206
 #: ../admin/partials/settings/poll-maker-settings.php:2346
-#: ../public/class-poll-maker-ays-public.php:4149
-#: ../public/class-poll-maker-ays-public.php:4161
+#: ../public/class-poll-maker-ays-public.php:4151
+#: ../public/class-poll-maker-ays-public.php:4163
 msgid "Name"
 msgstr ""
 
@@ -1447,15 +1447,15 @@ msgstr ""
 #: ../admin/partials/settings/poll-maker-settings.php:1589
 #: ../admin/partials/settings/poll-maker-settings.php:1735
 #: ../admin/partials/settings/poll-maker-settings.php:2361
-#: ../public/class-poll-maker-ays-public.php:4150
-#: ../public/class-poll-maker-ays-public.php:4162
+#: ../public/class-poll-maker-ays-public.php:4152
+#: ../public/class-poll-maker-ays-public.php:4164
 msgid "Email"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:325
 #: ../admin/partials/settings/poll-maker-settings.php:2376
-#: ../public/class-poll-maker-ays-public.php:4151
-#: ../public/class-poll-maker-ays-public.php:4163
+#: ../public/class-poll-maker-ays-public.php:4153
+#: ../public/class-poll-maker-ays-public.php:4165
 msgid "Phone"
 msgstr ""
 
@@ -1556,10 +1556,10 @@ msgstr ""
 #: ../admin/partials/poll-maker-ays-polls-actions.php:998
 #: ../includes/lists/class-poll-maker-categories-list-table.php:271
 #: ../includes/lists/class-poll-maker-categories-list-table.php:335
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:423
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:432
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1499
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1703
-#: ../includes/lists/class-poll-maker-results-list-table.php:325
+#: ../includes/lists/class-poll-maker-results-list-table.php:333
 msgid "Delete"
 msgstr ""
 
@@ -2884,7 +2884,7 @@ msgid "Sound are not selected. For selecting sounds go to"
 msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3948
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:386
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:395
 msgid "Vote Reason"
 msgstr ""
 
@@ -4653,7 +4653,7 @@ msgstr ""
 #: ../admin/partials/settings/poll-maker-settings.php:1731
 #: ../includes/lists/class-poll-maker-categories-list-table.php:308
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1662
-#: ../includes/lists/class-poll-maker-results-list-table.php:294
+#: ../includes/lists/class-poll-maker-results-list-table.php:302
 msgid "ID"
 msgstr ""
 
@@ -5035,45 +5035,45 @@ msgstr ""
 msgid "Each results"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:256
-#: ../includes/lists/class-poll-maker-results-list-table.php:179
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:265
+#: ../includes/lists/class-poll-maker-results-list-table.php:187
 #: ../public/partials/class-poll-maker-extra-shortcode.php:109
 #: ../public/partials/class-poll-maker-extra-shortcode.php:116
 #: ../public/partials/class-poll-maker-extra-shortcode.php:236
 msgid "There are no results yet."
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:280
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:289
 msgid "Guest"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:381
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:390
 msgid "WP User"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:385
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:394
 msgid "Vote Datetime"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:387
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:396
 msgid "Read Status"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:422
-#: ../includes/lists/class-poll-maker-results-list-table.php:324
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:431
+#: ../includes/lists/class-poll-maker-results-list-table.php:332
 msgid "Mark as read"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:535
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:544
 msgid "Result(s) deleted."
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:538
+#: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:547
 msgid "Result(s) marked as read."
 msgstr ""
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:108
-#: ../includes/lists/class-poll-maker-results-list-table.php:478
+#: ../includes/lists/class-poll-maker-results-list-table.php:486
 msgid "Select Category"
 msgstr ""
 
@@ -5145,19 +5145,19 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:296
+#: ../includes/lists/class-poll-maker-results-list-table.php:304
 msgid "Voters count"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:297
+#: ../includes/lists/class-poll-maker-results-list-table.php:305
 msgid "New results count"
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:442
+#: ../includes/lists/class-poll-maker-results-list-table.php:450
 msgid "Result deleted."
 msgstr ""
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:489
+#: ../includes/lists/class-poll-maker-results-list-table.php:497
 msgid "Filter"
 msgstr ""
 
@@ -5191,7 +5191,7 @@ msgid "day"
 msgstr ""
 
 #: ../public/class-poll-maker-ays-public.php:193
-#: ../public/class-poll-maker-ays-public.php:2791
+#: ../public/class-poll-maker-ays-public.php:2792
 msgid "days"
 msgstr ""
 
@@ -5200,7 +5200,7 @@ msgid "hour"
 msgstr ""
 
 #: ../public/class-poll-maker-ays-public.php:195
-#: ../public/class-poll-maker-ays-public.php:2797
+#: ../public/class-poll-maker-ays-public.php:2798
 msgid "hours"
 msgstr ""
 
@@ -5209,7 +5209,7 @@ msgid "minute"
 msgstr ""
 
 #: ../public/class-poll-maker-ays-public.php:197
-#: ../public/class-poll-maker-ays-public.php:2803
+#: ../public/class-poll-maker-ays-public.php:2804
 msgid "minutes"
 msgstr ""
 
@@ -5218,9 +5218,9 @@ msgid "second"
 msgstr ""
 
 #: ../public/class-poll-maker-ays-public.php:199
-#: ../public/class-poll-maker-ays-public.php:712
-#: ../public/class-poll-maker-ays-public.php:719
-#: ../public/class-poll-maker-ays-public.php:2809
+#: ../public/class-poll-maker-ays-public.php:713
+#: ../public/class-poll-maker-ays-public.php:720
+#: ../public/class-poll-maker-ays-public.php:2810
 msgid "seconds"
 msgstr ""
 
@@ -5228,128 +5228,132 @@ msgstr ""
 msgid "Your answer has been successfully sent to the admin. Please wait for the approval."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:695
+#: ../public/class-poll-maker-ays-public.php:201
+msgid "Restart"
+msgstr ""
+
+#: ../public/class-poll-maker-ays-public.php:696
 msgid "Thanks for your answer"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:712
-#: ../public/class-poll-maker-ays-public.php:719
+#: ../public/class-poll-maker-ays-public.php:713
+#: ../public/class-poll-maker-ays-public.php:720
 msgid "You will be redirected"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:712
-#: ../public/class-poll-maker-ays-public.php:719
+#: ../public/class-poll-maker-ays-public.php:713
+#: ../public/class-poll-maker-ays-public.php:720
 msgid "after"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1005
+#: ../public/class-poll-maker-ays-public.php:1006
 msgid "Please add vote reason"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1127
+#: ../public/class-poll-maker-ays-public.php:1128
 msgid " left"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1171
+#: ../public/class-poll-maker-ays-public.php:1172
 msgid "Please enter password"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1195
+#: ../public/class-poll-maker-ays-public.php:1196
 msgid "Submit"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1859
+#: ../public/class-poll-maker-ays-public.php:1860
 msgid "This Poll is active until "
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1869
+#: ../public/class-poll-maker-ays-public.php:1870
 msgid "This Poll will start "
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1879
+#: ../public/class-poll-maker-ays-public.php:1880
 msgid "Created on"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1902
+#: ../public/class-poll-maker-ays-public.php:1903
 msgid "By"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1904
+#: ../public/class-poll-maker-ays-public.php:1905
 msgid "Created by"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1932
-#: ../public/class-poll-maker-ays-public.php:3150
+#: ../public/class-poll-maker-ays-public.php:1933
+#: ../public/class-poll-maker-ays-public.php:3152
 #: ../public/partials/class-poll-maker-extra-shortcode.php:729
 msgid "Unknown"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:1976
-#: ../public/class-poll-maker-ays-public.php:3194
+#: ../public/class-poll-maker-ays-public.php:1977
+#: ../public/class-poll-maker-ays-public.php:3196
 msgid "Website"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2063
+#: ../public/class-poll-maker-ays-public.php:2064
 msgid "You must sign in for voting."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2079
+#: ../public/class-poll-maker-ays-public.php:2080
 msgid "You not have permissions for voting."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2194
+#: ../public/class-poll-maker-ays-public.php:2195
 msgid "Min votes count should be"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2307
+#: ../public/class-poll-maker-ays-public.php:2308
 msgid "Other - please specify"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2314
+#: ../public/class-poll-maker-ays-public.php:2315
 msgid "If 'Other' is filled, checked answers are ignored."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2391
+#: ../public/class-poll-maker-ays-public.php:2392
 msgid "View more"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2406
+#: ../public/class-poll-maker-ays-public.php:2407
 msgid "Send"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2442
+#: ../public/class-poll-maker-ays-public.php:2443
 msgid "You have already voted."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2445
+#: ../public/class-poll-maker-ays-public.php:2446
 msgid "Redirecting after"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2520
+#: ../public/class-poll-maker-ays-public.php:2521
 msgid "You're in the preview mode. Note: All elements work correctly on the front end."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2527
+#: ../public/class-poll-maker-ays-public.php:2528
 msgid "The poll will be available soon."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2531
+#: ../public/class-poll-maker-ays-public.php:2532
 msgid "The poll has expired."
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2616
+#: ../public/class-poll-maker-ays-public.php:2617
 msgid "Next"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:2623
+#: ../public/class-poll-maker-ays-public.php:2624
 msgid "Previous"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:3216
+#: ../public/class-poll-maker-ays-public.php:3218
 msgid "Poll link"
 msgstr ""
 
-#: ../public/class-poll-maker-ays-public.php:3313
+#: ../public/class-poll-maker-ays-public.php:3315
 #, php-format
 msgid "Someone's answer %1$s in your %2$s poll on %3$s."
 msgstr ""

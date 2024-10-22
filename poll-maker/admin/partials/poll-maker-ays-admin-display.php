@@ -136,6 +136,12 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
                             <input type="checkbox" name="quick-poll-randomize-answers" id="quick-poll-randomize-answers"> 
                             <label for="quick-poll-randomize-answers">Toggle</label>
                         </div>
+                        <!-- Enable restart button -->
+                        <div>
+                            <span><?php echo __('Enable restart button', "poll-maker"); ?></span>
+                            <input type="checkbox" name="quick-poll-enable-restart-button" id="quick-poll-enable-restart-button"> 
+                            <label for="quick-poll-enable-restart-button">Toggle</label>
+                        </div>
                     </div>
                     <!-- Save -->
                     <div class="quick_poll_save">

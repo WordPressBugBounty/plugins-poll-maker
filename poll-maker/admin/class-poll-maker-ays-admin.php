@@ -2324,6 +2324,7 @@ class Poll_Maker_Ays_Admin {
 		$show_creation_date = isset($_REQUEST['quick-poll-show-creation-date']) && $_REQUEST['quick-poll-show-creation-date'] == 'on' ? 1 : 0;
 		$hide_results = isset($_REQUEST['quick-poll-hide-results']) && 1 == $_REQUEST['quick-poll-hide-results'] ? 1 : 0;
 		$randomize_answers = isset($_REQUEST['quick-poll-randomize-answers']) && $_REQUEST['quick-poll-randomize-answers'] == 'on' ? 'on' : 'off';
+		$enable_restart_button = isset($_REQUEST['quick-poll-enable-restart-button']) && $_REQUEST['quick-poll-enable-restart-button'] == 'on' ? 1 : 0;
 
 		if	($allow_multivote === 'on') {
 			$multivote_min_count = sanitize_text_field($_REQUEST['quick-poll-multivote-min-count']);
@@ -2418,7 +2419,7 @@ class Poll_Maker_Ays_Admin {
 			"vote_reason" => 0,
 			"show_chart_type" => "google_bar_chart",
 			"active_date_check" => "",
-			"enable_restart_button" => 0,
+			"enable_restart_button" => $enable_restart_button,
 			"enable_vote_btn" => 1,
 			"show_votes_count" => 1,
 			"attempts_count" => "1",

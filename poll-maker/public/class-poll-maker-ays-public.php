@@ -198,6 +198,7 @@ class Poll_Maker_Ays_Public {
 	            'second'        => __( 'second', "poll-maker" ),
 	            'seconds'       => __( 'seconds', "poll-maker" ),
 	            'thank_message'       => __( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
+				'restart'       => __( 'Restart', "poll-maker" ),
 			)
 		);
 	}

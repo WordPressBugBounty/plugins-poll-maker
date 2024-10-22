@@ -1135,7 +1135,7 @@
     }
 
     function showRestart(formId) {
-        var restartBtn = $('<div class="apm-button-box"><input type="button" class="btn ays-poll-btn btn-restart" onclick="location.reload()" value="Restart"></div>');
+        var restartBtn = $('<div class="apm-button-box"><input type="button" class="btn ays-poll-btn btn-restart" onclick="location.reload()" value="'  + poll_maker_ajax_public.restart + '"></div>');
         $("#"+formId).append(restartBtn);
     }
 
