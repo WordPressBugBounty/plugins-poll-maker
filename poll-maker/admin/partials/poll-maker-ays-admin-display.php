@@ -142,6 +142,12 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
                             <input type="checkbox" name="quick-poll-enable-restart-button" id="quick-poll-enable-restart-button"> 
                             <label for="quick-poll-enable-restart-button">Toggle</label>
                         </div>
+                        <!-- Results bar in RGBA -->
+                        <div>
+                            <span><?php echo __('Results bar in RGBA', "poll-maker"); ?></span>
+                            <input type="checkbox" name="quick-poll-res-rgba" id="quick-poll-res-rgba"> 
+                            <label for="quick-poll-res-rgba">Toggle</label>
+                        </div>
                     </div>
                     <!-- Save -->
                     <div class="quick_poll_save">

@@ -2325,6 +2325,7 @@ class Poll_Maker_Ays_Admin {
 		$hide_results = isset($_REQUEST['quick-poll-hide-results']) && 1 == $_REQUEST['quick-poll-hide-results'] ? 1 : 0;
 		$randomize_answers = isset($_REQUEST['quick-poll-randomize-answers']) && $_REQUEST['quick-poll-randomize-answers'] == 'on' ? 'on' : 'off';
 		$enable_restart_button = isset($_REQUEST['quick-poll-enable-restart-button']) && $_REQUEST['quick-poll-enable-restart-button'] == 'on' ? 1 : 0;
+		$res_rgba = isset($_REQUEST['quick-poll-res-rgba']) && $_REQUEST['quick-poll-res-rgba'] == 'on' ? 'on' : 'off';
 
 		if	($allow_multivote === 'on') {
 			$multivote_min_count = sanitize_text_field($_REQUEST['quick-poll-multivote-min-count']);
@@ -2438,7 +2439,7 @@ class Poll_Maker_Ays_Admin {
 			"versus_icon_type" => "default",
 			"versus_icon_position" => "center",
 			"versus_answers_label" => 0,
-			"result_in_rgba" => 0,
+			"result_in_rgba" => $res_rgba,
 			"enable_mailchimp" => "off",
 			"enable_background_gradient" => "off",
 			"background_gradient_color_1" => "#103251",

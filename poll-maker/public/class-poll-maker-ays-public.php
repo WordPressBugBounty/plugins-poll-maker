@@ -2295,7 +2295,7 @@ class Poll_Maker_Ays_Public {
 											<div class='apm-choosing answer-$this_poll_id ". $answer_style_class ." ays-poll-field ".$pol_answer_view_type_cont."' >
 											<input type=".$poll_multivote_checkbox." name='answer' id='radio-$index-$this_poll_id' value='{$answer['id']}' {$autocomplete_attr}>
 											<label for='radio-$index-$this_poll_id' class='ays_label_poll ".$answers_sound_class." ".$redirect_after_submit." ".$disable_answer_hover." ays_label_font_size ".$answer_icon_class." ".$poll_class_for_answer_label." ".$pol_answer_view_type_label_cont."' data-answers-url='".$answer['redirect']."'>".$poll_answer_image_show." <p style='".$poll_added_style."' class='ays-poll-answers'><span class='".$pol_answer_view_type_text_show."'>"
-											. $numbering_type . wp_kses_post(stripcslashes($answer['answer'])) . 
+											. $numbering_type . esc_attr(stripcslashes($answer['answer'])) . 
 											"</span></p></label>
 											</div>";
 										}
