@@ -176,6 +176,7 @@ $default_options = array(
     'poll_title_font_size'        => 20,
     'poll_title_font_size_mobile' => 20,
     'poll_title_alignment'        => "center",
+    'poll_title_alignment_mobile' => "center",
     'poll_text_type_length_enable' => "off",
     'poll_text_type_limit_type'    => "characters",
     'poll_text_type_limit_length'  => "",
@@ -628,6 +629,9 @@ $poll_title_font_size_mobile    = (isset($options['poll_title_font_size_mobile']
 
 // Poll title alignment
 $poll_title_alignment    = ( isset($options['poll_title_alignment']) && $options['poll_title_alignment'] != "" ) ? esc_attr($options['poll_title_alignment']) : "center";
+
+// Poll title alignment mobile
+$poll_title_alignment_mobile    = ( isset($options['poll_title_alignment_mobile']) && $options['poll_title_alignment_mobile'] != "" ) ? esc_attr($options['poll_title_alignment_mobile']) : $poll_title_alignment;
 
 // Poll view type
 $poll_view_type_for_text    = ( isset($poll['view_type']) && $poll['view_type'] == "paragraph" ) ? "paragraph" : "short_text";
@@ -1961,11 +1965,7 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <div>
-                                                        <input type="number"
-                                                        class="ays-text-input ays-text-input-short"
-                                                        id='ays_poll_title_font_size' 
-                                                        name='ays_poll_title_font_size'
-                                                        value="<?= $poll_title_font_size ?>"/>
+                                                            <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_title_font_size' name='ays_poll_title_font_size' value="<?= $poll_title_font_size ?>"/>
                                                         </div>
                                                     </div>
                                                     <hr>
@@ -1998,11 +1998,41 @@ $emoji = array(
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-8 ays_divider_left">
-                                                    <select class="ays_poll_aysDropdown ays-select-short" id="ays_poll_title_alignment" name="ays_poll_title_alignment">
-                                                        <option value="left" <?php echo ($poll_title_alignment == "left") ? "selected" : "";?>><?php echo __("Left", "poll-maker"); ?></option>
-                                                        <option value="center" <?php echo ($poll_title_alignment == "center") ? "selected" : "";?>><?php echo __("Center", "poll-maker"); ?></option>
-                                                        <option value="right" <?php echo ($poll_title_alignment == "right") ? "selected" : "";?>><?php echo __("Right", "poll-maker"); ?></option>
-                                                    </select>
+                                                    <div>
+                                                        <div>
+                                                            <label for='ays_poll_title_alignment'>
+                                                                <?php echo __('On PC', "poll-maker"); ?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Specify the alignment of the title for PC devices.', "poll-maker")?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <select class="ays_poll_aysDropdown ays-select-short" id="ays_poll_title_alignment" name="ays_poll_title_alignment">
+                                                                <option value="left" <?php echo ($poll_title_alignment == "left") ? "selected" : "";?>><?php echo __("Left", "poll-maker"); ?></option>
+                                                                <option value="center" <?php echo ($poll_title_alignment == "center") ? "selected" : "";?>><?php echo __("Center", "poll-maker"); ?></option>
+                                                                <option value="right" <?php echo ($poll_title_alignment == "right") ? "selected" : "";?>><?php echo __("Right", "poll-maker"); ?></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div>
+                                                        <div>
+                                                            <label for='ays_poll_title_alignment_mobile'>
+                                                                <?php echo __('On mobile', "poll-maker"); ?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Specify the alignment of the title for mobile devices.', "poll-maker")?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <select class="ays_poll_aysDropdown ays-select-short" id="ays_poll_title_alignment_mobile" name="ays_poll_title_alignment_mobile">
+                                                                <option value="left" <?php echo ($poll_title_alignment_mobile == "left") ? "selected" : "";?>><?php echo __("Left", "poll-maker"); ?></option>
+                                                                <option value="center" <?php echo ($poll_title_alignment_mobile == "center") ? "selected" : "";?>><?php echo __("Center", "poll-maker"); ?></option>
+                                                                <option value="right" <?php echo ($poll_title_alignment_mobile == "right") ? "selected" : "";?>><?php echo __("Right", "poll-maker"); ?></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <hr>

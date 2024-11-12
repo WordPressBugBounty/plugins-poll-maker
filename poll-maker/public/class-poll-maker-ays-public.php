@@ -1109,6 +1109,9 @@ class Poll_Maker_Ays_Public {
 		// Poll title alignment
 		$poll_title_alignment    = ( isset($options['poll_title_alignment']) && $options['poll_title_alignment'] != "" ) ? esc_attr($options['poll_title_alignment']) : "center";
 
+		// Poll title alignment mobile
+		$poll_title_alignment_mobile    = ( isset($options['poll_title_alignment_mobile']) && $options['poll_title_alignment_mobile'] != "" ) ? esc_attr($options['poll_title_alignment_mobile']) : $poll_title_alignment;
+
 		// ===== Poll text type options start =====
 		$poll_view_type_text = isset($poll['view_type']) && $poll['view_type'] != "" ? $poll['view_type'] : "short_text";
 
@@ -1719,6 +1722,7 @@ class Poll_Maker_Ays_Public {
 
 			#".$this_poll_id.".box-apm .apm-title-box div{
 				font-size: ".$poll_title_font_size_mobile."px;
+				text-align: ".$poll_title_alignment_mobile.";
 				word-break: break-word;
 				word-wrap: break-word;
 			}

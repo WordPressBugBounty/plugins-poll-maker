@@ -3090,6 +3090,7 @@
         $(document).find('input#ays_poll_title_font_size').val('20').change();
         $(document).find('input#ays_poll_title_font_size_mobile').val('20').change();
         $(document).find('#ays_poll_title_alignment').val('center').change();
+        $(document).find('#ays_poll_title_alignment_mobile').val('center').change();
         $(document).find("#ays_poll_enable_title_text_shadow").prop('checked' , false).change();
         $(document).find('input#ays-poll-icon-size').val('24').change();
         $(document).find('input#ays-poll-width').val('0').change();

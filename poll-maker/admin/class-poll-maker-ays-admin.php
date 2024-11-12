@@ -2531,6 +2531,7 @@ class Poll_Maker_Ays_Admin {
 			"poll_title_font_size" => "18",
 			"poll_title_font_size_mobile" => "20",
 			"poll_title_alignment" => "center",
+			"poll_title_alignment_mobile" => "center",
 			"poll_enable_answer_image_after_voting" => "off",
 			"poll_text_type_length_enable" => "off",
 			"poll_text_type_limit_type" => "characters",

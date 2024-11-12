@@ -4234,7 +4234,8 @@ form#ays-poll-form div.apm-title-box h5{
     padding: 5px;
 }
 
-select#ays_poll_title_alignment + span.select2-container{
+select#ays_poll_title_alignment + span.select2-container,
+select#ays_poll_title_alignment_mobile + span.select2-container {
     width: 250px !important;
 }
 
