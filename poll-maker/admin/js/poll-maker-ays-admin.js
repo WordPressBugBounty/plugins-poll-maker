@@ -1652,13 +1652,21 @@
 
     $(document).find('.poll-maker-challenge-cancel').on('click', function() {
         var challengeBox = $(this).closest('.poll-maker-challenge');
+        var wp_nonce = $(document).find('#poll_maker_ajax_challenge_cancel_nonce').val();
 
         $.ajax({
             url: poll.ajax,
             type: 'POST',
-            data: { action: 'delete_challenge_box' },
+            data: { 
+                action: 'delete_challenge_box',
+                _ajax_nonce: wp_nonce
+            },
             success: function(response) {
-                challengeBox.remove();
+                var result = JSON.parse(response);
+
+                if (result.success) {
+                    challengeBox.remove();
+                }
             }
         });
     })

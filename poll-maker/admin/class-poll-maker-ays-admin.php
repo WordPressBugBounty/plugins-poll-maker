@@ -505,10 +505,12 @@ class Poll_Maker_Ays_Admin {
 		}
 
 		if (isset($_GET['page']) && strpos($_GET['page'], POLL_MAKER_AYS_NAME) !== false) {
+			$poll_ajax_challenge_cancel_nonce = wp_create_nonce( 'poll-maker-ajax-challenge-cancel-nonce' );
 			?>
 			<div class="poll-maker-challenge">
 				<div class="poll-maker-challenge-list-block">
 					<i class="fa fa-times-circle list-block-button poll-maker-challenge-cancel" aria-hidden="true" title="Cancel challenge"></i>
+					<input type="hidden" id="poll_maker_ajax_challenge_cancel_nonce" name="poll_maker_ajax_challenge_cancel_nonce" value="<?php echo $poll_ajax_challenge_cancel_nonce ?>">
 					<ul class="poll-maker-challenge-list">
 						<li class="poll-maker-challenge-step-item"><?php echo __('Add a New Poll', "poll-maker"); ?></li>
 						<li class="poll-maker-challenge-step-item"><?php echo __('Name Your Poll', "poll-maker"); ?></li>
@@ -528,7 +530,27 @@ class Poll_Maker_Ays_Admin {
 	}
 
 	public function delete_challenge_box() {
-		delete_option('ays_poll_maker_poll_creation_challange');
+		// Run a security check.
+        check_ajax_referer( 'poll-maker-ajax-challenge-cancel-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+
+		// Check for permissions.
+		if ( ! current_user_can( 'manage_options' ) ) {
+			ob_end_clean();
+			$ob_get_clean = ob_get_clean();
+			echo json_encode(array("success" => false));
+			wp_die();
+		}
+
+		$result = array("success" => false);
+		if( is_user_logged_in() ) {
+			delete_option('ays_poll_maker_poll_creation_challange');
+            $result = array("success" => true);
+		}
+
+		ob_end_clean();
+		$ob_get_clean = ob_get_clean();
+		echo json_encode($result);
+		wp_die();
 	}
 
 	/**
