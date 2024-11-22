@@ -566,7 +566,7 @@ class Poll_Maker_Ays_Admin {
 		$settings_link = array(
 			'<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', "poll-maker") . '</a>',
 			'<a href="https://poll-plugin.com/wordpress-poll-plugin-free-demo/" target="_blank">' . __('Demo', "poll-maker") . '</a>',			
-			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade 50% Sale', "poll-maker") . '</a>',
+			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade 30% Sale', "poll-maker") . '</a>',
 		);
 
 		return array_merge($settings_link, $links);
@@ -1426,8 +1426,7 @@ class Poll_Maker_Ays_Admin {
 					$ays_poll_flag += $ays_poll_two_months_flag;
 					if($ays_poll_flag == 0){
 						$ays_poll_sale_message = 'ays_poll_sale_message_'.$sale;
-						$this->ays_poll_sale_message_poll_pro();
-						// $this->ays_poll_sale_message_poll_pro_2024();
+						$this->ays_poll_black_friday_message_2024();
 					}
 				}
 			}
@@ -1894,6 +1893,98 @@ class Poll_Maker_Ays_Admin {
             $content = implode( '', $content );
             echo html_entity_decode(esc_html( $content ));
 	}
+
+	// Black Friday 2024
+    public function ays_poll_black_friday_message_2024(){
+		$content = array();
+
+		$content[] = '<div id="ays-poll-black-friday-bundle-dicount-month-main" class="notice notice-success is-dismissible ays_poll_dicount_info">';
+			$content[] = '<div id="ays-poll-dicount-month" class="ays_poll_dicount_month">';
+
+				$content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-dicount-wrap-countdown-box">';
+
+					$content[] = '<div id="ays-poll-maker-countdown-main-container">';
+						$content[] = '<div class="ays-poll-maker-countdown-container">';
+
+							$content[] = '<div id="ays-poll-countdown">';
+
+								$content[] = '<div>';
+									$content[] = __( "Offer ends in:", "poll-maker" );
+								$content[] = '</div>';
+
+								$content[] = '<ul>';
+									$content[] = '<li><span id="ays-poll-countdown-days"></span>'. __( "Days", "poll-maker" ) .'</li>';
+									$content[] = '<li><span id="ays-poll-countdown-hours"></span>'. __( "Hours", "poll-maker" ) .'</li>';
+									$content[] = '<li><span id="ays-poll-countdown-minutes"></span>'. __( "Minutes", "poll-maker" ) .'</li>';
+									$content[] = '<li><span id="ays-poll-countdown-seconds"></span>'. __( "Seconds", "poll-maker" ) .'</li>';
+								$content[] = '</ul>';
+							$content[] = '</div>';
+
+							$content[] = '<div id="ays-poll-countdown-content" class="emoji">';
+								$content[] = '<span></span>';
+								$content[] = '<span></span>';
+								$content[] = '<span></span>';
+								$content[] = '<span></span>';
+							$content[] = '</div>';
+
+						$content[] = '</div>';
+					$content[] = '</div>';
+						
+				$content[] = '</div>';
+
+				$content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-dicount-wrap-text-box">';
+					$content[] = '<div>';
+
+						$content[] = '<span class="ays-poll-black-friday-bundle-title">';
+							$content[] = __( "<span><a href='https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=black-friday-sale-banner' class='ays-poll-black-friday-bundle-title-link' target='_blank'>Black Friday Sale</a></span>", "poll-maker" );
+						$content[] = '</span>';
+
+						$content[] = '</br>';
+
+						$content[] = '<span class="ays-poll-black-friday-bundle-desc">';
+							$content[] = '<a class="ays-poll-black-friday-bundle-desc" href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=black-friday-sale-banner" class="ays-poll-black-friday-bundle-title-link" target="_blank">';
+								$content[] = __( "20% OFF", "poll-maker" );
+							$content[] = '</a>';
+						$content[] = '</span>';
+					$content[] = '</div>';
+
+					$content[] = '<div style="position: absolute;right: 10px;bottom: 1px;" class="ays-poll-dismiss-buttons-container-for-form">';
+
+						$content[] = '<form action="" method="POST">';
+							$content[] = '<div id="ays-poll-dismiss-buttons-content">';
+							if( current_user_can( 'manage_options' ) ){
+								$content[] = '<button class="btn btn-link ays-button" name="ays_poll_sale_btn" style="height: 32px; margin-left: 0;padding-left: 0">'. __( "Dismiss ad", "poll-maker" ) .'</button>';
+								$content[] = wp_nonce_field( $this->plugin_name . '-sale-banner' ,  $this->plugin_name . '-sale-banner' );
+							}
+							$content[] = '</div>';
+						$content[] = '</form>';
+						
+					$content[] = '</div>';
+
+				$content[] = '</div>';
+
+				$content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-black-friday-bundle-coupon-text-box">';
+					$content[] = '<div class="ays-poll-black-friday-bundle-coupon-row">';
+						$content[] = 'bfdeal20off';
+					$content[] = '</div>';
+
+					$content[] = '<div class="ays-poll-black-friday-bundle-text-row">';
+						$content[] = __( '20% Extra Discount Coupon', "poll-maker" );
+					$content[] = '</div>';
+				$content[] = '</div>';
+
+				$content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-dicount-wrap-button-box">';
+					$content[] = '<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=black-friday-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', "poll-maker" ) . '</a>';
+					$content[] = '<span class="ays-poll-dicount-one-time-text">';
+						$content[] = __( "One-time payment", "poll-maker" );
+					$content[] = '</span>';
+				$content[] = '</div>';
+			$content[] = '</div>';
+		$content[] = '</div>';
+
+		$content = implode( '', $content );
+		echo $content;
+    }
 
 	public function add_tabs() {
 		$screen = get_current_screen();

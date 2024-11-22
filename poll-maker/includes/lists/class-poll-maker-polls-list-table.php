@@ -1315,7 +1315,7 @@ class Polls_List_Table extends WP_List_Table {
 			$url = esc_url_raw(remove_query_arg(array('action', 'poll'))) . '&status=failed';
 			wp_redirect($url);
 		}
-		
+
 		$user_id = get_current_user_id();
         $user = get_userdata($user_id);
         $author = array(
@@ -1338,17 +1338,18 @@ class Polls_List_Table extends WP_List_Table {
 			$poll_table,
 			$duplicate,
 			array(
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%s',
-				'%d',
+				'%d', // post_id
+				'%s', // title
+				'%s', // description
+				'%s', // question
+				'%s', // type
+				'%s', // view_type
+				'%s', // categories
+				'%s', // image
+				'%s', // show_title
+				'%s', // styles
+				'%s', // custom_css
+				'%d', // theme_id
 			)
 		);
 
@@ -1359,7 +1360,7 @@ class Polls_List_Table extends WP_List_Table {
 		foreach ( $answers as $answer ) {
 			$answer['poll_id'] = $poll_id;
 			unset($answer['id']);
-			unset($answer['votes']);			
+			unset($answer['votes']);
 			$answers_results[] = $wpdb->insert(
 				$answers_table,
 				$answer,
