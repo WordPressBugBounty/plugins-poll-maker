@@ -3167,6 +3167,8 @@ class Poll_Maker_Ays_Public {
 					}
 				}
 
+                $poll_current_date = date_i18n( 'M d, Y', strtotime( sanitize_text_field( $_REQUEST['end_date'] ) ) );
+
 				$user_nickname        = '';
 				$user_display_name    = '';
 				$user_wordpress_email = '';
@@ -3233,6 +3235,7 @@ class Poll_Maker_Ays_Public {
 					'users_first_name' 		      => $user_first_name,
 					'users_last_name'  		      => $user_last_name,
 					'creation_date'    		      => $creation_date,
+					'current_date'                => $poll_current_date,
 					'current_poll_author'         => $current_poll_author,
 					'user_nickname'   		      => $user_nickname,
 					'user_display_name'   	      => $user_display_name,

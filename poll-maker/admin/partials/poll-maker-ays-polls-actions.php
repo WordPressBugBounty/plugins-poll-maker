@@ -50,6 +50,7 @@ $poll_message_vars = array(
     '%%users_first_name%%'     			=> __("User's First Name", "poll-maker"),
     '%%users_last_name%%'       		=> __("User's Last Name", "poll-maker"),
     '%%creation_date%%'       			=> __("Creation date of the poll", "poll-maker"),
+    '%%current_date%%'       			=> __("The date of the submission poll", "poll-maker"),
     '%%current_poll_author%%'   		=> __("Author of the current poll", "poll-maker"),
     '%%user_wordpress_roles%%'  		=> __("User's Wordpress Roles", "poll-maker"),    
     "%%user_wordpress_email%%"  		=> __("User's WordPress profile email", "poll-maker"),
@@ -1958,7 +1959,7 @@ $emoji = array(
                                                     <div>
                                                         <div>
                                                             <label for='ays_poll_title_font_size'>
-                                                                <?php echo __('On PC', "poll-maker"); ?>
+                                                                <?php echo __('On desktop', "poll-maker"); ?>
                                                                 <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Define the font size for PC devices.', "poll-maker")?>">
                                                                     <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                                 </a>
@@ -2001,7 +2002,7 @@ $emoji = array(
                                                     <div>
                                                         <div>
                                                             <label for='ays_poll_title_alignment'>
-                                                                <?php echo __('On PC', "poll-maker"); ?>
+                                                                <?php echo __('On desktop', "poll-maker"); ?>
                                                                 <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Specify the alignment of the title for PC devices.', "poll-maker")?>">
                                                                     <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                                 </a>
@@ -2118,7 +2119,7 @@ $emoji = array(
                                                     <div>
                                                         <div>
                                                             <label for='ays-poll-width'>
-                                                                <?php echo __('On PC', "poll-maker"); ?>
+                                                                <?php echo __('On desktop', "poll-maker"); ?>
                                                                 <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Define the width for PC devices.', "poll-maker")?>">
                                                                     <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                                 </a>
@@ -2201,7 +2202,7 @@ $emoji = array(
                                                     <div>
                                                         <div>
                                                             <label for='ays_questions_font_size'>
-                                                                <?php echo __('On PC', "poll-maker"); ?>
+                                                                <?php echo __('On desktop', "poll-maker"); ?>
                                                                 <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Define the font size for PC devices.', "poll-maker")?>">
                                                                     <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                                 </a>
