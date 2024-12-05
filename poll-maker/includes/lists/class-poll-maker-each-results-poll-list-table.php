@@ -347,7 +347,10 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 	 * @return string
 	 */
 	function column_answer_id( $item ) {
+		$poll_ajax_show_details_report_nonce = wp_create_nonce( 'poll-maker-ajax-show-details-report-nonce' );
+
 		$answer = '<a href="javascript:void(0)" data-result="'. absint($item['id']) .'" class="ays-show-results">' . stripslashes($item['answer']) . '</a>';
+		$answer .= '<input type="hidden" id="poll_maker_ajax_show_details_report_nonce" name="poll_maker_ajax_show_details_report_nonce" value="' . $poll_ajax_show_details_report_nonce . '">';
 		return $answer;
 	}
 

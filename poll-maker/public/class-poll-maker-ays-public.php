@@ -187,7 +187,7 @@ class Poll_Maker_Ays_Public {
 		wp_enqueue_script( $this->plugin_name . '-autosize', plugin_dir_url(__FILE__) . 'js/poll-maker-autosize.js', array( 'jquery' ), $this->version, false );
 		wp_localize_script($this->plugin_name . '-ajax-public', 'poll_maker_ajax_public',
 			array(
-				'ajax_url' => admin_url('admin-ajax.php'),
+				'ajax_url'      => admin_url('admin-ajax.php'),
 				'alreadyVoted'  => __( "You have already voted" , "poll-maker" ),
 				'day'           => __( 'day', "poll-maker" ),
 	            'days'          => __( 'days', "poll-maker" ),
@@ -197,7 +197,7 @@ class Poll_Maker_Ays_Public {
 	            'minutes'       => __( 'minutes', "poll-maker" ),
 	            'second'        => __( 'second', "poll-maker" ),
 	            'seconds'       => __( 'seconds', "poll-maker" ),
-	            'thank_message'       => __( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
+	            'thank_message' => __( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
 				'restart'       => __( 'Restart', "poll-maker" ),
 			)
 		);
@@ -1948,12 +1948,12 @@ class Poll_Maker_Ays_Public {
 			}
 		}
 
-		$user_nickname        = '';
-		$user_display_name    = '';
-		$user_wordpress_email = '';
-		$user_wordpress_roles = '';
+		$user_nickname          = '';
+		$user_display_name      = '';
+		$user_wordpress_email   = '';
+		$user_wordpress_roles   = '';
 		$user_wordpress_website = '';
-		$user_ip_address = '';
+		$user_ip_address        = '';
 		$user_id = get_current_user_id();
 		if($user_id != 0){
 			$usermeta = get_user_meta( $user_id );
@@ -2298,7 +2298,7 @@ class Poll_Maker_Ays_Public {
 											$content .= "
 											<div class='apm-choosing answer-$this_poll_id ". $answer_style_class ." ays-poll-field ".$pol_answer_view_type_cont."' >
 											<input type=".$poll_multivote_checkbox." name='answer' id='radio-$index-$this_poll_id' value='{$answer['id']}' {$autocomplete_attr}>
-											<label for='radio-$index-$this_poll_id' class='ays_label_poll ".$answers_sound_class." ".$redirect_after_submit." ".$disable_answer_hover." ays_label_font_size ".$answer_icon_class." ".$poll_class_for_answer_label." ".$pol_answer_view_type_label_cont."' data-answers-url='".$answer['redirect']."'>".$poll_answer_image_show." <p style='".$poll_added_style."' class='ays-poll-answers'><span class='".$pol_answer_view_type_text_show."'>"
+											<label for='radio-$index-$this_poll_id' class='ays_label_poll ".$answers_sound_class." ".$redirect_after_submit." ".$disable_answer_hover." ays_label_font_size ".$answer_icon_class." ".$poll_class_for_answer_label." ".$pol_answer_view_type_label_cont."' data-answers-url='".esc_url($answer['redirect'])."'>".$poll_answer_image_show." <p style='".$poll_added_style."' class='ays-poll-answers'><span class='".$pol_answer_view_type_text_show."'>"
 											. $numbering_type . esc_attr(stripcslashes($answer['answer'])) . 
 											"</span></p></label>
 											</div>";
@@ -2950,7 +2950,7 @@ class Poll_Maker_Ays_Public {
 			$show_answers_numbering = (isset($options['show_answers_numbering']) && sanitize_text_field( $options['show_answers_numbering'] ) != '') ? sanitize_text_field( $options['show_answers_numbering'] ) : 'none';
 			if (isset($options['poll_vote_reason']) && $options['poll_vote_reason'] == "on" && isset($_POST['ays-poll-reason-text'])) {
 				// $poll_vote_reason_text = $_POST['ays-poll-reason-text'];
-				$poll_vote_reason_text = wp_kses_post( $_POST['ays-poll-reason-text'] );
+				$poll_vote_reason_text = esc_html( $_POST['ays-poll-reason-text'] );
 				$poll_vote_reason = true;
 			}
 			
@@ -3952,7 +3952,7 @@ class Poll_Maker_Ays_Public {
         elseif($max_val > 25){
           $dividend = ($max_val + 1);
           $max_alpha_val = '';
-          $modulo;
+          $modulo = 0;
           while ($dividend > 0){
             $modulo = ($dividend - 1) % 26;
             $max_alpha_val = $letters[$modulo] . $max_alpha_val;

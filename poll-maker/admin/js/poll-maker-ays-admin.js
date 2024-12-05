@@ -2831,7 +2831,7 @@
             day     = hour * 24;
 
         // var pollCountdownEndTime = pollLangObj.pollBannerDate;
-        var pollCountdownEndTime = "NOV 29, 2024 23:59:59";
+        var pollCountdownEndTime = "DEC 09, 2024 23:59:59";
         var countDown_new = new Date(pollCountdownEndTime).getTime();
         if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {
             var AYS_POLL_MILLISECONDS = 3 * day;
@@ -3241,6 +3241,7 @@
         $(this).parent().siblings().css('font-weight' , 'normal');
         var result = $(this).data('result');
         var action = 'apm_show_results';
+        var wp_nonce = $(document).find('#poll_maker_ajax_show_details_report_nonce').val();
         $.ajax({
             url: poll.ajax,
             dataType: 'json',
@@ -3248,6 +3249,7 @@
             data: {
                 result: result,
                 action: action,
+                _ajax_nonce: wp_nonce,
                 is_details: 1
             },
             success: function(response) {

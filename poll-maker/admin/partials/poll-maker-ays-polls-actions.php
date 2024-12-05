@@ -1019,7 +1019,7 @@ $emoji = array(
                                                 $answer_id  = $answer["id"];
                                                 $answer_img_class  = (isset($answer['answer_img']) && $answer['answer_img'] != '') ? 'display:block' : 'display:none;';
                                                 $answer_img  = (isset($answer['answer_img']) && $answer['answer_img'] == '') ? '' : $answer['answer_img'];
-                                                $answer_redirect  = $answer['redirect'];
+                                                $answer_redirect  = (isset($answer['redirect']) && $answer['redirect'] != '') ? esc_url($answer['redirect']) : '';
                                                 $user_added = (isset($answer['user_added']) && $answer['user_added'] == 1) ? true : false;
                                                 $show_user_added = (isset($answer['show_user_added']) && $answer['show_user_added'] == 1) ? true : false;
 
@@ -1063,7 +1063,7 @@ $emoji = array(
                                                         </div>
                                                     </td>
                                                     <td class="ays-answer-redirect-row <?php echo ($redirect_after_submit) ? '' : 'ays_poll_display_none'; ?>">
-                                                        <input type="text" class="ays-text-input ays_redirect_active" id="ays_submit_redirect_url_<?php echo $answer_id; ?>" name="ays_submit_redirect_url[]" value="<?php echo $answer_redirect; ?>"/>
+                                                        <input type="text" class="ays-text-input ays_redirect_active" id="ays_submit_redirect_url_<?php echo $answer_id; ?>" name="ays_submit_redirect_url[]" value="<?php echo "$answer_redirect"; ?>"/>
                                                     </td>
                                                     <td>
                                                         <label class='ays-label' for='ays-answer' style="<?php echo ($answer_img == '') ? 'display:inline-block;' : 'display:none'; ?>">

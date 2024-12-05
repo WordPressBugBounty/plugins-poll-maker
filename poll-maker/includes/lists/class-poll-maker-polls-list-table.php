@@ -226,15 +226,15 @@ class Polls_List_Table extends WP_List_Table {
 		$poll_table   = esc_sql($wpdb->prefix . 'ayspoll_polls');
 		$answer_table = esc_sql($wpdb->prefix . 'ayspoll_answers');
 		if (isset($data["poll_action"]) && wp_verify_nonce($data["poll_action"], 'poll_action')) {
-			$title                   = isset($data['ays-poll-title']) && $data['ays-poll-title'] != "" ? sanitize_text_field($data['ays-poll-title']) : "Default title";
-			$show_title              = isset($data['show_title']) && $data['show_title'] == 'show' ? 1 : 0;
-			$limit_users             = isset($data['apm_limit_users']) && $data['apm_limit_users'] == 'on' ? 1 : 0;
-			$limit_users_method      = isset($data['ays_limit_method']) ? sanitize_text_field($data['ays_limit_method']) : 'ip';
-			$limit_users_msg         = isset($data['ays_limitation_message']) ? wpautop($data['ays_limitation_message']) : "";
-			$limit_users_url         = isset($data['ays_redirect_url']) ? wp_http_validate_url($data['ays_redirect_url']) : "";
-			$limit_users_delay       = isset($data['ays_redirection_delay']) ? absint($data['ays_redirection_delay']) : 0;
-			$limit_users_role_enable = isset($data['ays_enable_restriction_pass']) && $data['ays_enable_restriction_pass'] == 'on' ? 1 : 0;
-			$limit_users_role        = (isset($data["ays_users_roles"]) && !empty($data["ays_users_roles"])) ? $data["ays_users_roles"] : array();
+			$title                     = isset($data['ays-poll-title']) && $data['ays-poll-title'] != "" ? sanitize_text_field($data['ays-poll-title']) : "Default title";
+			$show_title                = isset($data['show_title']) && $data['show_title'] == 'show' ? 1 : 0;
+			$limit_users               = isset($data['apm_limit_users']) && $data['apm_limit_users'] == 'on' ? 1 : 0;
+			$limit_users_method        = isset($data['ays_limit_method']) ? sanitize_text_field($data['ays_limit_method']) : 'ip';
+			$limit_users_msg           = isset($data['ays_limitation_message']) ? wpautop($data['ays_limitation_message']) : "";
+			$limit_users_url           = isset($data['ays_redirect_url']) ? wp_http_validate_url($data['ays_redirect_url']) : "";
+			$limit_users_delay         = isset($data['ays_redirection_delay']) ? absint($data['ays_redirection_delay']) : 0;
+			$limit_users_role_enable   = isset($data['ays_enable_restriction_pass']) && $data['ays_enable_restriction_pass'] == 'on' ? 1 : 0;
+			$limit_users_role          = (isset($data["ays_users_roles"]) && !empty($data["ays_users_roles"])) ? $data["ays_users_roles"] : array();
 			$limit_users_role_msg      = isset($data['restriction_pass_message']) ? wpautop($data['restriction_pass_message']) : "";
 			$limit_users_logged_enable = (isset($data['ays_enable_logged_users']) && $data['ays_enable_logged_users'] == 'on') || $limit_users_role_enable ? 1 : 0;
 			$limit_users_logged_msg    = isset($data['ays_enable_logged_users_message']) ? wpautop($data['ays_enable_logged_users_message']) : "";
@@ -291,17 +291,17 @@ class Polls_List_Table extends WP_List_Table {
 					$bg_image = "";
 				}
 			}
-			$randomize_answers       = !isset($data['randomize_answers']) ? "off" : $data['randomize_answers'];
-			$enable_asnwers_sound    = !isset($data['ays_poll_enable_asnwers_sound']) ? "off" : $data['ays_poll_enable_asnwers_sound'];
-			$icon_size               = absint($data['ays_poll_icon_size']) >= 10 ? absint($data['ays_poll_icon_size']) : 24;
-			$width                   = absint($data['ays_poll_width']);
-			$width_for_mobile        = ( isset( $data['ays_poll_width_for_mobile'] ) && $data['ays_poll_width_for_mobile'] != '' ) ? absint($data['ays_poll_width_for_mobile']) : 0;
-			$btn_text                = sanitize_text_field($data['ays_poll_btn_text']);
-			$see_res_btn_text        = sanitize_text_field($data['ays_poll_res_btn_text']);
-			$border_style            = sanitize_text_field($data['ays_poll_border_style']);
-			$border_radius           = sanitize_text_field($data['ays_poll_border_radius']);
-			$border_width            = sanitize_text_field($data['ays_poll_border_width']);
-			$box_shadow_color        = sanitize_text_field($data['ays_poll_box_shadow_color']);
+			$randomize_answers       	   = !isset($data['randomize_answers']) ? "off" : $data['randomize_answers'];
+			$enable_asnwers_sound    	   = !isset($data['ays_poll_enable_asnwers_sound']) ? "off" : $data['ays_poll_enable_asnwers_sound'];
+			$icon_size               	   = absint($data['ays_poll_icon_size']) >= 10 ? absint($data['ays_poll_icon_size']) : 24;
+			$width                   	   = absint($data['ays_poll_width']);
+			$width_for_mobile        	   = ( isset( $data['ays_poll_width_for_mobile'] ) && $data['ays_poll_width_for_mobile'] != '' ) ? absint($data['ays_poll_width_for_mobile']) : 0;
+			$btn_text                	   = sanitize_text_field($data['ays_poll_btn_text']);
+			$see_res_btn_text        	   = sanitize_text_field($data['ays_poll_res_btn_text']);
+			$border_style            	   = sanitize_text_field($data['ays_poll_border_style']);
+			$border_radius           	   = sanitize_text_field($data['ays_poll_border_radius']);
+			$border_width            	   = sanitize_text_field($data['ays_poll_border_width']);
+			$box_shadow_color        	   = sanitize_text_field($data['ays_poll_box_shadow_color']);
 			
 			//Gradient
 			$enable_background_gradient    = isset($data['ays_enable_background_gradient']) && $data['ays_enable_background_gradient'] == "on" ? sanitize_text_field($data['ays_enable_background_gradient']) : "off";
@@ -336,10 +336,10 @@ class Polls_List_Table extends WP_List_Table {
 			$activeInterval            = isset($activeInterval_fullArr[0]) ? $activeInterval_fullArr[0] : "";
 			$activeIntervalSec         = isset($activeInterval_fullArr[1]) ? $activeInterval_fullArr[1] : "";
 
-			$deactiveInterval_full       = isset($data['ays-deactive']) ? $data['ays-deactive'] : "";
-			$deactiveInterval_fullArr    = explode(" ",$deactiveInterval_full);
-			$deactiveInterval            = isset($deactiveInterval_fullArr[0]) ? $deactiveInterval_fullArr[0] : "";
-			$deactiveIntervalSec         = isset($deactiveInterval_fullArr[1]) ? $deactiveInterval_fullArr[1] : "";
+			$deactiveInterval_full     = isset($data['ays-deactive']) ? $data['ays-deactive'] : "";
+			$deactiveInterval_fullArr  = explode(" ",$deactiveInterval_full);
+			$deactiveInterval          = isset($deactiveInterval_fullArr[0]) ? $deactiveInterval_fullArr[0] : "";
+			$deactiveIntervalSec       = isset($deactiveInterval_fullArr[1]) ? $deactiveInterval_fullArr[1] : "";
 
 			$active_date_message       = wpautop($data['active_date_message']);
 			$active_date_message_soon  = wpautop($data['active_date_message_soon']);
@@ -352,15 +352,15 @@ class Polls_List_Table extends WP_List_Table {
 			$show_author          	   = isset($data['show_poll_author']) && 1 == $data['show_poll_author'] ? 1 : 0;
 			$show_res_percent          = isset($data['show_res_percent']) && 1 == $data['show_res_percent'] ? 1 : 0;
 			$show_result_btn_schedule  = isset($data['show_result_btn_schedule']) && 1 == $data['show_result_btn_schedule'] ? 1 : 0;
-			$ays_poll_show_timer  	 = isset($data['ays_poll_show_timer']) && 1 == $data['ays_poll_show_timer'] ? 1 : 0;
-			$show_bottom_timer  	 = isset($data['ays_show_bottom_timer']) && 1 == $data['ays_show_bottom_timer'] ? 1 : 0;
-			$ays_show_timer_type  	 = isset($data['ays_show_timer_type']) && !empty($data['ays_show_timer_type']) ? $data['ays_show_timer_type'] : 'countdown';
-			$ays_show_result_btn_see = isset($data['ays_poll_show_result_btn_see_schedule']) && !empty($data['ays_poll_show_result_btn_see_schedule']) ? $data['ays_poll_show_result_btn_see_schedule'] : 'with_see';
-			$info_form               = isset($data['ays_poll_info_form']) && 'on' == $data['ays_poll_info_form'] ? 1 : 0;
-			$form_fields             = isset($data['ays-poll-form-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-fields'])) : "";
-			$form_required_fields    = isset($data['ays-poll-form-required-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-required-fields'])) : "";
-			$info_form_title         = isset($data['ays-poll-info-form-text']) ? wpautop(wp_kses_post(stripslashes($data['ays-poll-info-form-text']))) : "";
-			$title_bg_color          = sanitize_text_field($data['ays_poll_title_bg_color']);
+			$ays_poll_show_timer  	   = isset($data['ays_poll_show_timer']) && 1 == $data['ays_poll_show_timer'] ? 1 : 0;
+			$show_bottom_timer  	   = isset($data['ays_show_bottom_timer']) && 1 == $data['ays_show_bottom_timer'] ? 1 : 0;
+			$ays_show_timer_type  	   = isset($data['ays_show_timer_type']) && !empty($data['ays_show_timer_type']) ? $data['ays_show_timer_type'] : 'countdown';
+			$ays_show_result_btn_see   = isset($data['ays_poll_show_result_btn_see_schedule']) && !empty($data['ays_poll_show_result_btn_see_schedule']) ? $data['ays_poll_show_result_btn_see_schedule'] : 'with_see';
+			$info_form                 = isset($data['ays_poll_info_form']) && 'on' == $data['ays_poll_info_form'] ? 1 : 0;
+			$form_fields               = isset($data['ays-poll-form-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-fields'])) : "";
+			$form_required_fields      = isset($data['ays-poll-form-required-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-required-fields'])) : "";
+			$info_form_title           = isset($data['ays-poll-info-form-text']) ? wpautop(wp_kses_post(stripslashes($data['ays-poll-info-form-text']))) : "";
+			$title_bg_color            = sanitize_text_field($data['ays_poll_title_bg_color']);
 
 			// Poll main URL
 			$poll_main_url = (isset( $_POST['ays_poll_main_url'] ) && $_POST['ays_poll_main_url'] != '') ? wp_kses_post( $_POST['ays_poll_main_url'] ) : '';
@@ -754,7 +754,7 @@ class Polls_List_Table extends WP_List_Table {
 				'deactiveInterval'         	        => $deactiveInterval,
 				'deactiveIntervalSec'               => $deactiveIntervalSec,
 				'ays_poll_show_timer'    	        => $ays_poll_show_timer,
-				'show_bottom_timer'    	        => $show_bottom_timer,
+				'show_bottom_timer'    	            => $show_bottom_timer,
 				'ays_show_timer_type'    	        => $ays_show_timer_type,
 				'show_result_btn_see_schedule'    	=> $ays_show_result_btn_see,
 				'active_date_message_soon'          => $active_date_message_soon,
@@ -837,7 +837,7 @@ class Polls_List_Table extends WP_List_Table {
 				'poll_allow_answer_require'         => $poll_allow_answer_require,
 				'poll_answer_image_height'          => $poll_answer_image_height,
 				'poll_answer_image_height_for_mobile' => $poll_answer_image_height_for_mobile,
-				'poll_answer_image_border_radius' => $poll_answer_image_border_radius,
+				'poll_answer_image_border_radius'   => $poll_answer_image_border_radius,
 				'poll_title_alignment'              => $poll_title_alignment,
 				'poll_title_alignment_mobile'       => $poll_title_alignment_mobile,
 				// Text type options
@@ -939,12 +939,12 @@ class Polls_List_Table extends WP_List_Table {
 					$wpdb->insert(
 						$answer_table,
 						array(
-							'poll_id'   => $last_id,
-							'answer'    => wp_filter_kses($answer),
-							'redirect'  => isset($answers_url[$k]) && $answers_url[$k] != "" ? $answers_url[$k] : "",
-							'ordering'  => ($k + 1),
+							'poll_id'   		=> $last_id,
+							'answer'    		=> wp_filter_kses($answer),
+							'redirect'  		=> isset($answers_url[$k]) && $answers_url[$k] != "" ? sanitize_url($answers_url[$k]) : "",
+							'ordering'  		=> ($k + 1),
 							'show_user_added' 	=> isset($answers_show_added[$k]) ? $answers_show_added[$k] : 1,
-							'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$k])) ? wp_http_validate_url($poll_answers_img[$k]) : "",
+							'answer_img' 		=> ($type == 'choosing' && isset($poll_answers_img[$k])) ? wp_http_validate_url($poll_answers_img[$k]) : "",
 						),
 						array(
 							'%d', // poll_id
@@ -961,12 +961,12 @@ class Polls_List_Table extends WP_List_Table {
 						$wpdb->insert(
 							$answer_table,
 							array(
-								'poll_id'   => $last_id,
-								'answer'    => "Answer ".($i+1),
-								'redirect'  => isset($answers_url[$i]) && $answers_url[$i] != "" ? $answers_url[$i] : "",
-								'ordering'  => ($i + 1),
+								'poll_id'   		=> $last_id,
+								'answer'    		=> "Answer ".($i+1),
+								'redirect'  		=> isset($answers_url[$i]) && $answers_url[$i] != "" ? sanitize_url($answers_url[$i]) : "",
+								'ordering'  		=> ($i + 1),
 								'show_user_added' 	=> isset($answers_show_added[$i]) ? $answers_show_added[$i] : 1,
-								'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$i])) ? wp_http_validate_url($poll_answers_img[$i]) : "",
+								'answer_img' 		=> ($type == 'choosing' && isset($poll_answers_img[$i])) ? wp_http_validate_url($poll_answers_img[$i]) : "",
 							),
 							array(
 								'%d', // poll_id
@@ -983,12 +983,12 @@ class Polls_List_Table extends WP_List_Table {
 					$wpdb->insert(
 						$answer_table,
 						array(
-							'poll_id'   => $last_id,
-							'answer'    => "Answer 1",
-							'redirect'  => isset($answers_url[$i]) && $answers_url[$i] != "" ? $answers_url[$i] : "",
-							'ordering'  => ($i + 1),
+							'poll_id'   		=> $last_id,
+							'answer'    		=> "Answer 1",
+							'redirect'  		=> isset($answers_url[$i]) && $answers_url[$i] != "" ? sanitize_url($answers_url[$i]) : "",
+							'ordering'  		=> ($i + 1),
 							'show_user_added' 	=> isset($answers_show_added[$i]) ? $answers_show_added[$i] : 1,
-							'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$i])) ? wp_http_validate_url($poll_answers_img[$i]) : "",
+							'answer_img' 		=> ($type == 'choosing' && isset($poll_answers_img[$i])) ? wp_http_validate_url($poll_answers_img[$i]) : "",
 						),
 						array(
 							'%d', // poll_id
@@ -1057,12 +1057,12 @@ class Polls_List_Table extends WP_List_Table {
 						$wpdb->insert(
 							$answer_table,
 							array(
-								'poll_id'   => $id,
-								'answer'    => wp_filter_kses($answer),
-								'redirect'  => isset($answers_url[$k]) && $answers_url[$k] != "" ? $answers_url[$k] : "",
-								'ordering'  => ($k + 1),
+								'poll_id'   		=> $id,
+								'answer'    		=> wp_filter_kses($answer),
+								'redirect'  		=> isset($answers_url[$k]) && $answers_url[$k] != "" ? sanitize_url($answers_url[$k]) : "",
+								'ordering'  		=> ($k + 1),
 								'show_user_added' 	=> isset($answers_show_added[$k]) ? $answers_show_added[$k] : 1,
-								'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$k])) ? wp_http_validate_url($poll_answers_img[$k]) : "",
+								'answer_img' 		=> ($type == 'choosing' && isset($poll_answers_img[$k])) ? wp_http_validate_url($poll_answers_img[$k]) : "",
 							),
 							array(
 								'%d', // poll_id
@@ -1081,7 +1081,7 @@ class Polls_List_Table extends WP_List_Table {
 						$index  = array_search($old_id, $answers_ids);
 						if ($index !== false && !empty($answers[$index])) {
 							$new_answer = isset($answers[$index]) && $answers[$index] != "" ? $answers[$index] : "";
-							$new_url = $answers_url[$index];
+							$new_url = sanitize_url($answers_url[$index]);
 							
 							if (empty($new_url)) {
 								$new_url = null;
@@ -1090,11 +1090,11 @@ class Polls_List_Table extends WP_List_Table {
 							$wpdb->update(
 								$answer_table,
 								array(
-									'answer'    => wp_filter_kses($new_answer),
-									'redirect'  => $new_url,
-									'ordering'  => ($index + 1),
+									'answer'    		=> wp_filter_kses($new_answer),
+									'redirect'  		=> $new_url,
+									'ordering'  		=> ($index + 1),
 									'show_user_added' 	=> isset($answers_show_added[$index]) ? $answers_show_added[$index] : 1,
-									'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$index])) ? wp_http_validate_url($poll_answers_img[$index]) : "",
+									'answer_img' 	    => ($type == 'choosing' && isset($poll_answers_img[$index])) ? wp_http_validate_url($poll_answers_img[$index]) : "",
 								),
 								array('id' => $old_id),
 								array(
@@ -1140,7 +1140,7 @@ class Polls_List_Table extends WP_List_Table {
 								array(
 									'poll_id'   => $id,
 									'answer'    => wp_filter_kses($answers[$index]),
-									'redirect'  => isset($answers_url[$index]) && $answers_url[$index] != "" ? $answers_url[$index] : null,
+									'redirect'  => isset($answers_url[$index]) && $answers_url[$index] != "" ? sanitize_url($answers_url[$index]) : null,
 									'ordering'  => ($index + 1),
 									'show_user_added' 	=> isset($answers_show_added[$index]) ? $answers_show_added[$index] : 1,
 									'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$index])) ? wp_http_validate_url($poll_answers_img[$index]) : "",
@@ -1164,7 +1164,7 @@ class Polls_List_Table extends WP_List_Table {
 								array(
 									'poll_id'   => $id,
 									'answer'    => "Answer ".($j+1),
-									'redirect'  => isset($answers_url[$j]) && isset($answers_url[$j]) != "" ? $answers_url[$j] : null,
+									'redirect'  => isset($answers_url[$j]) && isset($answers_url[$j]) != "" ? sanitize_url($answers_url[$j]) : null,
 									'ordering'  => ($j + 1),
 									'show_user_added' 	=> isset($answers_show_added[$index]) ? $answers_show_added[$index] : 1,
 									'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$index])) ? wp_http_validate_url($poll_answers_img[$index]) : "",
@@ -1186,7 +1186,7 @@ class Polls_List_Table extends WP_List_Table {
 							array(
 								'poll_id'   => $id,
 								'answer'    => "Answer 1",
-								'redirect'  => isset($answers_url[$j]) && isset($answers_url[$j]) != "" ? $answers_url[$j] : null,
+								'redirect'  => isset($answers_url[$j]) && isset($answers_url[$j]) != "" ? sanitize_url($answers_url[$j]) : null,
 								'ordering'  => 1,
 								'show_user_added' 	=> isset($answers_show_added[$j]) ? $answers_show_added[$j] : 1,
 								'answer_img' 	=> ($type == 'choosing' && isset($poll_answers_img[$index])) ? wp_http_validate_url($poll_answers_img[$index]) : "",
@@ -1307,6 +1307,11 @@ class Polls_List_Table extends WP_List_Table {
 	public function duplicate_poll( $id ) {
 		global $wpdb;
 
+		// Nonce verification for CSRF protection
+		if (!isset($_GET['_wpnonce']) && !wp_verify_nonce($_GET['_wpnonce'], $this->plugin_name . '-duplicate-poll')) {
+			wp_die(__('Security check error. Try again.', "poll-maker"));
+		}
+
 	 	$poll_table  = esc_sql($wpdb->prefix."ayspoll_polls");
 	 	$answers_table  = esc_sql($wpdb->prefix."ayspoll_answers");
 
@@ -1314,6 +1319,7 @@ class Polls_List_Table extends WP_List_Table {
 		if (empty($duplicate)) {
 			$url = esc_url_raw(remove_query_arg(array('action', 'poll'))) . '&status=failed';
 			wp_redirect($url);
+			exit;
 		}
 
 		$user_id = get_current_user_id();
@@ -1384,6 +1390,7 @@ class Polls_List_Table extends WP_List_Table {
 		if ($result >= 0 && $flag == true) {
 			$url = esc_url_raw(remove_query_arg(array('action', 'poll'))) . '&status=' . $message;
 			wp_redirect($url);
+			exit;
 		}
 
 	}
@@ -1488,6 +1495,7 @@ class Polls_List_Table extends WP_List_Table {
 	 */
 	function column_title( $item ) {
 		$delete_nonce = wp_create_nonce($this->plugin_name . '-delete-poll');
+		$duplicate_nonce = wp_create_nonce($this->plugin_name . '-duplicate-poll');
 
 		$poll_title = stripcslashes($item['title']);
 
@@ -1499,7 +1507,7 @@ class Polls_List_Table extends WP_List_Table {
 		$title   = sprintf('<a href="?page=%s&action=%s&poll=%d" title="%s">%s</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id']), $p, $restitle);
 		$actions = [
 			'edit'      => sprintf('<a href="?page=%s&action=%s&poll=%d">' . __('Edit', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id'])),
-			'duplicate' => sprintf('<a href="?page=%s&action=%s&poll=%d">' . __('Duplicate', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'duplicate', absint($item['id'])),
+			'duplicate' => sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' . __('Duplicate', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'duplicate', absint($item['id']),$duplicate_nonce),
 			'results'   => sprintf('<a href="?page=%s&poll=%d&title=%s">'. __('View Results', "poll-maker") .'</a>', esc_attr( $_REQUEST['page'] ) . '-results-each', absint( $item['id'] ) , $poll_title ),
 			'delete'    => sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' . __('Delete', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce),
 		];
