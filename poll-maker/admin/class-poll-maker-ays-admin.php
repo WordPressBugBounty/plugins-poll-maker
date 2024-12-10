@@ -220,20 +220,20 @@ class Poll_Maker_Ays_Admin {
 		wp_enqueue_script('ays-poll-admin-js', plugin_dir_url(__FILE__) . 'js/poll-maker-ays-admin.js', array('jquery', 'wp-color-picker'),  $this->version, true);		
 		wp_enqueue_script( $this->plugin_name . '-charts-google', plugin_dir_url(__FILE__) . 'js/google-chart.js', array('jquery'), $this->version, false);
 		wp_localize_script('ays-poll-admin-js', 'pollLangObj', array(
-			'pollBannerDate' => $poll_banner_date,
-			'errorMsg' => __('Error', "poll-maker"),
-            'somethingWentWrong' => __('Maybe something went wrong.', "poll-maker"),
-            'add' => __('Add', "poll-maker"),
-            'answersMinCount' => __('Sorry minimum count of answers should be 2', "poll-maker"),
-            'copied' => __('Copied!', "poll-maker"),
-            'clickForCopy' => __('Click for copy.', "poll-maker"),
-			'areYouSure' => __('Are you sure you want to redirect to another poll? Note that the changes made in this poll will not be saved.', "poll-maker"),
-			'deleteAnswer' => __('Are you sure you want to delete this answer?', "poll-maker"),
+			'pollBannerDate' 		  => $poll_banner_date,
+			'errorMsg'				  => __('Error', "poll-maker"),
+            'somethingWentWrong' 	  => __('Maybe something went wrong.', "poll-maker"),
+            'add' 					  => __('Add', "poll-maker"),
+            'answersMinCount' 		  => __('Sorry minimum count of answers should be 2', "poll-maker"),
+            'copied' 				  => __('Copied!', "poll-maker"),
+            'clickForCopy' 			  => __('Click for copy.', "poll-maker"),
+			'areYouSure' 			  => __('Are you sure you want to redirect to another poll? Note that the changes made in this poll will not be saved.', "poll-maker"),
+			'deleteAnswer' 			  => __('Are you sure you want to delete this answer?', "poll-maker"),
 			'youCanUuseThisShortcode' => __('Your Poll is Created!<br>Copy the generated shortcode and paste it into any post or page to display Poll', "poll-maker"),
-            'greateJob' => __('Great job', "poll-maker"),
-            'formMoreDetailed' => __('For more detailed configuration visit', "poll-maker"),
-            'done' => __('Done', "poll-maker"),
-            'thumbsUpGreat' => __('Thumbs up, Done', "poll-maker"),
+			'greateJob' 			  => __('Great job', "poll-maker"),
+			'formMoreDetailed' 		  => __('For more detailed configuration visit', "poll-maker"),
+            'done' 					  => __('Done', "poll-maker"),
+            'thumbsUpGreat' 		  => __('Thumbs up, Done', "poll-maker"),
         ) );
 
 		wp_localize_script('ays-poll-admin-js', 'poll', array(
@@ -263,14 +263,14 @@ class Poll_Maker_Ays_Admin {
 	 * @since    1.0.0
 	 */
 	public function disable_scripts($hook_suffix) {
-        if (false !== strpos($hook_suffix, $this->plugin_name)) {
+		if (false !== strpos($hook_suffix, $this->plugin_name)) {
             if (is_plugin_active('ai-engine/ai-engine.php')) {
                 wp_deregister_script('mwai');
                 wp_deregister_script('mwai-vendor');
                 wp_dequeue_script('mwai');
                 wp_dequeue_script('mwai-vendor');
             }
-        }
+		}
 	}
 
 	public function codemirror_enqueue_scripts($hook) {
@@ -566,7 +566,7 @@ class Poll_Maker_Ays_Admin {
 		$settings_link = array(
 			'<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', "poll-maker") . '</a>',
 			'<a href="https://poll-plugin.com/wordpress-poll-plugin-free-demo/" target="_blank">' . __('Demo', "poll-maker") . '</a>',			
-			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade 30% Sale', "poll-maker") . '</a>',
+			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade 50% Sale', "poll-maker") . '</a>',
 		);
 
 		return array_merge($settings_link, $links);
@@ -1437,7 +1437,7 @@ class Poll_Maker_Ays_Admin {
 					$ays_poll_flag += $ays_poll_two_months_flag;
 					if($ays_poll_flag == 0){
 						$ays_poll_sale_message = 'ays_poll_sale_message_'.$sale;
-						$this->ays_poll_black_friday_message_2024();
+						$this->ays_poll_sale_message_poll_pro();
 					}
 				}
 			}
@@ -2309,9 +2309,8 @@ class Poll_Maker_Ays_Admin {
             } else {
                 $value = sanitize_text_field( $value );
             }
-        }
-
-        return $array;
+		}
+		return $array;
     }
 
     public static function get_max_id( $table ) {
@@ -2390,7 +2389,7 @@ class Poll_Maker_Ays_Admin {
     }
 
 	public static function ays_poll_check_if_current_image_exists($image_url) {
-        global $wpdb;
+		global $wpdb;
 
         $res = true;
         if( !isset($image_url) ){
@@ -2411,7 +2410,7 @@ class Poll_Maker_Ays_Admin {
         }
 
         return $res;
-    }
+	}
 
 	public function ays_poll_maker_quick_start() {
 		global $wpdb;
