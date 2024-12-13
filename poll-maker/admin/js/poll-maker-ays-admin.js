@@ -2639,7 +2639,7 @@
     });
 
     // Options accordion effect start
-    $(document).on('click', '.ays-poll-accordion-arrow-box', function() {
+    $(document).on('click', '.ays-poll-accordion-header', function() {
         toggleOptionsAccordion($(this));
     });
     // Options accordion effect end
@@ -2830,8 +2830,9 @@
             hour    = minute * 60,
             day     = hour * 24;
 
-        var pollCountdownEndTime = pollLangObj.pollBannerDate;
+        // var pollCountdownEndTime = pollLangObj.pollBannerDate;
         // var pollCountdownEndTime = "DEC 09, 2024 23:59:59";
+        var pollCountdownEndTime = "DEC 24, 2024 23:59:59";
         var countDown_new = new Date(pollCountdownEndTime).getTime();
         if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {
             var AYS_POLL_MILLISECONDS = 3 * day;

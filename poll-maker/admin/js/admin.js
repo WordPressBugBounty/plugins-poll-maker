@@ -25,10 +25,13 @@
             if( result.dismiss && result.dismiss == 'close' ){
                 return false;
             }
-            
+
+            var wp_nonce = $(document).find('#ays_poll_maker_ajax_deactivate_plugin_nonce').val();
+
             let data = {
                 action: 'apm_deactivate_plugin_option_pm',
-                upgrade_plugin
+                upgrade_plugin,
+                _ajax_nonce: wp_nonce,
             };
             $.ajax({
                 url: apm_admin_ajax_obj.ajaxUrl,

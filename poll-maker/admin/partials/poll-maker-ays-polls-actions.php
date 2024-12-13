@@ -4879,7 +4879,8 @@ $emoji = array(
                     <div id="tab6" class="ays-poll-tab-content <?= $active_tab == 'Email' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <p class="ays-subtitle"><?php echo $poll_acordion_svg_html; ?><?= __('Email settings', "poll-maker"); ?></p>
+                                <?php echo $poll_acordion_svg_html; ?>
+                                <p class="ays-subtitle"><?= __('Email settings', "poll-maker"); ?></p>
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
                             <div class="ays-poll-accordion-body">
