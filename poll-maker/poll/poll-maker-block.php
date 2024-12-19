@@ -140,6 +140,11 @@
         if ( $versionCompare ) {
             // Hook scripts function into block editor hook
             add_action('enqueue_block_editor_assets', 'ays_poll_gutenberg_scripts');
+
+            if ( version_compare( get_bloginfo( 'version' ), '5.9', '>=' ) ) {
+                add_action( 'enqueue_block_assets', 'ays_poll_gutenberg_scripts' );
+            }
+
             add_action('init', 'ays_poll_gutenberg_block_register');        
         }
     }

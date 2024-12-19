@@ -43,10 +43,10 @@ $cat_list = get_categories(
 );
 
 $poll_message_vars = array(
-    '%%user_name%%'         => __("User Name", "poll-maker"),
-    '%%user_email%%'         => __("User Email", "poll-maker"),
-    "%%user_phone%%"                        => __("User Phone", "poll-maker"),
-    '%%poll_title%%'      				=> __("Poll title", "poll-maker"),
+    '%%user_name%%'                     => __("User Name", "poll-maker"),
+    '%%user_email%%'                    => __("User Email", "poll-maker"),
+    '%%user_phone%%'                    => __("User Phone", "poll-maker"),
+    '%%poll_title%%'                    => __("Poll title", "poll-maker"),
     '%%users_first_name%%'     			=> __("User's First Name", "poll-maker"),
     '%%users_last_name%%'       		=> __("User's Last Name", "poll-maker"),
     '%%creation_date%%'       			=> __("Creation date of the poll", "poll-maker"),
@@ -187,26 +187,26 @@ $default_options = array(
     'poll_text_type_width_type'    => "percent",
     'poll_enable_password'         => "off",
     'poll_password'                => "",
-    'poll_enable_password_visibility'  => "off",
-    'poll_password_message'            => 'Please enter password',
-    'poll_answer_enable_box_shadow'    => "off",
-    'poll_answer_box_shadow_color'     => "#000000",
-    'poll_answer_box_shadow_x_offset'  => 0,
-    'poll_answer_box_shadow_y_offset'  => 0,
-    'poll_answer_box_shadow_z_offset'  => 10,
-    'poll_answer_border_radius'        => 0,
+    'poll_enable_password_visibility'       => "off",
+    'poll_password_message'                 => 'Please enter password',
+    'poll_answer_enable_box_shadow'         => "off",
+    'poll_answer_box_shadow_color'          => "#000000",
+    'poll_answer_box_shadow_x_offset'       => 0,
+    'poll_answer_box_shadow_y_offset'       => 0,
+    'poll_answer_box_shadow_z_offset'       => 10,
+    'poll_answer_border_radius'             => 0,
     'poll_enable_answer_image_after_voting' => "off",
-    'enable_poll_title_text_shadow' => 'off',
-    'poll_title_text_shadow'        => 'rgba(255,255,255,0)',
-    'poll_title_text_shadow_x_offset'=> 2,
-    'poll_title_text_shadow_y_offset'=> 2,
-    'poll_title_text_shadow_z_offset'=> 0,
-    'display_fields_labels' => 'off',
-    'autofill_user_data' => 'off',
-    'poll_create_author' => $user_id,
-    'poll_main_url' => '',
-    'poll_logo_url_new_tab' => 'off',
-    'show_chart_type' => 'google_bar_chart',
+    'enable_poll_title_text_shadow'         => 'off',
+    'poll_title_text_shadow'                => 'rgba(255,255,255,0)',
+    'poll_title_text_shadow_x_offset'       => 2,
+    'poll_title_text_shadow_y_offset'       => 2,
+    'poll_title_text_shadow_z_offset'       => 0,
+    'display_fields_labels'                 => 'off',
+    'autofill_user_data'                    => 'off',
+    'poll_create_author'                    => $user_id,
+    'poll_main_url'                         => '',
+    'poll_logo_url_new_tab'                 => 'off',
+    'show_chart_type'                       => 'google_bar_chart',
 );
 
 $settings_options = $this->settings_obj->ays_get_setting('options');
@@ -489,12 +489,12 @@ $checking_answer_hover_live = ($options['disable_answer_hover'] == 1) ? 'disable
 $poll_check_exp_cont = (isset($options['dont_show_poll_cont']) && $options['dont_show_poll_cont'] == 'on') ? 'checked' : '';
 
 // Poll see results button in limitations
-$poll_see_result_button = (isset($options['see_result_button']) && $options['see_result_button'] == 'on') ? 'checked' : '';
+$poll_see_result_button       = (isset($options['see_result_button']) && $options['see_result_button'] == 'on') ? 'checked' : '';
 $poll_see_result_button_check = (isset($options['see_result_button']) && $options['see_result_button'] == 'on') ? true : false;
-$poll_see_result_button_cont = (isset($options['see_result_button']) && $options['see_result_button'] != 'on') ? 'ays_poll_display_none' : '';
-$poll_see_result_radio = (isset($options['see_result_radio']) && $options['see_result_radio'] != '') ? esc_attr($options['see_result_radio']) : 'ays_see_result_button';
-$poll_see_result_botton_show = isset($poll_see_result_radio) && $poll_see_result_radio == 'ays_see_result_button' ? 'checked' : '';
-$poll_see_result_immediately = isset($poll_see_result_radio) && $poll_see_result_radio == 'ays_see_result_immediately' ? 'checked' : '';
+$poll_see_result_button_cont  = (isset($options['see_result_button']) && $options['see_result_button'] != 'on') ? 'ays_poll_display_none' : '';
+$poll_see_result_radio        = (isset($options['see_result_radio']) && $options['see_result_radio'] != '') ? esc_attr($options['see_result_radio']) : 'ays_see_result_button';
+$poll_see_result_botton_show  = isset($poll_see_result_radio) && $poll_see_result_radio == 'ays_see_result_button' ? 'checked' : '';
+$poll_see_result_immediately  = isset($poll_see_result_radio) && $poll_see_result_radio == 'ays_see_result_immediately' ? 'checked' : '';
 
 // Loader font size
 $poll_loader_font_size = (isset($options['loader_font_size']) && $options['loader_font_size'] != '') ? esc_attr($options['loader_font_size']) : '64';
@@ -529,8 +529,13 @@ $poll_vote_reason = (isset($options['poll_vote_reason']) && $options['poll_vote_
 
 // Allow multivote
 $poll_allow_multivote  = isset($options['poll_allow_multivote']) && $options['poll_allow_multivote'] == 'on' ? "checked" : "";
+// Enable multivote answer
 $poll_enable_multivote_answer = $poll_allow_multivote == "checked" ? true : false;
+
+// Minimum count for multivote answer
 $poll_multivote_min_count = (isset($options['multivote_answer_min_count']) && $options['multivote_answer_min_count'] != '') ? intval(esc_attr($options['multivote_answer_min_count'])) : '1';
+
+// Count for multivote answer
 $poll_multivote_answer_count = (isset($options['poll_allow_multivote_count']) && $options['poll_allow_multivote_count'] != '') ? intval(esc_attr($options['poll_allow_multivote_count'])) : '1';
 
 // Allow collect user info
@@ -538,11 +543,13 @@ $poll_allow_collecting_users_data = (isset($options['poll_allow_collecting_users
 
 // Show answers icon
 $poll_answer_icon_check = (isset($options['poll_answer_icon_check']) && $options['poll_answer_icon_check'] == 'on') ? true : false;
+// Poll answer icon
 $poll_answer_icon       = isset($options['poll_answer_icon']) ? $options['poll_answer_icon'] : 'radio';
-
 
 // Every Answer redirect delay
 $poll_every_answer_redirect_delay = isset($options['poll_every_answer_redirect_delay']) && $options['poll_every_answer_redirect_delay'] != "" ? esc_attr($options['poll_every_answer_redirect_delay']) : ""; 
+
+// Enable answer redirect delay
 $poll_enable_answer_redirect_delay = isset($options['poll_enable_answer_redirect_delay']) && $options['poll_enable_answer_redirect_delay'] == "on" ? true : false; 
 
 // Show Answers image after voting
@@ -550,10 +557,14 @@ $poll_enable_answer_image_after_voting = isset($options['poll_enable_answer_imag
 
 // Poll logo image url
 $poll_logo_image_url       = isset($options['poll_logo_url']) && $options['poll_logo_url'] != "" ? esc_attr($options['poll_logo_url']) : ""; 
+
+// Check if the poll logo URL is enabled
 $poll_logo_image_url_check = isset($options['poll_enable_logo_url']) && $options['poll_enable_logo_url'] == "on" ? true : false; 
 
 // Poll question font size
 $poll_question_font_size_pc     = isset($options['poll_question_size_pc']) && $options['poll_question_size_pc'] != "" ? esc_attr($options['poll_question_size_pc']) : 16; 
+
+// Poll question font size for mobile
 $poll_question_font_size_mobile = isset($options['poll_question_size_mobile']) && $options['poll_question_size_mobile'] != "" ? esc_attr($options['poll_question_size_mobile']) : 16;
 
 // Poll question image height

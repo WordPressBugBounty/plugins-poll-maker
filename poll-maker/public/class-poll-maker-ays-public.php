@@ -2301,7 +2301,7 @@ class Poll_Maker_Ays_Public {
 											<label 
 												for='radio-$index-$this_poll_id' 
 												class='ays_label_poll ".$answers_sound_class." ".$redirect_after_submit." ".$disable_answer_hover." ays_label_font_size ".$answer_icon_class." ".$poll_class_for_answer_label." ".$pol_answer_view_type_label_cont."' 
-												data-answers-url='".esc_url($answer['redirect'])."'
+												data-answers-url='".(isset($answer['redirect']) && is_string($answer['redirect']) ? esc_url($answer['redirect']) : '')."'
 											>".$poll_answer_image_show." <p style='".$poll_added_style."' class='ays-poll-answers'><span class='".$pol_answer_view_type_text_show."'>"
 											. $numbering_type . esc_attr(stripcslashes($answer['answer'])) . 
 											"</span></p></label>
