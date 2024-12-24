@@ -1015,7 +1015,7 @@ class Poll_Maker_Ays_Admin {
 
 		if ($decode) {
 			$json               = $poll['styles'];
-			$poll['styles']     = json_decode($json, true);
+			$poll['styles']	    = !empty($poll['styles']) ? json_decode($poll['styles'], true) : array();
 			$poll['categories'] = trim($poll['categories'], ',');
 			$cats               = explode(',', $poll['categories']);
 			$poll['categories'] = !empty($cats) ? $cats : [];
@@ -2721,6 +2721,7 @@ class Poll_Maker_Ays_Admin {
 			"ays_add_post_for_poll" => "off",
 			"show_answer_message" => "off",
 			"show_answers_caption" => "on",
+			"answers_grid_column_mobile" => "on",
 			"enable_vote_limitation" => "off",
 			"vote_limitation" => "",
 			"limitation_time_period" => "minute",

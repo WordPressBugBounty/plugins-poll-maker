@@ -1010,6 +1010,10 @@ class Poll_Maker_Ays_Public {
 			$vote_reason = "";
 		}
 
+        // Enable/disable grid column layout for answers on mobile devices
+        $options['answers_grid_column_mobile'] = isset($options['answers_grid_column_mobile']) ? $options['answers_grid_column_mobile'] : 'on';
+        $answers_grid_column_mobile = (isset($options['answers_grid_column_mobile']) && $options['answers_grid_column_mobile'] == 'on') ? true : false;
+		
 		// Show answers icon
 		$poll_answer_icon_check = (isset($options['poll_answer_icon_check']) && $options['poll_answer_icon_check'] == 'on') ? true : false;
 		$poll_answer_icon       = isset($options['poll_answer_icon']) ? $options['poll_answer_icon'] : 'radio';
@@ -1718,8 +1722,20 @@ class Poll_Maker_Ays_Public {
 
 			.$this_poll_id.box-apm .ays_question p{
 				font-size: ".$poll_question_font_size_mobile."px;
+			}";
+		
+		if ($answers_grid_column_mobile) {
+			$content .= "
+			.".$this_poll_id." .apm-answers,
+			.".$this_poll_id." .ays_poll_grid_view_container {
+				flex-direction: column;
 			}
-
+			#".$this_poll_id.".box-apm .ays-poll-answer-container-gird{
+				width: 100%;
+			}";
+		}
+		
+		$content .= "
 			#".$this_poll_id.".box-apm .apm-title-box div{
 				font-size: ".$poll_title_font_size_mobile."px;
 				text-align: ".$poll_title_alignment_mobile.";

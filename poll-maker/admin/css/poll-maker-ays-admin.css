@@ -2175,6 +2175,12 @@ div.col.ays-poll-styles-page-main-container { /* conflict with WP Phlox theme */
     table.results .row-actions {
         margin-left: 15px;
     }
+    
+    .ays-poll-general-settings-form .d-flex {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 200px;
+    }
 }
 
 /*
@@ -2314,6 +2320,8 @@ p.ays-subtitle {
 /*aray*/
 .ays-poll-sel-fields, .ays-poll-req-fields {
     padding: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .ays-poll-sel-fields .ays-poll-check-box.mr-2,

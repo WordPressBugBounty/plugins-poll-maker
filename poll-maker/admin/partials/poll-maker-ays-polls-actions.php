@@ -630,6 +630,10 @@ $poll_answer_object_fit   = (isset($options['poll_answer_object_fit']) && $optio
 // Poll answer padding
 $poll_answer_padding      = (isset($options['poll_answer_padding']) && $options['poll_answer_padding'] != "") ? esc_attr($options['poll_answer_padding']) : "10";
 
+// Poll 1 column in mobile
+$options['answers_grid_column_mobile'] = isset($options['answers_grid_column_mobile']) ? $options['answers_grid_column_mobile'] : 'on';
+$answers_grid_column_mobile = (isset($options['answers_grid_column_mobile']) && $options['answers_grid_column_mobile'] == 'on') ? true : false;
+
 // Poll answer gap
 $poll_answer_margin      = (isset($options['poll_answer_margin']) && $options['poll_answer_margin'] != "") ? esc_attr($options['poll_answer_margin']) : "10";
 
@@ -2530,7 +2534,7 @@ $emoji = array(
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="form-group row">
-                                                        <div class="col-sm-8 ays_divider_left">
+                                                        <div class="col-sm-8 ays_divider_left" style="margin-bottom: 15px;">
                                                             <select class="ays-text-input ays-text-input-short ays-select-short ays_enable_answer_field ays_poll_aysDropdown" id="ays_answers_view" name="ays_poll_choose_answer_type">
                                                                 <option value="list" <?php echo ($poll_answer_view_type == 'list') ? 'selected' : ''; ?>>
                                                                     <?php echo __('List', "poll-maker")?>
@@ -2552,6 +2556,20 @@ $emoji = array(
                                                                 4
                                                                 </option>
                                                             </select>
+                                                        </div>
+                                                        <div class="col-sm-8 grid_column_count" style="margin-top: 15px; display:flex;align-items:center;gap: 60px;" >
+                                                            <div class="col-sm-8" style="display:flex;align-items:center;">
+                                                                <label for="ays_answers_grid_column_mobile">
+                                                                    <?php echo __('Mobile Single Column View',"poll-maker")?>
+                                                                </label>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Enable this toggle to display poll answers in a single column on mobile devices for the Grid View.',"poll-maker")?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="col-sm-1 ays_divider_left">
+                                                                <input type="checkbox" class="ays_toggle ays_toggle_slide" id="ays_answers_grid_column_mobile" name="ays_answers_grid_column_mobile" <?php echo ($answers_grid_column_mobile) ? 'checked' : ''; ?> value='on'/>
+                                                                <label for="ays_answers_grid_column_mobile" class="ays_switch_toggle">Toggle</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4309,17 +4327,17 @@ $emoji = array(
                                                         </a>                                    
                                                     </label>
                                                 </div>
-                                                <div class="col-sm-9 row">
-                                                    <div class="col-sm-2" style="height: 41px;">
-                                                        <input type="checkbox" id="ays_see_result_show" name="ays_see_result_show" class="ays_poll_show_hide_buttons" value="on" <?php echo $poll_see_result_button; ?>>
+                                                <div class="col-sm-9">
+                                                    <div style="margin-bottom: 10px;">
+                                                        <input type="checkbox" id="ays_see_result_show" name="ays_see_result_show" class="ays_poll_show_hide_button" value="on" <?php echo $poll_see_result_button; ?>>
                                                     </div>
-                                                    <div class="col-sm-10 ays-poll-sel-fields row p-0 <?php echo $poll_see_result_button_cont; ?>" id="ays_poll_show_hide_button" style="height: 41px;">
+                                                    <div class="col-sm-9 ays-poll-sel-fields  p-0 <?php echo $poll_see_result_button_cont; ?>" id="ays_poll_show_hide_button" >
                                                         <div class="ays-poll-check-box mr-2">
-                                                            <input type="radio" id="ays_see_result_button_show" name="ays_poll_see_result_show" class="ays_poll_show_hide_buttons" value="ays_see_result_button" <?php echo $poll_see_result_botton_show?>>
+                                                            <input type="radio" id="ays_see_result_button_show" name="ays_poll_see_result_show" class="ays_poll_show_hide_button" value="ays_see_result_button" <?php echo $poll_see_result_botton_show?>>
                                                             <label for="ays_see_result_button_show" class="form-check-label"><?= __('After clicking on the button', "poll-maker"); ?></label>
                                                         </div>
                                                         <div class="ays-poll-check-box mr-2">
-                                                            <input type="radio" id="ays_see_result_button_hide" name="ays_poll_see_result_show" class="ays_poll_show_hide_buttons" value="ays_see_result_immediately" <?php echo $poll_see_result_immediately?>>
+                                                            <input type="radio" id="ays_see_result_button_hide" name="ays_poll_see_result_show" class="ays_poll_show_hide_button" value="ays_see_result_immediately" <?php echo $poll_see_result_immediately?>>
                                                             <label for="ays_see_result_button_hide" class="form-check-label"><?= __('Directly', "poll-maker"); ?></label>
                                                         </div>
                                                     </div>

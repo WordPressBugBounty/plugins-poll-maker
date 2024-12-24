@@ -2832,7 +2832,7 @@
 
         // var pollCountdownEndTime = pollLangObj.pollBannerDate;
         // var pollCountdownEndTime = "DEC 09, 2024 23:59:59";
-        var pollCountdownEndTime = "DEC 24, 2024 23:59:59";
+        var pollCountdownEndTime = "JAN 7, 2025 23:59:59";
         var countDown_new = new Date(pollCountdownEndTime).getTime();
         if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {
             var AYS_POLL_MILLISECONDS = 3 * day;

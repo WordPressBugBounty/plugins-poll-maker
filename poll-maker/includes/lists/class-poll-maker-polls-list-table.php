@@ -627,6 +627,10 @@ class Polls_List_Table extends WP_List_Table {
 			//Title Text Shadow
 			$enable_poll_title_text_shadow = ( isset( $data['ays_poll_enable_title_text_shadow'] ) && $data['ays_poll_enable_title_text_shadow'] != '' ) ? 'on' : 'off';
 
+			// Enable/disable grid column layout for answers on mobile devices
+			$answers_grid_column_mobile = (isset($data['ays_answers_grid_column_mobile']) && $data['ays_answers_grid_column_mobile'] == 'on') ? 'on' :'off';
+
+
 			$poll_title_text_shadow = ( isset($data['ays_poll_title_text_shadow_color'] ) && $data['ays_poll_title_text_shadow_color'] != '' ) ? sanitize_text_field( $data['ays_poll_title_text_shadow_color'] ) : 'rgba(255,255,255,0)';
 			$poll_title_text_shadow_x_offset = (isset($data['ays_poll_title_text_shadow_x_offset']) && $data['ays_poll_title_text_shadow_x_offset'] != '') ? intval( $data['ays_poll_title_text_shadow_x_offset'] )  : 2;
 
@@ -812,6 +816,7 @@ class Polls_List_Table extends WP_List_Table {
 				'show_login_form'                   => $show_login_form,
 				'info_form'                         => $info_form,
 				'fields'                            => $form_fields,
+				"answers_grid_column_mobile"  		=> $answers_grid_column_mobile,
 				'required_fields'                   => $form_required_fields,
 				'info_form_title'                   => $info_form_title,
                 'enable_mailchimp'                  => $enable_mailchimp,
