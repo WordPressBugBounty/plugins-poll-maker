@@ -1367,7 +1367,6 @@ class Poll_Maker_Ays_Public {
             color: $bg_color !important;
         }
         .$this_poll_id .ays-poll-btn{
-            background-color: $main_color !important;
             color: $button_text_color !important;
             background-color: $button_bg_color !important;
             overflow: hidden;

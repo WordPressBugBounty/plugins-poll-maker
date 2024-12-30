@@ -733,12 +733,14 @@
         $('#ays-poll-text-color').val(themes[themeId].textColor);
 
         $('#ays-poll-button-text-color').parent().parent().prev().css({
-            'color': themes[themeId].bgColor
+            'color': themes[themeId].buttonTextColor
         });
         $('#ays-poll-button-bg-color').parent().parent().prev().css({
-            'background-color': themes[themeId].mainColor
+            'background-color': themes[themeId].buttonBgColor
         });
-        $('#ays-poll-button-text-color').val(themes[themeId].bgColor);
+        $('#ays-poll-button-text-color').val(themes[themeId].buttonTextColor);
+        
+        $('#ays-poll-button-bg-color').val(themes[themeId].buttonBgColor);
             
         $('#ays-poll-main-color').parent().parent().prev().css({
             'background-color': themes[themeId].mainColor
