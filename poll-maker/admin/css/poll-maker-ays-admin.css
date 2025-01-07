@@ -1062,7 +1062,7 @@ div.tooltip {
 
 .box-apm.choosing-poll input[type='radio']:checked + label,
 .box-apm.choosing-poll label.ays_enable_hover:hover {
-    background-color: var(--theme-text-color);
+    background-color: var(--theme-answer-hover-color, var(--theme-text-color));
     color: var(--theme-bg-color);
 }
 
@@ -1193,8 +1193,9 @@ input[type='button'].ays-poll-btn:focus {
     border: none;
 }
 
-.ays_poll_minimal_theme label.ays_enable_hover:hover, .ays_poll_minimal_theme input[type=radio]:checked + label{
-    background-color: initial !important;
+.ays_poll_minimal_theme label.ays_enable_hover:hover, 
+.ays_poll_minimal_theme input[type=radio]:checked + label {
+    background-color: var(--theme-answer-hover-color, initial) !important;
     color: var(--theme-main-color) !important;
     font-weight: initial !important;
     margin: 3px 0 !important;

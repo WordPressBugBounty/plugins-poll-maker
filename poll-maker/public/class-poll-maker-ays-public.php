@@ -759,6 +759,7 @@ class Poll_Maker_Ays_Public {
 		$button_bg_color    = isset($options['button_bg_color']) ? $options['button_bg_color'] : $main_color;
 		$icon_color      	= $options['icon_color'];
 		$answer_bg_color 	= isset($options['answer_bg_color']) ? $options['answer_bg_color'] : 'transparent';
+		$answer_hover_color = isset($options['answer_hover_color']) ? $options['answer_hover_color'] : $text_color;
 		$answer_border_side = isset($options['answer_border_side']) ? $options['answer_border_side'] : 'all_sides';
 		$title_bg_color  	= isset($options['title_bg_color']) ? $options['title_bg_color'] : 'transparent';
 
@@ -1279,7 +1280,7 @@ class Poll_Maker_Ays_Public {
 		}
 
 		.$this_poll_id.ays-minimal-theme .apm-choosing input[type=radio]:checked + label, .$this_poll_id.ays-minimal-theme .apm-choosing label.ays_enable_hover:hover{
-		    background-color: initial !important;
+        	background-color: " . ($answer_hover_color ? $answer_hover_color : "initial") . " !important;
 		    color: $main_color !important;
 		    border-color: $main_color !important;
 		    font-weight: initial !important;
@@ -1572,7 +1573,7 @@ class Poll_Maker_Ays_Public {
         .$this_poll_id.choosing-poll input[type=radio]:checked + label,
 		.$this_poll_id:not(.ays-minimal-theme).choosing-poll input[type='checkbox']:checked + label,
         .$this_poll_id.choosing-poll label.ays_enable_hover:hover {
-            background-color: $text_color !important;
+        	background-color: " . ($answer_hover_color ? $answer_hover_color : $text_color) . " !important;
             color: $bg_color;
         }
 

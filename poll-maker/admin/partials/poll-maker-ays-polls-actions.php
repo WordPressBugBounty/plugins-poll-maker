@@ -87,6 +87,7 @@ $default_colors  = array(
 	"box_shadow_color" => "#000000",
 	"bg_color"         => "#FBFEF9",
 	"answer_bg_color"  => "#FBFEF9",
+	"answer_hover_color" => "#0C6291",
 	"title_bg_color"   => "",
 	"border_color"     => "#0C6291",
 );
@@ -621,7 +622,7 @@ $poll_answer_image_height_for_mobile = (isset($options['poll_answer_image_height
 // Poll answer image border radius
 $poll_answer_image_border_radius = (isset($options['poll_answer_image_border_radius']) && $options['poll_answer_image_border_radius'] != "") ? esc_attr($options['poll_answer_image_border_radius']) : 0;
 
-// Poll answer image height
+// Poll question image object fit
 $poll_question_image_object_fit = (isset($options['poll_question_image_object_fit']) && $options['poll_question_image_object_fit'] != "") ? esc_attr($options['poll_question_image_object_fit']) : "cover";
 
 // Poll answer image object fit
@@ -674,7 +675,10 @@ $poll_password_message = ( isset($options['poll_password_message']) && $options[
 $poll_answer_enable_box_shadow = (isset($options['poll_answer_enable_box_shadow']) && $options['poll_answer_enable_box_shadow'] == "on") ? true : false;
 // Poll answer box shadow color
 $poll_answer_box_shadow_color  = (isset($options['poll_answer_box_shadow_color']) && $options['poll_answer_box_shadow_color'] != "") ? esc_attr($options['poll_answer_box_shadow_color']) : "#000000";
-
+// answer hover color
+$answer_hover_color = (isset($options['answer_hover_color']) && $options['answer_hover_color'] != "") ? esc_attr($options['answer_hover_color']) : $options['text_color'];
+// answer bg color
+$answer_bg_color = (isset($options['answer_bg_color']) && $options['answer_bg_color'] != "") ? esc_attr($options['answer_bg_color']) : "rgba(255,255,255,0)";
 // Poll answer box shadow parameters
 $poll_answer_box_shadow_x_offset  = (isset($options['poll_answer_box_shadow_x_offset']) && $options['poll_answer_box_shadow_x_offset'] != "") ? intval($options['poll_answer_box_shadow_x_offset']) : 0;
 
@@ -776,23 +780,24 @@ $emoji = array(
     /*save changing properties of poll in the css-variables*/
     :root {
         /*colors*/
-        --theme-main-color: <?=$options['main_color']?>;
-        --theme-bg-color: <?=$options['bg_color']?>;
-        --theme-answer-bg-color: <?= isset($options['answer_bg_color']) && !empty($options['answer_bg_color']) ? $options['answer_bg_color'] : $options['bg_color'] ?>;
-        --theme-title-bg-color: <?= isset($options['title_bg_color']) && !empty($options['title_bg_color']) ? $options['title_bg_color'] : $options['bg_color'] ?>;
-        --theme-text-color: <?=$options['text_color']?>;
-        --theme-button-text-color: <?=$options['bg_color']?>;
-        --theme-icon-color: <?=$options['icon_color']?>;
+        --theme-main-color: <?php echo $options['main_color']; ?>;
+        --theme-bg-color: <?php echo $options['bg_color']; ?>;
+        --theme-answer-bg-color: <?php echo (isset($options['answer_bg_color']) && !empty($options['answer_bg_color'])) ? $options['answer_bg_color'] : $options['bg_color']; ?>;
+        --theme-answer-hover-color: <?php echo (isset($options['answer_hover_color']) && !empty($options['answer_hover_color'])) ? $options['answer_hover_color'] : $options['text_color']; ?>;
+        --theme-title-bg-color: <?php echo (isset($options['title_bg_color']) && !empty($options['title_bg_color'])) ? $options['title_bg_color'] : $options['bg_color']; ?>;
+        --theme-text-color: <?php echo $options['text_color']; ?>;
+        --theme-button-text-color: <?php echo $options['bg_color']; ?>;
+        --theme-icon-color: <?php echo $options['icon_color']; ?>;
         /*options*/
-        --poll-width: <?= (int) $options['width'] > 0 ? (int) $options['width'] . "px" : "100%" ?>;
-        --poll-border-style: <?=$options['border_style']?>;
-        --poll-border-radius: <?= absint($options['border_radius'])?>px;
-        --poll-border-width: <?= absint($options['border_width'])?>px;
-        --poll-box-shadow: <?= (isset($options['box_shadow_color']) && !empty($options['box_shadow_color'])) ? $options['box_shadow_color'] . ' 0px 0px 10px 0px' : '' ?>;
-        --poll-bagckround-image: <?= !empty($options['bg_image']) ? "url({$options['bg_image']})" : "unset" ?>;
-        --poll-icons-size: <?= absint($options['icon_size']) >= 10 ? absint($options['icon_size']) : 24 ?>px;
-        --poll-display-title: <?= $poll['show_title'] ? "block" : "none"?>;
-        --poll-display-image-box: <?= !empty($poll['image']) ? "block" : "none" ?>;
+        --poll-width: <?php echo ((int)$options['width'] > 0) ? (int)$options['width'] . "px" : "100%"; ?>;
+        --poll-border-style: <?php echo $options['border_style']; ?>;
+        --poll-border-radius: <?php echo absint($options['border_radius']); ?>px;
+        --poll-border-width: <?php echo absint($options['border_width']); ?>px;
+        --poll-box-shadow: <?php echo (isset($options['box_shadow_color']) && !empty($options['box_shadow_color'])) ? $options['box_shadow_color'] . ' 0px 0px 10px 0px' : ''; ?>;
+        --poll-bagckround-image: <?php echo !empty($options['bg_image']) ? "url(" . $options['bg_image'] . ")" : "unset"; ?>;
+        --poll-icons-size: <?php echo absint($options['icon_size']) >= 10 ? absint($options['icon_size']) : 24; ?>px;
+        --poll-display-title: <?php echo $poll['show_title'] ? "block" : "none"; ?>;
+        --poll-display-image-box: <?php echo !empty($poll['image']) ? "block" : "none"; ?>;
 
     }
 
@@ -2305,18 +2310,32 @@ $emoji = array(
                                                         name="ays_poll_enable_answer_style" <?= ($options['enable_answer_style'] == 'on') ? 'checked' : ''; ?>>
                                                     <label for="ays_poll_enable_answer_style" class="ays_switch_toggle">Toggle</label>
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style"
-                                                        style="margin-top: 10px; padding-top: 10px; <?= ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
+                                                        style="margin-top: 10px; padding-top: 10px; <?php echo ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
                                                         <label for="ays-poll-box-shadow-color">
-                                                            <?= __('Answers Background Color', "poll-maker") ?>
+                                                            <?php echo __('Answers Background Color', "poll-maker"); ?>
                                                             <a class="ays_help" data-toggle="tooltip"
-                                                            title="<?= __("Specify the background color of the answers' boxes.", "poll-maker") ?>">
+                                                            title="<?php echo __("Specify the background color of the answers' boxes.", "poll-maker"); ?>">
                                                                 <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                             </a>
                                                         </label>
                                                         <input type="text" class="ays-text-input" data-alpha="true"
                                                         id='ays-poll-answer-bg-color'
                                                         name='ays_poll_answer_bg_color'
-                                                        value="<?= isset($options['answer_bg_color']) && !empty($options['answer_bg_color']) ? $options['answer_bg_color'] : 'rgba(255,255,255,0)' ?>"/>
+                                                        value="<?php echo $answer_bg_color; ?>"/>
+                                                    </div>
+                                                    <div class="ays_toggle_target ays_divider_top ays_answer_style"
+                                                        style="margin-top: 10px; padding-top: 10px; <?php echo ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
+                                                        <label for="ays-poll-answer-hover-color">
+                                                            <?php echo __('Answer Hover Color', "poll-maker"); ?>
+                                                            <a class="ays_help" data-toggle="tooltip"
+                                                            title="<?php echo __('Specify the hover color of the answers when mouse is over them.', 'poll-maker'); ?>">
+                                                                <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                            </a>
+                                                        </label>
+                                                        <input type="text" class="ays-text-input" data-alpha="true"
+                                                        id='ays-poll-answer-hover-color'
+                                                        name='ays_poll_answer_hover_color'
+                                                        value="<?php echo $answer_hover_color; ?>"/>
                                                     </div>
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style" style="margin-top: 10px; padding-top: 10px; <?= ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
                                                         <div>

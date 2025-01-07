@@ -286,6 +286,7 @@
             'iconColor': '#0C6291',
             'bgColor': '#FBFEF9',
             'answerBgColor': '#FBFEF9',
+            'answerHoverColor': '#0C6291',
             'titleBgColor': 'rgba(255,255,255,0)',
             'borderColor': '#0C6291',
         },
@@ -298,6 +299,7 @@
             'iconColor': '#FBFEF9',
             'bgColor': '#222222',
             'answerBgColor': '#222222',
+            'answerHoverColor': '#FBFEF9',
             'titleBgColor': 'rgba(255,255,255,0)',
             'borderColor': '#FBFEF9',
         },
@@ -310,6 +312,7 @@
             'iconColor': '#999A9C',
             'bgColor'  : 'rgba(0,0,0,0)',
             'answerBgColor': 'rgba(0,0,0,0)',
+            'answerHoverColor': '#7a7a7a',
             'titleBgColor': 'rgba(255,255,255,0)',
             'borderColor': '#7a7a7a',
         },
@@ -727,45 +730,54 @@
         borderColorChange({
             color: themes[themeId].borderColor
         });
+        answerHoverColorChange({
+            color: themes[themeId].answerHoverColor
+        });
+
+        $('#ays-poll-text-color').wpColorPicker('color', themes[themeId].textColor);
         $('#ays-poll-text-color').parent().parent().prev().css({
             'background-color': themes[themeId].textColor
         });
-        $('#ays-poll-text-color').val(themes[themeId].textColor);
 
+        $('#ays-poll-button-text-color').wpColorPicker('color', themes[themeId].buttonTextColor);
         $('#ays-poll-button-text-color').parent().parent().prev().css({
             'color': themes[themeId].buttonTextColor
         });
+
+        $('#ays-poll-button-bg-color').wpColorPicker('color', themes[themeId].buttonBgColor);
         $('#ays-poll-button-bg-color').parent().parent().prev().css({
             'background-color': themes[themeId].buttonBgColor
         });
-        $('#ays-poll-button-text-color').val(themes[themeId].buttonTextColor);
-        
-        $('#ays-poll-button-bg-color').val(themes[themeId].buttonBgColor);
-            
+
+        $('#ays-poll-answer-hover-color').wpColorPicker('color', themes[themeId].answerHoverColor);
+        $('#ays-poll-answer-hover-color').closest('.wp-picker-input-wrap').prev().css({
+            'background-color': themes[themeId].answerHoverColor    
+        });
+
+        $('#ays-poll-main-color').wpColorPicker('color', themes[themeId].mainColor);
         $('#ays-poll-main-color').parent().parent().prev().css({
             'background-color': themes[themeId].mainColor
         });
-        $('#ays-poll-main-color').val(themes[themeId].mainColor);
 
+        $('#ays-poll-bg-color').wpColorPicker('color', themes[themeId].bgColor);
         $('#ays-poll-bg-color').parent().parent().prev().css({
             'background-color': themes[themeId].bgColor
         });
-        $('#ays-poll-bg-color').val(themes[themeId].bgColor);
 
+        $('#ays-poll-answer-bg-color').wpColorPicker('color', themes[themeId].answerBgColor);
         $('#ays-poll-answer-bg-color').parent().parent().prev().css({
             'background-color': themes[themeId].answerBgColor
         });
-        $('#ays-poll-answer-bg-color').val(themes[themeId].answerBgColor);
 
+        $('#ays-poll-title-bg-color').wpColorPicker('color', themes[themeId].titleBgColor);
         $('#ays-poll-title-bg-color').parent().parent().prev().css({ 
             'background-color': themes[themeId].titleBgColor
         });
-        $('#ays-poll-title-bg-color').val(themes[themeId].titleBgColor);
 
+        $('#ays-poll-icon-color').wpColorPicker('color', themes[themeId].iconColor);
         $('#ays-poll-icon-color').parent().parent().prev().css({
             'background-color': themes[themeId].iconColor
         });
-        $('#ays-poll-icon-color').val(themes[themeId].iconColor);
     }
 
     //checkTheme();
@@ -1014,6 +1026,13 @@
             answerBgColorChange(ui);
         }
     });
+    $(document).find('#ays-poll-answer-hover-color').wpColorPicker({
+        defaultColor: themes[themeId].answerHoverColor,
+        change: function(event, ui) {
+            $(this).wpColorPicker({defaultColor: themes[$('.apm_active_theme+input').val()].answerHoverColor});
+            answerHoverColorChange(ui);
+        }
+    });
     $(document).find('#ays-poll-title-bg-color').wpColorPicker({
         defaultColor: themes[themeId].titleBgColor,
         change: function(event, ui) {
@@ -1246,6 +1265,24 @@
         
     }
 
+    function answerHoverColorChange(ui) {
+        if (typeof ui == 'object') {
+            var color = ui.color.toString();
+        } else {
+            var color = ui;
+        }
+        
+        if (color == 'transparent' || !$(document).find('#ays_poll_enable_answer_style').prop("checked")) {
+            document.documentElement.style.setProperty('--theme-answer-hover-color', "initial");
+        } else {
+            document.documentElement.style.setProperty('--theme-answer-hover-color', color);
+            $('#ays-poll-answer-hover-color')
+                .attr('value', color)
+                .parents('.wp-picker-container')
+                .find('.color-alpha').css('background-color', color);
+        }
+    }
+
     function titleBgColorChange(ui) { //aray
         var color = ui.color.toString();
         document.documentElement.style.setProperty('--theme-title-bg-color', color);
@@ -1369,8 +1406,10 @@
     $(document).find('#ays_poll_enable_answer_style').on('change', function () {
         var checkboxProp = $(this).prop('checked');
         var color = $(this).prop('checked') ? $(document).find('#ays-poll-answer-bg-color').val() : "transparent";
+        var hoverColor = $(this).prop('checked') ? $(document).find('#ays-poll-answer-hover-color').val() : "#0C6291";
         var side = $(this).prop('checked') ? $(document).find('#ays-poll-border-side').val() : "none";
         answerBgColorChange(color);
+        answerHoverColorChange(hoverColor);
         answerBorderSideChange(side);
         refreshLivePreview(checkboxProp);
     });
@@ -2834,7 +2873,7 @@
 
         // var pollCountdownEndTime = pollLangObj.pollBannerDate;
         // var pollCountdownEndTime = "DEC 09, 2024 23:59:59";
-        var pollCountdownEndTime = "JAN 7, 2025 23:59:59";
+        var pollCountdownEndTime = "JAN 15, 2025 23:59:59";
         var countDown_new = new Date(pollCountdownEndTime).getTime();
         if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {
             var AYS_POLL_MILLISECONDS = 3 * day;
@@ -3058,6 +3097,11 @@
             'background-color': themes[themeId].answerBgColor
         });
         $(document).find('#ays-poll-answer-bg-color').val(themes[themeId].answerBgColor);
+
+        $(document).find('#ays-poll-answer-hover-color').closest('.wp-picker-input-wrap').prev().css({
+            'background-color': themes[themeId].answerHoverColor
+        });
+        $(document).find('#ays-poll-answer-hover-color').val(themes[themeId].answerHoverColor);
 
         $(document).find('#ays-poll-title-bg-color').parent().parent().prev().css({ 
             'background-color': themes[themeId].titleBgColor

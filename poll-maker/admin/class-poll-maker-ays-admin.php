@@ -568,7 +568,7 @@ class Poll_Maker_Ays_Admin {
 		$settings_link = array(
 			'<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', "poll-maker") . '</a>',
 			'<a href="https://poll-plugin.com/wordpress-poll-plugin-free-demo/" target="_blank">' . __('Demo', "poll-maker") . '</a>',			
-			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade 50% Sale', "poll-maker") . '</a><input type="hidden" id="ays_poll_maker_ajax_deactivate_plugin_nonce" name="ays_poll_maker_ajax_deactivate_plugin_nonce" value="' . $poll_ajax_deactivate_plugin_nonce .'">',
+			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade', "poll-maker") . '</a><input type="hidden" id="ays_poll_maker_ajax_deactivate_plugin_nonce" name="ays_poll_maker_ajax_deactivate_plugin_nonce" value="' . $poll_ajax_deactivate_plugin_nonce .'">',
 		);
 
 		return array_merge($settings_link, $links);
@@ -2064,13 +2064,13 @@ class Poll_Maker_Ays_Admin {
                         $content[] = '<div>';
 
                             $content[] = '<span class="ays-poll-christmas-top-bundle-title">';
-                                $content[] = __( "<span><a href='https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=christmas-sale-banner' class='ays-poll-christmas-top-bundle-title-link' target='_blank'>Christmas Sale</a></span>", "poll-maker" );
+                                $content[] = sprintf('<span><a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=christmas-sale-banner%s" class="ays-poll-christmas-top-bundle-title-link" target="_blank">%s</a></span>', $this->version, __('Christmas Sale', "poll-maker"));
                             $content[] = '</span>';
 
                             $content[] = '</br>';
 
                             $content[] = '<span class="ays-poll-christmas-top-bundle-desc">';
-                                $content[] = '<a class="ays-poll-christmas-top-bundle-desc" href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=christmas-sale-banner" class="ays-poll-christmas-top-bundle-title-link" target="_blank">';
+                                $content[] = sprintf('<a class="ays-poll-christmas-top-bundle-desc" href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=christmas-sale-banner%s" class="ays-poll-christmas-top-bundle-title-link" target="_blank">', $this->version);
                                     $content[] = __( "20% Extra OFF", "poll-maker" );
                                 $content[] = '</a>';
                             $content[] = '</span>';
@@ -2102,7 +2102,7 @@ class Poll_Maker_Ays_Admin {
                     $content[] = '</div>';
 
                     $content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-dicount-wrap-button-box">';
-                        $content[] = '<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=christmas-sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Get Your Deal', "poll-maker" ) . '</a>';
+                        $content[] = sprintf('<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=christmas-sale-banner%s" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">%s</a>', $this->version, __('Get Your Deal', "poll-maker"));
                         $content[] = '<span class="ays-poll-dicount-one-time-text">';
                             $content[] = __( "One-time payment", "poll-maker" );
                         $content[] = '</span>';
@@ -2596,6 +2596,7 @@ class Poll_Maker_Ays_Admin {
 			"icon_color" 					=> "#0C6291",
 			"bg_color" 						=> "#FBFEF9",
 			"answer_bg_color" 				=> "#FBFEF9",
+			"answer_hover_color" 			=> "#0C6291",
 			"answer_border_side" 			=> "all_sides",
 			"title_bg_color" 				=> "",
 			"icon_size" 					=> 24,

@@ -268,14 +268,15 @@ class Polls_List_Table extends WP_List_Table {
 				}
 			}
 
-			$theme_id                  = absint($data['ays_poll_theme']);
-			$main_color              = sanitize_text_field($data['ays_poll_main_color']);
-			$text_color              = sanitize_text_field($data['ays_poll_text_color']);
-			$button_text_color       = sanitize_text_field($data['ays_poll_button_text_color']);
-			$button_bg_color       	 = sanitize_text_field($data['ays_poll_button_bg_color']);
-			$icon_color              = sanitize_text_field($data['ays_poll_icon_color']);
-			$bg_color                = sanitize_text_field($data['ays_poll_bg_color']);
-			$answer_bg_color         = sanitize_text_field($data['ays_poll_answer_bg_color']);
+			$theme_id = isset($data['ays_poll_theme']) ? absint($data['ays_poll_theme']) : 1;
+			$main_color = isset($data['ays_poll_main_color']) ? sanitize_text_field($data['ays_poll_main_color']) : '#000000';
+			$text_color = isset($data['ays_poll_text_color']) ? sanitize_text_field($data['ays_poll_text_color']) : '#000000';
+			$button_text_color = isset($data['ays_poll_button_text_color']) ? sanitize_text_field($data['ays_poll_button_text_color']) : '#ffffff';
+			$button_bg_color = isset($data['ays_poll_button_bg_color']) ? sanitize_text_field($data['ays_poll_button_bg_color']) : '#000000';
+			$icon_color = isset($data['ays_poll_icon_color']) ? sanitize_text_field($data['ays_poll_icon_color']) : '#000000';
+			$bg_color = isset($data['ays_poll_bg_color']) ? sanitize_text_field($data['ays_poll_bg_color']) : '#ffffff';
+			$answer_bg_color = isset($data['ays_poll_answer_bg_color']) ? sanitize_text_field($data['ays_poll_answer_bg_color']) : '#FBFEF9';
+			$answer_hover_color = isset($data['ays_poll_answer_hover_color']) ? sanitize_text_field($data['ays_poll_answer_hover_color']) : $text_color;
 			$answer_border_side      = isset($data['ays_poll_border_side']) ? sanitize_text_field($data['ays_poll_border_side']) : 'all_sides';
 			$bg_image = isset($data['ays_poll_bg_image']) && $data['ays_poll_bg_image'] != '' ? sanitize_url($data['ays_poll_bg_image']): '';
 			// if ($bg_image != '') {
@@ -686,6 +687,7 @@ class Polls_List_Table extends WP_List_Table {
 				'bg_image'                          => $bg_image,
 				'enable_answer_style'               => $enable_answer_style,
 				'answer_bg_color'                   => $answer_bg_color,
+				'answer_hover_color'                => $answer_hover_color,
 				'answer_border_side'                => $answer_border_side,
 				"answer_font_size"			        => $poll_answer_font_size,
 				"poll_answer_font_size_mobile"		=> $poll_answer_font_size_mobile,
