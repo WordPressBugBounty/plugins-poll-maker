@@ -568,7 +568,7 @@ class Poll_Maker_Ays_Admin {
 		$settings_link = array(
 			'<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', "poll-maker") . '</a>',
 			'<a href="https://poll-plugin.com/wordpress-poll-plugin-free-demo/" target="_blank">' . __('Demo', "poll-maker") . '</a>',			
-			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade', "poll-maker") . '</a><input type="hidden" id="ays_poll_maker_ajax_deactivate_plugin_nonce" name="ays_poll_maker_ajax_deactivate_plugin_nonce" value="' . $poll_ajax_deactivate_plugin_nonce .'">',
+			'<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=plugins-buy-now-button" class="ays-poll-upgrade-plugin-btn" style="font-weight:bold;color:#01A32A;" target="_blank">' . __('Upgrade 50% Sale', "poll-maker") . '</a><input type="hidden" id="ays_poll_maker_ajax_deactivate_plugin_nonce" name="ays_poll_maker_ajax_deactivate_plugin_nonce" value="' . $poll_ajax_deactivate_plugin_nonce .'">',
 		);
 
 		return array_merge($settings_link, $links);
@@ -1463,7 +1463,7 @@ class Poll_Maker_Ays_Admin {
 					$ays_poll_flag += $ays_poll_two_months_flag;
 					if($ays_poll_flag == 0){
 						$ays_poll_sale_message = 'ays_poll_sale_message_'.$sale;
-						$this->ays_poll_christmas_top_message_2024();
+						$this->ays_poll_sale_message_poll_pro();
 					}
 				}
 			}
@@ -1774,7 +1774,7 @@ class Poll_Maker_Ays_Admin {
 				$content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-dicount-wrap-text-box">';
 					$content[] = '<div>';
 						$content[] = '<span class="ays-poll-new-poll-pro-title">';
-							$content[] = __( "<span>Limited time 50% SALE on <a href='https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=sale-banner' target='_blank' style='color:#ffffff; text-decoration: underline;'>Poll Maker</a></span>", "poll-maker" );
+							$content[] = sprintf('<span>%s <a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=sale-banner%s" target="_blank" style="color:#ffffff; text-decoration: underline;">Poll Maker</a></span>', __("Limited time 50% SALE on", "poll-maker"), $this->version);
 						$content[] = '</span>';
 						$content[] = '</br>';
 						$content[] = '<div class="ays-poll-new-poll-pro-mobile-image-display-block display_none">';
@@ -1838,7 +1838,7 @@ class Poll_Maker_Ays_Admin {
 				$content[] = '</div>';
 
 				$content[] = '<div class="ays-poll-dicount-wrap-box ays-poll-dicount-wrap-button-box">';
-					$content[] = '<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=sale-banner" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">' . __( 'Buy Now', "poll-maker" ) . '</a>';
+					$content[] = sprintf('<a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=sale-banner%s" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank">%s</a>', $this->version, __('Buy Now', "poll-maker"));
 					$content[] = '<span class="ays-poll-dicount-one-time-text">';
 						$content[] = __( "One-time payment", "poll-maker" );
 					$content[] = '</span>';
@@ -2628,11 +2628,13 @@ class Poll_Maker_Ays_Admin {
 			"poll_show_social_vk" 			=> "off",
 			"enable_social_links" 			=> "off",
 			"poll_social_links_heading" 	=> "",
-			"social_links" => array("linkedin_link" => "",
+			"social_links" => array(
+				"linkedin_link" 	=> "",
 				"facebook_link" 	=> "",
 				"twitter_link" 		=> "",
 				"vkontakte_link" 	=> "",
-				"youtube_link" 		=> ""),
+				"youtube_link" 		=> ""
+			),
 			"load_effect" 					=> "load_gif",
 			"load_gif" 						=> "plg_pro1",
 			"custom_load" 					=> false,
@@ -2643,43 +2645,43 @@ class Poll_Maker_Ays_Admin {
 			"redirection_delay" 			=> 0,
 			"user_role" 					=> "",
 			"enable_restriction_pass" 		=> 0,
-			"restriction_pass_message" => "<p>You don\\'t have permissions for passing the poll<\/p>\n",
-			"enable_logged_users" => 0,
-			"enable_logged_users_message" => "<p>You must sign in for passing the poll<\/p>\n",
-			"notify_email_on" => 0,
-			"notify_email" => "",
-			"published" => 1,
-			"enable_pass_count" => "on",
-			"result_sort_type" => "none",
-			"create_date" => $create_date,
-			"redirect_users" => 0,
-			"redirect_after_vote_url" => false,
-			"redirect_after_vote_delay" => 0,
-			"activeInterval" => "2022-09-17",
-			"deactiveInterval" => "2022-09-17",
-			"activeIntervalSec" => "",
-			"deactiveIntervalSec" => "",
-			"active_date_message" => "<p>The poll has expired!<\/p>\n",
-			"active_date_message_soon" => "<p style=\\\"text-align =>  center;\\\">The poll will be available soon!<\/p>\n",
-			"vote_reason" => 0,
-			"show_chart_type" => "google_bar_chart",
-			"active_date_check" => "",
-			"enable_restart_button" => $enable_restart_button,
-			"enable_vote_btn" => 1,
-			"show_votes_count" => 1,
-			"attempts_count" => "1",
-			"poll_main_url" => '',
-			"show_create_date" => $show_creation_date,
-			"show_author" => $show_author,
-			"author" => $author,
-			"show_res_percent" => 1,
-			"show_result_btn_schedule" => 0,
-			"ays_poll_show_timer" => 0,
-			"show_bottom_timer" => 0,
-			"ays_show_timer_type" => "countdown",
-			"show_login_form" => "off",
-			"poll_allow_answer" => 0,
-			"poll_allow_answer_require" => 1,
+			"restriction_pass_message" 		=> "<p>You don\\'t have permissions for passing the poll<\/p>\n",
+			"enable_logged_users" 			=> 0,
+			"enable_logged_users_message"   => "<p>You must sign in for passing the poll<\/p>\n",
+			"notify_email_on" 				=> 0,
+			"notify_email" 					=> "",
+			"published" 					=> 1,
+			"enable_pass_count" 			=> "on",
+			"result_sort_type" 				=> "none",
+			"create_date" 					=> $create_date,
+			"redirect_users" 				=> 0,
+			"redirect_after_vote_url" 		=> false,
+			"redirect_after_vote_delay" 	=> 0,
+			"activeInterval" 				=> "2022-09-17",
+			"deactiveInterval" 				=> "2022-09-17",
+			"activeIntervalSec" 			=> "",
+			"deactiveIntervalSec" 			=> "",
+			"active_date_message" 			=> "<p>The poll has expired!<\/p>\n",
+			"active_date_message_soon" 		=> "<p style=\\\"text-align =>  center;\\\">The poll will be available soon!<\/p>\n",
+			"vote_reason" 					=> 0,
+			"show_chart_type" 				=> "google_bar_chart",
+			"active_date_check" 			=> "",
+			"enable_restart_button" 		=> $enable_restart_button,
+			"enable_vote_btn" 				=> 1,
+			"show_votes_count" 				=> 1,
+			"attempts_count" 				=> "1",
+			"poll_main_url" 				=> '',
+			"show_create_date" 				=> $show_creation_date,
+			"show_author" 					=> $show_author,
+			"author" 						=> $author,
+			"show_res_percent" 				=> 1,
+			"show_result_btn_schedule"	 	=> 0,
+			"ays_poll_show_timer" 			=> 0,
+			"show_bottom_timer" 			=> 0,
+			"ays_show_timer_type" 			=> "countdown",
+			"show_login_form" 				=> "off",
+			"poll_allow_answer" 			=> 0,
+			"poll_allow_answer_require" 	=> 1,
 			"versus_icon_type" => "default",
 			"versus_icon_position" => "center",
 			"versus_answers_label" => 0,

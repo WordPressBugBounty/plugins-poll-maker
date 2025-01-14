@@ -4811,7 +4811,7 @@ div#ays-poll-dicount-black-friday-month-main.ays_poll_dicount_info  {
 
 /* 2024 | Christmas top banner | Start */
 
-div#ays-poll-christmas-top-bundle-dicount-month-main {
+/* div#ays-poll-christmas-top-bundle-dicount-month-main {
     border: 0;
     background: #FFF;
     border-radius: 20px;
@@ -5332,7 +5332,7 @@ div#ays-poll-christmas-top-bundle-dicount-month-main button.notice-dismiss:befor
         flex-wrap: wrap;
         justify-content: space-around;
     }
-}
+} */
 /* 2024 | Christmas top banner | End */
 
 
@@ -7054,7 +7054,7 @@ div#ays-poll-dicount-christmas-month-main #ays-poll-maker-countdown-main-contain
 /* Christmas banner main page | End */
 
 /* New Mega Bundle Banner Poll | Start */
-/* 
+ 
 div#ays-poll-dicount-month-main {
     border: 0;
     background: #FFF;
@@ -7495,7 +7495,7 @@ div#ays-poll-dicount-month-main button.notice-dismiss:before{
     div#ays-poll-dicount-month-main .ays-poll-dicount-wrap-box.ays-poll-dicount-wrap-countdown-box {
         width: 35%;
     }
-}  */
+}  
 /* New Mega Bundle Banner Poll | End */
 
 
