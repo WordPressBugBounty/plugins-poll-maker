@@ -1359,7 +1359,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                     </label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <div class="d-flex">
+                                    <div class="d-flex ays-poll-show-result-view-type">
                                         <div class="form-check form-check-inline ays_poll_loader">
                                             <label class="form-check-label ays_poll_check_label"
                                                     for="ays_poll_show_res_standart"> <?= __('Bar Chart', "poll-maker"); ?> </label>

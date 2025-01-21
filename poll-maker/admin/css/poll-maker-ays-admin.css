@@ -2177,11 +2177,7 @@ div.col.ays-poll-styles-page-main-container { /* conflict with WP Phlox theme */
         margin-left: 15px;
     }
     
-    .ays-poll-general-settings-form .d-flex {
-        flex-direction: column;
-        gap: 10px;
-        max-width: 200px;
-    }
+
 }
 
 /*
@@ -2321,8 +2317,7 @@ p.ays-subtitle {
 /*aray*/
 .ays-poll-sel-fields, .ays-poll-req-fields {
     padding: 20px 0;
-    display: flex;
-    flex-direction: column;
+
 }
 
 .ays-poll-sel-fields .ays-poll-check-box.mr-2,
@@ -2484,7 +2479,12 @@ blockquote.ays_poll_warning_triangle i {
         width: 30px;
         height: 25px;
     }
-
+    .ays-poll-sel-fields{
+        flex-direction: column;
+        gap: 10px;
+        max-width: 200px;
+    }
+    
     .apm-loader {
         width: 60px;
         padding: 10px 2.5px;
@@ -3183,7 +3183,11 @@ div.pro-features-popup-conteiner {
     div.ays_save_default_button_box {
         display: block;
     }
-
+    .ays-poll-show-result-view-type{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 /*PRO features popup | end*/

@@ -4347,17 +4347,46 @@ $emoji = array(
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <div style="margin-bottom: 10px;">
-                                                        <input type="checkbox" id="ays_see_result_show" name="ays_see_result_show" class="ays_poll_show_hide_button" value="on" <?php echo $poll_see_result_button; ?>>
-                                                    </div>
-                                                    <div class="col-sm-9 ays-poll-sel-fields  p-0 <?php echo $poll_see_result_button_cont; ?>" id="ays_poll_show_hide_button" >
-                                                        <div class="ays-poll-check-box mr-2">
-                                                            <input type="radio" id="ays_see_result_button_show" name="ays_poll_see_result_show" class="ays_poll_show_hide_button" value="ays_see_result_button" <?php echo $poll_see_result_botton_show?>>
-                                                            <label for="ays_see_result_button_show" class="form-check-label"><?= __('After clicking on the button', "poll-maker"); ?></label>
+                                                    <div class="row">
+                                                        <div class="col-sm-2 d-flex align-items-center" style="margin-bottom: 0.75rem;">
+                                                            <input type="checkbox" id="ays_see_result_show" 
+                                                                name="ays_see_result_show" 
+                                                                class="ays_poll_show_hide_button" 
+                                                                value="on" <?php echo $poll_see_result_button; ?>>
                                                         </div>
-                                                        <div class="ays-poll-check-box mr-2">
-                                                            <input type="radio" id="ays_see_result_button_hide" name="ays_poll_see_result_show" class="ays_poll_show_hide_button" value="ays_see_result_immediately" <?php echo $poll_see_result_immediately?>>
-                                                            <label for="ays_see_result_button_hide" class="form-check-label"><?= __('Directly', "poll-maker"); ?></label>
+
+                                                        <div class="col-sm-10" id="ays_poll_show_hide_button">
+                                                            <div class="row <?php echo $poll_see_result_button_cont; ?>">
+                                                                <div class="col-sm-6">
+                                                                    <div class="ays-poll-check-box d-flex align-items-center" 
+                                                                        style="padding: 8px; border: 1px solid #ccc; margin-bottom: 0.75rem;">
+                                                                        <input type="radio" 
+                                                                            id="ays_see_result_button_show"
+                                                                            name="ays_poll_see_result_show" 
+                                                                            class="ays_poll_show_hide_button mr-2"
+                                                                            value="ays_see_result_button" 
+                                                                            <?php echo $poll_see_result_botton_show ?>>
+                                                                        <label for="ays_see_result_button_show" class="form-check-label">
+                                                                            <?= __('After clicking on the button', "poll-maker"); ?>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="ays-poll-check-box d-flex align-items-center" 
+                                                                        style="padding: 8px; border: 1px solid #ccc; margin-bottom: 0.75rem;">
+                                                                        <input type="radio"
+                                                                            id="ays_see_result_button_hide" 
+                                                                            name="ays_poll_see_result_show"
+                                                                            class="ays_poll_show_hide_button mr-2" 
+                                                                            value="ays_see_result_immediately"
+                                                                            <?php echo $poll_see_result_immediately ?>>
+                                                                        <label for="ays_see_result_button_hide" class="form-check-label">
+                                                                            <?= __('Directly', "poll-maker"); ?>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -4838,7 +4867,7 @@ $emoji = array(
                                             <hr>
                                         </div>
                                         <div>
-                                            <div class="ays-poll-req-fields d-flex">
+                                            <div class="ays-poll-sel-fields d-flex">
                                                 <?php foreach ( $all_fields as $field ): ?>
                                                     <div class="ays-poll-check-box mr-2"
                                                         id="ays-poll-box-rfield-<?= $field['slug']; ?>" <?= (array_search($field['slug'],
