@@ -717,6 +717,7 @@
             method:'post',
             data: data,
             success: function(res) {
+                form.find(".ays-poll-vote-reason").hide();
                 var answers_sounds = $("#"+formId).parent().find('.ays_poll_ans_sound').get(0);
                 if(answers_sounds){
                     setTimeout(function() {

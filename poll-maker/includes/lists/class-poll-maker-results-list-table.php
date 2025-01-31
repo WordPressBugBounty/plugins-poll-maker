@@ -31,16 +31,25 @@ class Pma_Results_List_Table extends WP_List_Table {
 
 		global $wpdb;
 
-		$sql = "SELECT
-        {$wpdb->prefix}ayspoll_polls.id,
-		SUM({$wpdb->prefix}ayspoll_answers.votes) AS voted,
-		{$wpdb->prefix}ayspoll_answers.poll_id,
-        {$wpdb->prefix}ayspoll_polls.categories
-        FROM
-        {$wpdb->prefix}ayspoll_answers 
-        INNER JOIN 
-		{$wpdb->prefix}ayspoll_polls
-        ON {$wpdb->prefix}ayspoll_answers.poll_id = {$wpdb->prefix}ayspoll_polls.id ";
+		if (isset($_SERVER['HTTP_HOST']) && sanitize_text_field($_SERVER['HTTP_HOST']) == "playground.wordpress.net") {
+			$sql = "SELECT 
+				{$wpdb->prefix}ayspoll_polls.id,
+				SUM(CAST({$wpdb->prefix}ayspoll_answers.votes AS INTEGER)) AS voted,
+				{$wpdb->prefix}ayspoll_answers.poll_id,
+				{$wpdb->prefix}ayspoll_polls.categories
+				FROM {$wpdb->prefix}ayspoll_answers 
+				INNER JOIN {$wpdb->prefix}ayspoll_polls
+				ON {$wpdb->prefix}ayspoll_answers.poll_id = {$wpdb->prefix}ayspoll_polls.id ";
+		} else {
+			$sql = "SELECT
+				{$wpdb->prefix}ayspoll_polls.id,
+				SUM({$wpdb->prefix}ayspoll_answers.votes) AS voted,
+				{$wpdb->prefix}ayspoll_answers.poll_id,
+				{$wpdb->prefix}ayspoll_polls.categories
+				FROM {$wpdb->prefix}ayspoll_answers 
+				INNER JOIN {$wpdb->prefix}ayspoll_polls
+				ON {$wpdb->prefix}ayspoll_answers.poll_id = {$wpdb->prefix}ayspoll_polls.id ";
+		}
 
 		if (isset($_REQUEST['orderbypoll']) && $_REQUEST['orderbypoll'] > 0) {
 			$poll_id = absint(sanitize_text_field( $_REQUEST['orderbypoll'] ));
@@ -56,6 +65,7 @@ class Pma_Results_List_Table extends WP_List_Table {
 		$sql .= "GROUP BY {$wpdb->prefix}ayspoll_answers.poll_id";
 		if (!empty($_REQUEST['orderby'])) {
 			$order_by = ( isset( $_REQUEST['orderby'] ) && sanitize_text_field( $_REQUEST['orderby'] ) != '' ) ? sanitize_text_field( $_REQUEST['orderby'] ) : 'id';
+			$order_by = str_replace('id', $wpdb->prefix . 'ayspoll_polls.id', $order_by);
 			$order_by .= ( ! empty( $_REQUEST['order'] ) && strtolower( $_REQUEST['order'] ) == 'asc' ) ? ' ASC' : ' DESC';
 
 			$sql_orderby = sanitize_sql_orderby($order_by);
@@ -63,10 +73,10 @@ class Pma_Results_List_Table extends WP_List_Table {
             if ( $sql_orderby ) {
                 $sql .= ' ORDER BY ' . $sql_orderby;
             } else {
-                $sql .= ' ORDER BY id DESC';
+                $sql .= ' ORDER BY ' . $wpdb->prefix . 'ayspoll_polls.id DESC';
             }
 		} else {
-			$sql .= ' ORDER BY id DESC';
+			$sql .= ' ORDER BY ' . $wpdb->prefix . 'ayspoll_polls.id DESC';
 		}
 
 		$sql .= " LIMIT %d";
@@ -162,9 +172,18 @@ class Pma_Results_List_Table extends WP_List_Table {
 			)
 		);
 	
-		$sql = "DELETE r FROM {$wpdb->prefix}ayspoll_reports as r
-            JOIN {$wpdb->prefix}ayspoll_answers ON {$wpdb->prefix}ayspoll_answers.id = r.answer_id
-            WHERE {$wpdb->prefix}ayspoll_answers.poll_id = $id";
+		if (isset($_SERVER['HTTP_HOST']) && sanitize_text_field($_SERVER['HTTP_HOST']) == "playground.wordpress.net") {
+			$sql = "DELETE FROM {$wpdb->prefix}ayspoll_reports 
+					WHERE answer_id IN (
+						SELECT id FROM {$wpdb->prefix}ayspoll_answers 
+						WHERE poll_id = $id
+					)";
+		} else {
+			$sql = "DELETE r FROM {$wpdb->prefix}ayspoll_reports as r
+					JOIN {$wpdb->prefix}ayspoll_answers ON {$wpdb->prefix}ayspoll_answers.id = r.answer_id
+					WHERE {$wpdb->prefix}ayspoll_answers.poll_id = $id";
+		}
+		
 		$res = $wpdb->query($sql);
 
 		return $res > 0;

@@ -275,22 +275,19 @@ class Pma_Categories_List_Table extends WP_List_Table {
 	}
 
 	function column_polls( $item ) {
-        global $wpdb;
-        $polls_table    = $wpdb->prefix ."ayspoll_polls";
-        $categories_table = $wpdb->prefix . "ayspoll_categories";
+		global $wpdb;
+		$polls_table = $wpdb->prefix . "ayspoll_polls";
+		$categories_table = $wpdb->prefix . "ayspoll_categories";
 
-        $sql = "SELECT COUNT(*)
-                FROM " . $categories_table . " c
-                JOIN " . $polls_table . " p
-                    ON FIND_IN_SET(c.id, p.categories )
-                WHERE c.id = " . esc_sql( absint( $item['id'] ) );
-        $result = $wpdb->get_var($sql);
-        
-        if ( isset($result) && $result > 0 ) {
-            $result = sprintf( '<a href="?page=%s&filterby=%d" target="_blank">%s</a>', 'poll-maker-ays', $item['id'], $result );
-        }
+		$sql = "SELECT COUNT(*) FROM " . $polls_table . " p WHERE p.categories LIKE '%," . esc_sql(absint($item['id'])) . ",%' OR p.categories LIKE '" . esc_sql(absint($item['id'])) . ",%' OR p.categories LIKE '%," . esc_sql(absint($item['id'])) . "' OR p.categories = '" . esc_sql(absint($item['id'])) . "'";
+		
+		$result = $wpdb->get_var($sql);
+		
+		if ( isset($result) && $result > 0 ) {
+			$result = sprintf( '<a href="?page=%s&filterby=%d" target="_blank">%s</a>', 'poll-maker-ays', $item['id'], $result );
+		}
 
-        return "<p style='font-size:14px;'>" . $result . "</p>";
+		return "<p style='font-size:14px;'>" . $result . "</p>";
 	}
 
 	/**

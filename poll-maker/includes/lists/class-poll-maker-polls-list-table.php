@@ -1842,9 +1842,13 @@ class Polls_List_Table extends WP_List_Table {
         $sql = "SELECT COUNT(*) FROM {$wpdb->prefix}ayspoll_polls";
 
         if (isset($_GET['filterby']) && absint(intval($_GET['filterby'])) > 0) {
-			$cat_id = absint(intval($_GET['filterby']));
-        	$sql .= " WHERE FIND_IN_SET('{$cat_id}', categories) > 0";
-		}
+            $cat_id = absint(intval($_GET['filterby']));
+            if (isset($_SERVER['HTTP_HOST']) && sanitize_text_field($_SERVER['HTTP_HOST']) == "playground.wordpress.net") {
+                $sql .= " WHERE categories LIKE '%," . $cat_id . ",%' OR categories LIKE '" . $cat_id . ",%' OR categories LIKE '%," . $cat_id . "' OR categories = '" . $cat_id . "'";
+            } else {
+                $sql .= " WHERE FIND_IN_SET('{$cat_id}', categories) > 0";
+            }
+        }
 
         return $wpdb->get_var( $sql );
     }
@@ -1860,7 +1864,11 @@ class Polls_List_Table extends WP_List_Table {
 
 		if (isset($_GET['filterby']) && absint(intval($_GET['filterby'])) > 0) {
 			$cat_id = absint(intval($_GET['filterby']));
-        	$sql .= " WHERE FIND_IN_SET('{$cat_id}', categories) > 0";
+			if (isset($_SERVER['HTTP_HOST']) && sanitize_text_field($_SERVER['HTTP_HOST']) == "playground.wordpress.net") {
+				$sql .= " WHERE categories LIKE '%," . $cat_id . ",%' OR categories LIKE '" . $cat_id . ",%' OR categories LIKE '%," . $cat_id . "' OR categories = '" . $cat_id . "'";
+			} else {
+				$sql .= " WHERE FIND_IN_SET('{$cat_id}', categories) > 0";
+			}
 		}
 
 		$results = $wpdb->get_results($sql, ARRAY_A);
@@ -1888,7 +1896,11 @@ class Polls_List_Table extends WP_List_Table {
 
 		if (isset($_GET['filterby']) && absint(intval($_GET['filterby'])) > 0) {
 			$cat_id = absint(intval($_GET['filterby']));
-        	$sql .= " WHERE FIND_IN_SET('{$cat_id}', categories) > 0";
+			if (isset($_SERVER['HTTP_HOST']) && sanitize_text_field($_SERVER['HTTP_HOST']) == "playground.wordpress.net") {
+				$sql .= " WHERE categories LIKE '%," . $cat_id . ",%' OR categories LIKE '" . $cat_id . ",%' OR categories LIKE '%," . $cat_id . "' OR categories = '" . $cat_id . "'";
+			} else {
+				$sql .= " WHERE FIND_IN_SET('{$cat_id}', categories) > 0";
+			}
 		}
 
 		$results = $wpdb->get_results($sql, ARRAY_A);

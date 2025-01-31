@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.7.1
-Stable tag: 5.6.3
+Stable tag: 5.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -352,6 +352,10 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.6.4 =
+* Fixed: Vote reason displaying issue on results page
+* Fixed: Code correction for Live Preview mode
 
 = 5.6.3 =
 * Fixed: Some responsive styles on the admin dashboard
