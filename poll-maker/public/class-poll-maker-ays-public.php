@@ -398,11 +398,38 @@ class Poll_Maker_Ays_Public {
 					}
 					switch ($polls['type']) {
 						case 'choosing':
-							$content .= '<div class="answer-title flex-apm">
-											<span class="answer-text">'.stripslashes($ans_val['answer']).'</span>
-											<span class="answer-votes">'.$ans_val['votes'].'</span>
+							$answer_image = isset($ans_val['answer_img']) && $ans_val['answer_img'] != '' ? sanitize_url($ans_val['answer_img']) : '';
+							$answer_image_box = "<div class='ays-poll-answers-image-box-empty-image'></div>";
+							$answer_image_is_empty_class = "ays-poll-answers-box-no-image";
+							if($answer_image != ""){
+								$answer_image_is_empty_class = "ays-poll-answers-box";
+								$answer_image_box = "<div class='ays-poll-answers-image-box'><img src=" . $answer_image . " class='ays-poll-answers-current-image'></div>";
+							}
+							$content .= ' 
+							
+							<div class=' . $answer_image_is_empty_class. '>
+							'. $answer_image_box . ' 
+								<div class="ays-poll-answer-text-and-percent-box">
+									<div class="answer-title flex-apm">
+										<span class="answer-text">'.stripslashes($ans_val['answer']).'</span>
+									</div>
+									<div class="progress-bar-container">
+										<div class="answer-percent-res" 
+											style="width: '.$percent.'%; 
+												background-color: '.$polls_options['main_color'].';
+												height: 20px;
+												border-radius: 4px;
+												transition: width 0.3s ease;
+												display: flex;
+												align-items: center;
+												padding-left: 8px;
+												padding-right: 13px;
+												color: '.$polls_options['bg_color'].';">
+											'.($percent == 0 ? '' : $percent.'%').'
 										</div>
-										<div class="answer-percent" style="width: '.$percent.'%; background-color: '.$polls_options['main_color'].'; color: '.$polls_options['bg_color'].';">'.$perc_cont.'</div>';
+									</div>
+								</div>
+							</div>';
 							break;
 
 						case 'rating':
@@ -3702,8 +3729,8 @@ class Poll_Maker_Ays_Public {
 		$polls_options = $poll['styles'];
 		
 		
-		$poll_answer_sorting = isset($polls_options['result_sort_type']) && $polls_options['result_sort_type'] != "none" ? $polls_options['result_sort_type'] : "ASC";
-		$ans_sql  = "SELECT * FROM ".$answ_table." WHERE poll_id =%d ORDER BY votes ".$poll_answer_sorting;
+		// $poll_answer_sorting = isset($polls_options['result_sort_type']) && $polls_options['result_sort_type'] != "none" ? $polls_options['result_sort_type'] : "ASC";
+		$ans_sql  = "SELECT * FROM ".$answ_table." WHERE poll_id =%d ORDER BY id ASC";
 		$poll_answers = $wpdb->get_results(
 			   	  	$wpdb->prepare( $ans_sql, $id),
 			   	  	'ARRAY_A'
@@ -3772,6 +3799,7 @@ class Poll_Maker_Ays_Public {
 				foreach ($poll_answers as $ans_key => $ans_val) {
 					$poll_avatars_content = "";
 					$poll_user_avatars = "";
+					$answer_img  = (isset( $ans_val['answer_img'] ) && $ans_val['answer_img'] != '') ? $ans_val['answer_img'] : "";
 					if(isset($ans_val["avatar"]) && !empty($ans_val["avatar"])){
 						$x = array_splice($ans_val["avatar"] , 0 ,$poll_avatars_count);
 						$poll_user_avatars = implode(" " , $x);
@@ -3789,7 +3817,7 @@ class Poll_Maker_Ays_Public {
 					$percent = round($one_percent*intval($ans_val['votes']));
 					if($poll_show_answer_perc){
 						if ($percent == 0) {
-							$perc_cont = '';
+							$perc_cont = '0 %';
 						}else{
 							$perc_cont = $percent.' %';
 						}
@@ -3801,12 +3829,29 @@ class Poll_Maker_Ays_Public {
 					}
 					switch ($polls['type']) {
 						case 'choosing':
+							$content .= "<div class='ays-poll-answers-box'>";
+							if($answer_img != ''){
+									$content .= "<div class='ays-poll-answers-image-box'>
+													
+														<img src='" . $answer_img ."' class='ays-poll-answers-current-image'>
+													
+												</div>";
+								} 
+                     
+                            $content .= '<div class="ays-poll-answer-text-and-percent-box">';
 							$content .= '<div class="answer-title flex-apm">
-											<span class="answer-text">'.stripslashes($ans_val['answer']).'</span>
-											<span class="answer-votes">'.$answer_votes_count.'</span>
-										</div>
-										'.$poll_avatars_content.'
-										<div class="answer-percent" style="width: '.$percent.'%; background-color: '.$poll_main_color.'; color: '.$poll_bg_color.';">'.$perc_cont.'</div>';
+								<span class="answer-text">' . stripslashes($ans_val['answer']) . '</span>
+							</div>
+							' . $poll_avatars_content . '
+							<div class="answer-percent-res" style="width: ' . ($percent == 0 ? '10' : $percent) . '%; 
+								border-radius: 20px; 
+								background-color: ' . $poll_main_color . '; 
+								color: ' . $poll_bg_color . '; 
+								padding-left: 10px;
+								font-size: 15px; 
+								text-align: left;">' . $perc_cont . '</div>';
+                            $content .= '</div>';
+                            $content .= '</div>';
 							break;
 
 						case 'rating':
