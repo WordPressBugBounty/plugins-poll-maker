@@ -403,16 +403,18 @@ class Pma_Results_List_Table extends WP_List_Table {
 			}
 
 		}
-
-		// If the delete bulk action is triggered
-		if ((isset($_POST['action']) && 'bulk-delete' == $_POST['action'])
-		    || (isset($_POST['action2']) && 'bulk-delete' == $_POST['action2'])
+	
+		// Process bulk-delete action
+		if ((isset($_POST['action']) && $_POST['action'] == 'bulk-delete')
+			|| (isset($_POST['action2']) && $_POST['action2'] == 'bulk-delete')
 		) {
-			$delete_ids = esc_sql($_POST['bulk-action']);
 
-			// loop over the array of record IDs and delete them
-			foreach ( $delete_ids as $id ) {
-				self::delete_reports($id);
+			if (!empty($_POST['bulk-action']) && is_array($_POST['bulk-action'])) {
+				$delete_ids = array_map('intval', $_POST['bulk-action']);
+	
+				foreach ($delete_ids as $id) {
+					self::delete_reports($id);
+				}
 			}
 
 			// esc_url_raw() is used to prevent converting ampersand in url to "#038;"
@@ -425,7 +427,7 @@ class Pma_Results_List_Table extends WP_List_Table {
 		          || (isset($_POST['action2']) && 'bulk-read' == $_POST['action2'])
 		) {
 
-			$read_ids = esc_sql($_POST['bulk-action']);
+			$read_ids = array_map('intval', $_POST['bulk-action']);
 
 			// loop over the array of record IDs and mark as readed them
 			foreach ( $read_ids as $id ) {

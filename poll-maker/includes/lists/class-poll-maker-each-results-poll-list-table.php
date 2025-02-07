@@ -508,13 +508,13 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 		if ((isset($_POST['action']) && $_POST['action'] == 'bulk-delete')
 		    || (isset($_POST['action2']) && $_POST['action2'] == 'bulk-delete')
 		) {
-			$delete_ids = esc_sql($_POST['bulk-action']);
-
-			// loop over the array of record IDs and delete them
-			foreach ( $delete_ids as $id ) {
-				self::delete_reports($id);
+			if (!empty($_POST['bulk-action']) && is_array($_POST['bulk-action'])) {
+				$delete_ids = array_map('intval', $_POST['bulk-action']); 
+	
+				foreach ($delete_ids as $id) {
+					self::delete_reports($id);
+				}
 			}
-
 			$message = 'deleted';
 			$url     = esc_url_raw(remove_query_arg(['action', 'result', '_wpnonce'])) . '&ays_poll_tab_results=tab2' . '&status=' . $message;
 			wp_redirect($url);
