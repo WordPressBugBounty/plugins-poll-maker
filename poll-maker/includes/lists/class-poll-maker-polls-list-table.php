@@ -540,13 +540,16 @@ class Polls_List_Table extends WP_List_Table {
 
 			// Buttons width
             $poll_buttons_width = (isset($data['ays_poll_buttons_width']) && sanitize_text_field( $data['ays_poll_buttons_width'] ) != "") ? sanitize_text_field( $data['ays_poll_buttons_width'] ) : '';
-
+			
+			// Buttons mobile width
+            $poll_buttons_mobile_width = (isset($data['ays_poll_buttons_mobile_width']) && sanitize_text_field( $data['ays_poll_buttons_mobile_width'] ) != "") ? sanitize_text_field( $data['ays_poll_buttons_mobile_width'] ) : $poll_buttons_width;
             // ==== ====
 			
 			// ==== Allow Answer options ====
 			// Allow custom answer
 			$poll_allow_answer = (isset($data['ays_poll_allow_add_answers']) && $data['ays_poll_allow_add_answers'] == "on") ? "on" : "off";
 			// Require admin approval
+
 			$poll_allow_answer_require = (isset($data['ays_poll_allow_answer_require']) && $data['ays_poll_allow_answer_require'] == "on") ? "on" : "off";
 
 			// ==== ====
@@ -735,6 +738,7 @@ class Polls_List_Table extends WP_List_Table {
                 'poll_buttons_top_bottom_padding'   => $poll_buttons_top_bottom_padding,
 				'poll_buttons_border_radius'        => $poll_buttons_border_radius,
 				'poll_buttons_width'         		=> $poll_buttons_width,
+				'poll_buttons_mobile_width'         => $poll_buttons_mobile_width,
                 "disable_answer_hover"              => $disable_answer_hover,
                 "logo_image"       			        => $poll_logo_image,
     			'poll_enable_logo_url'              => $poll_logo_image_url_check,

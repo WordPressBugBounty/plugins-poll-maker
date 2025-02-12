@@ -1096,7 +1096,9 @@ class Poll_Maker_Ays_Public {
         $buttons_border_radius      = isset($options['poll_buttons_border_radius']) && $options['poll_buttons_border_radius'] != '' ? esc_attr($options['poll_buttons_border_radius']) . 'px' : '3px';
         // Buttons width
         $buttons_width = isset($options['poll_buttons_width']) && $options['poll_buttons_width'] != '' ? esc_attr($options['poll_buttons_width']) . 'px' : 'auto';
-
+		// Buttons mobile width
+		$buttons_mobile_width = isset($options['poll_buttons_mobile_width']) && $options['poll_buttons_mobile_width'] != '' ? esc_attr($options['poll_buttons_mobile_width']) . 'px' : 'auto';
+		
 		// Poll View Type
         $answer_view_type_old = isset($options['poll_answer_view_type']) && $options['poll_answer_view_type'] != '' ? esc_attr($options['poll_answer_view_type']) : 'list';
         $answer_view_type = isset($poll['view_type']) && $poll['view_type'] != '' ? esc_attr($poll['view_type']) : $answer_view_type_old;
@@ -1745,6 +1747,10 @@ class Poll_Maker_Ays_Public {
 		@media only screen and (max-width: 768px){
 			#".$this_poll_id.".box-apm {
 				width: $poll_width_for_mobile;
+			}
+
+			#".$this_poll_id.".box-apm .ays-poll-btn{
+				width: ".$buttons_mobile_width.";
 			}
 
 			.$this_poll_id.box-apm .ays_question p{

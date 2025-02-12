@@ -247,7 +247,7 @@ switch ( $action ) {
             wp_safe_redirect($url);
         }
 
-		$options = array_merge($default_options, $poll['styles']);
+		$options = array_merge($default_options, (isset($poll['styles']) ? $poll['styles'] : array()));
 		break;
     default:
 		$url = esc_url_raw(remove_query_arg(array('action', 'poll')));
@@ -599,6 +599,9 @@ $poll_buttons_border_radius = (isset($options['poll_buttons_border_radius']) && 
 // Buttons Width
 $poll_buttons_width = (isset($options['poll_buttons_width']) && $options['poll_buttons_width'] != "") ? esc_attr($options['poll_buttons_width']) : '';
 
+// Buttons mobile width
+$poll_buttons_mobile_width = (isset($options['poll_buttons_mobile_width']) && $options['poll_buttons_mobile_width'] != "") ? esc_attr($options['poll_buttons_mobile_width']) : $poll_buttons_width;
+
 $poll_button_selected = isset($options['poll_buttons_size']) && $options['poll_buttons_size'] != "" ? esc_attr($options['poll_buttons_size']) : ""; 
 // ==== BUTTON STYLES END ====
 
@@ -808,6 +811,12 @@ $emoji = array(
 		border-radius: <?php echo $poll_buttons_border_radius; ?>px;
 		width:  <?php echo $poll_buttons_width; ?>px;
 	}
+
+    @media (max-width: 768px) {
+        input[type='button'].ays-poll-btn{
+            width: <?php echo $poll_buttons_mobile_width; ?>px;
+        }
+    }
 </style>
 <!--LIVE PREVIEW STYLES END-->
 <div class="wrap">
@@ -3029,10 +3038,37 @@ $emoji = array(
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-8 ays_divider_left">
-                                                    <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_buttons_width'name='ays_poll_buttons_width' value="<?php echo $poll_buttons_width; ?>"/>
-                                                    <span style="display:block;" class="ays_poll_small_hint_text"><?php echo __('For an initial width, leave the field blank.', "poll-maker"); ?></span>
-                                                </div><!-- Buttons width --> 
-                                            </div> <!-- Buttons Styles End -->
+                                                    <div>
+                                                        <div>
+                                                            <label for="ays_poll_buttons_width">
+                                                                <?php echo __('On desktop', "poll-maker"); ?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Define the width for PC devices.', "poll-maker"); ?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="number" class="ays-text-input ays-text-input-short" id="ays_poll_buttons_width" name="ays_poll_buttons_width" value="<?php echo $poll_buttons_width; ?>"/>
+                                                            <span style="display:block;" class="ays_poll_small_hint_text"><?php echo __('For an initial width, leave the field blank.', "poll-maker"); ?></span>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div>
+                                                        <div>
+                                                            <label for="ays_poll_buttons_mobile_width">
+                                                                <?php echo __('On mobile', "poll-maker"); ?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Define the width for mobile devices.', "poll-maker"); ?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <input type="number" class="ays-text-input ays-text-input-short" id="ays_poll_buttons_mobile_width" name="ays_poll_buttons_mobile_width" value="<?php echo $poll_buttons_mobile_width; ?>"/>
+                                                            <span style="display:block;" class="ays_poll_small_hint_text"><?php echo __('For an initial width, leave the field blank.', "poll-maker"); ?></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <hr/>
                                             <div class="form-group row">
                                                 <div class="col-sm-4">
