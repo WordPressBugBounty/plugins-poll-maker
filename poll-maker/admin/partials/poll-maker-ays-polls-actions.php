@@ -2693,7 +2693,7 @@ $emoji = array(
                                                                                 <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                                             </a>
                                                                         </label>
-                                                                        <input type="number" class="ays-text-input" id='ays_answers_border_width' name='ays_answers_border_width'
+                                                                        <input type="number" class="ays-text-input"
                                                                             value="" min="0"/>
                                                                     </div>
                                                                     <div class="col-sm-12 ays_toggle_target ays_divider_top" style="margin-top: 10px; padding-top: 10px;">
@@ -2703,7 +2703,7 @@ $emoji = array(
                                                                                 <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                                             </a>
                                                                         </label>
-                                                                        <select id="ays_answers_border_style" name="ays_answers_border_style" class="ays-text-input ays-select-short">
+                                                                        <select name="ays_answers_border_style" class="ays-text-input ays-select-short">
                                                                             <option>Solid</option>
                                                                         </select>
                                                                     </div>
@@ -3408,7 +3408,7 @@ $emoji = array(
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="checkbox" class="ays-enable-timer1" id="ays_poll_enable_copy_protection" />
+                                                <input type="checkbox" class="ays-enable-timer1" />
                                             </div>
                                         </div>
                                         <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
@@ -3437,7 +3437,7 @@ $emoji = array(
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="checkbox" class="ays-enable-timer1" id="ays_poll_question_text_to_speech"
+                                                <input type="checkbox" class="ays-enable-timer1"
                                                     name="ays_poll_question_text_to_speech"
                                                     value="on"/>
                                             </div>
@@ -3503,6 +3503,39 @@ $emoji = array(
                                     </div>
                                 </div>
                                 <hr class="ays_poll_option_only_for_choosing_type" style="display:  <?php echo ($poll['type'] == 'choosing') ? 'flex' : 'none' ?>">
+                                <div class="form-group row" style="margin-top:0px;margin-bottom:0;">
+                                    <div class="col-sm-12 only_pro" style="padding:10px 15px 0 15px;">
+                                        <div class="pro_features" style="justify-content:flex-end;">
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-3">
+                                                <label for="ays-poll-allow-edit">
+                                                    <?php echo __('Edit previous submission', "poll-maker") ?>
+                                                    <a class="ays_help ays-poll-zindex-for-pro-tooltip" data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        title="<?php echo __("By activating this option, the previous answers will be displayed and the user will be able to edit them. Note: This option will be available only for the logged-in users.", "poll-maker"); ?>">
+                                                        <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                    </a>
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <input type="checkbox" class="ays-enable-timer1"
+                                                    name="ays_edit_previous_submission"
+                                                    value="on"/>
+                                            </div>
+                                        </div>
+                                        <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
+                                            <div class="ays-poll-new-upgrade-button-box">
+                                                <div>
+                                                    <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>">
+                                                    <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
+                                                </div>
+                                                <div class="ays-poll-new-upgrade-button"><?php echo __("Upgrade", "poll-maker"); ?></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr>
                                 <div class="form-group row">
                                     <div class="col-sm-3">
                                         <label for='show-title'>
@@ -5802,6 +5835,36 @@ $emoji = array(
                                         </div>
                                     </div>
                                 </fieldset> <!-- Mailpoet -->
+                                <hr>
+                                <fieldset class="ays_poll_settings_integration_container">
+                                    <legend>
+                                        <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/recaptcha_logo.png" alt="">
+                                        <h5><?php echo __('reCAPTCHA Settings', "poll-maker") ?></h5>
+                                    </legend>
+                                    <div class="form-group row" style="margin:0;">
+                                        <div class="col-sm-12 only_pro" style="padding:10px 0 0 10px;">
+                                            <div class="pro_features" style="justify-content:flex-end;">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    <label for="ays_poll_enable_recaptcha"><?php echo __('Enable reCAPTCHA',"poll-maker"); ?></label>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <input type="checkbox" class="ays-enable-timer1" id="ays_poll_enable_recaptcha" name="ays_poll_enable_recaptcha" value="on" selected disabled >
+                                                </div>
+                                            </div>
+                                            <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
+                                                <div class="ays-poll-new-upgrade-button-box">
+                                                    <div>
+                                                        <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>">
+                                                        <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
+                                                    </div>
+                                                    <div class="ays-poll-new-upgrade-button"><?php echo __("Upgrade", "poll-maker"); ?></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </fieldset> <!-- reCaptcha Settings -->
                                 <hr>
                             </div>
                         </div>

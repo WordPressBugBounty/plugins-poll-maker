@@ -1454,7 +1454,7 @@ class Poll_Maker_Ays_Public {
 
         #".$this_poll_id.".box-apm .apm-choosing .ays-poll-each-answer-grid{            
 			width: 100%;
-			text-align: center;
+			text-align: left;
 			display: inline-block;
 			word-break: break-word;
         }

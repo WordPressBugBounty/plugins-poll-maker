@@ -1259,6 +1259,78 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 </div>
                             </div>
                         </fieldset> <!-- Klaviyo -->
+                        <hr>
+                        <fieldset>
+                            <legend>
+                                <img class="ays_integration_logo" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/integrations/recaptcha_logo.png" alt="">
+                                <h5><?php echo __('reCAPTCHA',"poll-maker")?></h5>
+                            </legend>
+                            <div class="form-group row" style="margin:0">
+                                <div class="col-sm-12 only_pro" style="padding:10px;">
+                                    <div class="pro_features" style="justify-content:flex-end;">
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label for="ays_poll_recaptcha_site_key"><?php echo __('reCAPTCHA v2 Site Key', "poll-maker")?></label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="ays-text-input" id="ays_poll_recaptcha_site_key">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label for="ays_poll_recaptcha_secret_key"><?php echo __('reCAPTCHA v2 Secret Key', "poll-maker")?></label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="ays-text-input" id="ays_poll_recaptcha_secret_key">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label for="ays_poll_recaptcha_language"><?php echo __('reCAPTCHA Language', "poll-maker")?></label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="ays-text-input" id="ays_poll_recaptcha_language">
+                                            <span class="ays_poll_small_hint_text">
+                                                <?php echo sprintf(__("e.g. en, de - Language used by reCAPTCHA. To get the code for your language click %shere%s", "poll-maker"),
+                                                    '<a href="https://developers.google.com/recaptcha/docs/language" target="_blank">',
+                                                    '</a>'
+                                                ); ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group row">
+                                        <div class="col-sm-3">
+                                            <label for="ays_poll_recaptcha_theme"><?php echo __('reCAPTCHA Theme', "poll-maker")?></label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="ays-text-input" id="ays_poll_recaptcha_theme">
+                                                <option value="light"><?php echo __('Light', "poll-maker")?></option>
+                                                <option value="dark"><?php echo __('Dark', "poll-maker")?></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
+                                        <div class="ays-poll-new-upgrade-button-box">
+                                            <div>
+                                                <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>">
+                                                <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
+                                            </div>
+                                            <div class="ays-poll-new-upgrade-button"><?php echo __("Upgrade", "poll-maker"); ?></div>
+                                        </div>
+                                    </a>
+                                    <blockquote>
+                                        <?php echo sprintf(__("You need to set up reCAPTCHA in your Google account to generate the required keys and get them by %sGoogle's reCAPTCHA admin console%s.", "poll-maker"),
+                                            "<a href='https://www.google.com/recaptcha/admin/create' target='_blank'>",
+                                            "</a>"
+                                        ); ?>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
                     <div id="tab3"
                          class="ays-poll-tab-content <?php echo ($ays_poll_tab == 'tab3') ? 'ays-poll-tab-content-active' : ''; ?>">
