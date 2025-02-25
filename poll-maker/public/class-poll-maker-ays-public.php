@@ -3973,6 +3973,22 @@ class Poll_Maker_Ays_Public {
         return $content;
 	}
 
+	public function intToRoman($num) {
+		$map = array(
+			1000 => 'M', 900 => 'CM', 500 => 'D', 400 => 'CD',
+			100 => 'C', 90 => 'XC', 50 => 'L', 40 => 'XL',
+			10 => 'X', 9 => 'IX', 5 => 'V', 4 => 'IV', 1 => 'I'
+		);
+		$roman = '';
+		foreach ($map as $value => $symbol) {
+			while ($num >= $value) {
+				$roman .= $symbol;
+				$num -= $value;
+			}
+		}
+		return $roman;
+	}
+
 	public function ays_answer_numbering($numbering , $count){
         $keyword_arr = array();
         switch ($numbering) {
@@ -4020,6 +4036,13 @@ class Poll_Maker_Ays_Public {
 					}
 					$keyword_arr = $columns;
                 break;
+			case 'VI.':
+				$columns = array();
+				for ($i = 1; $i <= $count; $i++) {
+					$columns[] = $this->intToRoman($i) . ".";
+				}
+				$keyword_arr = $columns;
+				break;
             default:
                 break;
         }

@@ -4220,6 +4220,7 @@ $emoji = array(
                                             <option <?php echo $show_answers_numbering == "A)" ? "selected" : ""; ?> value="A)"><?php echo __( "A)", "poll-maker"); ?></option>
                                             <option <?php echo $show_answers_numbering == "a." ? "selected" : ""; ?> value="a."><?php echo __( "a.", "poll-maker"); ?></option>
                                             <option <?php echo $show_answers_numbering == "a)" ? "selected" : ""; ?> value="a)"><?php echo __( "a)", "poll-maker"); ?></option>
+                                            <option <?php echo $show_answers_numbering == "VI." ? "selected" : ""; ?> value="VI."><?php echo __( "VI.", "poll-maker"); ?></option>
                                         </select>
                                     </div>
                                 </div> <!-- Show answers numbering -->
@@ -4824,8 +4825,11 @@ $emoji = array(
                                                 <input type="checkbox" class="ays-enable-timer1"/>
                                             </div>
                                             <div class="col-sm-8 ays_toggle_target ays_divider_left">
-                                                <select class="ays-text-input ays-text-input-short" style="width: 15vw;">                            
-                                                        <option>Andorra</option>
+                                                <select id="ays-poll-countries" class="apm-cat-select2 select2-hidden-accessible" name="ays-poll-countries[]" multiple="" data-placeholder="Select countries" tabindex="-1" aria-hidden="true" disabled>
+                                                    <option selected value="AD">Andorra</option>
+                                                    <option selected value="US">United States</option>
+                                                    <option selected value="GB">United Kingdom</option>
+                                                    <option selected value="FR">France</option>
                                                 </select>
                                             </div>
                                         </div>

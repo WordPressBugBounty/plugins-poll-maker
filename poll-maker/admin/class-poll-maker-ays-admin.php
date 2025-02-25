@@ -2757,7 +2757,6 @@ class Poll_Maker_Ays_Admin {
 			"poll_sendgrid_email_from" => "",
 			"poll_sendgrid_email_name" => "",
 			"poll_sendgrid_template_id" => "",
-			"enable_limit_by_country" => "off",
 			"limit_country" => "AD",
 			"show_votes_before_voting" => "off",
 			"show_votes_before_voting_by" => "by_count",
