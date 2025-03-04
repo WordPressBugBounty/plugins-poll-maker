@@ -10,8 +10,8 @@ class Pma_Categories_List_Table extends WP_List_Table {
 		$this->plugin_name = $plugin_name;
 		$this->title_length = Poll_Maker_Ays_Admin::get_listtables_title_length('categories');
 		parent::__construct(array(
-			'singular' => __('Category', "poll-maker"), //singular name of the listed records
-			'plural'   => __('Categories', "poll-maker"), //plural name of the listed records
+			'singular' =>esc_html__('Category', "poll-maker"), //singular name of the listed records
+			'plural'   =>esc_html__('Categories', "poll-maker"), //plural name of the listed records
 			'ajax'     => false, //does this table support ajax?
 		));
 		add_action('admin_notices', array($this, 'poll_category_notices'));
@@ -263,12 +263,12 @@ class Pma_Categories_List_Table extends WP_List_Table {
 
 		
 		$actions = array(
-			'edit'   => sprintf('<a href="?page=%s&action=%s&poll_category=%d">' . __('Edit', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id'])),
-			// 'delete' => sprintf('<a href="?page=%s&action=%s&poll_category=%s&_wpnonce=%s">' . __('Delete', $this->plugin_name) . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce),
+			'edit'   => sprintf('<a href="?page=%s&action=%s&poll_category=%d">' .esc_html__('Edit', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id'])),
+			// 'delete' => sprintf('<a href="?page=%s&action=%s&poll_category=%s&_wpnonce=%s">' .esc_html__('Delete', $this->plugin_name) . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce),
 		);
 
 		if(intval($item['id']) !== 1){
-            $actions['delete'] = sprintf('<a href="?page=%s&action=%s&poll_category=%s&_wpnonce=%s">' . __('Delete', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce);
+            $actions['delete'] = sprintf('<a href="?page=%s&action=%s&poll_category=%s&_wpnonce=%s">' .esc_html__('Delete', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce);
         }
 
 		return $title . $this->row_actions($actions);
@@ -298,11 +298,11 @@ class Pma_Categories_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 			'cb'          => '<input type="checkbox">',
-			'title'       => __('Title', "poll-maker"),
-			'description' => __('Description', "poll-maker"),
-			'shortcode'   => __('Shortcode', "poll-maker"),
-			'polls'       => __('Polls', "poll-maker"),
-			'id'          => __('ID', "poll-maker"),
+			'title'       =>esc_html__('Title', "poll-maker"),
+			'description' =>esc_html__('Description', "poll-maker"),
+			'shortcode'   =>esc_html__('Shortcode', "poll-maker"),
+			'polls'       =>esc_html__('Polls', "poll-maker"),
+			'id'          =>esc_html__('ID', "poll-maker"),
 		);
 
 		return $columns;
@@ -329,7 +329,7 @@ class Pma_Categories_List_Table extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		$actions = array(
-			'bulk-delete' => __('Delete', "poll-maker"),
+			'bulk-delete' =>esc_html__('Delete', "poll-maker"),
 		);
 
 		return $actions;
@@ -411,11 +411,11 @@ class Pma_Categories_List_Table extends WP_List_Table {
 		}
 
 		if ('created' == $status) {
-			$updated_message = esc_html(__('Poll category created.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Poll category created.', "poll-maker"));
 		} elseif ('updated' == $status) {
-			$updated_message = esc_html(__('Poll category saved.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Poll category saved.', "poll-maker"));
 		} elseif ('deleted' == $status) {
-			$updated_message = esc_html(__('Poll category deleted.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Poll category deleted.', "poll-maker"));
 		}
 
 		if (empty($updated_message)) {

@@ -11,8 +11,8 @@ class Pma_Results_List_Table extends WP_List_Table {
 		$this->plugin_name = $plugin_name;
 		$this->title_length = Poll_Maker_Ays_Admin::get_listtables_title_length('results');
 		parent::__construct(array(
-			'singular' => __('Result', "poll-maker"), //singular name of the listed records
-			'plural'   => __('Results', "poll-maker"), //plural name of the listed records
+			'singular' =>esc_html__('Result', "poll-maker"), //singular name of the listed records
+			'plural'   =>esc_html__('Results', "poll-maker"), //plural name of the listed records
 			'ajax'     => false, //does this table support ajax?
 		));
 		add_action('admin_notices', array($this, 'results_notices'));
@@ -318,10 +318,10 @@ class Pma_Results_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 			'cb'         => '<input type="checkbox" />',
-			'id'         => __('ID',"poll-maker"),
-			'poll_title' => __('Poll',"poll-maker"),
-			'voted'      => __('Voters count',"poll-maker"),
-			'unread'     => __('New results count',"poll-maker")
+			'id'         =>esc_html__('ID',"poll-maker"),
+			'poll_title' =>esc_html__('Poll',"poll-maker"),
+			'voted'      =>esc_html__('Voters count',"poll-maker"),
+			'unread'     =>esc_html__('New results count',"poll-maker")
 		);
 
 		return $columns;
@@ -348,8 +348,8 @@ class Pma_Results_List_Table extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		$actions = array(
-			'bulk-read'   => __('Mark as read', "poll-maker"),
-			'bulk-delete' => __('Delete', "poll-maker"),
+			'bulk-read'   =>esc_html__('Mark as read', "poll-maker"),
+			'bulk-delete' =>esc_html__('Delete', "poll-maker"),
 		);
 
 		return $actions;
@@ -468,7 +468,7 @@ class Pma_Results_List_Table extends WP_List_Table {
 		}
 
 		if ('deleted' == $status) {
-			$updated_message = esc_html(__('Result deleted.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Result deleted.', "poll-maker"));
 		}
 
 		if (empty($updated_message)) {
@@ -504,7 +504,7 @@ class Pma_Results_List_Table extends WP_List_Table {
 		if(isset($poll_cats)){
 			$content = '<label for="bulk-action-selector-top-cat" class="screen-reader-text">Select Filter Type</label>
 						<select name="orderbycat" id="bulk-action-selector-top-cat">
-						<option value="0" selected>' .__("Select Category", "poll-maker"). '</option>';
+						<option value="0" selected>' . esc_html__("Select Category", "poll-maker"). '</option>';
 			$selected = "";
 			$this_cat_id = 0;
 			foreach ($poll_cats as $cat_key => $cat_value) {
@@ -515,7 +515,7 @@ class Pma_Results_List_Table extends WP_List_Table {
 				$content .= '<option value="'.$cat_id.'" '.$selected.'>'.$cat_value.'</option>';
 			}
 			$content .= '</select>';
-			$content .= '<input type="submit" id="doactioncat" name="filter_by_cat" class="button action" value="'.__("Filter", "poll-maker").'" style="width: 3.7rem;margin-left: 5px;">';
+			$content .= '<input type="submit" id="doactioncat" name="filter_by_cat" class="button action" value="'. esc_html__("Filter", "poll-maker").'" style="width: 3.7rem;margin-left: 5px;">';
 			if(isset($_REQUEST['filter_by_cat'])){
 				$new_url = remove_query_arg("orderbycat")."&orderbycat=".$this_cat_id;
 				wp_redirect($new_url);

@@ -271,11 +271,11 @@ class Poll_Maker_Settings_Actions {
             return;
 
         if ( 'saved' == $status )
-            $updated_message = esc_html( __( 'Changes saved.', "poll-maker" ) );
+            $updated_message = esc_html(esc_html__( 'Changes saved.', "poll-maker" ) );
         elseif ( 'updated' == $status )
-            $updated_message = esc_html( __( 'Poll attribute .', "poll-maker" ) );
+            $updated_message = esc_html(esc_html__( 'Poll attribute .', "poll-maker" ) );
         elseif ( 'deleted' == $status )
-            $updated_message = esc_html( __( 'Poll attribute deleted.', "poll-maker" ) );
+            $updated_message = esc_html(esc_html__( 'Poll attribute deleted.', "poll-maker" ) );
 
         if ( empty( $updated_message ) )
             return;

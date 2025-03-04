@@ -114,7 +114,7 @@ class Poll_Maker_Ays_Public {
 		 * class.
 		 */
 		
-		wp_enqueue_style( 'ays_poll_font_awesome', POLL_MAKER_AYS_ADMIN_URL . '/css/poll-maker-ays-admin-fonts.css', array(), $this->version, 'all');
+		wp_enqueue_style( 'ays_poll_font_awesome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/poll-maker-ays-admin-fonts.css', array(), $this->version, 'all');
 
 	}
 
@@ -141,7 +141,7 @@ class Poll_Maker_Ays_Public {
 
 		$ays_is_elementor = $this->ays_is_elementor();
 		if ( $ays_is_elementor ) {
-			wp_enqueue_style( 'ays_poll_font_awesome', POLL_MAKER_AYS_ADMIN_URL . '/css/poll-maker-ays-admin-fonts.css', array(), $this->version, 'all');
+			wp_enqueue_style( 'ays_poll_font_awesome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/poll-maker-ays-admin-fonts.css', array(), $this->version, 'all');
 	    }
 	}
 	
@@ -188,17 +188,17 @@ class Poll_Maker_Ays_Public {
 		wp_localize_script($this->plugin_name . '-ajax-public', 'poll_maker_ajax_public',
 			array(
 				'ajax_url'      => admin_url('admin-ajax.php'),
-				'alreadyVoted'  => __( "You have already voted" , "poll-maker" ),
-				'day'           => __( 'day', "poll-maker" ),
-	            'days'          => __( 'days', "poll-maker" ),
-	            'hour'          => __( 'hour', "poll-maker" ),
-	            'hours'         => __( 'hours', "poll-maker" ),
-	            'minute'        => __( 'minute', "poll-maker" ),
-	            'minutes'       => __( 'minutes', "poll-maker" ),
-	            'second'        => __( 'second', "poll-maker" ),
-	            'seconds'       => __( 'seconds', "poll-maker" ),
-	            'thank_message' => __( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
-				'restart'       => __( 'Restart', "poll-maker" ),
+				'alreadyVoted'  =>esc_html__( "You have already voted" , "poll-maker" ),
+				'day'           =>esc_html__( 'day', "poll-maker" ),
+	            'days'          =>esc_html__( 'days', "poll-maker" ),
+	            'hour'          =>esc_html__( 'hour', "poll-maker" ),
+	            'hours'         =>esc_html__( 'hours', "poll-maker" ),
+	            'minute'        =>esc_html__( 'minute', "poll-maker" ),
+	            'minutes'       =>esc_html__( 'minutes', "poll-maker" ),
+	            'second'        =>esc_html__( 'second', "poll-maker" ),
+	            'seconds'       =>esc_html__( 'seconds', "poll-maker" ),
+	            'thank_message' =>esc_html__( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
+				'restart'       =>esc_html__( 'Restart', "poll-maker" ),
 			)
 		);
 	}
@@ -628,7 +628,7 @@ class Poll_Maker_Ays_Public {
 		}
 
 		$info_form = !empty($options['info_form']) && !empty($options['fields']);
-		$info_form_title = !empty($options['info_form_title']) ? wp_kses_post(stripslashes($options['info_form_title'])) : "<div>" . __("Please fill out the form:", "poll-maker") . "</div>";
+		$info_form_title = !empty($options['info_form_title']) ? wp_kses_post(stripslashes($options['info_form_title'])) : "<div>" .esc_html__("Please fill out the form:", "poll-maker") . "</div>";
 		$fields          = !empty($options['fields']) ? explode(",", $options['fields']) : array();
 		$required_fields = !empty($options['required_fields']) ? explode(",", $options['required_fields']) : array();
 
@@ -720,7 +720,7 @@ class Poll_Maker_Ays_Public {
 			if (!empty($options['hide_results_text'])) {
 				$hide_results_text = wpautop($options['hide_results_text']);
 			} else {
-				$hide_results_text = __("Thanks for your answer", "poll-maker");
+				$hide_results_text =esc_html__("Thanks for your answer", "poll-maker");
 			}
 		} else {
 			$hide_results      = "0";
@@ -737,14 +737,14 @@ class Poll_Maker_Ays_Public {
 			}
 			$redirect_url_href       = '';
 			$redirect_url_checked    = 1;
-			$redirect_after_vote     = "<p class='redirectionAfterVote'>" . __("You will be redirected", "poll-maker") . " " . ($redirect_delay <= 0 ? "" : __("after", "poll-maker") . " <span>" . $redirect_delay . "</span>" . " " . __("seconds", "poll-maker")) . "</p>";
+			$redirect_after_vote     = "<p class='redirectionAfterVote'>" .esc_html__("You will be redirected", "poll-maker") . " " . ($redirect_delay <= 0 ? "" :esc_html__("after", "poll-maker") . " <span>" . $redirect_delay . "</span>" . " " .esc_html__("seconds", "poll-maker")) . "</p>";
 		}elseif (isset($options['redirect_users']) && $options['redirect_users'] != 0 && !empty($options['redirect_after_vote_url'])) {
 			$redirect_after_vote_url = stripslashes($options['redirect_after_vote_url']);
 			$redirect_url_href       = '';
 			$redirect_users          = $options['redirect_users'];
 			$redirect_delay          = $options['redirect_after_vote_delay'];
 			$redirect_url_checked    = 0;
-			$redirect_after_vote     = "<p class='redirectionAfterVote'>" . __("You will be redirected", "poll-maker") . " " . ($redirect_delay <= 0 ? "" : __("after", "poll-maker") . " <span>" . $redirect_delay . "</span>" . " " . __("seconds", "poll-maker")) . "</p>";
+			$redirect_after_vote     = "<p class='redirectionAfterVote'>" .esc_html__("You will be redirected", "poll-maker") . " " . ($redirect_delay <= 0 ? "" :esc_html__("after", "poll-maker") . " <span>" . $redirect_delay . "</span>" . " " .esc_html__("seconds", "poll-maker")) . "</p>";
 		} else {
 			$redirect_after_vote_url = '';
 			$redirect_url_href       = '';
@@ -834,7 +834,7 @@ class Poll_Maker_Ays_Public {
 		$ays_see_result_button  = (isset($options['see_res_btn_text']) && $options['see_res_btn_text'] != '') ? stripslashes( esc_attr( $options['see_res_btn_text'] )) : 'See Results';
 
 		if ($ays_see_result_button === 'See Results') {
-            $ays_see_result_button_text =  __("See Results", "poll-maker");
+            $ays_see_result_button_text = esc_html__("See Results", "poll-maker");
         }else{
             $ays_see_result_button_text = $ays_see_result_button;
         }
@@ -1031,7 +1031,7 @@ class Poll_Maker_Ays_Public {
 
 		if ($poll_vote_reason) {
 			$vote_reason = "<div class='ays-poll-vote-reason'>
-                                <div class='ays-poll-for-reason'>". __("Please add vote reason", "poll-maker")."</div>                         
+                                <div class='ays-poll-for-reason'>".esc_html__("Please add vote reason", "poll-maker")."</div>                         
                                 <div><textarea name='ays-poll-reason-text' id='ays-poll-reason-text'></textarea></div>
                             </div>";
 		} else {
@@ -1162,7 +1162,7 @@ class Poll_Maker_Ays_Public {
 		if($poll_text_type_limit_message && ($poll_text_type_limit_length != "" && intval($poll_text_type_limit_length) != 0)){
 			$poll_box_for_limit_message = '<div class="ays_quiz_question_text_conteiner">
 												<div class="ays_quiz_question_text_message">
-													<span class="ays_poll_question_text_message_span">'. $poll_text_type_limit_length . '</span> ' . $poll_text_type_limit_type . ' '.  __( ' left' , "poll-maker" ) . '
+													<span class="ays_poll_question_text_message_span">'. $poll_text_type_limit_length . '</span> ' . $poll_text_type_limit_type . ' '. esc_html__( ' left' , "poll-maker" ) . '
 												</div>
 											  </div>';
 		}
@@ -1206,7 +1206,7 @@ class Poll_Maker_Ays_Public {
 		
 
 		$password_input_val   = isset($_POST['ays_poll_password_val_'. $id ]) && $_POST['ays_poll_password_val_'. $id ] != "" ? stripslashes(esc_attr($_POST['ays_poll_password_val_'. $id ])) : '';
-		$poll_password_message = (isset($options['poll_password_message']) &&  $options['poll_password_message'] != '') ? stripslashes( wpautop( $options['poll_password_message'] ) ) : "<p>" . __( "Please enter password", "poll-maker" ) . "</p>";
+		$poll_password_message = (isset($options['poll_password_message']) &&  $options['poll_password_message'] != '') ? stripslashes( wpautop( $options['poll_password_message'] ) ) : "<p>" .esc_html__( "Please enter password", "poll-maker" ) . "</p>";
 
 		$poll_check_only_logged = (isset($options['enable_logged_users']) && $options['enable_logged_users'] == 1 && !is_user_logged_in()) ? true : false;
 		$poll_password_message_input = "<input type='password' class='ays-poll-password-input' id='ays_poll_password_val_". $id ."' name='ays_poll_password_val_". $id ."' required autocomplete='off'>";
@@ -1230,7 +1230,7 @@ class Poll_Maker_Ays_Public {
 											".$password_message_with_toggle."
 										</div>
 										<div class='ays-poll-password-button-box'>
-											<input type='submit' class='ays-poll-password-button' name='ays_poll_password_sub_". $id ."'  class='ays_poll_password' value='".__( "Submit", "poll-maker" )."'>    
+											<input type='submit' class='ays-poll-password-button' name='ays_poll_password_sub_". $id ."'  class='ays_poll_password' value='". esc_html__( "Submit", "poll-maker" )."'>    
 										</div>
 									</div>
 	                             </div></div></form></div>";
@@ -1910,7 +1910,7 @@ class Poll_Maker_Ays_Public {
 						$show_timer .= '<p class="show_timer_countdown" data-timer_countdown="'.$endDate_atr.'"></p>';
 					}
 				}else if ($show_timer_type == 'enddate') {
-					$show_timer .= '<p class="show_timer_countdown">'.__('This Poll is active until ', "poll-maker").gmdate('jS \of F Y H:i:s', intval($endDate)).'</p>';
+					$show_timer .= '<p class="show_timer_countdown">'. esc_html__('This Poll is active until ', "poll-maker").gmdate('jS \of F Y H:i:s', intval($endDate)).'</p>';
 				}
 				$show_timer .= "</div>";
 		    }
@@ -1920,7 +1920,7 @@ class Poll_Maker_Ays_Public {
 				if ($show_timer_type == 'countdown') {
 					$show_timer .= '<p class="show_timer_countdown" data-timer_countdown="'.$startDate_atr.'"></p>';
 				}else if ($show_timer_type == 'enddate') {
-					$show_timer .= '<p class="show_timer_countdown">'.__('This Poll will start ', "poll-maker").gmdate('jS \of F Y H:i:s', intval($startDate)).'</p>';
+					$show_timer .= '<p class="show_timer_countdown">'. esc_html__('This Poll will start ', "poll-maker").gmdate('jS \of F Y H:i:s', intval($startDate)).'</p>';
 				}
 				$show_timer .= "</div>";
 		    }
@@ -1930,7 +1930,7 @@ class Poll_Maker_Ays_Public {
         if($show_create_date){
             $poll_create_date = (isset($options['create_date']) && $options['create_date'] != '') ? $options['create_date'] : "0000-00-00 00:00:00";
             if(Poll_Maker_Ays_Admin::validateDate($poll_create_date)){
-                $show_cd_and_author .= "<span>".__("Created on", "poll-maker")." </span><strong><time>".date("F d, Y", strtotime($poll_create_date))."</time></strong>";
+                $show_cd_and_author .= "<span>". esc_html__("Created on", "poll-maker")." </span><strong><time>".date("F d, Y", strtotime($poll_create_date))."</time></strong>";
             }else{
                 $show_cd_and_author .= "";
             }
@@ -1953,9 +1953,9 @@ class Poll_Maker_Ays_Public {
             $image = get_avatar($user_id, 32);
             if(isset( $author['name'] ) && $author['name'] !== "Unknown"){
                 if($show_create_date){
-                    $text = __("By", "poll-maker");
+                    $text =esc_html__("By", "poll-maker");
                 }else{
-                    $text = __("Created by", "poll-maker");
+                    $text =esc_html__("Created by", "poll-maker");
                 }
                 $show_cd_and_author .= "<span>   ".$text." </span>".$image."<strong>".$author['name']."</strong>";
             }else{
@@ -1983,7 +1983,7 @@ class Poll_Maker_Ays_Public {
 		$user_last_name = (isset( $poll_user_information['user_last_name'] ) && $poll_user_information['user_last_name']  != "") ? $poll_user_information['user_last_name'] : '';	
 		$creation_date = (isset( $poll['styles']['create_date'] ) && $poll['styles']['create_date'] != '') ? $poll['styles']['create_date'] : '';
 
-		$current_poll_author = __( "Unknown", "poll-maker" );
+		$current_poll_author =esc_html__( "Unknown", "poll-maker" );
 		if( !empty($options['author']) ){
 			if( !is_array($options['author']) ){
 				$options['author'] = json_decode($options['author'], true);
@@ -2027,7 +2027,7 @@ class Poll_Maker_Ays_Public {
 				$user_wordpress_website_url = ( isset( $current_user_data->user_url ) && ! empty( $current_user_data->user_url ) ) ? sanitize_url($current_user_data->user_url) : "";
 
 				if( !empty( $user_wordpress_website_url ) ){
-					$user_wordpress_website = "<a href='". esc_url( $user_wordpress_website_url ) ."' target='_blank' class='ays-poll-user-website-link-a-tag'>". __( "Website", "poll-maker" ) ."</a>";
+					$user_wordpress_website = "<a href='". esc_url( $user_wordpress_website_url ) ."' target='_blank' class='ays-poll-user-website-link-a-tag'>".esc_html__( "Website", "poll-maker" ) ."</a>";
 				}
 			}
 		}
@@ -2114,7 +2114,7 @@ class Poll_Maker_Ays_Public {
 		if (!$is_expired) {
 			//CHECK IF ENABLED ONLY LOGGED IN USERS OPTION
 			if (isset($options['enable_logged_users']) && $options['enable_logged_users'] == 1 && !is_user_logged_in()) {
-				$logged_users_message = isset($options['enable_logged_users_message']) && $options['enable_logged_users_message'] != '' ? $this->ays_autoembed(stripslashes($options['enable_logged_users_message'])) : "<p>" . __('You must sign in for voting.', "poll-maker") . "</p>"; // smbo
+				$logged_users_message = isset($options['enable_logged_users_message']) && $options['enable_logged_users_message'] != '' ? $this->ays_autoembed(stripslashes($options['enable_logged_users_message'])) : "<p>" .esc_html__('You must sign in for voting.', "poll-maker") . "</p>"; // smbo
 
 				$content .= "<div class='apm-need-sign-in'>".$logged_users_message."</div>";
 
@@ -2130,7 +2130,7 @@ class Poll_Maker_Ays_Public {
 			        global $wp_roles;
 					$user      = wp_get_current_user();
 			        $users_roles  = $wp_roles->role_names;
-					$message   = (isset($options['restriction_pass_message']) && $options['restriction_pass_message'] != '') ? stripslashes($options['restriction_pass_message']) : ("<p>" . __('You not have permissions for voting.', "poll-maker") . "</p>");
+					$message   = (isset($options['restriction_pass_message']) && $options['restriction_pass_message'] != '') ? stripslashes($options['restriction_pass_message']) : ("<p>" .esc_html__('You not have permissions for voting.', "poll-maker") . "</p>");
 			        $users_role = (isset($options['users_role']) && $options['users_role'] != '') ? $options['users_role'] : '';
 			        $users_role = json_decode($users_role);
 			        if(!empty($users_role)){
@@ -2245,7 +2245,7 @@ class Poll_Maker_Ays_Public {
 						$allow_multivote_answer = 'on';
 						$poll_multivote_min_count = (isset($options['multivote_answer_min_count']) && $options['multivote_answer_min_count'] != '') ? absint(intval($options['multivote_answer_min_count'])) : '1';
 						$poll_multivote_min_count_content = "<input type='hidden' id='ays_poll_multivote_min_count' data-allow='true' value='".$poll_multivote_min_count."'/>";
-						$poll_multivote_message_content = "<div class='ays-poll-multivote-message add_answer_for_grid'>".__("Min votes count should be" , "poll-maker")." ".$poll_multivote_min_count."</div>";
+						$poll_multivote_message_content = "<div class='ays-poll-multivote-message add_answer_for_grid'>". esc_html__("Min votes count should be" , "poll-maker")." ".$poll_multivote_min_count."</div>";
 					}else{
 						$multiple_select = '';
 						$allow_multivote_answer = '';
@@ -2362,14 +2362,14 @@ class Poll_Maker_Ays_Public {
 								if ($poll_allow_answer && $with_vote) {
 									$content .= "
 									    <div class='apm-choosing answer-$this_poll_id ".$this_poll_id."_addAnswer apm-add-answer ".$add_answer_for_grid."'>
-									          <input type='text' placeholder='" . __("Other - please specify", "poll-maker") . "' class='ays-poll-new-answer-apply-text' name='ays_poll_new_answer'>									          
+									          <input type='text' placeholder='" .esc_html__("Other - please specify", "poll-maker") . "' class='ays-poll-new-answer-apply-text' name='ays_poll_new_answer'>									          
 									    </div>
 									";
 									$allow_multi_vote_for_other = isset($options["poll_allow_multivote"]) && $options["poll_allow_multivote"] == "on" ? true : false;
 									if(!$allow_multi_vote_for_other){
 										$content .= "
 										<div class='ays-poll-add-answer-note ays-poll-add-answer-note-enable'>
-											<div class='ays-poll-add-answer-note-text'><img src='".POLL_MAKER_AYS_ADMIN_URL."/images/icons/other-answer-note.svg' >".__( "If 'Other' is filled, checked answers are ignored.", "poll-maker")."</div>
+											<div class='ays-poll-add-answer-note-text'><img src='".esc_url(POLL_MAKER_AYS_ADMIN_URL)."/images/icons/other-answer-note.svg' >". esc_html__( "If 'Other' is filled, checked answers are ignored.", "poll-maker")."</div>
 										</div>
 									";
 									}
@@ -2461,7 +2461,7 @@ class Poll_Maker_Ays_Public {
 						if ($view_more_button_flag) {
 							$content .= '
 							<div class="ays-poll-view-more-button-box">
-								<input type="button" class="btn ays-poll-btn ays-poll-view-more-button" value="'. __( "View more", "poll-maker" ) .'">
+								<input type="button" class="btn ays-poll-btn ays-poll-view-more-button" value="'.esc_html__( "View more", "poll-maker" ) .'">
 							</div>';
 						}
 
@@ -2476,7 +2476,7 @@ class Poll_Maker_Ays_Public {
 						if ($info_form) {
 							$this->fields_placeholders = $this->ays_set_poll_fields_placeholders_texts();
 							$content .= "\n
-							<div class='apm-info-form' data-text='" . __("Send", "poll-maker") . "' style='display: none;'>
+							<div class='apm-info-form' data-text='" .esc_html__("Send", "poll-maker") . "' style='display: none;'>
 								$info_form_title
 								<div class='amp-info-form-input-box'>
 							";
@@ -2512,10 +2512,10 @@ class Poll_Maker_Ays_Public {
 							$content .= "</div></div>";
 						}
 					} else {
-						$content .= "<div class='ays-poll-limitation'>" . (isset($options['limitation_message']) && $options['limitation_message'] != '' ? stripslashes($options['limitation_message']) : ("<p>" . __("You have already voted.", "poll-maker") . "</p>")) . "</div>";
+						$content .= "<div class='ays-poll-limitation'>" . (isset($options['limitation_message']) && $options['limitation_message'] != '' ? stripslashes($options['limitation_message']) : ("<p>" .esc_html__("You have already voted.", "poll-maker") . "</p>")) . "</div>";
 						if (isset($options['redirect_url']) && $options['redirect_url'] != '' && isset($options['redirection_delay']) && $options['redirection_delay'] != 0) {
 							$content .= "<div class='apm-redirection apm-redirection-$this_poll_id'>
-                                        <p data-id='$this_poll_id' data-href='" . stripslashes($options['redirect_url']) . "' data-delay='{$options['redirection_delay']}'>" . __('Redirecting after', "poll-maker")
+                                        <p data-id='$this_poll_id' data-href='" . stripslashes($options['redirect_url']) . "' data-delay='{$options['redirection_delay']}'>" .esc_html__('Redirecting after', "poll-maker")
 							            . " <b>{$this->secondsToWords($options['redirection_delay'])}</b>
                                         </p>
                                     </div>";
@@ -2565,7 +2565,7 @@ class Poll_Maker_Ays_Public {
 					$ays_vote_button = (isset($options['btn_text']) && $options['btn_text'] != '') ? stripslashes($options['btn_text']) : 'Vote';
 
 					if ($ays_vote_button === 'Vote') {
-			            $ays_vote_button_text =  __("Vote", "poll-maker");
+			            $ays_vote_button_text = esc_html__("Vote", "poll-maker");
 			        }else{
 			            $ays_vote_button_text = $ays_vote_button;
 			        }
@@ -2590,18 +2590,18 @@ class Poll_Maker_Ays_Public {
 			$poll_block_preview_message = "";
 			if( $is_elementor_exists || $is_editor_exists ){
 				$poll_block_preview_message = '
-					<span class="ays_poll_small_hint_text ays_poll_preview_mode_hint">'. esc_attr( __( "You're in the preview mode. Note: All elements work correctly on the front end." , "poll-maker") ) .'</span>';
+					<span class="ays_poll_small_hint_text ays_poll_preview_mode_hint">'. esc_attr(esc_html__( "You're in the preview mode. Note: All elements work correctly on the front end." , "poll-maker") ) .'</span>';
 			}
 
 			$content .= $poll_block_preview_message;
 			$content .= $result_message;
 			$content .= $redirect_after_vote;
 		} elseif ($is_start_soon) {
-			$poll_is_start_message = isset($options['active_date_message_soon']) ? stripslashes($options['active_date_message_soon']) : "<p>" . __('The poll will be available soon.', "poll-maker") . "</p>";
+			$poll_is_start_message = isset($options['active_date_message_soon']) ? stripslashes($options['active_date_message_soon']) : "<p>" .esc_html__('The poll will be available soon.', "poll-maker") . "</p>";
 			$content              .= "<div class='apm_expired_poll'>".$poll_is_start_message."</div>";
 
 		} else {
-			$expired_poll_message = isset($options['active_date_message']) ? stripslashes($options['active_date_message']) : "<p>" . __('The poll has expired.', "poll-maker") . "</p>";
+			$expired_poll_message = isset($options['active_date_message']) ? stripslashes($options['active_date_message']) : "<p>" .esc_html__('The poll has expired.', "poll-maker") . "</p>";
 			$content              .= "<div class='apm_expired_poll'>$expired_poll_message</div>";
 			
 			if ($show_res_btn_sch) {
@@ -2686,14 +2686,14 @@ class Poll_Maker_Ays_Public {
 
 		$ays_next_button = (isset($cat_opt['next_text']) && $cat_opt['next_text'] != '') ? stripslashes($cat_opt['next_text']) : 'Next';
 		if ($ays_next_button === 'Next') {
-            $ays_next_button_text =  __("Next", "poll-maker");
+            $ays_next_button_text = esc_html__("Next", "poll-maker");
         } else {
             $ays_next_button_text = $ays_next_button;
 		}
 
 		$ays_previous_button = (isset($cat_opt['previous_text']) && $cat_opt['previous_text'] != '') ? stripslashes($cat_opt['previous_text']) : 'Previous';
         if ($ays_previous_button === 'Previous') {
-            $ays_previous_button_text =  __("Previous", "poll-maker");
+            $ays_previous_button_text = esc_html__("Previous", "poll-maker");
         }else{
             $ays_previous_button_text = $ays_previous_button;
         }
@@ -2861,25 +2861,25 @@ class Poll_Maker_Ays_Public {
         /*** get the days ***/
         $days = (int)($seconds / (3600 * 24));
         if ($days > 0) {
-            $ret .= "$days " . __( 'days', "poll-maker" ) . ' ';
+            $ret .= "$days " .esc_html__( 'days', "poll-maker" ) . ' ';
         }
 
         /*** get the hours ***/
         $hours = (int)(($seconds / 3600) % 24);
         if ($hours > 0) {
-            $ret .= "$hours " . __( 'hours', "poll-maker" ) . ' ';
+            $ret .= "$hours " .esc_html__( 'hours', "poll-maker" ) . ' ';
         }
 
         /*** get the minutes ***/
         $minutes = (int)(($seconds / 60) % 60);
         if ($minutes > 0) {
-            $ret .= "$minutes " . __( 'minutes', "poll-maker" ) . ' ';
+            $ret .= "$minutes " .esc_html__( 'minutes', "poll-maker" ) . ' ';
         }
 
         /*** get the seconds ***/
         $seconds = (int)(($seconds) % 60);
         if ($seconds > 0) {
-            $ret .= "$seconds " . __( 'seconds', "poll-maker" );
+            $ret .= "$seconds " .esc_html__( 'seconds', "poll-maker" );
         }
 
         return $ret;
@@ -3221,7 +3221,7 @@ class Poll_Maker_Ays_Public {
 				$creation_date = (isset( $poll['styles']['create_date'] ) && $poll['styles']['create_date'] != '') ? $poll['styles']['create_date'] : '';
 
 
-				$current_poll_author = __( "Unknown", "poll-maker" );
+				$current_poll_author =esc_html__( "Unknown", "poll-maker" );
 				if( !empty($options['author']) ){
 					if( !is_array($options['author']) ){
 						$options['author'] = json_decode($options['author'], true);
@@ -3267,7 +3267,7 @@ class Poll_Maker_Ays_Public {
 						$user_wordpress_website_url = ( isset( $current_user_data->user_url ) && ! empty( $current_user_data->user_url ) ) ? sanitize_url($current_user_data->user_url) : "";
 		
 						if( !empty( $user_wordpress_website_url ) ){
-							$user_wordpress_website = "<a href='". esc_url( $user_wordpress_website_url ) ."' target='_blank' class='ays-poll-user-website-link-a-tag'>". __( "Website", "poll-maker" ) ."</a>";
+							$user_wordpress_website = "<a href='". esc_url( $user_wordpress_website_url ) ."' target='_blank' class='ays-poll-user-website-link-a-tag'>".esc_html__( "Website", "poll-maker" ) ."</a>";
 						}
 					}
 				}
@@ -3289,7 +3289,7 @@ class Poll_Maker_Ays_Public {
 				$ays_protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 				 
 				$current_poll_page_link = isset( $_REQUEST['ays_poll_curent_page_link'] ) && $_REQUEST['ays_poll_curent_page_link'] != '' ? sanitize_url( $_REQUEST['ays_poll_curent_page_link'] ) : "";
-				$current_poll_page_link_html = "<a href='". esc_sql( $current_poll_page_link ) ."' target='_blank' class='ays-poll-curent-page-link-a-tag'>". __( "Poll link", "poll-maker" ) ."</a>";
+				$current_poll_page_link_html = "<a href='". esc_sql( $current_poll_page_link ) ."' target='_blank' class='ays-poll-curent-page-link-a-tag'>".esc_html__( "Poll link", "poll-maker" ) ."</a>";
 				
 				$form_apm_name = (isset($_POST['apm_name']) && $_POST['apm_name'] != "") ? esc_attr($_POST['apm_name']) : "";
 				$form_apm_email = (isset($_POST['apm_email']) && $_POST['apm_email'] != "") ? esc_attr($_POST['apm_email']) : "";
@@ -3387,7 +3387,7 @@ class Poll_Maker_Ays_Public {
                     $attachment = array();
 					$mail_text = (
 					/* translators: 1: user answer variable, 2: poll title variable 3: anchor tag */
-                    sprintf( __( "Someone's answer %1\$s in your %2\$s poll on %3\$s.", "poll-maker" ), 
+                    sprintf(esc_html__( "Someone's answer %1\$s in your %2\$s poll on %3\$s.", "poll-maker" ), 
                         $use_answered,
                         '"' . $poll_title . '"',
                         "<a href='" . home_url() . "' target='_blank'>" . home_url() . "</a>"
@@ -4264,9 +4264,9 @@ class Poll_Maker_Ays_Public {
         $poll_fields_placeholder_phone = (isset($settings_placeholders_texts['poll_fields_placeholder_phone']) && $settings_placeholders_texts['poll_fields_placeholder_phone'] != '') ? stripslashes( esc_attr( $settings_placeholders_texts['poll_fields_placeholder_phone'] ) ) : 'Phone';
 
 
-		$poll_fields_placeholder_name_text  = $poll_fields_placeholder_name  === 'Name'  ? __('Name',  "poll-maker") : $poll_fields_placeholder_name;
-		$poll_fields_placeholder_email_text = $poll_fields_placeholder_email === 'Email' ? __('Email', "poll-maker") : $poll_fields_placeholder_email;
-		$poll_fields_placeholder_phone_text = $poll_fields_placeholder_phone === 'Phone' ? __('Phone', "poll-maker") : $poll_fields_placeholder_phone;
+		$poll_fields_placeholder_name_text  = $poll_fields_placeholder_name  === 'Name'  ?esc_html__('Name',  "poll-maker") : $poll_fields_placeholder_name;
+		$poll_fields_placeholder_email_text = $poll_fields_placeholder_email === 'Email' ?esc_html__('Email', "poll-maker") : $poll_fields_placeholder_email;
+		$poll_fields_placeholder_phone_text = $poll_fields_placeholder_phone === 'Phone' ?esc_html__('Phone', "poll-maker") : $poll_fields_placeholder_phone;
 
 
         $poll_fields_label_name  = (isset($settings_placeholders_texts['poll_fields_label_name']) && $settings_placeholders_texts['poll_fields_label_name'] != '') ? stripslashes( esc_attr( $settings_placeholders_texts['poll_fields_label_name'] ) ) : 'Name';
@@ -4276,9 +4276,9 @@ class Poll_Maker_Ays_Public {
         $poll_fields_label_phone = (isset($settings_placeholders_texts['poll_fields_label_phone']) && $settings_placeholders_texts['poll_fields_label_phone'] != '') ? stripslashes( esc_attr( $settings_placeholders_texts['poll_fields_label_phone'] ) ) : 'Phone';
 
 
-		$poll_fields_label_name_text  = $poll_fields_label_name  === 'Name'  ? __('Name',  "poll-maker") : $poll_fields_label_name;
-		$poll_fields_label_email_text = $poll_fields_label_email === 'Email' ? __('Email', "poll-maker") : $poll_fields_label_email;
-		$poll_fields_label_phone_text = $poll_fields_label_phone === 'Phone' ? __('Phone', "poll-maker") : $poll_fields_label_phone;
+		$poll_fields_label_name_text  = $poll_fields_label_name  === 'Name'  ?esc_html__('Name',  "poll-maker") : $poll_fields_label_name;
+		$poll_fields_label_email_text = $poll_fields_label_email === 'Email' ?esc_html__('Email', "poll-maker") : $poll_fields_label_email;
+		$poll_fields_label_phone_text = $poll_fields_label_phone === 'Phone' ?esc_html__('Phone', "poll-maker") : $poll_fields_label_phone;
 
         $texts = array(
             'namePlaceholder' 	=> $poll_fields_placeholder_name_text,

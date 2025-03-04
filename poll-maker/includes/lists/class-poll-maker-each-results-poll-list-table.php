@@ -8,8 +8,8 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 	public function __construct( $plugin_name ) {
 		$this->plugin_name = $plugin_name;
 		parent::__construct(array(
-			'singular' => __('Each result', "poll-maker"), //singular name of the listed records
-			'plural'   => __('Each results', "poll-maker"), //plural name of the listed records
+			'singular' =>esc_html__('Each result', "poll-maker"), //singular name of the listed records
+			'plural'   =>esc_html__('Each results', "poll-maker"), //plural name of the listed records
 			'ajax'     => false //does this table support ajax?
 		));
 		add_action('admin_notices', array($this, 'eachresults_notices'));
@@ -286,7 +286,7 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 				return $item[$column_name];
 				break;
 			case 'user_id':
-				$user = __("Guest", "poll-maker");
+				$user =esc_html__("Guest", "poll-maker");
 				if (!empty($item[$column_name]) && $item[$column_name] > 0) {
 					$user = get_user_by('ID', $item[$column_name]) ? get_user_by('ID', $item[$column_name])->display_name : '';
 				}
@@ -388,15 +388,15 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 			'cb'          => '<input type="checkbox" />',
-			'answer_id'   => __('Answer', "poll-maker"),
-			'user_ip'     => __('User IP', "poll-maker"),
-			'user_id'     => __('WP User', "poll-maker"),
-			'user_email'  => __('User Email', "poll-maker"),
-			'user_name'   => __('User Name', "poll-maker"),
-			'user_phone'  => __('User Phone', "poll-maker"),
-			'vote_date'   => __('Vote Datetime', "poll-maker"),
-			'vote_reason' => __('Vote Reason', "poll-maker"),
-			'unread'      => __('Read Status', "poll-maker")
+			'answer_id'   =>esc_html__('Answer', "poll-maker"),
+			'user_ip'     =>esc_html__('User IP', "poll-maker"),
+			'user_id'     =>esc_html__('WP User', "poll-maker"),
+			'user_email'  =>esc_html__('User Email', "poll-maker"),
+			'user_name'   =>esc_html__('User Name', "poll-maker"),
+			'user_phone'  =>esc_html__('User Phone', "poll-maker"),
+			'vote_date'   =>esc_html__('Vote Datetime', "poll-maker"),
+			'vote_reason' =>esc_html__('Vote Reason', "poll-maker"),
+			'unread'      =>esc_html__('Read Status', "poll-maker")
 		);
 
 		return $columns;
@@ -431,8 +431,8 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		$actions = array(
-			'bulk-read'   => __('Mark as read', "poll-maker"),
-			'bulk-delete' => __('Delete', "poll-maker"),
+			'bulk-read'   =>esc_html__('Mark as read', "poll-maker"),
+			'bulk-delete' =>esc_html__('Delete', "poll-maker"),
 		);
 
 		return $actions;
@@ -544,10 +544,10 @@ class Pma_Each_Results_List_Table extends WP_List_Table {
 		}
 
 		if ('deleted' == $status) {
-			$updated_message = esc_html(__('Result(s) deleted.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Result(s) deleted.', "poll-maker"));
 		}
 		if ('read' == $status) {
-			$updated_message = esc_html(__('Result(s) marked as read.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Result(s) marked as read.', "poll-maker"));
 		}
 
 		if (empty($updated_message)) {

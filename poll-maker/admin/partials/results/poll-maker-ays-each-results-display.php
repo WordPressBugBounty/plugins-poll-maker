@@ -26,7 +26,7 @@
 <div class="wrap ays_polls_each_results_list_table">
     <div class="ays-poll-heading-box">
         <div class="ays-poll-wordpress-user-manual-box">
-            <a href="https://ays-pro.com/wordpress-poll-maker-user-manual" target="_blank"><?php echo __("View Documentation", "poll-maker"); ?></a>
+            <a href="https://ays-pro.com/wordpress-poll-maker-user-manual" target="_blank"><?php echo esc_html__("View Documentation", "poll-maker"); ?></a>
         </div>
     </div>
     <h1 class="wp-heading-inline">
@@ -44,14 +44,14 @@
 
             $user_id = get_current_user_id();
 
-            echo sprintf('<a href="?page=%s" class="forArrow"><img src="' . POLL_MAKER_AYS_ADMIN_URL . '/images/icons/arrow-left.svg"></a>', esc_attr(rtrim($_REQUEST['page'], '-each')));
+            echo sprintf('<a href="?page=%s" class="forArrow"><img src="' . esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/arrow-left.svg"></a>', esc_attr(rtrim($_REQUEST['page'], '-each')));
             echo esc_html(stripslashes($_GET['title']));
             ?>
         </div>
     </h1>
     <div class="nav-tab-wrapper">
-        <a href="#statistics" class="ays-poll-google-chart nav-tab <?php echo ($ays_poll_tab == 'tab1') ? 'nav-tab-active' : ''; ?>" data-tab="tab1"><?= __('Statistics', "poll-maker"); ?></a>
-        <a href="#poststuff" class="nav-tab <?php echo ($ays_poll_tab == 'tab2') ? 'nav-tab-active' : ''; ?>" data-tab="tab2"><?= __('Results', "poll-maker"); ?></a>
+        <a href="#statistics" class="ays-poll-google-chart nav-tab <?php echo ($ays_poll_tab == 'tab1') ? 'nav-tab-active' : ''; ?>" data-tab="tab1"><?php echo esc_html__('Statistics', "poll-maker"); ?></a>
+        <a href="#poststuff" class="nav-tab <?php echo ($ays_poll_tab == 'tab2') ? 'nav-tab-active' : ''; ?>" data-tab="tab2"><?php echo esc_html__('Results', "poll-maker"); ?></a>
     </div>
     <div id="poststuff" class="ays-poll-tab-content <?php echo ($ays_poll_tab == 'tab2') ? 'ays-poll-tab-content-active' : ''; ?>">
         <div id="post-body" class="metabox-holder">
@@ -61,7 +61,7 @@
                         <input type="hidden" name="ays_poll_tab_results" value="<?php echo htmlentities($ays_poll_tab); ?>" id="ays_poll_active_tab_settings">
 	                    <?php
 	                        $this->each_results_obj->prepare_items();
-                            $search = __("Search" , "poll-maker");
+                            $search =esc_html__("Search" , "poll-maker");
                             $this->each_results_obj->search_box($search, $this->plugin_name);
 	                        $this->each_results_obj->display();         
 	                    ?>
@@ -78,11 +78,11 @@
     <div id="ays-results-modal" class="ays-modal">
         <div class="ays-modal-content">
             <div class="ays-poll-preloader">
-                <img class="loader" src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/loaders/tail-spin.svg">
+                <img class="loader" src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/loaders/tail-spin.svg">
             </div>
             <div class="ays-modal-header">
                 <span class="ays-close" id="ays-close-results">&times;</span>
-                <h2><?php echo __("Details report", "poll-maker"); ?></h2>
+                <h2><?php echo esc_html__("Details report", "poll-maker"); ?></h2>
             </div>
             <div class="ays-modal-body" id="ays-results-body">
                 <table id="ays-results-table">
@@ -104,10 +104,10 @@
             $chart_data = $this->each_results_obj->get_poll_data_chart($poll_id);
         ?>
 
-        var pageTab = <?= $current_tab ?>;
+        var pageTab = <?php echo $current_tab ?>;
 
         var pollId = <?php echo ($poll_id) ?>;
-        var chart_data =  <?= !empty($chart_data) ? json_encode($chart_data) : 0 ?>;
+        var chart_data =  <?php echo !empty($chart_data) ? json_encode($chart_data) : 0 ?>;
         var resultStatistics = $('#pollResultId-' + pollId);
 
         var votesSum = 0;

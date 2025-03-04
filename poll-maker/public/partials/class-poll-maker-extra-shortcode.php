@@ -84,7 +84,7 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         $id = (isset($attr['id']) && $attr['id'] != '') ? absint( sanitize_text_field($attr['id']) ) : null;
 
         if (is_null($id) || $id == 0 ) {
-            $passed_users_count_html = "<p class='wrong_shortcode_text' style='color:red;'>" . __('Wrong shortcode initialized', "poll-maker") . "</p>";
+            $passed_users_count_html = "<p class='wrong_shortcode_text' style='color:red;'>" .esc_html__('Wrong shortcode initialized', "poll-maker") . "</p>";
             return str_replace(array("\r\n", "\n", "\r"), "\n", $passed_users_count_html);
         }
 
@@ -106,14 +106,14 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
 
         $content_html = array();
         if( is_null( $results ) ){
-            $content_html = "<p style='text-align: center;font-style:italic;'>" . __( "There are no results yet.", "poll-maker" ) . "</p>";
+            $content_html = "<p style='text-align: center;font-style:italic;'>" .esc_html__( "There are no results yet.", "poll-maker" ) . "</p>";
             return $content_html;
         }
 
         $passed_users_count = (isset( $results['res_count'] ) && $results['res_count'] != '') ? sanitize_text_field( $results['res_count'] ) : 0;
 
         if ( $passed_users_count == 0 ) {
-            $content_html = "<p style='text-align: center;font-style:italic;'>" . __( "There are no results yet.", "poll-maker" ) . "</p>";
+            $content_html = "<p style='text-align: center;font-style:italic;'>" .esc_html__( "There are no results yet.", "poll-maker" ) . "</p>";
             return $content_html;
         }
 
@@ -213,7 +213,7 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         $id = (isset($attr['id']) && $attr['id'] != '') ? absint( sanitize_text_field($attr['id']) ) : null;
 
         if (is_null($id) || $id == 0 ) {
-            $poll_creation_date_html = "<p class='wrong_shortcode_text' style='color:red;'>" . __('Wrong shortcode initialized', "poll-maker") . "</p>";
+            $poll_creation_date_html = "<p class='wrong_shortcode_text' style='color:red;'>" .esc_html__('Wrong shortcode initialized', "poll-maker") . "</p>";
             return str_replace(array("\r\n", "\n", "\r"), "\n", $poll_creation_date_html);
         }
 
@@ -233,7 +233,7 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         $content_html = array();
 
         if($results === null){
-            $content_html = "<p style='text-align: center;font-style:italic;'>" . __( "There are no results yet.", "poll-maker" ) . "</p>";
+            $content_html = "<p style='text-align: center;font-style:italic;'>" .esc_html__( "There are no results yet.", "poll-maker" ) . "</p>";
             return $content_html;
         }
 
@@ -726,7 +726,7 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         }
 
         if(isset($author['name']) && $author['name'] == "Unknown"){
-            $author['name'] = __( "Unknown", "poll-maker" );
+            $author['name'] =esc_html__( "Unknown", "poll-maker" );
         }
 
         $poll_author = (isset($author['name']) && $author['name'] != '') ? sanitize_text_field( $author['name'] ) : "";

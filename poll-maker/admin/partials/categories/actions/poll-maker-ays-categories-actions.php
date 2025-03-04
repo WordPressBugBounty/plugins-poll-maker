@@ -18,12 +18,12 @@ $loader_iamge = '';
 
 switch ( $action ) {
 	case 'add':
-        $heading = __('Add new category', "poll-maker");
-        $loader_iamge = "<span class='display_none'><img src=".POLL_MAKER_AYS_ADMIN_URL."/images/loaders/loading.gif></span>";
+        $heading = esc_html__('Add new category', "poll-maker");
+        $loader_iamge = "<span class='display_none'><img src=".esc_url(POLL_MAKER_AYS_ADMIN_URL)."/images/loaders/loading.gif></span>";
 		break;
 	case 'edit':
-        $heading  = __('Edit category', "poll-maker");
-        $loader_iamge = "<span class='display_none'><img src=".POLL_MAKER_AYS_ADMIN_URL."/images/loaders/loading.gif></span>";
+        $heading  = esc_html__('Edit category', "poll-maker");
+        $loader_iamge = "<span class='display_none'><img src=".esc_url(POLL_MAKER_AYS_ADMIN_URL)."/images/loaders/loading.gif></span>";
 		$category = $this->cats_obj->get_poll_category($id);
 		break;
     default:
@@ -79,22 +79,22 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
         <div class="ays-poll-wordpress-user-manual-box">
             <a href="https://ays-pro.com/wordpress-poll-maker-user-manual" target="_blank" style="text-decoration: none;font-size: 13px;">
                 <i class="ays_poll_fas ays_fa_file_text"></i>
-                <span style="margin-left: 3px;text-decoration: underline;"><?php echo __("View Documentation", "poll-maker"); ?></span>
+                <span style="margin-left: 3px;text-decoration: underline;"><?php echo esc_html__("View Documentation", "poll-maker"); ?></span>
             </a>
         </div>
     </div>
     <div class="container-fluid">
-        <h1><?= $heading; ?></h1>
+        <h1><?php echo esc_html($heading); ?></h1>
         <hr/>
         <form class="ays-poll-category-form" id="ays-poll-category-form" method="post">
             <div class="form-group row">
                 <div class="col-sm-3">
                     <label for='ays-title'>
-						<?= __('Title', "poll-maker"); ?>
+						<?php echo esc_html__('Title', "poll-maker"); ?>
                         <a class="ays_help"
                            data-toggle="tooltip"
                            data-placement="top"
-                           title="<?= __('Write the name of the category.', "poll-maker"); ?>">
+                           title="<?php echo esc_html__('Write the name of the category.', "poll-maker"); ?>">
                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                         </a>
                     </label>
@@ -104,17 +104,17 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
                            id='ays-title'
                            name='ays_title'
                            type='text'
-                           value='<?= $category_title; ?>'>
+                           value='<?php echo esc_attr($category_title); ?>'>
                 </div>
             </div>
             <hr>
             <div class='ays-field'>
                 <label for='ays-description'>
-					<?= __('Description', "poll-maker"); ?>
+					<?php echo esc_html__('Description', "poll-maker"); ?>
                     <a class="ays_help"
                        data-toggle="tooltip"
                        data-placement="top"
-                       title="<?= __('Provide more information about the poll category.', "poll-maker"); ?>">
+                       title="<?php echo esc_html__('Provide more information about the poll category.', "poll-maker"); ?>">
                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                     </a>
                 </label>
@@ -133,23 +133,23 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
             <hr>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for='ays-poll-skip'><?= __('Allow to skip polls', "poll-maker"); ?>
+                    <label for='ays-poll-skip'><?php echo esc_html__('Allow to skip polls', "poll-maker"); ?>
                         <a class="ays_help" data-toggle="tooltip" data-placement="top"
-                           title="<?= __('If this option is enabled, the “Next” button will be available and the user can skip the poll and go forward.', "poll-maker"); ?>">
+                           title="<?php echo esc_html__('If this option is enabled, the “Next” button will be available and the user can skip the poll and go forward.', "poll-maker"); ?>">
                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                         </a>
                     </label>
                 </div>
                 <div class="col-sm-9">
                     <input type="checkbox" name="ays_poll_allow_skip" id="ays-poll-skip"
-                           value="allow" <?= isset($cat_opt['allow_skip']) && $cat_opt['allow_skip'] == 'allow' ? 'checked' : ''; ?>>
+                           value="allow" <?php echo isset($cat_opt['allow_skip']) && $cat_opt['allow_skip'] == 'allow' ? 'checked' : ''; ?>>
                 </div>
             </div>
             <hr>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for='ays_poll_next_text'><?= __('Next button text', "poll-maker"); ?>
-                        <a class="ays_help" data-toggle="tooltip" data-placement="top" title="<?= __('Write your preferred text for the “Next” button.', "poll-maker"); ?>">
+                    <label for='ays_poll_next_text'><?php echo esc_html__('Next button text', "poll-maker"); ?>
+                        <a class="ays_help" data-toggle="tooltip" data-placement="top" title="<?php echo esc_html__('Write your preferred text for the “Next” button.', "poll-maker"); ?>">
                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                         </a>
                     </label>
@@ -157,15 +157,15 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
                 <div class="col-sm-9">
                     <input class='ays-text-input ays-text-input-short' id='ays_poll_next_text' name='ays_poll_next_text'
                            type='text'
-                           value='<?= empty($cat_opt['next_text']) ? 'Next' : $cat_opt['next_text']; ?>'>
+                           value='<?php echo empty($cat_opt['next_text']) ? 'Next' : esc_attr($cat_opt['next_text']); ?>'>
                 </div>
             </div>
             <hr>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for='ays_poll_previous_text'><?= __('Previous button text', "poll-maker"); ?><a
+                    <label for='ays_poll_previous_text'><?php echo esc_html__('Previous button text', "poll-maker"); ?><a
                                 class="ays_help" data-toggle="tooltip" data-placement="top"
-                                title="<?= __("Write your preferred text for the “Previous” button.", "poll-maker"); ?>">
+                                title="<?php echo esc_html__("Write your preferred text for the “Previous” button.", "poll-maker"); ?>">
                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                         </a></label>
                 </div>
@@ -174,14 +174,14 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
                            id='ays_poll_previous_text'
                            name='ays_poll_previous_text'
                            type='text'
-                           value='<?php echo $previous_button ?>'>
+                           value='<?php echo esc_attr($previous_button); ?>'>
                 </div>
             </div>
             <hr>
             <div class="form-group row">
                 <div class="col-sm-3">
-                    <label for='ays_poll_cat_message'><?= __('Message when no active polls found', "poll-maker"); ?>
-                        <a class="ays_help" data-toggle="tooltip" data-placement="top" title="<?= __('The message will appear when all polls with this category are expired or unpublished.', "poll-maker"); ?>">
+                    <label for='ays_poll_cat_message'><?php echo esc_html__('Message when no active polls found', "poll-maker"); ?>
+                        <a class="ays_help" data-toggle="tooltip" data-placement="top" title="<?php echo esc_html__('The message will appear when all polls with this category are expired or unpublished.', "poll-maker"); ?>">
                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                         </a>
                     </label>
@@ -209,15 +209,15 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
                 <?php
                     wp_nonce_field('poll_category_action', 'poll_category_action');
                     $other_attributes = array('id' => 'ays-button-cat');
-                    submit_button(__('Save and close', "poll-maker"), 'primary', 'ays_submit', false, $other_attributes);
+                    submit_button( esc_html__('Save and close', "poll-maker"), 'primary', 'ays_submit', false, $other_attributes);
                     $save_bottom_attributes = array(
                         'id' => 'ays-button-apply',
                         'title' => 'Ctrl + s',
                         'data-toggle' => 'tooltip',
                         'data-delay'=> '{"show":"1000"}'
                     );
-                    submit_button(__('Save', "poll-maker"), '', 'ays_apply', false, $save_bottom_attributes);
-                    echo $loader_iamge;
+                    submit_button( esc_html__('Save', "poll-maker"), '', 'ays_apply', false, $save_bottom_attributes);
+                    echo wp_kses_post( $loader_iamge );
                 ?>
                 </div>
                 <div class="col-sm-4 ays-poll-button-second-row">
@@ -226,10 +226,10 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
 
                         $other_attributes = array(
                             'id' => 'ays-poll-category-next-button',
-                            'data-message' => __( 'Are you sure you want to go to the previous poll category page?', "poll-maker"),
+                            'data-message' =>esc_html__( 'Are you sure you want to go to the previous poll category page?', "poll-maker"),
                             'href' => sprintf( '?page=%s&action=%s&poll_category=%d', esc_attr( $_REQUEST['page'] ), 'edit', absint( $prev_poll_cat_id ) )
                         );
-                        submit_button(__('Previous Poll Category', "poll-maker"), 'button ays-poll-next-prev-button-class ays-button ays-poll-category-prev-button', 'ays_poll_category_prev_button', false, $other_attributes);
+                        submit_button( esc_html__('Previous Poll Category', "poll-maker"), 'button ays-poll-next-prev-button-class ays-button ays-poll-category-prev-button', 'ays_poll_category_prev_button', false, $other_attributes);
                     }
                 ?>
                 <?php
@@ -237,10 +237,10 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
 
                         $other_attributes = array(
                             'id' => 'ays-poll-category-next-button',
-                            'data-message' => __( 'Are you sure you want to go to the next poll category page?', "poll-maker"),
+                            'data-message' =>esc_html__( 'Are you sure you want to go to the next poll category page?', "poll-maker"),
                             'href' => sprintf( '?page=%s&action=%s&poll_category=%d', esc_attr( $_REQUEST['page'] ), 'edit', absint( $next_poll_cat_id ) )
                         );
-                        submit_button(__('Next Poll Category', "poll-maker"), 'button ays-poll-next-prev-button-class ays-button', 'ays_poll_category_next_button', false, $other_attributes);
+                        submit_button( esc_html__('Next Poll Category', "poll-maker"), 'button ays-poll-next-prev-button-class ays-button', 'ays_poll_category_next_button', false, $other_attributes);
                     }
                 ?>
                 </div>

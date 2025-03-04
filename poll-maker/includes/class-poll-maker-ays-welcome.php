@@ -90,7 +90,7 @@ class Poll_Maker_Ays_Welcome {
     public function enqueue_styles() {
         wp_enqueue_style(
             'poll-maker-ays-welcome-css', 
-            POLL_MAKER_AYS_ADMIN_URL . '/css/poll-maker-ays-welcome.css',
+            esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/poll-maker-ays-welcome.css',
             array(), false, 'all');
     }
 
@@ -101,7 +101,7 @@ class Poll_Maker_Ays_Welcome {
 	 */
     public function enqueue_scripts() {
 
-        wp_enqueue_script( 'poll-maker-ays-welcome', POLL_MAKER_AYS_ADMIN_URL . '/js/poll-maker-ays-welcome.js', array('jquery'), false, true);
+        wp_enqueue_script( 'poll-maker-ays-welcome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/js/poll-maker-ays-welcome.js', array('jquery'), false, true);
     }
 
     /**
@@ -124,21 +124,21 @@ class Poll_Maker_Ays_Welcome {
                     <div class="poll-maker-welcome-intro">
         
                         <div class="poll-maker-welcome-logo">
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/icons/poll-maker-logo.png" alt="<?php echo __( 'Poll Maker Logo', "poll-maker" ); ?>">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/icons/poll-maker-logo.png" alt="<?php echo esc_html__( 'Poll Maker Logo', "poll-maker" ); ?>">
                         </div>
 
                         <div class="poll-maker-welcome-close">
                             <a href="<?php echo admin_url( 'admin.php?page=' . POLL_MAKER_AYS_NAME ) ?> ">
-                                <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/icons/close.svg" alt="<?php echo __( 'Close', "poll-maker" ); ?>">
+                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/icons/close.svg" alt="<?php echo esc_html__( 'Close', "poll-maker" ); ?>">
                             </a>
                         </div>
                         <div class="poll-maker-welcome-block">
-                            <h1><?php echo __( 'Welcome to Poll Maker', "poll-maker" ); ?></h1>
-                            <h6><?php echo __( 'Thank you for choosing Poll Maker - the best poll and survey plugin for WordPress.', "poll-maker" ); ?></h6>
+                            <h1><?php echo esc_html__( 'Welcome to Poll Maker', "poll-maker" ); ?></h1>
+                            <h6><?php echo esc_html__( 'Thank you for choosing Poll Maker - the best poll and survey plugin for WordPress.', "poll-maker" ); ?></h6>
                         </div>
         
                         <a href="#" class="play-video" title="<?php esc_attr_e( 'Watch how to create your first poll', "poll-maker" ); ?>">
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL; ?>/images/ays-poll-welcome-video.png" alt="<?php echo __( 'Watch how to create your first poll', "poll-maker" ); ?>" class="poll-maker-welcome-video-thumbnail">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/ays-poll-welcome-video.png" alt="<?php echo esc_html__( 'Watch how to create your first poll', "poll-maker" ); ?>" class="poll-maker-welcome-video-thumbnail">
                         </a>
         
                         <div class="poll-maker-welcome-block">
@@ -146,13 +146,13 @@ class Poll_Maker_Ays_Welcome {
                             <div class="poll-maker-welcome-button-wrap poll-maker-clear">
                                 <div class="poll-maker-welcome-left">
                                     <a href="<?php echo esc_url( admin_url( 'admin.php?page=' . POLL_MAKER_AYS_NAME . "&action=add") ); ?>" class="poll-maker-btn poll-maker-btn-block poll-maker-btn-lg poll-maker-btn-orange">
-                                        <?php echo __( 'Create Your First Poll', "poll-maker" ); ?>
+                                        <?php echo esc_html__( 'Create Your First Poll', "poll-maker" ); ?>
                                     </a>
                                 </div>
                                 <div class="poll-maker-welcome-right">
                                     <a href="<?php echo 'https://ays-pro.com/wordpress-poll-maker-user-manual'; ?>"
                                         class="poll-maker-btn poll-maker-btn-block poll-maker-btn-lg poll-maker-btn-grey" target="_blank" rel="noopener noreferrer">
-                                        <?php echo __( 'Documentation', "poll-maker" ); ?>
+                                        <?php echo esc_html__( 'Documentation', "poll-maker" ); ?>
                                     </a>
                                 </div>
                             </div>

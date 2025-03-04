@@ -16,7 +16,7 @@ ob_start();
  * Plugin Name:       Poll Maker
  * Plugin URI:        https://ays-pro.com/wordpress/poll-maker/
  * Description:       Create amazing online polls and conduct interactive elections super easily and quickly.
- * Version:           5.6.9
+ * Version:           5.7.0
  * Author:            Poll Maker Team
  * Author URI:        https://ays-pro.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('POLL_MAKER_AYS_VERSION', '5.6.9');
+define('POLL_MAKER_AYS_VERSION', '5.7.0');
 define('POLL_MAKER_AYS_NAME', 'poll-maker-ays');
 
 if (!defined('POLL_MAKER_AYS_DIR')) {
@@ -144,15 +144,15 @@ function poll_maker_admin_notice() {
                     <div class="ays-poll-logo-container-upgrade">
                         <div class="logo-container">
                             <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" style="box-shadow: none;">
-                                <img  class="poll-logo" src="<?php echo esc_attr(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/icon-poll-128x128.png'; ?>" alt="<?php echo __( "Poll Maker", "poll-maker" ); ?>" title="<?php echo __( "Poll Maker", "poll-maker" ); ?>"/>
+                                <img  class="poll-logo" src="<?php echo esc_attr(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/icon-poll-128x128.png'; ?>" alt="<?php echo esc_html__( "Poll Maker", "poll-maker" ); ?>" title="<?php echo esc_html__( "Poll Maker", "poll-maker" ); ?>"/>
                             </a>
                         </div>
                         <div class="ays-poll-upgrade-container">
                             <a href="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=poll-top-banner-upgrade-button" target="_blank" class="poll-maker-upgrade-to-pro">
-                                <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL . '/images/icons/lightning-white.svg' ?>" class="poll-maker-upgrade-white-icon">
-                                <span><?php echo __( "Upgrade", "poll-maker" ); ?></span>
+                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/lightning-white.svg' ?>" class="poll-maker-upgrade-white-icon">
+                                <span><?php echo esc_html__( "Upgrade", "poll-maker" ); ?></span>
                             </a>
-                            <span class="ays-poll-logo-container-one-time-text"><?php echo __( "One-time payment", "poll-maker" ); ?></span>
+                            <span class="ays-poll-logo-container-one-time-text"><?php echo esc_html__( "One-time payment", "poll-maker" ); ?></span>
                         </div>
                     </div>
                     <ul id="menu">

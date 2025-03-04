@@ -10,8 +10,8 @@ class Polls_List_Table extends WP_List_Table {
 		$this->plugin_name = $plugin_name;
 		$this->title_length = Poll_Maker_Ays_Admin::get_listtables_title_length('polls');
 		parent::__construct(array(
-			'singular' => __('Poll', "poll-maker"), //singular name of the listed records
-			'plural'   => __('Polls', "poll-maker"), //plural name of the listed records
+			'singular' =>esc_html__('Poll', "poll-maker"), //singular name of the listed records
+			'plural'   =>esc_html__('Polls', "poll-maker"), //plural name of the listed records
 			'ajax'     => false, //does this table support ajax?
 		));
 		add_action('admin_notices', array($this, 'poll_notices'));
@@ -105,7 +105,7 @@ class Polls_List_Table extends WP_List_Table {
         ?>
         <div id="poll-filter-div-<?php echo esc_attr( $which ); ?>" class="alignleft actions bulkactions">
             <select name="filterby-<?php echo esc_attr($which); ?>" id="bulk-action-selector-<?php echo esc_attr($which); ?>">
-                <option value=""><?php echo __('Select Category', "poll-maker")?></option>
+                <option value=""><?php echo esc_html__('Select Category', "poll-maker")?></option>
                 <?php
                     foreach($categories_select as $key => $cat_title){
                         echo "<option ".$cat_title['selected']." value='".$cat_title['id']."'>".$cat_title['title']."</option>";
@@ -113,7 +113,7 @@ class Polls_List_Table extends WP_List_Table {
                 ?>
             </select>
 			<select name="filterbyauthor-<?php echo esc_attr( $which ); ?>" id="bulk-action-selector-<?php echo esc_attr( $which ); ?>">
-				<option value=""><?php echo __('Select Author', "poll-maker")?></option>
+				<option value=""><?php echo esc_html__('Select Author', "poll-maker")?></option>
 				<?php
 					foreach ($authors as $author_key => $author) {
 						$user_selected = ( isset($author_id_select) && $author_key == $author_id_select ) ? "selected" : "";
@@ -123,7 +123,7 @@ class Polls_List_Table extends WP_List_Table {
 				?>
 			</select>
 			<select name="filterbytype-<?php echo esc_attr( $which ); ?>" id="bulk-action-selector-<?php echo esc_attr( $which ); ?>">
-				<option value=""><?php echo __('Select Type', "poll-maker")?></option>
+				<option value=""><?php echo esc_html__('Select Type', "poll-maker")?></option>
 				<?php
 					foreach( $types as $type_key => $type){
 						$user_selected_type = ( isset($type_select) && $type == $type_select ) ? "selected" : "";
@@ -133,7 +133,7 @@ class Polls_List_Table extends WP_List_Table {
 			</select>
 			<input type="button" id="doaction-<?php echo esc_attr($which); ?>" class="ays-poll-question-tab-all-filter-button-<?php echo esc_attr($which); ?> button" value="Filter">
         </div>
-		<a href="?page=<?php echo esc_attr( $_REQUEST['page'] ); ?>" class="button actions_style"><?php echo __( "Clear filters", "poll-maker" ); ?></a>
+		<a href="?page=<?php echo esc_attr( $_REQUEST['page'] ); ?>" class="button actions_style"><?php echo esc_html__( "Clear filters", "poll-maker" ); ?></a>
         <?php
     }
 
@@ -171,9 +171,9 @@ class Polls_List_Table extends WP_List_Table {
         $unpublish_url = esc_url( add_query_arg('fstatus', 0, $status_links_url) );
 
 		$status_links = array(
-            "all" => "<a ".$selected_all." href='?page=".esc_attr( $_REQUEST['page'] )."'>". __( 'All', "poll-maker" )." (".$all_count.")</a>",
-            "published" => "<a ".$selected_1." href='". $publish_url ."'>". __( 'Published', "poll-maker" )." (".$published_count.")</a>",
-            "unpublished"   => "<a ".$selected_0." href='". $unpublish_url ."'>". __( 'Unpublished', "poll-maker" )." (".$unpublished_count.")</a>"
+            "all" => "<a ".$selected_all." href='?page=".esc_attr( $_REQUEST['page'] )."'>".esc_html__( 'All', "poll-maker" )." (".$all_count.")</a>",
+            "published" => "<a ".$selected_1." href='". $publish_url ."'>".esc_html__( 'Published', "poll-maker" )." (".$published_count.")</a>",
+            "unpublished"   => "<a ".$selected_0." href='". $unpublish_url ."'>".esc_html__( 'Unpublished', "poll-maker" )." (".$unpublished_count.")</a>"
         );
         return $status_links;
 	}
@@ -1320,7 +1320,7 @@ class Polls_List_Table extends WP_List_Table {
 
 		// Nonce verification for CSRF protection
 		if (!isset($_GET['_wpnonce']) && !wp_verify_nonce($_GET['_wpnonce'], $this->plugin_name . '-duplicate-poll')) {
-			wp_die(__('Security check error. Try again.', "poll-maker"));
+			wp_die( esc_html__('Security check error. Try again.', "poll-maker"));
 		}
 
 	 	$poll_table  = esc_sql($wpdb->prefix."ayspoll_polls");
@@ -1517,10 +1517,10 @@ class Polls_List_Table extends WP_List_Table {
 
 		$title   = sprintf('<a href="?page=%s&action=%s&poll=%d" title="%s">%s</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id']), $p, $restitle);
 		$actions = [
-			'edit'      => sprintf('<a href="?page=%s&action=%s&poll=%d">' . __('Edit', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id'])),
-			'duplicate' => sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' . __('Duplicate', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'duplicate', absint($item['id']),$duplicate_nonce),
-			'results'   => sprintf('<a href="?page=%s&poll=%d&title=%s">'. __('View Results', "poll-maker") .'</a>', esc_attr( $_REQUEST['page'] ) . '-results-each', absint( $item['id'] ) , $poll_title ),
-			'delete'    => sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' . __('Delete', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce),
+			'edit'      => sprintf('<a href="?page=%s&action=%s&poll=%d">' .esc_html__('Edit', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'edit', absint($item['id'])),
+			'duplicate' => sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' .esc_html__('Duplicate', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'duplicate', absint($item['id']),$duplicate_nonce),
+			'results'   => sprintf('<a href="?page=%s&poll=%d&title=%s">'.esc_html__('View Results', "poll-maker") .'</a>', esc_attr( $_REQUEST['page'] ) . '-results-each', absint( $item['id'] ) , $poll_title ),
+			'delete'    => sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' .esc_html__('Delete', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce),
 		];
 
 		return $title . $this->row_actions($actions);
@@ -1529,7 +1529,7 @@ class Polls_List_Table extends WP_List_Table {
 	function column_shortcode( $item ) {
 		$shortcode_content = '<div class="ays-poll-shortcode-container">
 								<div class="ays-poll-copy-image" data-toggle="tooltip" aria-label="Click to copy" data-original-title="Click to copy">
-									<img src="' . POLL_MAKER_AYS_ADMIN_URL . '/images/icons/edit-shortcode.svg">
+									<img src="' . esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/edit-shortcode.svg">
 								</div>';
 
 		$shortcode_input =  sprintf('<input type="text" class="ays-poll-shortcode-input" onclick="this.setSelectionRange(0, this.value.length)" readonly value="[ays_poll id=%s]" />', $item["id"]);
@@ -1545,7 +1545,7 @@ class Polls_List_Table extends WP_List_Table {
 	}
 
 	function column_results($item) {
-		return sprintf('<a href="?page=%s&poll=%d&title=%s"><img src="'. POLL_MAKER_AYS_ADMIN_URL .'/images/icons/view-poll-results.svg"></a>', esc_attr( $_REQUEST['page'] ) . '-results-each', absint( $item['id']), $item['title']);
+		return sprintf('<a href="?page=%s&poll=%d&title=%s"><img src="'. esc_url(POLL_MAKER_AYS_ADMIN_URL) .'/images/icons/view-poll-results.svg"></a>', esc_attr( $_REQUEST['page'] ) . '-results-each', absint( $item['id']), $item['title']);
 	}
 
 	function column_categories( $item ) {
@@ -1623,7 +1623,7 @@ class Polls_List_Table extends WP_List_Table {
 		$options = json_decode($res['styles'], true);
 		$status  = isset($options['published']) ? $options['published'] : 1;
 
-		return $status ? "<i class=\"ays_poll_far ays_poll_fa-check-square\"></i> " . __("Published", "poll-maker") : "<i class=\"ays_poll_far ays_poll_fa-square\"></i> " . __("Unpublished", "poll-maker");
+		return $status ? "<i class=\"ays_poll_far ays_poll_fa-check-square\"></i> " .esc_html__("Published", "poll-maker") : "<i class=\"ays_poll_far ays_poll_fa-square\"></i> " .esc_html__("Unpublished", "poll-maker");
 	}
 
 	function column_poll_image( $item ) {
@@ -1673,17 +1673,17 @@ class Polls_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 			'cb'				=> '<input type="checkbox" />',
-			'title'        		=> __('Title', "poll-maker"),
-			'poll_image'        => __('Question image', "poll-maker"),
-			'type'         		=> __('Type', "poll-maker"),
-			'shortcode'   		=> __('Shortcode', "poll-maker"),
-			'code_include' 		=> __('Code Include', "poll-maker"),
-			'results'      		=> __('Results', "poll-maker"),
-			'categories'   		=> __('Categories', "poll-maker"),
-			'create_date'   	=> __('Created', "poll-maker" ),
-			'completed_count'   => __('Completed count', "poll-maker" ),
-			'publish'      		=> __('Status', "poll-maker"),
-			'id'           		=> __('ID', "poll-maker"),
+			'title'        		=>esc_html__('Title', "poll-maker"),
+			'poll_image'        =>esc_html__('Question image', "poll-maker"),
+			'type'         		=>esc_html__('Type', "poll-maker"),
+			'shortcode'   		=>esc_html__('Shortcode', "poll-maker"),
+			'code_include' 		=>esc_html__('Code Include', "poll-maker"),
+			'results'      		=>esc_html__('Results', "poll-maker"),
+			'categories'   		=>esc_html__('Categories', "poll-maker"),
+			'create_date'   	=>esc_html__('Created', "poll-maker" ),
+			'completed_count'   =>esc_html__('Completed count', "poll-maker" ),
+			'publish'      		=>esc_html__('Status', "poll-maker"),
+			'id'           		=>esc_html__('ID', "poll-maker"),
 		);
 
 		return $columns;
@@ -1724,7 +1724,7 @@ class Polls_List_Table extends WP_List_Table {
 	 */
 	public function get_bulk_actions() {
 		$actions = array(
-			'bulk-delete' => __('Delete', "poll-maker"),
+			'bulk-delete' =>esc_html__('Delete', "poll-maker"),
 		);
 
 		return $actions;
@@ -2051,16 +2051,16 @@ class Polls_List_Table extends WP_List_Table {
 		}
 
 		if ('created' == $status) {
-			$updated_message = esc_html(__('Poll created.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Poll created.', "poll-maker"));
 		} elseif ('updated' == $status) {
-			$updated_message = esc_html(__('Poll saved.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Poll saved.', "poll-maker"));
 		} elseif ('duplicated' == $status) {
-			$updated_message = esc_html(__('Poll duplicated.', "poll-maker"));
+			$updated_message = esc_html( esc_html__('Poll duplicated.', "poll-maker"));
 		} elseif ('deleted' == $status) {
 			$deleted_count = isset($_GET['d_count']) && $_GET['d_count'] != "" ? intval(esc_attr($_GET['d_count'])) : 0;
-			$deleted_count_message = __('Poll deleted.', "poll-maker");
+			$deleted_count_message =esc_html__('Poll deleted.', "poll-maker");
 			if($deleted_count > 1){
-				$deleted_count_message = $deleted_count . __(' Polls are deleted.', "poll-maker");
+				$deleted_count_message = $deleted_count .esc_html__(' Polls are deleted.', "poll-maker");
 			} 
 			$updated_message = $deleted_count_message;
 		}

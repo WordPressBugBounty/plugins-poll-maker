@@ -12,7 +12,7 @@
     $selected_poll_title = array();
     $latest_poll_id = 0;
     if((!empty($polls) && $this_poll_id != "0" && strpos($_SERVER['REQUEST_URI'], 'filter_answer=') == false) || !empty($polls) && $this_poll_id == "0"){
-        $content = '<div><blockquote style="font-size: 17px;border-color:#f3ca03;">'.__("There are no selected polls." , "poll-maker").'</blockquote></div>';
+        $content = '<div><blockquote style="font-size: 17px;border-color:#f3ca03;">'. esc_html__("There are no selected polls." , "poll-maker").'</blockquote></div>';
     } else if(!empty($polls) && $this_poll_id != "0"){
         foreach($polls as $p_key => $p_value){
             $this_poll_id       = isset($p_value['id']) && $p_value['id'] != "" ? esc_attr($p_value['id']) : ""; 
@@ -49,7 +49,7 @@
         ) );
 
     } else{
-        $content = '<div><blockquote style="font-size: 17px;border-color:red;">'.__("There are no polls yet." , "poll-maker").'</blockquote></div>';
+        $content = '<div><blockquote style="font-size: 17px;border-color:red;">'. esc_html__("There are no polls yet." , "poll-maker").'</blockquote></div>';
         $disable_chart_filter = "disabled";
     }
 
@@ -62,7 +62,7 @@
         <div class="ays-poll-wordpress-user-manual-box">
             <a href="https://ays-pro.com/wordpress-poll-maker-user-manual" target="_blank" style="text-decoration: none;font-size: 13px;">
                 <i class="ays_poll_fas ays_fa_file_text"></i>
-                <span style="margin-left: 3px;text-decoration: underline;"><?php echo __("View Documentation", "poll-maker"); ?></span>
+                <span style="margin-left: 3px;text-decoration: underline;"><?php echo esc_html__("View Documentation", "poll-maker"); ?></span>
             </a>
         </div>
     </div>
@@ -76,26 +76,26 @@
             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff">
                 <div class="pro-features-popup-conteiner">
                     <div class="pro-features-popup-title">
-                        <?php echo __("Export Results", "poll-maker"); ?>
+                        <?php echo esc_html__("Export Results", "poll-maker"); ?>
                     </div>
                     <div class="pro-features-popup-content" data-link="https://youtu.be/DYof2ejoDVQ">
                         <p>
-                            <?php echo __("Analyzing poll results is the most important point of creating polls. The plugin supports CSV and XLSX file formats to export the results of your polls.", "poll-maker"); ?>
+                            <?php echo esc_html__("Analyzing poll results is the most important point of creating polls. The plugin supports CSV and XLSX file formats to export the results of your polls.", "poll-maker"); ?>
                         </p>
                         <p>
-                            <?php echo __("Use the feature to analyze poll results and get a better understanding of your website visitors.", "poll-maker"); ?>
+                            <?php echo esc_html__("Use the feature to analyze poll results and get a better understanding of your website visitors.", "poll-maker"); ?>
                         </p>
                     </div>
                     <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-export-results">
-                        <?php echo __("Upgrade PRO NOW", "poll-maker"); ?>
+                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
                     </div>
                 </div>
             </div>
             <div class="ays-poll-crown-img-container-main">
                 <a href="https://ays-pro.com/wordpress/poll-maker/" target="_blank" class="ays-poll-crown-img-container">
-                    <button class="disabled-button" style="color: #fff; float: right; margin-right: 5px; cursor: pointer; width: 77px; position: relative; display: flex; justify-content: space-between; align-items: center" title="<?=__('This property available only in PRO version', "poll-maker");?>" >
-                        <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL . '/images/icons/crown.png';?>">
-                        <?=__('Export', "poll-maker");?>
+                    <button class="disabled-button" style="color: #fff; float: right; margin-right: 5px; cursor: pointer; width: 77px; position: relative; display: flex; justify-content: space-between; align-items: center" title="<?php echo esc_html__('This property available only in PRO version', "poll-maker");?>" >
+                        <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/crown.png';?>">
+                        <?php echo esc_html__('Export', "poll-maker");?>
                     </button>
                 </a>
             </div>
@@ -105,11 +105,11 @@
         <div class="ays_menu_left" data-scroll="0"><i class="ays_poll_fas ays_poll_fa-left"></i></div>
         <div class="ays-top-menu">
             <div class="nav-tab-wrapper ays-poll-results-page-wrapper ays-top-tab-wrapper">
-                <a href="#tab1" class="nav-tab <?php echo $active_tab == "tab1"  ? "nav-tab-active" : ""; ?>"><?= __('Results', "poll-maker"); ?></a>
-                <a href="#tab2" class="nav-tab <?php echo $active_tab == "tab2"  ? "nav-tab-active" : ""; ?> ays_poll_answer_chart_active"><?= __('Answer Chart', "poll-maker"); ?></a>
-                <a href="#tab3" class="nav-tab"><?= __('Statistics', "poll-maker"); ?></a>
-                <a href="#tab4" class="nav-tab"><?= __('Global Leaderboard', "poll-maker"); ?></a>
-                <a href="#tab5" class="nav-tab"><?= __('All Results', "poll-maker"); ?></a>
+                <a href="#tab1" class="nav-tab <?php echo $active_tab == "tab1"  ? "nav-tab-active" : ""; ?>"><?php echo esc_html__('Results', "poll-maker"); ?></a>
+                <a href="#tab2" class="nav-tab <?php echo $active_tab == "tab2"  ? "nav-tab-active" : ""; ?> ays_poll_answer_chart_active"><?php echo esc_html__('Answer Chart', "poll-maker"); ?></a>
+                <a href="#tab3" class="nav-tab"><?php echo esc_html__('Statistics', "poll-maker"); ?></a>
+                <a href="#tab4" class="nav-tab"><?php echo esc_html__('Global Leaderboard', "poll-maker"); ?></a>
+                <a href="#tab5" class="nav-tab"><?php echo esc_html__('All Results', "poll-maker"); ?></a>
             </div>
         </div>
         <div class="ays_menu_right" data-scroll="-1"><i class="ays_poll_fas ays_poll_fa-right"></i></div>
@@ -138,7 +138,7 @@
                 <div>
                     <input type="hidden" name="page" value="poll-maker-ays-results">
                     <select name="filter_answer" <?php echo $disable_chart_filter; ?>>
-                        <option value="0"><?php echo __("Select Poll", "poll-maker")?></option>
+                        <option value="0"><?php echo esc_html__("Select Poll", "poll-maker")?></option>
                         <?php
                             $selected_poll = "";
                             $opt_cont = "";
@@ -168,25 +168,25 @@
             <div class="col-sm-12 only_pro" style="padding:10px 0 0 10px;">
                 <div class="pro_features" style="justify-content:flex-end;">
                 </div>
-                <a href="https://ays-pro.com/wordpress/poll-maker/" target="_blank" title="<?=__('This property available only in PRO version', "poll-maker");?>">
-                    <img src="<?=plugins_url() . '/poll-maker/admin/images/chart_screen.png';?>" alt="Statistics" style="width:100%" >
+                <a href="https://ays-pro.com/wordpress/poll-maker/" target="_blank" title="<?php echo esc_html__('This property available only in PRO version', "poll-maker");?>">
+                    <img src="<?php echo plugins_url() . '/poll-maker/admin/images/chart_screen.png';?>" alt="Statistics" style="width:100%" >
                 </a>
                 <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
                     <div class="ays-poll-new-upgrade-button-box">
                         <div>
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>">
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/locked_24x24.svg'?>">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
                         </div>
-                        <div class="ays-poll-new-upgrade-button"><?php echo __("Upgrade", "poll-maker"); ?></div>
+                        <div class="ays-poll-new-upgrade-button"><?php echo esc_html__("Upgrade", "poll-maker"); ?></div>
                     </div>
                 </a>
                 <div class="ays-poll-center-big-main-button-box ays-poll-new-big-button-flex">
                     <div class="ays-poll-center-big-main-button-box">
                         <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
                             <div class="ays-poll-center-new-big-upgrade-button">
-                                <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>" class="ays-poll-new-button-img-hide">
-                                <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">  
-                                <?php echo __("Upgrade", "poll-maker"); ?>
+                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/locked_24x24.svg'?>" class="ays-poll-new-button-img-hide">
+                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">  
+                                <?php echo esc_html__("Upgrade", "poll-maker"); ?>
                             </div>
                         </a>
                     </div>
@@ -203,8 +203,8 @@
                     <ul class='ays_lb_ul' style='width: 100%;'>
                         <li class='ays_lb_li'>
                             <div class='ays_lb_pos'>Pos.</div>
-                            <div class='ays_lb_user'><?php echo __("Name", "poll-maker")?></div>
-                            <div class='ays_lb_score'><?php echo __("Attempts", "poll-maker")?></div>
+                            <div class='ays_lb_user'><?php echo esc_html__("Name", "poll-maker")?></div>
+                            <div class='ays_lb_score'><?php echo esc_html__("Attempts", "poll-maker")?></div>
                         </li>
                         <li class="ays_lb_li">
                             <div class="ays_lb_pos">1.</div>
@@ -216,10 +216,10 @@
                 <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
                     <div class="ays-poll-new-upgrade-button-box">
                         <div>
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>">
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/locked_24x24.svg'?>">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
                         </div>
-                        <div class="ays-poll-new-upgrade-button"><?php echo __("Upgrade", "poll-maker"); ?></div>
+                        <div class="ays-poll-new-upgrade-button"><?php echo esc_html__("Upgrade", "poll-maker"); ?></div>
                     </div>
                 </a>
             </div>
@@ -386,10 +386,10 @@
                 <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
                     <div class="ays-poll-new-upgrade-button-box">
                         <div>
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/locked_24x24.svg'?>">
-                            <img src="<?php echo POLL_MAKER_AYS_ADMIN_URL.'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/locked_24x24.svg'?>">
+                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
                         </div>
-                        <div class="ays-poll-new-upgrade-button"><?php echo __("Upgrade", "poll-maker"); ?></div>
+                        <div class="ays-poll-new-upgrade-button"><?php echo esc_html__("Upgrade", "poll-maker"); ?></div>
                     </div>
                 </a>
             </div>

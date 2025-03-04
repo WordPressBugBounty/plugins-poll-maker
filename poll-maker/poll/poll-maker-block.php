@@ -19,7 +19,7 @@
         }
         
         wp_enqueue_script("jquery-effects-core");
-        wp_enqueue_script('ays_block_select2js', POLL_MAKER_AYS_ADMIN_URL . '/js/select2.min.js', array('jquery'), '4.0.6', true);
+        wp_enqueue_script('ays_block_select2js', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/js/select2.min.js', array('jquery'), '4.0.6', true);
         wp_enqueue_script(POLL_MAKER_AYS_NAME . '-autosize', POLL_MAKER_AYS_PUBLIC_URL . '/js/poll-maker-autosize.js', array( 'jquery' ), POLL_MAKER_AYS_VERSION, false );
         wp_enqueue_script(POLL_MAKER_AYS_NAME, POLL_MAKER_AYS_PUBLIC_URL . '/js/poll-maker-ays-public.js', array('jquery'), POLL_MAKER_AYS_VERSION, false);
         wp_localize_script(POLL_MAKER_AYS_NAME . '-ajax-public', 'poll_maker_ajax_public', array('ajax_url' => admin_url('admin-ajax.php')));
@@ -43,9 +43,9 @@
         }
         wp_localize_script('ays-poll-gutenberg-block-js', 'ays_poll_block_ajax', array('aysDoShortCode' => admin_url('admin-ajax.php')));
 
-        wp_enqueue_style( POLL_MAKER_AYS_NAME . '-font-awesome', POLL_MAKER_AYS_ADMIN_URL . '/css/poll-maker-font-awesome-all.css', array(), POLL_MAKER_AYS_VERSION, 'all');
-        wp_enqueue_style('ays-block-animate', POLL_MAKER_AYS_ADMIN_URL . '/css/animate.min.css', array(), '2.0.6', 'all');
-        wp_enqueue_style('ays-block-select2', POLL_MAKER_AYS_ADMIN_URL . '/css/select2.min.css', array(), '4.0.6', 'all');
+        wp_enqueue_style( POLL_MAKER_AYS_NAME . '-font-awesome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/poll-maker-font-awesome-all.css', array(), POLL_MAKER_AYS_VERSION, 'all');
+        wp_enqueue_style('ays-block-animate', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/animate.min.css', array(), '2.0.6', 'all');
+        wp_enqueue_style('ays-block-select2', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/select2.min.css', array(), '4.0.6', 'all');
         wp_enqueue_style(POLL_MAKER_AYS_NAME, POLL_MAKER_AYS_PUBLIC_URL . '/css/poll-maker-ays-public.css', array(), POLL_MAKER_AYS_VERSION, 'all');
 
         // Enqueue the bundled block CSS file

@@ -30,13 +30,13 @@
 
 ?>
             <p>
-                <select class="widefat" id="<?= $this->get_field_id( 'ays-polls' ); ?>"
-                        name="<?= $this->get_field_name( 'poll_maker_ays_id' ); ?>">
+                <select class="widefat" id="<?php echo $this->get_field_id( 'ays-polls' ); ?>"
+                        name="<?php echo $this->get_field_name( 'poll_maker_ays_id' ); ?>">
                     <option value="0" selected disabled>Select poll</option>
 					<?php
 						foreach ( $polls as $poll ) { ?>
-                            <option value="<?= $poll['id']; ?>" <?= $poll['id'] == $poll_id ? "selected" : ""; ?> >
-								<?= $poll['title']; ?>
+                            <option value="<?php echo $poll['id']; ?>" <?php echo $poll['id'] == $poll_id ? "selected" : ""; ?> >
+								<?php echo $poll['title']; ?>
                             </option>
 						<?php }
 					?>

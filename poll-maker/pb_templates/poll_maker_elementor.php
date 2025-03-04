@@ -14,7 +14,7 @@ class Widget_Poll_Maker_Elementor extends Widget_Base {
         return 'poll-maker';
     }
     public function get_title() {
-        return __( 'Poll Maker', 'poll-maker' );
+        returnesc_html__( 'Poll Maker', 'poll-maker' );
     }
     public function get_icon() {
         // Icon name from the Elementor font file, as per http://dtbaker.net/web-development/creating-your-own-custom-elementor-widgets/
@@ -36,17 +36,17 @@ class Widget_Poll_Maker_Elementor extends Widget_Base {
         $this->add_control(
             'poll_title',
             array(
-                'label' => __( 'Poll Title', 'poll-maker' ),
+                'label' =>esc_html__( 'Poll Title', 'poll-maker' ),
                 'type' => Controls_Manager::TEXT,
                 'default' => '',
-                'title' => __( 'Enter the poll title', 'poll-maker' ),
-                'placeholder' => __( 'Enter the poll title', 'poll-maker' ),
+                'title' =>esc_html__( 'Enter the poll title', 'poll-maker' ),
+                'placeholder' =>esc_html__( 'Enter the poll title', 'poll-maker' ),
             )
         );
         $this->add_control(
             'poll_title_alignment',
             array(
-                'label' => __( 'Title Alignment', 'poll-maker' ),
+                'label' =>esc_html__( 'Title Alignment', 'poll-maker' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'left',
                 'options' => array(
@@ -59,7 +59,7 @@ class Widget_Poll_Maker_Elementor extends Widget_Base {
         $this->add_control(
             'poll_selector',
             array(
-                'label' => __( 'Select Poll', 'poll-maker' ),
+                'label' =>esc_html__( 'Select Poll', 'poll-maker' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => $this->get_default_poll(),
                 'options' => $this->get_active_polls()
