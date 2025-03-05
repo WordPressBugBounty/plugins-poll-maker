@@ -4,11 +4,12 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.7.2
-Stable tag: 5.7.0
+Stable tag: 5.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Poll Maker is a powerful plugin for creating custom polls and gathering opinions. It lets you design and share polls quickly to engage your audience and collect feedback.
+Poll Maker is a FREE WordPress poll plugin that will let you create customizable and professional online polls and voting for your WordPress website.
+
 == Description ==
 
 
@@ -351,6 +352,10 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.7.1 =
+* Added: Some sanitizing checks on the front end
+* Fixed: Issue with the Elementor Plugin
 
 = 5.7.0 =
 * Updated: POT file

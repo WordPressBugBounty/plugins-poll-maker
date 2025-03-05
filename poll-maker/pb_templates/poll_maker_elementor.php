@@ -14,7 +14,7 @@ class Widget_Poll_Maker_Elementor extends Widget_Base {
         return 'poll-maker';
     }
     public function get_title() {
-        returnesc_html__( 'Poll Maker', 'poll-maker' );
+        return esc_html__( 'Poll Maker', 'poll-maker' );
     }
     public function get_icon() {
         // Icon name from the Elementor font file, as per http://dtbaker.net/web-development/creating-your-own-custom-elementor-widgets/

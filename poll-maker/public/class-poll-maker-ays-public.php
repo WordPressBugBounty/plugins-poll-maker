@@ -1213,8 +1213,8 @@ class Poll_Maker_Ays_Public {
 		
 		if ( $poll_enable_password_visibility ) {
 			$password_message_with_toggle_class = "ays-poll-password-input-box-visibility";
-			$password_message_with_toggle .= "<img src='". POLL_MAKER_AYS_PUBLIC_URL ."/images/poll-maker-eye-visibility-off.svg' class='ays-poll-password-toggle ays-poll-password-toggle-visibility-off'>";
-			$password_message_with_toggle .= "<img src='". POLL_MAKER_AYS_PUBLIC_URL ."/images/poll-maker-eye-visibility.svg' class='ays-poll-password-toggle ays-poll-password-toggle-visibility ays_poll_display_none'>";
+			$password_message_with_toggle .= "<img src='". esc_url(POLL_MAKER_AYS_PUBLIC_URL) ."/images/poll-maker-eye-visibility-off.svg' class='ays-poll-password-toggle ays-poll-password-toggle-visibility-off'>";
+			$password_message_with_toggle .= "<img src='". esc_url(POLL_MAKER_AYS_PUBLIC_URL) ."/images/poll-maker-eye-visibility.svg' class='ays-poll-password-toggle ays-poll-password-toggle-visibility ays_poll_display_none'>";
 		}
 
 		
@@ -3815,7 +3815,7 @@ class Poll_Maker_Ays_Public {
 						$poll_avatars_content = '<div class="ays-user-count">
 													'.$poll_user_avatars.' 
 													<div class="ays-users-profile-pics">
-														<img src="'.POLL_MAKER_AYS_PUBLIC_URL.'/images/more.png" width="24" height="24" class="ays-user-image-more" data-answer-id='.$ans_val["id"].'>
+														<img src="'.esc_url(POLL_MAKER_AYS_PUBLIC_URL).'/images/more.png" width="24" height="24" class="ays-user-image-more" data-answer-id='.$ans_val["id"].'>
 													</div>
 												</div>';
 					}

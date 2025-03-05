@@ -2450,6 +2450,33 @@ class Poll_Maker_Ays_Admin {
         $content = array();
         $var_counter = 0; 
 
+        $allowed_tags = array(
+            'div' => array(
+                'class' => true
+            ),
+            'span' => array(),
+            'a' => array(
+                'class' => true,
+                'data-toggle' => true,
+                'data-html' => true,
+                'title' => true
+            ),
+            'i' => array(
+                'class' => true
+            ),
+            'label' => array(
+                'class' => true
+            ),
+            'input' => array(
+                'type' => true,
+                'class' => true,
+                'hidden' => true,
+                'id' => true,
+                'name' => true,
+                'value' => true
+            )
+        );
+
         $content[] = '<div class="ays-poll-message-vars-box">';
             $content[] = '<div class="ays-poll-message-vars-icon">';
                 $content[] = '<div>';
@@ -2478,7 +2505,7 @@ class Poll_Maker_Ays_Admin {
 
         $content = implode( '', $content );
 
-        return $content;
+        return wp_kses( $content, $allowed_tags );
     }
 
     public function ays_poll_update_banner_time(){
