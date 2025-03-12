@@ -327,7 +327,7 @@ class Poll_Maker_Ays_Admin {
 		 *
 		 */
 
-		$menu_item = ($unread_results == 0) ? 'Poll Maker' : 'Poll Maker' . '<span class="apm-badge badge badge-danger '.$show.'">' . $unread_results . '</span>';
+		$menu_item = ($unread_results == 0) ? 'Poll Maker' : 'Poll Maker' . '<span style="margin-right: 10px;" class="apm-badge badge badge-danger '.$show.'">' . $unread_results . '</span>';
 
 		$this->capability = $this->poll_maker_capabilities();
         $capability = $this->poll_maker_capabilities();

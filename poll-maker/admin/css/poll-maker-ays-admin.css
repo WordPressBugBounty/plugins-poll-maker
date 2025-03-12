@@ -30,6 +30,8 @@ div.ays-notice-banner{
     background-image: unset;
     padding-bottom: 10px;
     padding-left: 10px;
+    position: relative;
+    z-index: 300;
 }
 
 .ays-poll-logo-container-upgrade {
@@ -2030,6 +2032,13 @@ label.ays_switch_toggle {
     transition: .3s ease;
 }
 
+[dir="rtl"] label.ays_switch_toggle {
+    text-indent: 9999px;
+}
+[dir="rtl"] .color-alpha {
+    right: 0 !important;
+}
+
 label.ays_switch_toggle:after {
     content: '';
     position: absolute;
@@ -2042,6 +2051,11 @@ label.ays_switch_toggle:after {
     transition: 0.3s;
 }
 
+[dir="rtl"] label.ays_switch_toggle:after {
+    left: auto;
+    right: -3px;
+}
+
 input:checked + label.ays_switch_toggle {
     background: #b7ccea;
 }
@@ -2049,6 +2063,12 @@ input:checked + label.ays_switch_toggle {
 input:checked + label.ays_switch_toggle:after {
     left: calc(100% - -5px);
     transform: translateX(-100%);
+}
+
+[dir="rtl"] input:checked + label.ays_switch_toggle:after {
+    left: auto;
+    right: calc(100% - -5px);
+    transform: translateX(100%);
 }
 
 label.ays_switch_toggle:hover:after {

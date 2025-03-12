@@ -8,6 +8,30 @@ $image_text    =esc_html__('Add Image', "poll-maker");
 $image_text_bg =esc_html__('Add Image', "poll-maker");
 $image_text_logo =esc_html__('Add Image', "poll-maker");
 
+$acordion_svg_html_allow = array(
+    'div' => array(
+        'class' => array()
+    ),
+    'svg' => array(
+        'class' => array(),
+        'version' => array(),
+        'xmlns' => array(),
+        'xmlns:xlink' => array(), 
+        'overflow' => array(),
+        'preserveAspectRatio' => array(),
+        'viewBox' => array(),
+        'width' => array(),
+        'height' => array()
+    ),
+    'g' => array(),
+    'path' => array(
+        'xmlns:default' => array(),
+        'd' => array(),
+        'fill' => array(),
+        'vector-effect' => array()
+    )
+);
+
 $poll_acordion_svg_html = '
 <div class="ays-poll-accordion-arrow-box">
     <svg class="ays-poll-accordion-arrow ays-poll-accordion-arrow-active" version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible" preserveAspectRatio="none" viewBox="0 0 24 24" width="32" height="32">
@@ -216,7 +240,15 @@ if($settings_options){
 }else{
     $settings_options = array();
 }
-
+$loader_iamge_allow = array(
+    'span' => array(
+        'class' => array()
+    ),
+    'img' => array(
+        'src' => array(),
+        'class' => array()
+    )
+);
 switch ( $action ) {
 	case 'add':
 		$heading =esc_html__('Add new poll', "poll-maker");
@@ -806,15 +838,15 @@ $emoji = array(
 
     
     input[type='button'].ays-poll-btn{
-		font-size: <?php echo $poll_buttons_font_size; ?>px;
-		padding: <?php echo $poll_buttons_top_bottom_padding."px ".$poll_buttons_left_right_padding."px"; ?>;
-		border-radius: <?php echo $poll_buttons_border_radius; ?>px;
-		width:  <?php echo $poll_buttons_width; ?>px;
+		font-size: <?php echo esc_attr($poll_buttons_font_size); ?>px;
+		padding: <?php echo esc_attr($poll_buttons_top_bottom_padding). "px ". esc_attr($poll_buttons_left_right_padding). "px"; ?>;
+		border-radius: <?php echo esc_attr($poll_buttons_border_radius); ?>px;
+		width:  <?php echo esc_attr($poll_buttons_width); ?>px;
 	}
 
     @media (max-width: 768px) {
         input[type='button'].ays-poll-btn{
-            width: <?php echo $poll_buttons_mobile_width; ?>px;
+            width: <?php echo esc_attr($poll_buttons_mobile_width); ?>px;
         }
     }
 </style>
@@ -830,13 +862,13 @@ $emoji = array(
     </div>
     <div class="container-fluid">
         <form class="ays-poll-form" id="ays-poll-form" method="post">
-            <input type="hidden" name="ays_poll_active_tab" id="ays_poll_active_tab" value="<?php echo htmlentities($active_tab); ?>"/>
+            <input type="hidden" name="ays_poll_active_tab" id="ays_poll_active_tab" value="<?php echo esc_attr($active_tab); ?>"/>
            	<input type="hidden" name="ays_poll_ctrate_date" value="<?php //echo $poll_create_date; ?>">
-           	<input type="hidden" name="ays_poll_author" value="<?php echo htmlentities(json_encode($poll_author)); ?>">
-            <input type="hidden"  id="poll_choose_type_first" value="<?php echo $poll['type']; ?>" >
+           	<input type="hidden" name="ays_poll_author" value="<?php echo esc_attr(json_encode($poll_author)); ?>">
+            <input type="hidden"  id="poll_choose_type_first" value="<?php echo esc_attr($poll['type']); ?>" >
             <h1 class="wp-heading-inline">
 				<?php
-				echo "$heading";
+				echo esc_html($heading);
 				?>
             </h1>
             <div>
@@ -845,17 +877,17 @@ $emoji = array(
                         <?php if(isset($id) && count($get_all_polls) > 1):?>
                         <i class="ays_poll_fas ays_fa_arrow_down ays-poll-open-polls-list" style="font-size: 15px;"></i>   
                         <?php endif; ?>
-                        <strong class="ays_poll_title_in_top"><?php echo $poll['title']; ?></strong>
+                        <strong class="ays_poll_title_in_top"><?php echo esc_html($poll['title']); ?></strong>
                     </p>
                     <?php if(isset($id) && count($get_all_polls) > 1):?>
                     <div class="ays-poll-polls-data">
                         <?php $var_counter = 0; foreach($get_all_polls as $var => $var_name): if( intval($var_name['id']) == $id ){continue;} $var_counter++; ?>
                             <?php ?>
                             <label class="ays-poll-message-vars-each-data-label">
-                                <input type="radio" class="ays-poll-polls-each-data-checker" hidden id="ays_poll_message_var_count_<?php echo $var_counter?>" name="ays_poll_message_var_count">
+                                <input type="radio" class="ays-poll-polls-each-data-checker" hidden id="ays_poll_message_var_count_<?php echo esc_attr($var_counter); ?>" name="ays_poll_message_var_count">
                                 <div class="ays-poll-polls-each-data">
-                                    <input type="hidden" class="ays-poll-polls-each-var" value="<?php echo $var; ?>">
-                                    <a href="?page=poll-maker-ays&action=edit&poll=<?php echo $var_name['id']?>" target="_blank" class="ays-poll-go-to-polls"><span><?php echo stripslashes(esc_attr($var_name['title'])); ?></span></a>
+                                    <input type="hidden" class="ays-poll-polls-each-var" value="<?php echo esc_attr($var); ?>">
+                                    <a href="?page=poll-maker-ays&action=edit&poll=<?php echo esc_attr($var_name['id']); ?>" target="_blank" class="ays-poll-go-to-polls"><span><?php echo esc_attr(stripslashes($var_name['title'])); ?></span></a>
                                 </div>
                             </label>              
                         <?php endforeach ?>
@@ -870,7 +902,7 @@ $emoji = array(
                     <div class="col-sm-9">
                         <p style="font-size:14px; font-style:italic;">
                             <?php echo esc_html__("To insert the Poll into a page, post or text widget, copy shortcode", "poll-maker"); ?>
-                            <strong class="ays-poll-shortcode-box" data-toggle="tooltip" title="<?php echo esc_html__('Click for copy.',"poll-maker");?>" onClick="selectElementContents(this)" style="font-size:16px; font-style:normal;"><?php echo "[ays_poll id=".$id."]"; ?></strong>
+                            <strong class="ays-poll-shortcode-box" data-toggle="tooltip" title="<?php echo esc_html__('Click for copy.',"poll-maker");?>" onClick="selectElementContents(this)" style="font-size:16px; font-style:normal;"><?php echo "[ays_poll id=". esc_attr($id) ."]"; ?></strong>
                             <?php echo " " .esc_html__( "and paste it at the desired place in the editor.", "poll-maker"); ?>
                         </p>
                     </div>
@@ -919,7 +951,7 @@ $emoji = array(
                             </div>
                             <div class='top-menu-buttons-container'>
                                 <?php
-                                    echo $loader_iamge;
+                                    echo wp_kses($loader_iamge, $loader_iamge_allow);
                                     $save_attributes = array(
                                         'id' => 'ays-button-top-apply',
                                         'title' => 'Ctrl + s',
@@ -963,7 +995,7 @@ $emoji = array(
                             </div>
                             <div class="col-sm-9 ays_divider_left">
                                 <input type="text" class="ays-text-input" id='ays-poll-title' name='ays-poll-title'
-                                    data-required="false" value="<?php echo $poll_title ?>"/>
+                                    data-required="false" value="<?php echo esc_attr($poll_title); ?>"/>
                             </div>
                         </div>
                         <hr>
@@ -974,14 +1006,14 @@ $emoji = array(
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                     </a>
                                     <a href="javascript:void(0)" class="add-question-image button">
-                                        <?php echo $image_text; ?><a class="ays_help" data-toggle="tooltip" data-placement="top" title="<?php echo esc_html__("Add an image to the question.", "poll-maker"); ?>">
+                                        <?php echo esc_html($image_text); ?><a class="ays_help" data-toggle="tooltip" data-placement="top" title="<?php echo esc_html__("Add an image to the question.", "poll-maker"); ?>">
                                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                         </a></a>
                                 </label>
-                                <div class="ays-poll-question-image-container" style="<?php echo $style; ?>">
+                                <div class="ays-poll-question-image-container" style="<?php echo esc_attr($style); ?>">
                                     <span class="ays-remove-question-img"></span>
-                                    <img src="<?php echo $poll['image']; ?>" id="ays-poll-img"/>
-                                    <input type="hidden" name="ays_poll_image" id="ays-poll-image" value="<?php echo $poll['image']; ?>"/>
+                                    <img src="<?php echo esc_url($poll['image']); ?>" id="ays-poll-img"/>
+                                    <input type="hidden" name="ays_poll_image" id="ays-poll-image" value="<?php echo esc_url($poll['image']); ?>"/>
                                 </div>
                             </div>
                             <div class="col-sm-9">
@@ -1040,6 +1072,15 @@ $emoji = array(
                                         $rows_count = count($answers);
                                         $ays_key_enter = "";
                                         $user_add_html = '';
+                                        $user_add_html_allow = array(
+                                            'input' => array(
+                                                'type' => array(),
+                                                'class' => array(),
+                                                'style' => array(),
+                                                'title' => array(),
+                                                'checked' => array()
+                                            )
+                                        );
                                         if (count($answers) > 0  && $poll['type'] == 'choosing') :
                                             foreach ($answers as $index => $answer) {
                                                 $user_add_html = '';
@@ -1080,32 +1121,32 @@ $emoji = array(
                                                 }
                                                 $loop_iteration++;
                                                 ?>
-                                                <tr class="ays-answer-row ui-state-default <?php echo $class; ?>">
+                                                <tr class="ays-answer-row ui-state-default <?php echo esc_attr($class); ?>">
                                                     <td class="ays-sort">
                                                         <div class='ays_poll_move_arrows'></div>
                                                     <td>
                                                         <div class="ays_poll_display_flex">
-                                                            <input type="hidden" class="<?php echo ( $user_added ) ? 'ays_show_user_added_hid' : ''; ?>" name="ays_poll_show_user_added[]" value="<?php echo $check_show_user_added ?>" />
-                                                            <input type="text" class="ays-text-input ays-answer-value <?php echo $ays_key_enter;?>" name="ays-poll-answers[]" data-id="<?php echo $index;?>" value="<?php echo esc_html($answer_val); ?>">
-                                                            <?php echo $user_add_html; ?>
-                                                            <input type="hidden" name="ays-poll-answers-ids[]" data-id="<?php echo $index;?>" value="<?php echo $answer_id; ?>">
+                                                            <input type="hidden" class="<?php echo ( $user_added ) ? 'ays_show_user_added_hid' : ''; ?>" name="ays_poll_show_user_added[]" value="<?php echo esc_attr($check_show_user_added) ?>" />
+                                                            <input type="text" class="ays-text-input ays-answer-value <?php echo esc_attr($ays_key_enter);?>" name="ays-poll-answers[]" data-id="<?php echo esc_attr($index);?>" value="<?php echo esc_html($answer_val); ?>">
+                                                            <?php echo wp_kses($user_add_html, $user_add_html_allow); ?>
+                                                            <input type="hidden" name="ays-poll-answers-ids[]" data-id="<?php echo esc_attr($index);?>" value="<?php echo esc_attr($answer_id); ?>">
                                                         </div>
                                                     </td>
                                                     <td class="ays-answer-redirect-row <?php echo ($redirect_after_submit) ? '' : 'ays_poll_display_none'; ?>">
-                                                        <input type="text" class="ays-text-input ays_redirect_active" id="ays_submit_redirect_url_<?php echo $answer_id; ?>" name="ays_submit_redirect_url[]" value="<?php echo "$answer_redirect"; ?>"/>
+                                                        <input type="text" class="ays-text-input ays_redirect_active" id="ays_submit_redirect_url_<?php echo esc_attr($answer_id); ?>" name="ays_submit_redirect_url[]" value="<?php echo esc_url($answer_redirect); ?>"/>
                                                     </td>
                                                     <td>
                                                         <label class='ays-label' for='ays-answer' style="<?php echo ($answer_img == '') ? 'display:inline-block;' : 'display:none'; ?>">
                                                             <a class="ays-poll-add-answer-image add-answer-image-icon" style="<?php echo ($answer_img == '') ? 'display:block;' : 'display:none'; ?>"></a>
                                                         </label>
-                                                        <div class="ays-poll-answer-image-container" style="<?php echo $answer_img_class; ?>">
+                                                        <div class="ays-poll-answer-image-container" style="<?php echo esc_attr($answer_img_class); ?>">
                                                             <span class="ays-poll-remove-answer-img"></span>
-                                                            <img src="<?php echo $answer_img; ?>" class="ays-poll-answer-img"/>
-                                                            <input type="hidden" name="ays-poll-answers-images[]" class="ays-poll-answer-image-path" value="<?php echo $answer_img; ?>">
+                                                            <img src="<?php echo esc_url($answer_img); ?>" class="ays-poll-answer-img"/>
+                                                            <input type="hidden" name="ays-poll-answers-images[]" class="ays-poll-answer-image-path" value="<?php echo esc_url($answer_img); ?>">
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a href="javascript:void(0)" class="ays-delete-answer" data-id="<?php echo $index;?>" data-lid="<?php echo $index;?>">
+                                                        <a href="javascript:void(0)" class="ays-delete-answer" data-id="<?php echo esc_attr($index);?>" data-lid="<?php echo esc_attr($index);?>">
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -1121,19 +1162,19 @@ $emoji = array(
                                                 $loop_iteration++;
                                                 $ays_even_or_not =  ($dac_i%2 !=0) ? 'even' : '';
                                             ?>
-                                            <tr class="ays-answer-row ui-state-default <?php echo $ays_even_or_not; ?>">
+                                            <tr class="ays-answer-row ui-state-default <?php echo esc_attr($ays_even_or_not); ?>">
                                                 <td class="ays-sort">
                                                     <div class='ays_poll_move_arrows'></div>    
                                                 </td>
                                                 <td class="ays-choosing-answer-container">
                                                     <div class="ays_poll_display_flex">
-                                                        <input type="text" class="ays-text-input ays-answer-value <?php echo $ays_key_enter;?>" name="ays-poll-answers[]" data-id="<?php echo $dac_i;?>" value="<?php echo esc_html__("Option", "poll-maker") . " " . ($dac_i+1); ?>">
-                                                        <?php echo $user_add_html; ?>
-                                                        <input type="hidden" name="ays-poll-answers-ids[]" data-id="<?php echo $dac_i;?>" value="0">
+                                                        <input type="text" class="ays-text-input ays-answer-value <?php echo esc_attr($ays_key_enter);?>" name="ays-poll-answers[]" data-id="<?php echo esc_attr($dac_i);?>" value="<?php echo esc_html__("Option", "poll-maker") . " " . (esc_attr($dac_i+1)); ?>">
+                                                        <?php echo wp_kses($user_add_html, $user_add_html_allow); ?>
+                                                        <input type="hidden" name="ays-poll-answers-ids[]" data-id="<?php echo esc_attr($dac_i);?>" value="0">
                                                     </div>
                                                 </td>
                                                 <td class="ays-answer-redirect-row <?php echo ($redirect_after_submit) ? '' : 'ays_poll_display_none'; ?>">
-                                                    <input type="text" class="ays-text-input ays_redirect_active" id="ays_submit_redirect_url_<?php echo $dac_i; ?>" name="ays_submit_redirect_url[]" value=""/>
+                                                    <input type="text" class="ays-text-input ays_redirect_active" id="ays_submit_redirect_url_<?php echo esc_attr($dac_i); ?>" name="ays_submit_redirect_url[]" value=""/>
                                                 </td>
                                                 <td>
                                                     <label class='ays-label' for='ays-answer'>
@@ -1147,7 +1188,7 @@ $emoji = array(
                                                 </td>
 
                                                 <td>
-                                                    <a href="javascript:void(0)" class="ays-delete-answer" data-id="<?php echo $dac_i;?>" data-lid="<?php echo $dac_i;?>">
+                                                    <a href="javascript:void(0)" class="ays-delete-answer" data-id="<?php echo esc_attr($dac_i);?>" data-lid="<?php echo esc_attr($dac_i);?>">
                                                     </a>
                                                 </td>
                                             </tr>
@@ -1163,8 +1204,8 @@ $emoji = array(
                                             <span>Add Option</span>
                                         </a>
                                     </div> 		
-                                    <input type="hidden" id="ays_poll_answers_count" value="<?php echo $answers_count ?>">
-                                    <input type="hidden" id="ays_answer_checker" value="<?php echo $checking_answer_hover_live ?>">
+                                    <input type="hidden" id="ays_poll_answers_count" value="<?php echo esc_attr($answers_count); ?>">
+                                    <input type="hidden" id="ays_answer_checker" value="<?php echo esc_attr($checking_answer_hover_live); ?>">
                                 </div>
                                 
                             </div>
@@ -1201,7 +1242,7 @@ $emoji = array(
                                 <div class="form-group row ays_poll_allow_add_answers_flex_container">
                                     <div class="col-1">
                                         <input type="checkbox" name="ays_poll_allow_add_answers" id="ays_poll_allow_add_answers" class="ays_toggle_checkbox"
-                                        value="on" <?php echo $poll_allow_answer ?>>
+                                        value="on" <?php echo esc_attr($poll_allow_answer) ?>>
                                     </div>
                                     <div class="col-4 unset-padding-left">
                                         <label for="ays_poll_allow_add_answers">
@@ -1214,11 +1255,11 @@ $emoji = array(
                                         </label>
                                     </div>
                                     <div class="col-7 allow_add_answers_not_show_up_container">
-                                        <div class="ays_toggle_target" <?php echo $poll_allow_answer ? '' : 'style="display:none;"'; ?>>
+                                        <div class="ays_toggle_target" <?php echo esc_attr($poll_allow_answer) ? '' : 'style="display:none;"'; ?>>
                                             <div class="form-group row allow_add_answers_not_show_up ays_toggle_parent">
                                                 <div class="col-2 ays_divider_left">
                                                     <input type="checkbox" class="ays_toggle_checkbox" name="ays_poll_allow_answer_require" id="ays_poll_allow_answer_require"
-                                                        value="on" <?php echo $poll_allow_answer_require ?> />
+                                                        value="on" <?php echo esc_attr($poll_allow_answer_require) ?> />
                                                 </div>
                                                 <div class="col-10">
                                                     <label for="ays_poll_allow_answer_require">
@@ -1304,7 +1345,7 @@ $emoji = array(
                                         break;
                                 }
                                 ?>
-                                <i id="vote-res" class="<?php echo $vote_res; ?>"></i>
+                                <i id="vote-res" class="<?php echo esc_attr($vote_res); ?>"></i>
                             </div>
                         </div>
                         <div class="if-rating poll-type-block  form-group row">
@@ -1328,7 +1369,7 @@ $emoji = array(
                                         <?php echo count($poll['answers']); ?>
                                     </option>
                                 </select>
-                                <i id="rate-res" class="<?php echo $rate_res; ?>"></i>
+                                <i id="rate-res" class="<?php echo esc_attr($rate_res); ?>"></i>
                             </div>
                         </div>
                         <hr class="if-voting if-rating">
@@ -1423,7 +1464,7 @@ $emoji = array(
                                 </label>
                             </div>
                             <div class="col-sm-3 ays_divider_left">
-                                <input type="text" name="ays_poll_text_type_placeholder" id="ays_poll_text_type_placeholder" value="<?php echo $poll_text_type_placeholder?>">
+                                <input type="text" name="ays_poll_text_type_placeholder" id="ays_poll_text_type_placeholder" value="<?php echo esc_attr($poll_text_type_placeholder); ?>">
                             </div>
                         </div>
                         <hr class="ays_hr_on_text" <?php echo $poll['type'] == 'text' ? "" : "style='display: none;'"?>>
@@ -1438,7 +1479,7 @@ $emoji = array(
                                 </label>
                             </div>
                             <div class="col-sm-3 ays_divider_left">
-                                <input type="number" name="ays_poll_text_type_width" id="ays_poll_text_type_width" value="<?php echo $poll_text_type_width; ?>">
+                                <input type="number" name="ays_poll_text_type_width" id="ays_poll_text_type_width" value="<?php echo esc_attr($poll_text_type_width); ?>">
                             </div>
                             <div class="col-sm-6">
                                 <select class="ays-text-input ays-text-input-short ays_enable_answer_field ays_poll_select_short" name="ays_poll_text_type_width_type" id="ays_poll_text_type_width_type">
@@ -1614,7 +1655,7 @@ $emoji = array(
                                 <div class="col-lg-6 col-sm-12">
                                     <div class="ays-poll-accordion-options-main-container">
                                         <div class="ays-poll-accordion-header">
-                                            <?php echo $poll_acordion_svg_html; ?>
+                                            <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                             <p class="ays-subtitle ays-poll-subtitle-button"><?php echo esc_html__('Poll styles', "poll-maker"); ?></p>
                                         </div>
                                         <hr class="ays-poll-bolder-hr"/>
@@ -1653,7 +1694,7 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <input type="text" class="ays-text-input" data-alpha="true" id='ays-poll-text-color'
                                                         name='ays_poll_text_color'
-                                                        value="<?php echo !empty($options['text_color']) ? $options['text_color'] : $default_colors['text_color']; ?>"/>
+                                                        value="<?php echo !empty($options['text_color']) ? esc_attr($options['text_color']) : esc_attr($default_colors['text_color']); ?>"/>
                                                 </div>
                                             </div>
                                             <hr>
@@ -1672,7 +1713,7 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <input type="text" class="ays-text-input" data-alpha="true" id='ays-poll-icon-color'
                                                         name='ays_poll_icon_color'
-                                                        value="<?php echo !empty($options['icon_color']) ? $options['icon_color'] : $default_colors['icon_color']; ?>"/>
+                                                        value="<?php echo !empty($options['icon_color']) ? esc_attr($options['icon_color']) : esc_attr($default_colors['icon_color']); ?>"/>
                                                 </div>
                                             </div>
                                             <hr>
@@ -1688,7 +1729,7 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <input type="text" class="ays-text-input" data-alpha="true" id='ays-poll-bg-color'
                                                         name='ays_poll_bg_color'
-                                                        value="<?php echo !empty($options['bg_color']) ? $options['bg_color'] : $default_colors['bg_color']; ?>"/>
+                                                        value="<?php echo !empty($options['bg_color']) ? esc_attr($options['bg_color']) : esc_attr($default_colors['bg_color']); ?>"/>
                                                 </div>
                                             </div>
                                             <hr>
@@ -1704,20 +1745,20 @@ $emoji = array(
                                                 </div>
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <a href="javascript:void(0)" class="add-bg-image button">
-                                                        <?php echo $image_text_bg; ?>
+                                                        <?php echo esc_html($image_text_bg); ?>
                                                     </a>
-                                                    <div class="form-group row" style="<?php echo $style_bg; ?>">
+                                                    <div class="form-group row" style="<?php echo esc_attr($style_bg); ?>">
                                                         <div class="ays-poll-bg-image-container">
                                                             <span class="ays-remove-bg-img"></span>
-                                                            <img src="<?php echo isset($options['bg_image']) ? $options['bg_image'] : ""; ?>"
+                                                            <img src="<?php echo isset($options['bg_image']) ? esc_attr($options['bg_image']) : ""; ?>"
                                                                 id="ays-poll-bg-img"/>
                                                             <input type="hidden" name="ays_poll_bg_image" id="ays-poll-bg-image"
-                                                                value="<?php echo isset($options['bg_image']) ? $options['bg_image'] : ""; ?>"/>
+                                                                value="<?php echo isset($options['bg_image']) ? esc_attr($options['bg_image']) : ""; ?>"/>
                                                             <input type="hidden" name="ays_poll_bg_image-pos" id="ays-poll-bg-image-pos"
-                                                        value="<?php echo isset($options['poll_bg_image_position']) ? $options['poll_bg_image_position'] : ""; ?>"/>
+                                                                value="<?php echo isset($options['poll_bg_image_position']) ? esc_attr($options['poll_bg_image_position']) : ""; ?>"/>
                                                         </div>
                                                     </div>
-                                                    <div style="<?php echo $style_bg_options; ?>" id="ays-poll-background-image-options">
+                                                    <div style="<?php echo esc_attr($style_bg_options); ?>" id="ays-poll-background-image-options">
                                                         <hr>
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
@@ -1787,22 +1828,22 @@ $emoji = array(
                                                         </label>
                                                         <input type="text" class="ays-shadow-input" data-alpha="true" id='ays-poll-box-shadow-color'
                                                             name='ays_poll_box_shadow_color'
-                                                            value="<?php echo (isset($options['box_shadow_color']) && !empty($options['box_shadow_color'])) ? $options['box_shadow_color'] : '#000000'; ?>"/>
+                                                            value="<?php echo (isset($options['box_shadow_color']) && !empty($options['box_shadow_color'])) ? esc_attr($options['box_shadow_color']) : '#000000'; ?>"/>
                                                     </div>
                                                     <!---->
                                                     <hr class="ays_toggle_target" style="<?php echo (isset($options['enable_box_shadow']) && $options['enable_box_shadow'] == "on" ) ? '' : 'display:none' ?>">
                                                     <div class="form-group row ays_toggle_target" style="<?php echo (isset($options['enable_box_shadow']) && $options['enable_box_shadow'] == "on" ) ? '' : 'display:none' ?>">
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-3" style="display: inline-block;">
-                                                                <input type="number" class="ays-text-input ays-text-input-90-width ays-box-shadow-coord-change" id='ays_poll_box_shadow_x_offset' name='ays_poll_box_shadow_x_offset' value="<?php echo $poll_box_shadow_x_offset; ?>" />
+                                                                <input type="number" class="ays-text-input ays-text-input-90-width ays-box-shadow-coord-change" id='ays_poll_box_shadow_x_offset' name='ays_poll_box_shadow_x_offset' value="<?php echo esc_attr($poll_box_shadow_x_offset); ?>" />
                                                                 <span class="ays_poll_small_hint_text"><?php echo esc_html__('X', "poll-maker"); ?></span>
                                                             </div>
                                                             <div class="col-sm-3 ays_divider_left" style="display: inline-block;">
-                                                                <input type="number" class="ays-text-input ays-text-input-90-width ays-box-shadow-coord-change" id='ays_poll_box_shadow_y_offset' name='ays_poll_box_shadow_y_offset' value="<?php echo $poll_box_shadow_y_offset; ?>" />
+                                                                <input type="number" class="ays-text-input ays-text-input-90-width ays-box-shadow-coord-change" id='ays_poll_box_shadow_y_offset' name='ays_poll_box_shadow_y_offset' value="<?php echo esc_attr($poll_box_shadow_y_offset); ?>" />
                                                                 <span class="ays_poll_small_hint_text"><?php echo esc_html__('Y', "poll-maker"); ?></span>
                                                             </div>
                                                             <div class="col-sm-3 ays_divider_left" style="display: inline-block;">
-                                                                <input type="number" class="ays-text-input ays-text-input-90-width ays-box-shadow-coord-change" id='ays_poll_box_shadow_z_offset' name='ays_poll_box_shadow_z_offset' value="<?php echo $poll_box_shadow_z_offset; ?>" />
+                                                                <input type="number" class="ays-text-input ays-text-input-90-width ays-box-shadow-coord-change" id='ays_poll_box_shadow_z_offset' name='ays_poll_box_shadow_z_offset' value="<?php echo esc_attr($poll_box_shadow_z_offset); ?>" />
                                                                 <span class="ays_poll_small_hint_text"><?php echo esc_html__('Z', "poll-maker"); ?></span>
                                                             </div>
                                                         </div>
@@ -1832,13 +1873,13 @@ $emoji = array(
                                                             <label for='ays-background-gradient-color-1'>
                                                                 <?php echo esc_html__('Color 1', "poll-maker"); ?>
                                                             </label>
-                                                            <input type="text" class="ays-text-input" id='ays-background-gradient-color-1' name='ays_background_gradient_color_1' data-alpha="true" value="<?php echo $background_gradient_color_1; ?>"/>
+                                                            <input type="text" class="ays-text-input" id='ays-background-gradient-color-1' name='ays_background_gradient_color_1' data-alpha="true" value="<?php echo esc_attr($background_gradient_color_1); ?>"/>
                                                         </div>
                                                         <div class="col-sm-12 ays_divider_top" style="margin-top: 10px; padding-top: 10px;">
                                                             <label for='ays-background-gradient-color-2'>
                                                                 <?php echo esc_html__('Color 2', "poll-maker"); ?>
                                                             </label>
-                                                            <input type="text" class="ays-text-input" id='ays-background-gradient-color-2' name='ays_background_gradient_color_2' data-alpha="true" value="<?php echo $background_gradient_color_2; ?>"/>
+                                                            <input type="text" class="ays-text-input" id='ays-background-gradient-color-2' name='ays_background_gradient_color_2' data-alpha="true" value="<?php echo esc_attr($background_gradient_color_2); ?>"/>
                                                         </div>
                                                         <div class="col-sm-12 ays_divider_top" style="margin-top: 10px; padding-top: 10px;">
                                                             <label for="ays_poll_gradient_direction">
@@ -1869,12 +1910,12 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_logo_container ays_divider_left">
                                                     <div class="form-group row">
                                                         <div class="col-sm-4">
-                                                            <a href="javascript:void(0)" class="add-logo-image button"><?php echo $image_text_logo; ?></a>                                    
+                                                            <a href="javascript:void(0)" class="add-logo-image button"><?php echo esc_html($image_text_logo); ?></a>                                    
                                                         </div>
-                                                        <div class="col-sm-8 ays_logo_image_remove ays_divider_left" style="<?php echo $style_logo; ?>">
+                                                        <div class="col-sm-8 ays_logo_image_remove ays_divider_left" style="<?php echo esc_attr($style_logo); ?>">
                                                             <div class="ays-poll-logo-image-container">
                                                                 <div class="col-sm-3" style="padding:0;">
-                                                                    <img src="<?php echo isset($options['logo_image']) ? $options['logo_image'] : ""; ?>"
+                                                                    <img src="<?php echo isset($options['logo_image']) ? esc_attr($options['logo_image']) : ""; ?>"
                                                                         id="ays-poll-logo-img" class="ays_poll_logo_image_main" width="55" height="55"/>
                                                                     <input type="hidden" name="ays_poll_logo_image" id="ays-poll-logo-image"
                                                                         value="<?php echo isset($options['logo_image']) ? $options['logo_image'] : ""; ?>"/>                                            
@@ -1926,7 +1967,7 @@ $emoji = array(
                                                                     <input type="checkbox"
                                                                             name="ays_poll_logo_enable_image_url_new_tab"
                                                                             id="ays_poll_logo_enable_image_url_new_tab"
-                                                                            value="on" class="ays_toggle ays_toggle_slide " <?php echo $poll_logo_image_url_check_new_tab; ?>>
+                                                                            value="on" class="ays_toggle ays_toggle_slide " <?php echo esc_attr($poll_logo_image_url_check_new_tab); ?>>
                                                                     <label for="ays_poll_logo_enable_image_url_new_tab" class="ays_switch_toggle"></label>
                                                                 </div>
                                                             </div>
@@ -1995,7 +2036,7 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_title_font_size' name='ays_poll_title_font_size' value="<?php echo $poll_title_font_size ?>"/>
+                                                            <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_title_font_size' name='ays_poll_title_font_size' value="<?php echo esc_attr($poll_title_font_size); ?>"/>
                                                         </div>
                                                     </div>
                                                     <hr>
@@ -2009,7 +2050,7 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <input type="number" class="ays-text-input ays-text-input-short" name="ays_poll_title_font_size_mobile" id="ays_poll_title_font_size_mobile" value="<?php echo $poll_title_font_size_mobile;?>">
+                                                            <input type="number" class="ays-text-input ays-text-input-short" name="ays_poll_title_font_size_mobile" id="ays_poll_title_font_size_mobile" value="<?php echo esc_attr($poll_title_font_size_mobile);?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2086,7 +2127,7 @@ $emoji = array(
                                                                 <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                             </a>
                                                         </label>
-                                                        <input type="text" class="ays-text-input" id='ays_poll_title_text_shadow_color' data-alpha="true" name='ays_poll_title_text_shadow_color' value="<?php echo $poll_title_text_shadow; ?>"/>
+                                                        <input type="text" class="ays-text-input" id='ays_poll_title_text_shadow_color' data-alpha="true" name='ays_poll_title_text_shadow_color' value="<?php echo esc_attr($poll_title_text_shadow); ?>"/>
                                                     </div>
                                                     <!---->
                                                     <hr class="ays_toggle_target" style="<?php echo $enable_poll_title_text_shadow ? '' : 'display:none'; ?>">
@@ -2127,7 +2168,7 @@ $emoji = array(
                                                     <div class="col-sm-8 ays_divider_left">
                                                         <input type="number" class="ays-text-input ays-text-input-short"
                                                             id='ays-poll-icon-size' name='ays_poll_icon_size'
-                                                            value="<?php echo (isset($options['icon_size'])) ? $options['icon_size'] : '24'; ?>"/>
+                                                            value="<?php echo (isset($options['icon_size'])) ? esc_attr($options['icon_size']) : '24'; ?>"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2188,7 +2229,7 @@ $emoji = array(
                                                     </label>
                                                 </div>
                                                 <div class="col-sm-8 ays_divider_left">
-                                                    <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_min_height' name='ays_poll_min_height' value="<?php echo $poll_min_height; ?>"/>
+                                                    <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_min_height' name='ays_poll_min_height' value="<?php echo esc_attr($poll_min_height); ?>"/>
                                                 </div>
                                             </div>
                                             <hr>
@@ -2204,7 +2245,7 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <input type="number" class="ays-text-input ays-text-input-short" id='ays_poll_mobile_max_width'
                                                         name='ays_poll_mobile_max_width' style="display: inline-block;"
-                                                        value="<?php echo $poll_mobile_max_width; ?>"/> %
+                                                        value="<?php echo esc_attr($poll_mobile_max_width); ?>"/> %
                                                         <span class="ays_poll_small_hint_text"><?php echo esc_html__("For 100% leave blank", "poll-maker");?></span>
                                                 </div>
                                             </div> <!-- Poll max-width for mobile -->
@@ -2213,7 +2254,7 @@ $emoji = array(
                                     </div>
                                     <div class="ays-poll-accordion-options-main-container">
                                         <div class="ays-poll-accordion-header">
-                                            <?php echo $poll_acordion_svg_html; ?>
+                                            <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                             <p class="ays-subtitle ays-poll-subtitle-button"><?php echo esc_html__('Question styles', "poll-maker"); ?></p>
                                         </div>
                                         <hr class="ays-poll-bolder-hr"/>
@@ -2271,7 +2312,7 @@ $emoji = array(
                                                     <input type="number"
                                                         class="ays-text-input ays-text-input-short"
                                                         id='ays_poll_question_image_height' name='ays_poll_question_image_height'
-                                                        value="<?php echo $poll_question_image_height; ?>"/>
+                                                        value="<?php echo esc_attr($poll_question_image_height); ?>"/>
                                                 </div>
                                             </div><!-- Question image height -->  
                                             <hr>
@@ -2299,7 +2340,7 @@ $emoji = array(
                                     </div>
                                     <div class="ays-poll-accordion-options-main-container">
                                         <div class="ays-poll-accordion-header">
-                                            <?php echo $poll_acordion_svg_html; ?>
+                                            <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                             <p class="ays-subtitle ays-poll-subtitle-button"><?php echo esc_html__('Answer Styles', "poll-maker"); ?></p>
                                         </div>
                                         <hr class="ays-poll-bolder-hr"/>
@@ -2330,7 +2371,7 @@ $emoji = array(
                                                         <input type="text" class="ays-text-input" data-alpha="true"
                                                         id='ays-poll-answer-bg-color'
                                                         name='ays_poll_answer_bg_color'
-                                                        value="<?php echo $answer_bg_color; ?>"/>
+                                                        value="<?php echo esc_attr($answer_bg_color); ?>"/>
                                                     </div>
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style"
                                                         style="margin-top: 10px; padding-top: 10px; <?php echo ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
@@ -2344,7 +2385,7 @@ $emoji = array(
                                                         <input type="text" class="ays-text-input" data-alpha="true"
                                                         id='ays-poll-answer-hover-color'
                                                         name='ays_poll_answer_hover_color'
-                                                        value="<?php echo $answer_hover_color; ?>"/>
+                                                        value="<?php echo esc_attr($answer_hover_color); ?>"/>
                                                     </div>
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style" style="margin-top: 10px; padding-top: 10px; <?php echo ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
                                                         <div>
@@ -2492,7 +2533,7 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <input type="number" class="ays-text-input ays-text-input-short ays_enable_answer_field" id='ays_poll_answers_padding' name='ays_poll_answers_padding' value="<?php echo $poll_answer_padding; ?>"/>
+                                                            <input type="number" class="ays-text-input ays-text-input-short ays_enable_answer_field" id='ays_poll_answers_padding' name='ays_poll_answers_padding' value="<?php echo esc_attr($poll_answer_padding); ?>"/>
                                                         </div>
                                                     </div> <!-- Answers padding -->
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style" style="margin-top: 10px; padding-top: 10px; <?php echo ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
@@ -2518,7 +2559,7 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <div>
-                                                            <input type="number" class="ays-text-input ays-text-input-short ays_enable_answer_field" name="ays_poll_answer_border_radius" id="ays_poll_answer_border_radius" value="<?php echo $poll_answer_border_radius; ?>"/>
+                                                            <input type="number" class="ays-text-input ays-text-input-short ays_enable_answer_field" name="ays_poll_answer_border_radius" id="ays_poll_answer_border_radius" value="<?php echo esc_attr($poll_answer_border_radius); ?>"/>
                                                         </div>
                                                     </div> <!-- Answers border radius -->
                                                 </div>
@@ -2625,8 +2666,8 @@ $emoji = array(
                                                         <input type="text" class="ays-text-input" data-alpha="true" data-default-color="#000000" value="<?php echo $poll_answer_box_shadow_color; ?>" id="ays_poll_answers_box_shadow_color" name="ays_poll_answers_box_shadow_color">
                                                     </div>
                                                     <!---->
-                                                    <hr class="ays_toggle_target" style="<?php echo $poll_answer_enable_box_shadow ? '' : 'display:none'; ?>">
-                                                    <div class="form-group row ays_toggle_target" style="<?php echo $poll_answer_enable_box_shadow ? '' : 'display:none' ?>">
+                                                    <hr class="ays_toggle_target" style="<?php echo esc_attr($poll_answer_enable_box_shadow) ? '' : 'display:none'; ?>">
+                                                    <div class="form-group row ays_toggle_target" style="<?php echo esc_attr($poll_answer_enable_box_shadow) ? '' : 'display:none' ?>">
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-3" style="display: inline-block;">
                                                                 <input type="number" class="ays-text-input ays-text-input-90-width ays-title-text-shadow-coord-change" id='ays_poll_answer_box_shadow_x_offset' name='ays_poll_answer_box_shadow_x_offset' value="<?php echo $poll_answer_box_shadow_x_offset; ?>" />
@@ -2795,7 +2836,7 @@ $emoji = array(
                                     </div>
                                     <div class="ays-poll-accordion-options-main-container">
                                         <div class="ays-poll-accordion-header">
-                                            <?php echo $poll_acordion_svg_html; ?>
+                                            <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                             <p class="ays-subtitle ays-poll-subtitle-button"><?php echo esc_html__('Border styles', "poll-maker"); ?></p>
                                         </div>
                                         <hr class="ays-poll-bolder-hr"/>
@@ -2876,7 +2917,7 @@ $emoji = array(
                                                     <input type="number" min="0"
                                                         class="ays-text-input ays-text-input-short"
                                                         id='ays-poll-border-width' name='ays_poll_border_width'
-                                                        value="<?php echo isset($options['border_width']) &&  $options['border_width'] != '' ? $options['border_width'] : 2; ?>"/>
+                                                        value="<?php echo isset($options['border_width']) &&  $options['border_width'] != '' ? esc_attr($options['border_width']) : 2; ?>"/>
                                                 </div>
                                             </div>
                                             <hr>
@@ -2895,7 +2936,7 @@ $emoji = array(
                                                         data-alpha="true"
                                                         id='ays-poll-border-color'
                                                         name='ays_poll_border_color'
-                                                        value="<?php echo $default_border ?>"/>
+                                                        value="<?php echo esc_attr($default_border); ?>"/>
                                                 </div>
                                             </div>
                                             <hr>
@@ -2904,7 +2945,7 @@ $emoji = array(
                                     </div>
                                     <div class="ays-poll-accordion-options-main-container">
                                         <div class="ays-poll-accordion-header">
-                                            <?php echo $poll_acordion_svg_html; ?>
+                                            <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                             <p class="ays-subtitle ays-poll-subtitle-button"><?php echo esc_html__('Button Styles', "poll-maker"); ?></p>
                                         </div>
                                         <hr class="ays-poll-bolder-hr"/>
@@ -2942,7 +2983,7 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <input type="text" class="ays-text-input" data-alpha="true" id='ays-poll-button-text-color'
                                                         name='ays_poll_button_text_color'
-                                                        value="<?php echo $poll_button_text_color; ?>"/>
+                                                        value="<?php echo esc_attr($poll_button_text_color); ?>"/>
                                                 </div>
                                             </div><!-- Buttons text color -->
                                             <hr>
@@ -2961,7 +3002,7 @@ $emoji = array(
                                                 <div class="col-sm-8 ays_divider_left">
                                                     <input type="text" class="ays-text-input" data-alpha="true" id='ays-poll-button-bg-color'
                                                         name='ays_poll_button_bg_color'
-                                                        value="<?php echo $poll_button_bg_color; ?>"/>
+                                                        value="<?php echo esc_attr($poll_button_bg_color); ?>"/>
                                                 </div>
                                             </div><!-- Buttons background color -->
                                             <hr>
@@ -3088,7 +3129,7 @@ $emoji = array(
                                 </div>
                                 <div class="col-lg-6 col-sm-12 ays_divider_left" style="position: relative;">
                                     <!-- <style id='apm-custom-css'>
-                                        <?php echo$poll['custom_css']?>
+                                        <?php echo wp_kses_post($poll['custom_css']); ?>
                                     </style> -->
                                     <?php
                                     
@@ -3223,7 +3264,7 @@ $emoji = array(
                                             
                                     $content .='</div>
                                     </div>';
-                                    print $content;
+                                    print wp_kses_post($content);
                                     ?>
                                 </div>
                             </div>
@@ -3239,7 +3280,7 @@ $emoji = array(
                                     <br>
                                 </div>
                                 <div class="col-sm-10 ays_divider_left">
-                                    <textarea class="ays-textarea" id="ays_custom_css" name="ays_custom_css" cols="30" rows="10"><?php echo (isset($poll['custom_css'])) ? $poll['custom_css'] : ''; ?></textarea>
+                                    <textarea class="ays-textarea" id="ays_custom_css" name="ays_custom_css" cols="30" rows="10"><?php echo (isset($poll['custom_css'])) ? wp_kses_post($poll['custom_css']) : ''; ?></textarea>
                                 </div>
                             </div>
                             <hr/>
@@ -3265,7 +3306,7 @@ $emoji = array(
                     <div id="tab3" class="ays-poll-tab-content <?php echo $active_tab == 'Settings' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <?php echo $poll_acordion_svg_html; ?>
+                                <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                 <p class="ays-subtitle"><?php echo esc_html__('Feature options', "poll-maker"); ?> </p>
                             </div>                               
                             <hr class="ays-poll-bolder-hr"/>
@@ -3316,8 +3357,8 @@ $emoji = array(
                                                 <?php
                                                 foreach ( $categories as $cat ) {
                                                     ?>
-                                                    <option value="<?php echo $cat['id']; ?>" <?php echo in_array($cat['id'], $poll['categories']) ? 'selected' : ''; ?>>
-                                                        <?php echo $cat['title']; ?>
+                                                    <option value="<?php echo esc_attr($cat['id']); ?>" <?php echo in_array($cat['id'], $poll['categories']) ? 'selected' : ''; ?>>
+                                                        <?php echo esc_html($cat['title']); ?>
                                                     </option>
                                                 <?php }
                                                 ?>
@@ -3360,7 +3401,7 @@ $emoji = array(
                                                             <?php
 
                                                                 foreach ($cat_list as $cat) {
-                                                                    echo "<option value='" . $cat->cat_ID . "' >" . htmlentities($cat->name) . "</option>";
+                                                                    echo "<option value='" . wp_kses_post($cat->cat_ID) . "' >" . wp_kses_post($cat->name) . "</option>";
                                                                 }
                                                             ?>                   
                                                     </select>
@@ -3383,14 +3424,14 @@ $emoji = array(
                                     <div class="col-sm-8" style="margin-left: 15px;">
                                         <div class="row">
                                             <div style="margin-right: 10px;">
-                                                <a class="button" href="<?php echo $ays_poll_view_post_url; ?>" target="_blank"><?php echo esc_html__( "View Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
+                                                <a class="button" href="<?php echo esc_url($ays_poll_view_post_url); ?>" target="_blank"><?php echo esc_html__( "View Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
                                             </div>
                                             <div>
-                                                <a class="button" href="<?php echo $ays_poll_edit_post_url; ?>" target="_blank"><?php echo esc_html__( "Edit Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
+                                                <a class="button" href="<?php echo esc_url($ays_poll_edit_post_url); ?>" target="_blank"><?php echo esc_html__( "Edit Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" name="ays_post_id_for_quiz" value="<?php echo $post_id; ?>">
+                                    <input type="hidden" name="ays_post_id_for_quiz" value="<?php echo esc_attr($post_id); ?>">
                                 </div>
                                 <hr>
                                 <?php endif; ?>
@@ -3466,7 +3507,7 @@ $emoji = array(
                                     <div class="col-sm-1">
                                         <input type="checkbox" name="ays_poll_allow_multivote" id="ays_poll_allow_multivote" class="ays-enable-timer1 ays_toggle_checkbox" value="on" <?php echo $poll_allow_multivote; ?>>
                                     </div>
-                                    <div class="col-sm-8 ays_toggle_target ays_divider_left" style=" <?php echo $poll_enable_multivote_answer ? '' : 'display: none'; ?>">
+                                    <div class="col-sm-8 ays_toggle_target ays_divider_left" style="<?php echo esc_attr($poll_enable_multivote_answer) ? '' : 'display: none'; ?>">
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <label for='ays_poll_multivote_min_count'>
@@ -3678,8 +3719,8 @@ $emoji = array(
                                                 $poll_user_display_name = ( isset($get_current_poll_author_data->display_name) && $get_current_poll_author_data->display_name != '' ) ? stripslashes( esc_html($get_current_poll_author_data->display_name) ) : '';
                                                 $selected = '';
                                             ?>
-                                            <option value="<?php echo $poll_user_id;?>" selected>
-                                                <?php echo $poll_user_display_name; ?>
+                                            <option value="<?php echo esc_attr($poll_user_id);?>" selected>
+                                                <?php echo esc_html($poll_user_display_name); ?>
                                             </option>
                                         </select>
                                     </div>
@@ -3697,7 +3738,7 @@ $emoji = array(
                                         </label>
                                     </div>
                                     <div class="col-sm-9">
-                                        <input type="url" id="ays_poll_main_url" name="ays_poll_main_url" class="ays-text-input" value="<?php echo $poll_main_url; ?>">
+                                        <input type="url" id="ays_poll_main_url" name="ays_poll_main_url" class="ays-text-input" value="<?php echo esc_url($poll_main_url); ?>">
                                     </div>
                                 </div>
                                 <!-- Poll Main URL End -->
@@ -3715,7 +3756,7 @@ $emoji = array(
                                     </div>
                                     <div class="col-sm-9">
                                         <input type="checkbox" name="show_poll_creation_date" id="show-poll-create-dates"
-                                            value="1" <?php echo $show_create_date ? 'checked' : '' ?> >
+                                            value="1" <?php echo esc_attr($show_create_date) ? 'checked' : '' ?> >
                                     </div>
                                 </div>
                                 <hr>
@@ -3732,7 +3773,7 @@ $emoji = array(
                                     </div>
                                     <div class="col-sm-9">
                                         <input type="checkbox" name="show_poll_author" id="show-poll-author"
-                                            value="1" <?php echo $show_author ? 'checked' : '' ?> >
+                                            value="1" <?php echo esc_attr($show_author) ? 'checked' : '' ?> >
                                     </div>
                                 </div>
                                 <hr>
@@ -3938,7 +3979,7 @@ $emoji = array(
                                                     </div>
                                                     <div class="col-sm-9">
                                                         <input type="checkbox" name="ays_show_poll_container" id="ays_show_poll_container"
-                                                            value="on" <?php echo $poll_check_exp_cont; ?> >
+                                                            value="on" <?php echo esc_attr($poll_check_exp_cont); ?> >
                                                     </div>
                                                 </div>
                                             </div>
@@ -3974,7 +4015,7 @@ $emoji = array(
                                                 </label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" class="ays-text-input ays-text-input-short" id="ays-poll-btn-text" name="ays_poll_res_btn_text" value="<?php echo (isset($options['see_res_btn_text']) && '' != $options['see_res_btn_text']) ? stripslashes(esc_attr($options['see_res_btn_text'])) :esc_html__("See Results", "poll-maker"); ?>"/>
+                                                <input type="text" class="ays-text-input ays-text-input-short" id="ays-poll-btn-text" name="ays_poll_res_btn_text" value="<?php echo (isset($options['see_res_btn_text']) && '' != $options['see_res_btn_text']) ? (esc_attr(stripslashes($options['see_res_btn_text']) )) :esc_html__("See Results", "poll-maker"); ?>"/>
                                             </div>
                                         </div>
                                     </div>
@@ -4022,7 +4063,7 @@ $emoji = array(
                                                         </label>
                                                     </div>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="ays-text-input" name="redirection_url" placeholder="https://www.google.com" id="redirection_url" value="<?php echo isset($options['redirect_after_vote_url']) && !empty($options['redirect_after_vote_url']) ? $options['redirect_after_vote_url'] : ""; ?>" size="25">
+                                                        <input type="text" class="ays-text-input" name="redirection_url" placeholder="https://www.google.com" id="redirection_url" value="<?php echo isset($options['redirect_after_vote_url']) && !empty($options['redirect_after_vote_url']) ? esc_url($options['redirect_after_vote_url']) : ""; ?>" size="25">
                                                     </div>
                                                 </div>
                                                 <hr>
@@ -4081,7 +4122,7 @@ $emoji = array(
                                             name="ays_poll_enable_asnwers_sound" class="ays_toggle_checkbox"
                                             value="on" <?php echo $enable_asnwers_sound ? 'checked' : ''; ?>/>
                                     </div>
-                                    <div class="col-sm-8 if_answer_sound ays_toggle_target ays_divider_left" style="<?php echo $enable_asnwers_sound ? '' : 'display:none;' ?>">
+                                    <div class="col-sm-8 if_answer_sound ays_toggle_target ays_divider_left" style="<?php echo esc_attr($enable_asnwers_sound) ? '' : 'display:none;' ?>">
                                         <?php if($answers_sound_status): ?>
                                         <blockquote class=""><?php echo esc_html__('Sound are selected. For change sounds go to', "poll-maker"); ?> <a href="?page=poll-maker-ays-settings" target="_blank"><?php echo esc_html__('General options', "poll-maker"); ?></a> <?php echo esc_html__('page', "poll-maker"); ?></blockquote>
                                         <?php else: ?>
@@ -4101,7 +4142,7 @@ $emoji = array(
                                         </label>
                                     </div>
                                     <div class="col-9">
-                                        <input type="checkbox" name="ays-poll-reason" id="ays-poll-reason" <?php echo $poll_vote_reason; ?>>
+                                        <input type="checkbox" name="ays-poll-reason" id="ays-poll-reason" <?php echo esc_attr($poll_vote_reason); ?>>
                                     </div>	                    
                                 </div>
                                 <hr/>
@@ -4135,7 +4176,7 @@ $emoji = array(
                                             <div class="col-sm-9">
                                                 <input type="text" class="ays-text-input ays-text-input-short"
                                                     id="ays-poll-btn-text_vote" name="ays_poll_btn_text"
-                                                    value="<?php echo stripslashes($options['btn_text']) ?>"/>
+                                                    value="<?php echo esc_attr(stripslashes($options['btn_text'])) ?>"/>
                                             </div>
                                         </div>
                                     </div>
@@ -4276,7 +4317,7 @@ $emoji = array(
                     <div id="tab4" class="ays-poll-tab-content <?php echo $active_tab == 'Limitations' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <?php echo $poll_acordion_svg_html; ?>
+                                <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                 <p class="ays-subtitle"><?php echo esc_html__('Limitation of Users', "poll-maker"); ?></p>
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
@@ -4422,11 +4463,11 @@ $emoji = array(
                                                             <input type="checkbox" id="ays_see_result_show" 
                                                                 name="ays_see_result_show" 
                                                                 class="ays_poll_show_hide_button" 
-                                                                value="on" <?php echo $poll_see_result_button; ?>>
+                                                                value="on" <?php echo esc_attr($poll_see_result_button); ?>>
                                                         </div>
 
                                                         <div class="col-sm-10" id="ays_poll_show_hide_button">
-                                                            <div class="row <?php echo $poll_see_result_button_cont; ?>">
+                                                            <div class="row <?php echo esc_attr($poll_see_result_button_cont); ?>">
                                                                 <div class="col-sm-6">
                                                                     <div class="ays-poll-check-box d-flex align-items-center" 
                                                                         style="padding: 8px; border: 1px solid #ccc; margin-bottom: 0.75rem;">
@@ -4435,7 +4476,7 @@ $emoji = array(
                                                                             name="ays_poll_see_result_show" 
                                                                             class="ays_poll_show_hide_button mr-2"
                                                                             value="ays_see_result_button" 
-                                                                            <?php echo $poll_see_result_botton_show ?>>
+                                                                            <?php echo esc_attr($poll_see_result_botton_show) ?>>
                                                                         <label for="ays_see_result_button_show" class="form-check-label">
                                                                             <?php echo esc_html__('After clicking on the button', "poll-maker"); ?>
                                                                         </label>
@@ -4449,7 +4490,7 @@ $emoji = array(
                                                                             name="ays_poll_see_result_show"
                                                                             class="ays_poll_show_hide_button mr-2" 
                                                                             value="ays_see_result_immediately"
-                                                                            <?php echo $poll_see_result_immediately ?>>
+                                                                            <?php echo esc_attr($poll_see_result_immediately) ?>>
                                                                         <label for="ays_see_result_button_hide" class="form-check-label">
                                                                             <?php echo esc_html__('Directly', "poll-maker"); ?>
                                                                         </label>
@@ -4589,7 +4630,7 @@ $emoji = array(
                                                                 $selected_role = '';
                                                             }
                                                         }
-                                                        echo "<option value='" . $user_role['name'] . "' " . $selected_role . ">" . $user_role['name'] . "</option>";
+                                                        echo "<option value='" . esc_attr($user_role['name']) . "' " . esc_attr($selected_role) . ">" . esc_html($user_role['name']) . "</option>";
                                                     }
                                                     ?>
                                                 </select>
@@ -4851,7 +4892,7 @@ $emoji = array(
                     <div id="tab5" class="ays-poll-tab-content <?php echo $active_tab == 'Userdata' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <?php echo $poll_acordion_svg_html; ?>
+                                <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                 <p class="ays-subtitle"><?php echo esc_html__('User Data Settings', "poll-maker"); ?></p>
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
@@ -5029,7 +5070,7 @@ $emoji = array(
                     <div id="tab6" class="ays-poll-tab-content <?php echo $active_tab == 'Email' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <?php echo $poll_acordion_svg_html; ?>
+                                <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                 <p class="ays-subtitle"><?php echo esc_html__('Email settings', "poll-maker"); ?></p>
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
@@ -5163,9 +5204,13 @@ $emoji = array(
                                                             <?php echo esc_html__('From name', "poll-maker")?>
                                                             <a class="ays_help ays-poll-zindex-for-pro-tooltip" data-toggle="tooltip" data-html="true" title="<?php 
                                                                 /* translators: 1: opening em tag, 2: closing em tag */
-                                                                echo htmlspecialchars( sprintf(esc_html__("Specify the name that will be displayed as the sender of the results. If you don't enter any name, it will be %1\$sPoll Maker%2\$s.", "poll-maker"),
+                                                                echo wp_kses( sprintf(esc_html__("Specify the name that will be displayed as the sender of the results. If you don't enter any name, it will be %1\$sPoll Maker%2\$s.", "poll-maker"),
+                                                                    // translators: 1: opening em tag, 
                                                                     '<em>',
+                                                                    // translators: 2: closing em tag
                                                                     '</em>'
+                                                                ), array(
+                                                                    'em' => array()
                                                                 ) );
                                                             ?>">
                                                                 <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -5249,7 +5294,7 @@ $emoji = array(
                     <div id="tab7" class="ays-poll-tab-content <?php echo $active_tab == 'Integrations' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <?php echo $poll_acordion_svg_html; ?>
+                                <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                 <p class="ays-subtitle"><?php echo esc_html__('Integrations settings', "poll-maker"); ?></p>
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
@@ -5319,7 +5364,7 @@ $emoji = array(
                                                             <?php endforeach; ?>
                                                         </select>
                                                     <?php else: ?>
-                                                        <span><?php echo $mailchimp_select; ?></span>
+                                                        <span><?php echo esc_html($mailchimp_select); ?></span>
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
@@ -5601,10 +5646,21 @@ $emoji = array(
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <?php 
+                                                        $allowed_tags = array(
+                                                            'select' => array(
+                                                                'id' => array(),
+                                                                'class' => array()
+                                                            ),
+                                                            'option' => array(
+                                                                'value' => array(),
+                                                                'selected' => array()
+                                                            )
+                                                        );
+                                                        
                                                         $mad_mimi_select  = "<select id='ays_poll_mad_mimi_list'>";
                                                         $mad_mimi_select .= "<option value=''>Select list</option>";
                                                         $mad_mimi_select .= "</select>";
-                                                        echo $mad_mimi_select;
+                                                        echo wp_kses($mad_mimi_select, $allowed_tags);
                                                         
                                                     ?>
                                                 </div>
@@ -5651,10 +5707,22 @@ $emoji = array(
                                                 </div>                                        
                                                 <div class="col-sm-8">
                                                     <?php 
+                                                        $allowed_tags = array(
+                                                            'select' => array(
+                                                                'id' => array(),
+                                                                'class' => array(),
+                                                                'name' => array()
+                                                            ),
+                                                            'option' => array(
+                                                                'value' => array(),
+                                                                'selected' => array(),
+                                                                'disabled' => array()
+                                                            )
+                                                        );
                                                         $mad_mimi_select  = "<select id='ays_poll_mad_mimi_list'>";
                                                         $mad_mimi_select .= "<option value=''>Select list</option>";
                                                         $mad_mimi_select .= "</select>";
-                                                        echo $mad_mimi_select;
+                                                        echo wp_kses($mad_mimi_select, $allowed_tags);
                                                         
                                                     ?>
                                                 </div>  
@@ -5876,7 +5944,7 @@ $emoji = array(
                     <div id="tab8" class="ays-poll-tab-content <?php echo $active_tab == 'Results Settings' ? 'ays-poll-tab-content-active' : ''; ?>">
                         <div class="ays-poll-accordion-options-main-container">
                             <div class="ays-poll-accordion-header">
-                                <?php echo $poll_acordion_svg_html; ?>
+                                <?php echo wp_kses($poll_acordion_svg_html, $acordion_svg_html_allow); ?>
                                 <p class="ays-subtitle"><?php echo esc_html__('Results Settings', "poll-maker"); ?></p>
                             </div>
                             <hr class="ays-poll-bolder-hr"/>
@@ -5937,7 +6005,33 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <?php
-                                                        echo $poll_message_vars_html;
+                                                        $allowed_tags = array(
+                                                            'div' => array(
+                                                                'class' => true
+                                                            ),
+                                                            'i' => array(
+                                                                'class' => true
+                                                            ),
+                                                            'span' => array(),
+                                                            'a' => array(
+                                                                'class' => true,
+                                                                'data-toggle' => true,
+                                                                'data-html' => true,
+                                                                'title' => true
+                                                            ),
+                                                            'label' => array(
+                                                                'class' => true
+                                                            ),
+                                                            'input' => array(
+                                                                'type' => true,
+                                                                'class' => true,
+                                                                'hidden' => true,
+                                                                'id' => true,
+                                                                'name' => true,
+                                                                'value' => true
+                                                            )
+                                                        );
+                                                        echo wp_kses($poll_message_vars_html, $allowed_tags);
                                                         $content   = !empty($options['hide_results_text']) ? stripslashes($options['hide_results_text']) : stripslashes($default_options['hide_results_text']);
                                                         $editor_id = 'ays-poll-hide-results-text';
                                                         $settings  = array(
@@ -5977,7 +6071,33 @@ $emoji = array(
                                             <div class="col-sm-12 if_poll_hide_result_message ays_toggle_target"  style="margin-top: 15px; <?php echo isset($options['hide_result_message']) && $options['hide_result_message'] ? '' : 'display:none;'; ?>">
                                                 <?php
                                                 $res_def_message = isset($poll['type']) && $poll['type'] == 'text' ?  '<p style="text-align: center;">'.esc_html__("Thank you!", "poll-maker") .'</p>' : '';
-                                                echo $poll_message_vars_html;
+                                                $allowed_tags = array(
+                                                    'div' => array(
+                                                        'class' => true
+                                                    ),
+                                                    'i' => array(
+                                                        'class' => true
+                                                    ),
+                                                    'span' => array(),
+                                                    'a' => array(
+                                                        'class' => true,
+                                                        'data-toggle' => true,
+                                                        'data-html' => true,
+                                                        'title' => true
+                                                    ),
+                                                    'label' => array(
+                                                        'class' => true
+                                                    ),
+                                                    'input' => array(
+                                                        'type' => true,
+                                                        'class' => true,
+                                                        'hidden' => true,
+                                                        'id' => true,
+                                                        'name' => true,
+                                                        'value' => true
+                                                    )
+                                                );
+                                                echo wp_kses($poll_message_vars_html, $allowed_tags);
                                                 $content = wpautop(stripslashes((isset($options['result_message'])) ? $options['result_message'] : $res_def_message));
                                                 $editor_id = 'ays_result_message';
                                                 $settings = array('editor_height' => $poll_wp_editor_height, 'textarea_name' => 'ays_result_message', 'editor_class' => 'ays-textarea', 'media_elements' => false);
@@ -6298,11 +6418,11 @@ $emoji = array(
                                         </div>
                                     </div>
                                     <div class="if-loading-message col-sm-6 row">
-                                        <input type="text" class="ays-text-input ays-text-input-short" name="ays_poll_load_effect_message" value="<?php echo $poll_effect_message; ?>">
+                                        <input type="text" class="ays-text-input ays-text-input-short" name="ays_poll_load_effect_message" value="<?php echo esc_attr($poll_effect_message); ?>">
                                     </div>
                                 </div>                
-                                <hr class="<?php echo $poll_loader_size_line_enable; ?> ays_line_changeing">
-                                <div class="form-group row <?php echo $poll_loader_size_enable; ?> ays_load_gif_cont">
+                                <hr class="<?php echo esc_attr($poll_loader_size_line_enable); ?> ays_line_changeing">
+                                <div class="form-group row <?php echo esc_attr($poll_loader_size_enable); ?> ays_load_gif_cont">
                                     <div class="col-sm-3">
                                         <label for="ays_loader_font_size">
                                             <?php echo esc_html__('Loading effect size', "poll-maker") ?>
@@ -6316,7 +6436,7 @@ $emoji = array(
                                         <div>
                                             <input type="number" class="ays-text-input ays-poll-answer-results-short-input" id="ays_loader_font_size"
                                                 name="ays_loader_font_size"
-                                                value="<?php echo $poll_loader_font_size; ?>"/>
+                                                value="<?php echo esc_attr($poll_loader_font_size); ?>"/>
                                         </div>
                                         <div class="ays_option_default_measurement_unit">
                                             <input type="text" value="px" disabled>
@@ -6585,7 +6705,7 @@ $emoji = array(
                                     </div>
                                     <div class="col-sm-1">
                                         <input type="checkbox" name="ays_poll_show_users" id="ays_poll_show_users" class="ays_toggle_checkbox"
-                                            value="on" <?php echo $poll_show_passed_users_checked; ?>>
+                                            value="on" <?php echo esc_attr($poll_show_passed_users_checked); ?>>
                                     </div>
                                     <div class="col-sm-8 ays_toggle_target" style="<?php echo $poll_show_passed_users_checked == "checked" ? "" : "display:none";?>">
                                         <div class="row">
@@ -6604,7 +6724,7 @@ $emoji = array(
                                                     name="ays_poll_show_users_count" 
                                                     id="ays_poll_show_users_count" 
                                                     class="ays-text-input ays-poll-answer-results-short-input"
-                                                    value="<?php echo $poll_show_passed_users_count; ?>">
+                                                    value="<?php echo esc_attr($poll_show_passed_users_count); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -6814,6 +6934,49 @@ $emoji = array(
                                         </div>
                                         <hr>
                                         <?php
+                                            $allowed_tags = array(
+                                                'div' => array(
+                                                    'class' => true
+                                                ),
+                                                'table' => array(
+                                                    'class' => true
+                                                ),
+                                                'thead' => array(),
+                                                'tbody' => array(),
+                                                'tr' => array(
+                                                    'class' => true
+                                                ),
+                                                'th' => array(),
+                                                'td' => array(
+                                                    'class' => true
+                                                ),
+                                                'span' => array(),
+                                                'input' => array(
+                                                    'type' => true,
+                                                    'name' => true,
+                                                    'class' => true,
+                                                    'value' => true,
+                                                    'hidden' => true
+                                                ),
+                                                'textarea' => array(
+                                                    'type' => true,
+                                                    'name' => true,
+                                                    'class' => true
+                                                ),
+                                                'label' => array(
+                                                    'class' => true,
+                                                    'for' => true
+                                                ),
+                                                'a' => array(
+                                                    'href' => true,
+                                                    'class' => true
+                                                ),
+                                                'img' => array(
+                                                    'src' => true,
+                                                    'class' => true
+                                                )
+                                            );
+
                                             $content = '<div class="ays-field-dashboard ays-table-wrap">                            
                                                             <table class="ays-answers-table ">
                                                                 <thead>
@@ -6869,7 +7032,7 @@ $emoji = array(
                                                                 </td>
                                                             </tr>';
                                             $content .= '</tbody></table></div>';
-                                            echo $content;	                
+                                            echo wp_kses($content, $allowed_tags);	                
                                         ?>
                                         <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
                                             <div class="ays-poll-new-upgrade-button-box">
@@ -6968,7 +7131,7 @@ $emoji = array(
                         <div class='bottom-save-buttons-container'>
                             <div class="ays_save_buttons_box_for_mobile" id="ays-save-buttons-box-for-mobile">
                                 <?php
-                                echo $loader_iamge;
+                                echo wp_kses($loader_iamge, $loader_iamge_allow);
                                 wp_nonce_field('poll_action', 'poll_action');
                                 $save_bottom_attributes = array(
                                     'id' => 'ays-button-apply',
