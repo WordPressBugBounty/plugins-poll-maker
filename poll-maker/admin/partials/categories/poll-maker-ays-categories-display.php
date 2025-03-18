@@ -12,12 +12,13 @@ $plus_icon_svg = "<span class=''><img src='". esc_url(POLL_MAKER_AYS_ADMIN_URL) 
         </div>
     </div>
     <h1 class="wp-heading-inline">
-        <?php
-echo esc_html(get_admin_page_title());
-echo sprintf('<a href="?page=%s&action=%s" class="page-title-action button-primary ays-poll-add-new-cat-button ays-poll-add-new-button-new-design"> %s ' .esc_html__('Add New', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'add', wp_kses_post($plus_icon_svg));
-?>
+        <?php echo esc_html( get_admin_page_title() ); ?>
     </h1>
-
+    <div class='ays-poll-add-new-button-box'>
+        <?php
+            echo sprintf('<a href="?page=%s&action=%s" class="page-title-action button-primary ays-poll-add-new-cat-button ays-poll-add-new-button-new-design"> %s ' .esc_html__('Add New', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'add', wp_kses_post($plus_icon_svg));
+        ?>
+    </div>
     <div id="poststuff">
         <div id="post-body" class="metabox-holder ays-poll-maker-categories-list-tables">
             <div id="post-body-content">
@@ -34,5 +35,10 @@ echo sprintf('<a href="?page=%s&action=%s" class="page-title-action button-prima
             </div>
         </div>
         <br class="clear">
+    </div>
+    <div class='ays-poll-add-new-button-box'>
+        <?php
+            echo sprintf('<a href="?page=%s&action=%s" class="page-title-action button-primary ays-poll-add-new-cat-button ays-poll-add-new-button-new-design"> %s ' .esc_html__('Add New', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'add', wp_kses_post($plus_icon_svg));
+        ?>
     </div>
 </div>
