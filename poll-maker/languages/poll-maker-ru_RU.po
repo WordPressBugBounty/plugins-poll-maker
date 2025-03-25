@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Poll Maker\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-02 15:03+0400\n"
-"PO-Revision-Date: 2024-09-02 15:03+0400\n"
+"PO-Revision-Date: 2025-03-24 22:53+0300\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n_noop:1,2;_x\n"
 "X-Poedit-Basepath: .\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../admin/class-poll-maker-ays-admin.php:224
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: ../admin/class-poll-maker-ays-admin.php:225
 msgid "Maybe something went wrong."
-msgstr ""
+msgstr "Может быть, что-то пошло не так."
 
 #: ../admin/class-poll-maker-ays-admin.php:226
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6426
@@ -62,26 +62,24 @@ msgid ""
 "Your Poll is Created!<br>Copy the generated shortcode and paste it into any "
 "post or page to display Poll"
 msgstr ""
+"Ваш опрос создан!<br>Скопируйте сгенерированный шорткод и вставьте его в "
+"любую запись или страницу, чтобы отобразить опрос"
 
 #: ../admin/class-poll-maker-ays-admin.php:233
-#, fuzzy
-#| msgid "Created on"
 msgid "Great job"
-msgstr "Создано"
+msgstr "Отличная работа"
 
 #: ../admin/class-poll-maker-ays-admin.php:234
-#, fuzzy
-#| msgid "Email configuration"
 msgid "For more detailed configuration visit"
-msgstr "Конфигурация электронной почты"
+msgstr "Для более подробной настройки посетите"
 
 #: ../admin/class-poll-maker-ays-admin.php:235
 msgid "Done"
-msgstr ""
+msgstr "Сделано"
 
 #: ../admin/class-poll-maker-ays-admin.php:236
 msgid "Thumbs up, Done"
-msgstr ""
+msgstr "Пальцы вверх, Готово"
 
 #: ../admin/class-poll-maker-ays-admin.php:241
 msgid "Please select more"
@@ -115,22 +113,16 @@ msgstr "Значение цвета"
 #: ../admin/class-poll-maker-ays-admin.php:349
 #: ../admin/class-poll-maker-ays-admin.php:350
 #: ../admin/class-poll-maker-ays-admin.php:680
-#, fuzzy
-#| msgid "Results up to a "
 msgid "Results per poll"
-msgstr "Результаты до "
+msgstr "Результаты по каждому опросу"
 
 #: ../admin/class-poll-maker-ays-admin.php:365
 #: ../admin/class-poll-maker-ays-admin.php:366
-#, fuzzy
-#| msgid "Polls"
 msgid "All Polls"
-msgstr "Опросы"
+msgstr "Все Опросы"
 
 #: ../admin/class-poll-maker-ays-admin.php:380
 #: ../admin/class-poll-maker-ays-admin.php:381
-#, fuzzy
-#| msgid "Add New"
 msgid "Add new"
 msgstr "Добавить новое"
 
@@ -181,36 +173,28 @@ msgid "Our products"
 msgstr "Наши продукты"
 
 #: ../admin/class-poll-maker-ays-admin.php:513
-#, fuzzy
-#| msgid "Add new poll"
 msgid "Add a New Poll"
 msgstr "Добавить новый опрос"
 
 #: ../admin/class-poll-maker-ays-admin.php:514
-#, fuzzy
-#| msgid "Next Poll"
 msgid "Name Your Poll"
-msgstr "Следующий опрос"
+msgstr "Назовите свой опрос"
 
 #: ../admin/class-poll-maker-ays-admin.php:515
 msgid "Add Options"
-msgstr ""
+msgstr "Добавить параметры"
 
 #: ../admin/class-poll-maker-ays-admin.php:516
-#, fuzzy
-#| msgid "Select Poll"
 msgid "Save the Poll"
-msgstr "Выберите опрос"
+msgstr "Сохраните опрос"
 
 #: ../admin/class-poll-maker-ays-admin.php:517
-#, fuzzy
-#| msgid "Shortcode"
 msgid "Copy the Shortcode"
-msgstr "Шорткод"
+msgstr "Скопировать шорткод"
 
 #: ../admin/class-poll-maker-ays-admin.php:518
 msgid "Embed in a Page"
-msgstr ""
+msgstr "Встроить в страницу"
 
 #: ../admin/class-poll-maker-ays-admin.php:545
 #: ../admin/partials/poll-maker-ays-admin-display.php:89
@@ -224,10 +208,8 @@ msgid "Demo"
 msgstr "Демо"
 
 #: ../admin/class-poll-maker-ays-admin.php:547
-#, fuzzy
-#| msgid "Upgrade for"
 msgid "Upgrade 50% Sale"
-msgstr "Обновление для"
+msgstr "Upgrade 50% Sale"
 
 #: ../admin/class-poll-maker-ays-admin.php:640
 #: ../includes/lists/class-poll-maker-categories-list-table.php:307
@@ -236,10 +218,8 @@ msgid "Polls"
 msgstr "Опросы"
 
 #: ../admin/class-poll-maker-ays-admin.php:809
-#, fuzzy
-#| msgid "Poll Maker Information"
 msgid "Poll Information"
-msgstr "Poll Maker Information"
+msgstr "Информация опроса"
 
 #: ../admin/class-poll-maker-ays-admin.php:811
 #: ../admin/partials/poll-maker-ays-admin-display.php:61
@@ -248,10 +228,8 @@ msgid "Poll Title"
 msgstr "Название опроса"
 
 #: ../admin/class-poll-maker-ays-admin.php:817
-#, fuzzy
-#| msgid "Poll Title"
 msgid "Poll Type"
-msgstr "Название опроса"
+msgstr "Тип опроса"
 
 #: ../admin/class-poll-maker-ays-admin.php:825
 #: ../admin/class-poll-maker-ays-admin.php:844
@@ -262,16 +240,12 @@ msgid "Answer"
 msgstr "Ответ"
 
 #: ../admin/class-poll-maker-ays-admin.php:900
-#, fuzzy
-#| msgid "Vote Datetime"
 msgid "Answer Datetime"
-msgstr "Дата голосования"
+msgstr "Дата ответа"
 
 #: ../admin/class-poll-maker-ays-admin.php:906
-#, fuzzy
-#| msgid "General Information:"
 msgid "User Information"
-msgstr "Основная информация:"
+msgstr "Информация о пользователе"
 
 #: ../admin/class-poll-maker-ays-admin.php:909
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:380
@@ -279,24 +253,20 @@ msgid "User IP"
 msgstr "IP пользователя"
 
 #: ../admin/class-poll-maker-ays-admin.php:917
-#, fuzzy
-#| msgid "User Email"
 msgid "User E-mail"
-msgstr "Электронная почта пользователя"
+msgstr "E-mail пользователя"
 
 #: ../admin/class-poll-maker-ays-admin.php:1290
-#, fuzzy
-#| msgid "Support for"
 msgid "Support"
-msgstr "Поддержка для"
+msgstr "Поддержка"
 
 #: ../admin/class-poll-maker-ays-admin.php:1292
 msgid "Docs"
-msgstr ""
+msgstr "Документация"
 
 #: ../admin/class-poll-maker-ays-admin.php:1294
 msgid "Suggest a Feature"
-msgstr ""
+msgstr "Предложить функцию"
 
 #: ../admin/class-poll-maker-ays-admin.php:1298
 msgid ""
@@ -434,13 +404,6 @@ msgid "Dismiss ad"
 msgstr "Dismiss ad"
 
 #: ../admin/class-poll-maker-ays-admin.php:1659
-#, fuzzy
-#| msgid ""
-#| "The BIGGEST <span class='ays-poll-dicount-wrap-color' style='color:"
-#| "#001E64;'>50%</span> SALE on <br><span><a href='https://ays-pro.com/mega-"
-#| "bundle' target='_blank' class='ays-poll-dicount-wrap-color ays-poll-"
-#| "dicount-wrap-text-decoration' style='display:block;color:#001E64'>Mega "
-#| "Bundle</a></span> (Quiz+Survey+Poll)!"
 msgid ""
 "The BIGGEST <span class='ays-poll-dicount-wrap-color' style='color:"
 "#000;'>50%</span> SALE on <br><span><a href='https://ays-pro.com/mega-"
@@ -448,52 +411,40 @@ msgid ""
 "wrap-text-decoration' style='display:block;color:#000'>Christmas Bundle</a></"
 "span> (Quiz+Survey+Poll)!"
 msgstr ""
-"Самая БОЛЬШАЯ <span class='ays-poll-dicount-wrap-color' style='color:"
-"#001E64;'>50%</span> РАСПРОДАЖА на <br><span><a href='https://ays-pro.com/"
-"mega-bundle ' цель='_blank' класс='ays-poll-dicount-wrap-color ays-poll-"
-"dicount-wrap-text-decoration' стиль='дисплей:блок;цвет:#001E64'>Мега пакет</"
-"a></span> (Quiz+Survey+Poll)!"
+"The BIGGEST <span class='ays-poll-dicount-wrap-color' style='color:"
+"#000;'>50%</span> SALE on <br><span><a href='https://ays-pro.com/mega-"
+"bundle' target='_blank' class='ays-poll-dicount-wrap-color ays-poll-dicount-"
+"wrap-text-decoration' style='display:block;color:#000'>Christmas Bundle</a></"
+"span> (Quiz+Survey+Poll)!"
 
 #: ../admin/class-poll-maker-ays-admin.php:1665
-#, fuzzy
-#| msgid ""
-#| "Hurry up! Ending on. <a href='https://ays-pro.com/mega-bundle' "
-#| "target='_blank' style='color:#001E64;'>Check it out!</a>"
 msgid ""
 "Hurry up! Ending on. <a href='https://ays-pro.com/mega-bundle' "
 "target='_blank' style='color:#000;'>Check it out!</a>"
 msgstr ""
-"Поторопись! Заканчивающийся на. <a href='https://ays-pro.com/mega-bundle ' "
-"target='_blank' style='color:#001E64;'>Зацените это!</a>"
+"Hurry up! Ending on. <a href='https://ays-pro.com/mega-bundle' "
+"target='_blank' style='color:#000;'>Check it out!</a>"
 
 #: ../admin/class-poll-maker-ays-admin.php:1719
-#, fuzzy
-#| msgid ""
-#| "Limited Time <span style='color:#E85011;'>50%</span> SALE on <br><span><a "
-#| "href='https://ays-pro.com/mega-bundle?utm_source=dashboard-"
-#| "mega&utm_medium=free-mega&utm_campaign=poll-mega' target='_blank' "
-#| "style='color:#E85011; text-decoration: underline;'>Mega Bundle</a></span> "
-#| "(Quiz + Survey + Poll)!"
 msgid ""
 "<span>Limited time 50% SALE on <a href='https://ays-pro.com/wordpress/poll-"
 "maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=sale-banner' "
 "target='_blank' style='color:#ffffff; text-decoration: underline;'>Poll "
 "Maker</a></span>"
 msgstr ""
-"Limited Time <span style='color:#E85011;'>50%</span> SALE on <br><span><a "
-"href='https://ays-pro.com/mega-bundle?utm_source=dashboard-"
-"mega&utm_medium=free-mega&utm_campaign=poll-mega' target='_blank' "
-"style='color:#E85011; text-decoration: underline;'>Mega Bundle</a></span> "
-"(Quiz + Survey + Poll)!"
+"<span>Limited time 50% SALE on <a href='https://ays-pro.com/wordpress/poll-"
+"maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=sale-banner' "
+"target='_blank' style='color:#ffffff; text-decoration: underline;'>Poll "
+"Maker</a></span>"
 
 #: ../admin/class-poll-maker-ays-admin.php:1728
 msgid "30 Days Money Back Guarantee"
-msgstr ""
+msgstr "30-дневная гарантия возврата денег"
 
 #: ../admin/class-poll-maker-ays-admin.php:1758
 #: ../admin/class-poll-maker-ays-admin.php:1842
 msgid "Offer ends in:"
-msgstr ""
+msgstr "Предложение заканчивается через:"
 
 #: ../admin/class-poll-maker-ays-admin.php:1783
 #: ../admin/partials/features/poll-maker-featured-display.php:30
@@ -510,7 +461,7 @@ msgstr "Купить сейчас"
 #: ../admin/class-poll-maker-ays-admin.php:1785
 #: ../admin/class-poll-maker-ays-admin.php:1867 ../poll-maker-ays.php:155
 msgid "One-time payment"
-msgstr ""
+msgstr "Одноразовый платеж"
 
 #: ../admin/class-poll-maker-ays-admin.php:1883
 msgid "General Information:"
@@ -521,10 +472,8 @@ msgid "For more information:"
 msgstr "Для получения дополнительной информации:"
 
 #: ../admin/class-poll-maker-ays-admin.php:1916
-#, fuzzy
-#| msgid "Youtube video tutorials"
 msgid "YouTube video tutorials"
-msgstr "Видеоуроки на ютубе"
+msgstr "Видеоуроки на YouTube"
 
 #: ../admin/class-poll-maker-ays-admin.php:1919
 #: ../includes/class-poll-maker-ays-welcome.php:155
@@ -578,25 +527,6 @@ msgstr ""
 "target='_blank'>Check it out!</a>"
 
 #: ../admin/class-poll-maker-ays-admin.php:2055
-#, fuzzy
-#| msgid ""
-#| "Limited Time \n"
-#| "                            <span class='ays-poll-dicount-wrap-color-"
-#| "helloween' style='color:#b2ff00;'>50%</span> \n"
-#| "                            <span>\n"
-#| "                                SALE on\n"
-#| "                            </span> \n"
-#| "                            <br>\n"
-#| "                            <span style='' class='ays-poll-helloween-"
-#| "bundle'>\n"
-#| "                                <a href='https://ays-pro.com/halloween-"
-#| "bundle' target='_blank' class='ays-poll-dicount-wrap-color-helloween ays-"
-#| "poll-dicount-wrap-text-decoration-helloween' style='display:block; color:"
-#| "#b2ff00;margin-right:6px;'>\n"
-#| "                                    Helloween Bundle\n"
-#| "                                </a>\n"
-#| "                                (Copy + Poll + Survey + Popup)!\n"
-#| "                            </span>"
 msgid ""
 "Limited Time \n"
 "                            <span class='ays-poll-dicount-wrap-color-"
@@ -618,30 +548,23 @@ msgid ""
 msgstr ""
 "Limited Time \n"
 "                            <span class='ays-poll-dicount-wrap-color-"
-"helloween' style='color:#b2ff00;'>50%</span> \n"
+"helloween' style='color:#b2ff00;'>20%</span> \n"
 "                            <span>\n"
 "                                SALE on\n"
 "                            </span> \n"
 "                            <br>\n"
 "                            <span style='' class='ays-poll-helloween-"
 "bundle'>\n"
-"                                <a href='https://ays-pro.com/halloween-"
-"bundle' target='_blank' class='ays-poll-dicount-wrap-color-helloween ays-"
-"poll-dicount-wrap-text-decoration-helloween' style='display:block; color:"
+"                                <a href='https://ays-pro.com/wordpress/poll-"
+"maker?utm_source=poll-maker-free&utm_medium=dashboard&utm_campaign=halloween-"
+"sale-banner' target='_blank' class='ays-poll-dicount-wrap-color-helloween "
+"ays-poll-dicount-wrap-text-decoration-helloween' style='display:block; color:"
 "#b2ff00;margin-right:6px;'>\n"
-"                                    Helloween Bundle\n"
+"                                    Poll Maker\n"
 "                                </a>\n"
-"                                (Copy + Poll + Survey + Popup)!\n"
 "                            </span>"
 
 #: ../admin/class-poll-maker-ays-admin.php:2068
-#, fuzzy
-#| msgid ""
-#| "Hurry up! \n"
-#| "                                                <a href='https://ays-pro."
-#| "com/halloween-bundle' target='_blank' style='color:#ffc700;'>\n"
-#| "                                                    Check it out!\n"
-#| "                                                </a>"
 msgid ""
 "Hurry up! \n"
 "                                                <a href='https://ays-pro.com/"
@@ -653,7 +576,9 @@ msgid ""
 msgstr ""
 "Hurry up! \n"
 "                                                <a href='https://ays-pro.com/"
-"halloween-bundle' target='_blank' style='color:#ffc700;'>\n"
+"wordpress/poll-maker?utm_source=easy-form-"
+"free&utm_medium=dashboard&utm_campaign=halloween-sale-banner' "
+"target='_blank' style='color:#ffc700;'>\n"
 "                                                    Check it out!\n"
 "                                                </a>"
 
@@ -749,7 +674,7 @@ msgstr "Напишите предпочитаемый вами текст для
 
 #: ../admin/partials/categories/actions/poll-maker-ays-categories-actions.php:183
 msgid "Message when no active polls found"
-msgstr ""
+msgstr "Сообщение о том, что активные опросы не найдены"
 
 #: ../admin/partials/categories/actions/poll-maker-ays-categories-actions.php:184
 msgid ""
@@ -1021,10 +946,8 @@ msgstr "Узнайте, как использовать пользователь
 #: ../admin/partials/settings/poll-maker-settings.php:1878
 #: ../admin/partials/settings/poll-maker-settings.php:1943
 #: ../poll-maker-ays.php:153
-#, fuzzy
-#| msgid "Upgrade for"
 msgid "Upgrade"
-msgstr "Обновление для"
+msgstr "Обновить"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:24
 msgid ""
@@ -1137,15 +1060,7 @@ msgid "How do I change the design of the poll?"
 msgstr "Как мне изменить дизайн опроса?"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:95
-#, fuzzy, php-format
-#| msgid ""
-#| "To do that, please go to the %sStyles%s tab of the given poll. The plugin "
-#| "suggests you 7 awesome ready-to-use themes.  After choosing your "
-#| "preferred theme, you can customize it with 15+ style options to create "
-#| "attractive polls that people love to vote on, including %smain color, "
-#| "background image, background gradient, box-shadow, answers hover%s and "
-#| "etc. Moreover, you can use the %sCustom CSS%s written field to fully "
-#| "match your preferred design for your website and brand."
+#, php-format
 msgid ""
 "To do that, please go to the %1$sStyles%2$s tab of the given poll. The "
 "plugin suggests you 7 awesome ready-to-use themes. After choosing your "
@@ -1155,28 +1070,20 @@ msgid ""
 "etc. Moreover, you can use the %5$sCustom CSS%6$s written field to fully "
 "match your preferred design for your website and brand."
 msgstr ""
-"Для этого, пожалуйста, перейдите на вкладку %sСтили%s данного опроса. Плагин "
-"предлагает вам 7 потрясающих готовых к использованию тем.  Выбрав "
-"предпочитаемую тему, вы можете настроить ее с помощью более чем 15 вариантов "
-"стиля для создания привлекательных опросов, за которые люди любят "
-"голосовать, включая %sосновной цвет, фоновое изображение, градиент фона, "
-"тень от окна, ответы при наведении курсора мыши%s и т.д. Кроме того, вы "
-"можете использовать поле %sПользовательский CSS%s, чтобы полностью "
-"соответствовать предпочитаемому дизайну вашего веб-сайта и бренда."
+"To do that, please go to the %1$sStyles%2$s tab of the given poll. The "
+"plugin suggests you 7 awesome ready-to-use themes. After choosing your "
+"preferred theme, you can customize it with 15+ style options to create "
+"attractive polls that people love to vote on, including %3$smain color, "
+"background image, background gradient, box-shadow, answers hover%4$s and "
+"etc. Moreover, you can use the %5$sCustom CSS%6$s written field to fully "
+"match your preferred design for your website and brand."
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:110
 msgid "Can I organize anonymous polls?"
 msgstr "Могу ли я организовать анонимные опросы?"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:119
-#, fuzzy, php-format
-#| msgid ""
-#| "%sYes!%s Please go to the Settings tab of the given poll, and find the "
-#| "%sAllow anonymity%s option there. Enable it, and it will allow "
-#| "participants to respond to your polls without ever revealing their "
-#| "identities, even if they are registered on your website. After enabling "
-#| "the option, the wp _user and User IP will not be stored in the database. "
-#| "A giant step toward democracy!"
+#, php-format
 msgid ""
 "%1$sYes!%2$s Please go to the Settings tab of the given poll, and find the "
 "%3$sAllow anonymity%4$s option there. Enable it, and it will allow "
@@ -1185,30 +1092,19 @@ msgid ""
 "option, the wp _user and User IP will not be stored in the database. A giant "
 "step toward democracy!"
 msgstr ""
-"%s Да!%s Пожалуйста, перейдите на вкладку настроек данного опроса и найдите "
-"там опцию %sРазрешить анонимность%s. Включите его, и это позволит участникам "
-"отвечать на ваши опросы, никогда не раскрывая свою личность, даже если они "
-"зарегистрированы на вашем веб-сайте. После включения этой опции wp _user и "
-"IP-адрес пользователя не будут сохранены в базе данных. Гигантский шаг к "
-"демократии!"
+"%1$sYes!%2$s Please go to the Settings tab of the given poll, and find the "
+"%3$sAllow anonymity%4$s option there. Enable it, and it will allow "
+"participants to respond to your polls without ever revealing their "
+"identities, even if they are registered on your website. After enabling the "
+"option, the wp _user and User IP will not be stored in the database. A giant "
+"step toward democracy!"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:132
 msgid "How do I limit access to the poll?"
 msgstr "Как мне ограничить доступ к опросу?"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:141
-#, fuzzy, php-format
-#| msgid ""
-#| "To do that, please go to the %sLimitation%s tab of the given poll. The "
-#| "plugin suggests two methods to prevent repeat voting from the same "
-#| "person. Those are %sLimit the user to rate only once by IP%s or %sLimit "
-#| "the user to rate only once by User ID.%s The other awesome functionality "
-#| "that the plugin suggests is %sOnly for logged in users%s to enable access "
-#| "to the poll those, who have logged in. This option will allow you to "
-#| "precisely target your respondents, and not receive unnecessary votes from "
-#| "others, who have not logged in. Moreover, with the help of the %sOnly "
-#| "selected user role%s option, you can select your preferred user role for "
-#| "example administrator, editor, subscriber, customer and etc."
+#, php-format
 msgid ""
 "To do that, please go to the %1$sLimitation%2$s tab of the given poll. The "
 "plugin suggests two methods to prevent repeat voting from the same person. "
@@ -1221,30 +1117,23 @@ msgid ""
 "role%10$s option, you can select your preferred user role for example "
 "administrator, editor, subscriber, customer and etc."
 msgstr ""
-"To do that, please go to the %sLimitation%s tab of the given poll. The "
+"To do that, please go to the %1$sLimitation%2$s tab of the given poll. The "
 "plugin suggests two methods to prevent repeat voting from the same person. "
-"Those are %sLimit the user to rate only once by IP%s or %sLimit the user to "
-"rate only once by User ID.%s The other awesome functionality that the plugin "
-"suggests is %sOnly for logged in users%s to enable access to the poll those, "
-"who have logged in. This option will allow you to precisely target your "
-"respondents, and not receive unnecessary votes from others, who have not "
-"logged in. Moreover, with the help of the %sOnly selected user role%s "
-"option, you can select your preferred user role for example administrator, "
-"editor, subscriber, customer and etc."
+"Those are %3$sLimit the user to rate only once by IP%4$s or %5$sLimit the "
+"user to rate only once by User ID.%6$s The other awesome functionality that "
+"the plugin suggests is %7$sOnly for logged in users%8$s to enable access to "
+"the poll those, who have logged in. This option will allow you to precisely "
+"target your respondents, and not receive unnecessary votes from others, who "
+"have not logged in. Moreover, with the help of the %9$sOnly selected user "
+"role%10$s option, you can select your preferred user role for example "
+"administrator, editor, subscriber, customer and etc."
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:160
 msgid "Can I know more about my respondents?"
 msgstr "Могу ли я узнать больше о своих респондентах?"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:169
-#, fuzzy, php-format
-#| msgid ""
-#| "%sYou are in a right place!%s You just need to enable the %sInformation "
-#| "Form%s from the %sUser Data%s tab of the given poll, create your "
-#| "preferred %scustom fields%s in the %sCustom Fields%s page from the plugin "
-#| "left navbar, and come up with a clear picture of who your poll "
-#| "participants are, where they live, what their lifestyle and personality "
-#| "are like, etc."
+#, php-format
 msgid ""
 "%1$sYou are in a right place!%2$s You just need to enable the "
 "%3$sInformation Form%4$s from the %5$sUser Data%6$s tab of the given poll, "
@@ -1253,12 +1142,12 @@ msgid ""
 "your poll participants are, where they live, what their lifestyle and "
 "personality are like, etc."
 msgstr ""
-"%sВы находитесь в правильном месте!%s Вам просто нужно включить форму "
-"%sИнформация%s на вкладке %sданные пользователя%s данного опроса, создать "
-"предпочитаемые %sнастраиваемые поля%s на странице %sНастраиваемые поля%s на "
-"левой панели навигации плагина и придумать четкое представление о том, кто "
-"такие участники вашего опроса, где они живут, каков их образ жизни и "
-"индивидуальность и т.д."
+"%1$sYou are in a right place!%2$s You just need to enable the "
+"%3$sInformation Form%4$s from the %5$sUser Data%6$s tab of the given poll, "
+"create your preferred %7$scustom fields%8$s in the %9$sCustom Fields%10$s "
+"page from the plugin left navbar, and come up with a clear picture of who "
+"your poll participants are, where they live, what their lifestyle and "
+"personality are like, etc."
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:188
 msgid "Can I get notified every time a vote is submitted?"
@@ -1266,44 +1155,34 @@ msgstr ""
 "Могу ли я получать уведомления каждый раз при подаче заявки на голосование?"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:197
-#, fuzzy, php-format
-#| msgid ""
-#| "%sYou can!%s To enable it, please go to the %sEmail%s tab of the given "
-#| "poll. There you will find the %sResults notification by email%s option. "
-#| "After enabling the option, the admin(or your provided email) will receive "
-#| "an email notification about votes at each time."
+#, php-format
 msgid ""
 "%1$sYou can!%2$s To enable it, please go to the %3$sEmail%4$s tab of the "
 "given poll. There you will find the %5$sResults notification by email%6$s "
 "option. After enabling the option, the admin(or your provided email) will "
 "receive an email notification about votes at each time."
 msgstr ""
-"%sYou can!%s To enable it, please go to the %sEmail%s tab of the given poll. "
-"There you will find the %sResults notification by email%s option. After "
-"enabling the option, the admin(or your provided email) will receive an email "
-"notification about votes at each time."
+"%1$sYou can!%2$s To enable it, please go to the %3$sEmail%4$s tab of the "
+"given poll. There you will find the %5$sResults notification by email%6$s "
+"option. After enabling the option, the admin(or your provided email) will "
+"receive an email notification about votes at each time."
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:212
 msgid "Will I lose the data after the upgrade?"
 msgstr "Потеряю ли я данные после обновления?"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:221
-#, fuzzy, php-format
-#| msgid ""
-#| "%sNope!%s All your content and assigned settings of the plugin will "
-#| "remain unchanged even after switching to the Pro version. You don’t need "
-#| "to redo what you have already built with the free version. For the "
-#| "detailed instruction, please take a look at our %supgrade guide%s"
+#, php-format
 msgid ""
 "%1$sNope!%2$s All your content and assigned settings of the plugin will "
 "remain unchanged even after switching to the Pro version. You don’t need to "
 "redo what you have already built with the free version. For the detailed "
 "instruction, please take a look at our %3$supgrade guide%4$s"
 msgstr ""
-"%sНет!%s Весь ваш контент и назначенные настройки плагина останутся "
-"неизменными даже после перехода на Pro-версию. Вам не нужно переделывать то, "
-"что вы уже создали с помощью бесплатной версии. Для получения подробной "
-"инструкции, пожалуйста, ознакомьтесь с нашим %s руководством по обновлению%s"
+"%1$sNope!%2$s All your content and assigned settings of the plugin will "
+"remain unchanged even after switching to the Pro version. You don’t need to "
+"redo what you have already built with the free version. For the detailed "
+"instruction, please take a look at our %3$supgrade guide%4$s"
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:233
 msgid "For more advanced needs, please take a look at our"
@@ -1341,7 +1220,7 @@ msgstr "Developer"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:40
 msgid "Agency"
-msgstr ""
+msgstr "Агентство"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:48
 msgid "Free"
@@ -1363,7 +1242,7 @@ msgstr "Купить сейчас"
 #: ../admin/partials/features/poll-maker-pro-features-display.php:577
 #: ../admin/partials/features/poll-maker-pro-features-display.php:583
 msgid "(One-time payment)"
-msgstr ""
+msgstr "(Одноразовый платеж)"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:91
 #: ../admin/partials/features/poll-maker-pro-features-display.php:94
@@ -1581,45 +1460,37 @@ msgstr "Защита от копирования"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:498
 #: ../admin/partials/features/poll-maker-pro-features-display.php:501
-#, fuzzy
-#| msgid "Slack integration"
 msgid "Klaviyo integration"
-msgstr "Интеграция Slack"
+msgstr "Klaviyo integration"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:509
 #: ../admin/partials/features/poll-maker-pro-features-display.php:512
-#, fuzzy
-#| msgid "SendGrid integration"
 msgid "MyCred integration"
-msgstr "Интеграция SendGrid"
+msgstr "MyCred integration"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:520
 #: ../admin/partials/features/poll-maker-pro-features-display.php:523
-#, fuzzy
-#| msgid "Zapier integration"
 msgid "Aweber integration"
-msgstr "Интеграция с Zapier"
+msgstr "Aweber integration"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:531
 #: ../admin/partials/features/poll-maker-pro-features-display.php:534
-#, fuzzy
-#| msgid "Mailchimp integration"
 msgid "Mailpoet integration"
-msgstr "Интеграция с Mailchimp"
+msgstr "Mailpoet integration"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:542
 #: ../admin/partials/features/poll-maker-pro-features-display.php:545
 msgid "Multilingual polls"
-msgstr ""
+msgstr "Многоязычные опросы"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:553
 #: ../admin/partials/features/poll-maker-pro-features-display.php:556
 msgid "Text to speech"
-msgstr ""
+msgstr "Преобразование текста в речь"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:595
 msgid "30 day money back guarantee !!!"
-msgstr ""
+msgstr "30-дневная гарантия возврата денег!!!"
 
 #: ../admin/partials/features/poll-maker-pro-features-display.php:597
 msgid ""
@@ -1629,14 +1500,19 @@ msgid ""
 "there is a money-back guarantee and\n"
 "                    we'll issue a refund."
 msgstr ""
+"We're sure that you'll love our Poll Maker plugin, but, if for some reason, "
+"you're not\n"
+"                    satisfied in the first 30 days of using our product, "
+"there is a money-back guarantee and\n"
+"                    we'll issue a refund."
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:47
 msgid "Create Quick Poll"
-msgstr ""
+msgstr "Создать быстрый опрос"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:54
 msgid "Build your poll in a few minutes"
-msgstr ""
+msgstr "Создайте свой опрос за несколько минут"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:66
 #: ../admin/partials/poll-maker-ays-polls-actions.php:936
@@ -1644,10 +1520,8 @@ msgid "Question"
 msgstr "Вопрос"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:67
-#, fuzzy
-#| msgid "Question"
 msgid "Ask a question*"
-msgstr "Вопрос"
+msgstr "Задать вопрос*"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:71
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6409
@@ -1658,13 +1532,11 @@ msgstr "Ответы"
 #: ../admin/partials/poll-maker-ays-admin-display.php:77
 #: ../admin/partials/poll-maker-ays-admin-display.php:81
 msgid "Option*"
-msgstr ""
+msgstr "Вариант*"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:84
-#, fuzzy
-#| msgid "Add new poll"
 msgid "Add an Option"
-msgstr "Добавить новый опрос"
+msgstr "Добавить опцию"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:92
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3728
@@ -1673,15 +1545,13 @@ msgstr "Разрешить не голосовать"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:105
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3282
-#, fuzzy
-#| msgid "Minutes"
 msgid "Min"
-msgstr "Minutes"
+msgstr "Минимум"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:106
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3299
 msgid "Max"
-msgstr ""
+msgstr "Максимум"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:111
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3501
@@ -1749,10 +1619,8 @@ msgid "User's WordPress profile email"
 msgstr "Электронная почта профиля пользователя WordPress"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:56
-#, fuzzy
-#| msgid "User's Wordpress Roles"
 msgid "User's Wordpress Website"
-msgstr "Роли пользователя Wordpress"
+msgstr "Веб-сайт пользователя Wordpress"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:57
 msgid "User's Display Name"
@@ -1908,7 +1776,7 @@ msgstr "Интеграции"
 #: ../admin/partials/poll-maker-ays-polls-actions.php:895
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6570
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:904
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3862
@@ -1917,10 +1785,8 @@ msgid "General options"
 msgstr "Общие настройки"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:910
-#, fuzzy
-#| msgid "View Results"
 msgid "View"
-msgstr "Просмотр результатов"
+msgstr "Вид"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:922
 msgid ""
@@ -1941,7 +1807,7 @@ msgstr "Добавьте изображение к вопросу."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:977
 msgid "Options"
-msgstr ""
+msgstr "Опции"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:991
 msgid "Ordering"
@@ -1950,7 +1816,7 @@ msgstr "Порядок"
 #: ../admin/partials/poll-maker-ays-polls-actions.php:992
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1093
 msgid "Option"
-msgstr ""
+msgstr "Вариант"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:993
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4150
@@ -1973,16 +1839,12 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1140
-#, fuzzy
-#| msgid "Settings"
 msgid "Option Settings"
-msgstr "Настройки"
+msgstr "Настройки параметров"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1152
-#, fuzzy
-#| msgid "Answer Redirect Delay"
 msgid "Answer Redirection"
-msgstr "Задержка перенаправления ответа"
+msgstr "Перенаправление ответа"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1153
 msgid ""
@@ -2018,21 +1880,17 @@ msgid "Select all"
 msgstr "Выбрать все"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1215
-#, fuzzy
-#| msgid ""
-#| "If the option is enabled, the opacity of the result bar color will depend "
-#| "on the number of votes."
 msgid ""
 "If the option is enabled, all the custom answers will be ticked in bulk and "
 "will be displayed for the poll on the front end."
 msgstr ""
-"Если опция включена, непрозрачность цвета панели результатов будет зависеть "
-"от количества голосов."
+"Если эта опция включена, все пользовательские ответы будут помечены "
+"галочками и будут отображаться для опроса во внешнем интерфейсе."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1234
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1276
 msgid "Appearance"
-msgstr ""
+msgstr "Внешность"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1234
 msgid "Select the appearance of the poll."
@@ -2056,8 +1914,6 @@ msgid "Stars"
 msgstr "Звезды"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1303
-#, fuzzy
-#| msgid "Add fake votes"
 msgid "Add Fake Votes"
 msgstr "Добавить поддельные голоса"
 
@@ -2068,6 +1924,11 @@ msgid ""
 "number of votes for your polls by making them look more credible. Add as "
 "many fake votes as you want to every poll option, then remove them easily."
 msgstr ""
+"Вы только что создали свой опрос и хотите, чтобы он выглядел заслуживающим "
+"доверия и популярным? Вы можете добавить эту функцию «Добавить фальшивые "
+"голоса» в свои опросы и увеличить количество голосов за свои опросы, сделав "
+"их более достоверными. Добавьте столько фальшивых голосов, сколько захотите, "
+"к каждому варианту опроса, а затем легко удалите их."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1311
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3379
@@ -2082,21 +1943,17 @@ msgstr ""
 #: ../admin/partials/settings/poll-maker-settings.php:1720
 #: ../admin/partials/settings/poll-maker-settings.php:1808
 #: ../admin/partials/settings/poll-maker-settings.php:1914
-#, fuzzy
-#| msgid "Upgrade for"
 msgid "Upgrade PRO NOW"
-msgstr "Обновление для"
+msgstr "Обновите PRO ПРЯМО СЕЙЧАС"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1324
 msgid "Add fake votes"
 msgstr "Добавить поддельные голоса"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1325
-#, fuzzy
-#| msgid "Allow users to add their fake votes to each answer."
 msgid "Allow users to add their fake votes to each option."
 msgstr ""
-"Разрешить пользователям добавлять свои поддельные голоса к каждому ответу."
+"Разрешите пользователям добавлять свои поддельные голоса к каждому варианту."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1345
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3413
@@ -2112,7 +1969,7 @@ msgstr ""
 #: ../admin/partials/settings/poll-maker-settings.php:1886
 #: ../admin/partials/settings/poll-maker-settings.php:1951
 msgid "Watch Video"
-msgstr ""
+msgstr "Смотреть видео"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1353
 msgid "Choose text type"
@@ -2250,10 +2107,8 @@ msgid "Aquamarine"
 msgstr "Classic Light"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1581
-#, fuzzy
-#| msgid "Poll Title"
 msgid "Poll styles"
-msgstr "Название опроса"
+msgstr "Стили опроса"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1588
 msgid "Main Color"
@@ -2615,10 +2470,8 @@ msgstr ""
 "Этот параметр будет работать для экранов шириной менее 640 пикселей."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2154
-#, fuzzy
-#| msgid "Reset styles"
 msgid "Question styles"
-msgstr "Сбросить стили"
+msgstr "Стили вопросов"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2161
 msgid "Question font size"
@@ -2676,16 +2529,12 @@ msgid "None"
 msgstr "None"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2240
-#, fuzzy
-#| msgid "Answers Styles"
 msgid "Answer Styles"
 msgstr "Стили ответов"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2246
-#, fuzzy
-#| msgid "Enable answers sound"
 msgid "Enable answer styles"
-msgstr "Включить звук ответов"
+msgstr "Включить стили ответов"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2248
 msgid ""
@@ -2910,10 +2759,8 @@ msgid "Answers image caption position"
 msgstr "Позиция подписи к изображению ответов"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2695
-#, fuzzy
-#| msgid "Border style"
 msgid "Border styles"
-msgstr "Стиль границы"
+msgstr "Стили границ"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2706
 msgid "Choose your preferred style of the border."
@@ -3008,16 +2855,12 @@ msgid "Specify the color of the text written inside the poll button."
 msgstr "Укажите цвет текста, написанного внутри кнопки опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2848
-#, fuzzy
-#| msgid "Background Color"
 msgid "Buttons Background Color"
-msgstr "Цвет фона"
+msgstr "Цвет фона кнопок"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2852
-#, fuzzy
-#| msgid "Specify the background color of the poll."
 msgid "Specify the background color of the poll button."
-msgstr "Укажите цвет фона опроса."
+msgstr "Укажите цвет фона кнопки опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2867
 msgid "Buttons font size"
@@ -3197,25 +3040,23 @@ msgstr ""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3246
 msgid "WP Post"
-msgstr ""
+msgstr "WP Страница"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3247
 msgid ""
 "Via these two links you can see the connected post in front end and make "
 "changes in the dashboard."
 msgstr ""
+"С помощью этих двух ссылок вы можете увидеть подключенный пост в интерфейсе "
+"и внести изменения в панель управления."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3255
-#, fuzzy
-#| msgid "View Results"
 msgid "View Post"
-msgstr "Просмотр результатов"
+msgstr "Посмотреть страницу"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3258
-#, fuzzy
-#| msgid "Edit poll"
 msgid "Edit Post"
-msgstr "Редактировать опрос"
+msgstr "Редактировать страницу"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3270
 msgid ""
@@ -3225,16 +3066,12 @@ msgstr ""
 "выбором типа."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3286
-#, fuzzy
-#| msgid "Sorry minimum count of answers should be 2"
 msgid "Indicate the minimum count of answers."
-msgstr "Извините, минимальное количество ответов должно быть 2"
+msgstr "Укажите минимальное количество ответов."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3303
-#, fuzzy
-#| msgid "Indicate the count of users' avatars to be shown."
 msgid "Indicate the maximum count of answers."
-msgstr "Укажите количество аватаров пользователей, которые будут показаны."
+msgstr "Укажите максимальное количество ответов."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3318
 msgid "Show Title"
@@ -3253,8 +3090,6 @@ msgid "Choose the alignment of the content of the poll."
 msgstr "Выберите выравнивание содержимого опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3371
-#, fuzzy
-#| msgid "Allow anonymity"
 msgid "Allow Anonymity"
 msgstr "Разрешить анонимность"
 
@@ -3265,6 +3100,10 @@ msgid ""
 "will allow you to get more accurate poll results as the participants will be "
 "more confident to express their honest opinions."
 msgstr ""
+"Увеличьте процент ответов на опросы, разрешив анонимность в ваших опросах. "
+"Позвольте вашим респондентам голосовать в ваших опросах, не раскрывая свою "
+"личность. Это позволит вам получить более точные результаты опросов, "
+"поскольку участники будут более уверенно выражать свое честное мнение."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3388
 msgid "Allow anonymity"
@@ -3311,10 +3150,8 @@ msgid "Select User"
 msgstr "Выберите пользователя"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3468
-#, fuzzy
-#| msgid "Poll link"
 msgid "Poll main URL"
-msgstr "Ссылка на опрос"
+msgstr "Основной URL опроса"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3469
 msgid ""
@@ -3322,6 +3159,9 @@ msgid ""
 "poll right from the polls page, please fill in this field and navigate to "
 "the general tab to see the 'View' button"
 msgstr ""
+"Укажите URL-адрес, по которому находится ваш опрос (в интерфейсе). Чтобы "
+"открыть свой опрос прямо на странице опросов, пожалуйста, заполните это поле "
+"и перейдите на вкладку \"Общие\", чтобы увидеть кнопку \"Просмотреть\"."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3484
 msgid "Show creation date"
@@ -3378,13 +3218,15 @@ msgstr "Показать дату окончания"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3606
 msgid " Show timer at the bottom"
-msgstr ""
+msgstr "Показать таймер внизу"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3609
 msgid ""
 "If you enable this option, the timer will be displayed at the bottom of the "
 "poll instead of the top."
 msgstr ""
+"Если вы включите эту опцию, таймер будет отображаться в нижней части опроса, "
+"а не в верхней."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3625
 msgid "Pre start message:"
@@ -3403,16 +3245,12 @@ msgid "Enable to show the result button after the schedule."
 msgstr "Включить отображение кнопки результата после расписания."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3688
-#, fuzzy
-#| msgid "Show result button"
 msgid "With See Results button"
-msgstr "Показать кнопку результата"
+msgstr "С помощью кнопки \"Посмотреть результаты\""
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3696
-#, fuzzy
-#| msgid "Show result button"
 msgid "Without See Results button"
-msgstr "Показать кнопку результата"
+msgstr "Без кнопки Просмотра результатов"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3707
 msgid "Don't show poll"
@@ -4042,7 +3880,7 @@ msgstr "Выберите, какие поля обязательны для за
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4708
 msgid "Autofill logged-in user data"
-msgstr ""
+msgstr "Автоматическое заполнение данных вошедшего в систему пользователя"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4724
 msgid "Display form fields with labels"
@@ -4108,12 +3946,18 @@ msgid ""
 "is the best way to connect to your website visitors and boost stronger "
 "relationships."
 msgstr ""
+"Отправьте электронное письмо с подтверждением после отправки результатов "
+"опроса участникам опроса. Это лучший способ установить контакт с "
+"посетителями вашего сайта и укрепить отношения."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4822
 msgid ""
 "There are two ways to send email to the poll voters: Custom and SendGrid. "
 "Watch the video to learn more about the functionality."
 msgstr ""
+"Есть два способа отправить электронное письмо участникам опроса: "
+"пользовательский и SendGrid. Посмотрите видео, чтобы узнать больше о "
+"функциональности."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4837
 msgid ""
@@ -4134,35 +3978,28 @@ msgid "From email"
 msgstr "Из электронной почты"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4888
-#, fuzzy, php-format
-#| msgid ""
-#| "Specify the email address from which the results will be sent. If you "
-#| "leave the field blank, the sending email address will take the default "
-#| "value — %spoll_maker@{your_site_url}%s."
+#, php-format
 msgid ""
 "Specify the email address from which the results will be sent. If you leave "
 "the field blank, the sending email address will take the default value — "
 "%1$spoll_maker@{your_site_url}%2$s."
 msgstr ""
-"Укажите адрес электронной почты, с которого будут отправлены результаты. "
-"Если вы оставите поле пустым, отправляющий адрес электронной почты примет "
-"значение по умолчанию — %spoll_maker@{your_site_url}%s."
+"Specify the email address from which the results will be sent. If you leave "
+"the field blank, the sending email address will take the default value — "
+"%1$spoll_maker@{your_site_url}%2$s."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4905
 msgid "From name"
 msgstr "От имени"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4908
-#, fuzzy, php-format
-#| msgid ""
-#| "Specify the name that will be displayed as the sender of the results. If "
-#| "you don't enter any name, it will be %sPoll Maker%s."
+#, php-format
 msgid ""
 "Specify the name that will be displayed as the sender of the results. If you "
 "don't enter any name, it will be %1$sPoll Maker%2$s."
 msgstr ""
-"Укажите имя, которое будет отображаться в качестве отправителя результатов. "
-"Если вы не введете никакого имени, это будет %spoilt Maker%s."
+"Specify the name that will be displayed as the sender of the results. If you "
+"don't enter any name, it will be %1$sPoll Maker%2$s."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4925
 msgid "Subject"
@@ -4210,10 +4047,11 @@ msgstr "Настройки MailChimp"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5013
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5076
-#, fuzzy, php-format
-#| msgid "For enabling this option, please go to "
+#, php-format
 msgid "For enabling this option, please go to %s page and fill all options."
-msgstr "Для включения этой опции, пожалуйста, перейдите на "
+msgstr ""
+"Чтобы включить эту опцию, пожалуйста, перейдите на страницу %s и заполните "
+"все поля."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5014
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5077
@@ -4456,16 +4294,12 @@ msgid "Loading effect size"
 msgstr "Размер эффекта загрузки"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5898
-#, fuzzy
-#| msgid ""
-#| "Define the size of the loading effect.It will get the default value if "
-#| "you leave it blank."
 msgid ""
 "Define the size of the loading effect. It will get the default value if you "
 "leave it blank."
 msgstr ""
-"Определите размер эффекта загрузки.Он получит значение по умолчанию, если вы "
-"оставите его пустым."
+"Определите размер эффекта загрузки. Если оставить поле пустым, оно получит "
+"значение по умолчанию."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5919
 msgid "Enable restart button"
@@ -4484,16 +4318,12 @@ msgid "Social share buttons"
 msgstr "Кнопки социальных сетей"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5940
-#, fuzzy
-#| msgid ""
-#| "Enable to show social media share buttons on the result page of the poll. "
-#| "(Facebook, Twitter, Linkedin, VKontakte)"
 msgid ""
 "Enable to show social media share buttons on the result page of the poll. "
 "(Facebook, Twitter, LinkedIn, VKontakte)"
 msgstr ""
-"Включите отображение кнопок обмена в социальных сетях на странице "
-"результатов опроса. (Facebook, Twitter, Linkedin, ВКонтакте)"
+"Включите отображение кнопок \"Поделиться\" в социальных сетях на странице "
+"результатов опроса. (Facebook, Twitter, LinkedIn, ВКонтакте)"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5952
 msgid "Heading for share buttons"
@@ -4504,10 +4334,8 @@ msgid "Text that will be displayed over share buttons."
 msgstr "Текст, который будет отображаться поверх кнопок \"Поделиться\"."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5972
-#, fuzzy
-#| msgid "Linkedin button"
 msgid "LinkedIn button"
-msgstr "Кнопка Linkedin"
+msgstr "Кнопка LinkedIn"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5973
 msgid ""
@@ -4574,17 +4402,14 @@ msgid "Text that will be displayed over social links."
 msgstr "Текст, который будет отображаться поверх социальных ссылок."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6068
-#, fuzzy
-#| msgid "Linkedin link"
 msgid "LinkedIn link"
-msgstr "Ссылка на Linkedin"
+msgstr "Ссылка на LinkedIn"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6069
-#, fuzzy
-#| msgid "Linkedin profile or page link for showing after poll finish."
 msgid "LinkedIn profile or page link for showing after poll finish."
 msgstr ""
-"Ссылка на профиль или страницу Linkedin для показа после завершения опроса."
+"Ссылка на профиль или страницу LinkedIn для отображения после завершения "
+"опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6084
 msgid "Facebook link"
@@ -4614,17 +4439,13 @@ msgstr ""
 "Ссылка на профиль или страницу ВКонтакте для показа после завершения опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6132
-#, fuzzy
-#| msgid "Youtube link"
 msgid "YouTube link"
-msgstr "Ссылка на Youtube"
+msgstr "Ссылка на YouTube"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6133
-#, fuzzy
-#| msgid "Youtube profile or page link for showing after poll finish."
 msgid "YouTube profile or page link for showing after poll finish."
 msgstr ""
-"Ссылка на профиль Youtube или страницу для показа после завершения опроса."
+"Ссылка на профиль или страницу на YouTube для показа после завершения опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6149
 msgid "Results bar in RGBA"
@@ -4661,10 +4482,8 @@ msgid "Indicate the count of users' avatars to be shown."
 msgstr "Укажите количество аватаров пользователей, которые будут показаны."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6204
-#, fuzzy
-#| msgid "Answer Redirect Delay"
 msgid "Option Redirect Delay"
-msgstr "Задержка перенаправления ответа"
+msgstr "Задержка перенаправления опций"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6206
 msgid ""
@@ -4710,8 +4529,6 @@ msgid "Bar chart"
 msgstr "Гистограмма"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6273
-#, fuzzy
-#| msgid "Show results by"
 msgid "Show Results by"
 msgstr "Показать результаты по"
 
@@ -4724,6 +4541,14 @@ msgid ""
 "them has its unique uses and features; consider each of them to suit your "
 "needs the best."
 msgstr ""
+"Покажите визуальное представление результатов вашего опроса в "
+"визуализированных диаграммах. Вы можете использовать любые типы диаграмм, "
+"которые лучше всего соответствуют вашим целям и задачам. Вы можете "
+"использовать столбчатую диаграмму, круговую диаграмму, столбчатую диаграмму, "
+"столбчатую диаграмму Google или опцию «не перезагружается», чтобы показать "
+"результаты опроса. Каждая из них имеет свои уникальные применения и "
+"особенности; рассмотрите каждую из них, чтобы наилучшим образом "
+"удовлетворить ваши потребности."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6290
 #: ../admin/partials/settings/poll-maker-settings.php:1234
@@ -4745,19 +4570,19 @@ msgstr "Рейтинговая таблица"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6335
 msgid "Chart height"
-msgstr ""
+msgstr "Высота диаграммы"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6336
 msgid ""
 "Set the Results Chart height. Note: The option works only for the Google Bar "
 "Chart."
 msgstr ""
+"Установите высоту диаграммы результатов. Примечание: Эта опция работает "
+"только для столбчатой диаграммы Google."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6360
-#, fuzzy
-#| msgid "Result message based on the answer"
 msgid "Results Message Based on the Answer"
-msgstr "Сообщение о результате на основе ответа"
+msgstr "Сообщение о результатах, основанное на ответе"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6364
 msgid ""
@@ -4765,6 +4590,10 @@ msgid ""
 "based on their answers.  Write result messages for every answer option and "
 "increase the user experience of your polls in seconds."
 msgstr ""
+"Применяйте индивидуальный подход к каждому респонденту и добавляйте "
+"сообщения о результатах опроса на основе их ответов.  Напишите сообщения о "
+"результатах для каждого варианта ответа и за считанные секунды повысьте "
+"удобство использования ваших опросов."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6374
 msgid "Result message based on the answer"
@@ -4779,16 +4608,12 @@ msgid "Show different messages based on the answer."
 msgstr "Показывать разные сообщения в зависимости от ответа."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6399
-#, fuzzy
-#| msgid ""
-#| "RRefresh the below answers table after adding or removing answer(s) in "
-#| "the General tab."
 msgid ""
 "Refresh the below answers table after adding or removing answer(s) in the "
 "General tab."
 msgstr ""
 "Обновите приведенную ниже таблицу ответов после добавления или удаления "
-"ответов на вкладке «Общие»."
+"ответов на вкладке \"Общие\"."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6410
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6660
@@ -4821,33 +4646,27 @@ msgid "Next Poll"
 msgstr "Следующий опрос"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6529
-#, fuzzy
-#| msgid "Default parameters for Poll"
 msgid "Save as Default feature of Poll"
-msgstr "Параметры по умолчанию для опроса"
+msgstr "Сохранить как функцию опроса по умолчанию"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6533
 msgid ""
 "You can make the process of creating online polls a fun and easy activity "
 "with the Save as Default feature of the WordPress Poll Plugin."
 msgstr ""
+"Вы можете превратить процесс создания онлайн-опросов в увлекательное и "
+"простое занятие с помощью функции сохранения по умолчанию в плагине "
+"WordPress Poll."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6536
-#, fuzzy
-#| msgid ""
-#| "Saves the assigned settings of the current poll as default. After "
-#| "clicking on this button, each time creating a new poll, the system will "
-#| "take the settings and styles of the current poll. If you want to change "
-#| "and renew it, please click on this button on another poll."
 msgid ""
 "You just need to click on the Save as default button and, each time, "
 "creating a new poll, the system will take the settings and styles of the "
 "current poll."
 msgstr ""
-"Сохраняет назначенные настройки текущего опроса по умолчанию. После нажатия "
-"на эту кнопку каждый раз при создании нового опроса система будет брать "
-"настройки и стили текущего опроса. Если вы хотите изменить и продлить его, "
-"пожалуйста, нажмите на эту кнопку в другом опросе."
+"Вам просто нужно нажать на кнопку Сохранить как по умолчанию, и каждый раз, "
+"создавая новый опрос, система будет принимать настройки и стили текущего "
+"опроса."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6549
 msgid ""
@@ -4897,7 +4716,7 @@ msgstr "Статистика"
 
 #: ../admin/partials/results/poll-maker-ays-each-results-display.php:85
 msgid "Details report"
-msgstr ""
+msgstr "Подробный отчет"
 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:15
 msgid "There are no selected polls."
@@ -4909,10 +4728,8 @@ msgid "There are no polls yet."
 msgstr "Еще нет опросов."
 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:79
-#, fuzzy
-#| msgid "Export results to CSV"
 msgid "Export Results"
-msgstr "Экспорт результатов в CSV"
+msgstr "Экспорт результатов"
 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:83
 msgid ""
@@ -4920,12 +4737,17 @@ msgid ""
 "plugin supports CSV and XLSX file formats to export the results of your "
 "polls."
 msgstr ""
+"Анализ результатов опроса - самый важный момент при создании опросов. Плагин "
+"поддерживает форматы файлов CSV и XLSX для экспорта результатов ваших "
+"опросов."
 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:86
 msgid ""
 "Use the feature to analyze poll results and get a better understanding of "
 "your website visitors."
 msgstr ""
+"Используйте эту функцию, чтобы проанализировать результаты опросов и лучше "
+"понять посетителей вашего сайта."
 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:96
 #: ../admin/partials/results/poll-maker-ays-results-display.php:171
@@ -5133,14 +4955,12 @@ msgid "Erase Poll data"
 msgstr "Удалить данные опроса"
 
 #: ../admin/partials/settings/poll-maker-settings.php:348
-#, fuzzy
-#| msgid "Results up to a "
 msgid "Results up to a"
-msgstr "Результаты до "
+msgstr "Результаты до"
 
 #: ../admin/partials/settings/poll-maker-settings.php:348
 msgid "month ago deleted successfully."
-msgstr ""
+msgstr "месяц назад он был успешно удален."
 
 #: ../admin/partials/settings/poll-maker-settings.php:355
 msgid "Delete results older then 'X' the month"
@@ -5242,6 +5062,9 @@ msgid ""
 "visitors, to create polls from the front end, then, this feature is the best "
 "solution for you."
 msgstr ""
+"Если у вас есть веб-сайт с подпиской и вы хотите предоставить доступ "
+"посетителям вашего веб-сайта для создания опросов из интерфейса, то эта "
+"функция - лучшее решение для вас."
 
 #: ../admin/partials/settings/poll-maker-settings.php:480
 msgid ""
@@ -5249,6 +5072,10 @@ msgid ""
 "without having access to your Dashboard. Moreover, you can auto-approve "
 "users' requests to save more time."
 msgstr ""
+"С помощью шорткода формы запроса пользователи могут создавать опросы, не "
+"имея доступа к вашей информационной панели. Кроме того, вы можете "
+"автоматически одобрять запросы пользователей, чтобы сэкономить больше "
+"времени."
 
 #: ../admin/partials/settings/poll-maker-settings.php:494
 msgid ""
@@ -5307,16 +5134,13 @@ msgid "Zapier Webhook URL"
 msgstr "Zapier Webhook URL"
 
 #: ../admin/partials/settings/poll-maker-settings.php:660
-#, fuzzy, php-format
-#| msgid ""
-#| "If you do not have any ZAP created, go <a href='%s' target='_blank'>%s</"
-#| "a>. Remember to choose Webhooks by Zapier as Trigger App."
+#, php-format
 msgid ""
 "If you do not have any ZAP created, go <a href='%s' target='_blank'>here</"
 "a>. Remember to choose Webhooks by Zapier as Trigger App."
 msgstr ""
-"Если у вас еще нет ZAP, перейдите на <a href='%s' target='_blank'>%s </a>. "
-"Не забудьте выбрать Webhooks от Zapier в качестве триггерного приложения."
+"If you do not have any ZAP created, go <a href='%s' target='_blank'>here</"
+"a>. Remember to choose Webhooks by Zapier as Trigger App."
 
 #: ../admin/partials/settings/poll-maker-settings.php:664
 msgid ""
@@ -5459,15 +5283,10 @@ msgid "GetResponse API Key"
 msgstr "GetResponse API Key"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1065
-#, fuzzy
-#| msgid ""
-#| "You can get your API key from your <a href='%s' target='_blank'>account</"
-#| "a>."
 msgid ""
 "You can get your API key from your <a href='#' target='_blank'>account</a>."
 msgstr ""
-"Вы можете получить ключ API в своем <a href='%s' target='_blank'>аккаунте</"
-"a>."
+"You can get your API key from your <a href='#' target='_blank'>account</a>."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1068
 msgid ""
@@ -5508,20 +5327,18 @@ msgstr ""
 "Вставьте шорткод в любой из ваших постов, чтобы показать все опросы вместе."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1168
-#, fuzzy, php-format
-#| msgid "%sDisplay%s"
+#, php-format
 msgid "%1$sDisplay%2$s"
-msgstr "%sДисплей%s"
+msgstr "%1$sDisplay%2$s"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1168
 msgid "Choose the method of displaying. Example: display=\"published\"."
 msgstr "Выберите способ отображения. Пример: display=\"published\"."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1177
-#, fuzzy, php-format
-#| msgid "%spublished%s"
+#, php-format
 msgid "%1$spublished%2$s"
-msgstr "%sопубликовано%s"
+msgstr "%1$spublished%2$s"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1177
 msgid ""
@@ -5532,10 +5349,9 @@ msgstr ""
 "опубликованные опросы, исключая опросы с истекшим сроком действия."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1187
-#, fuzzy, php-format
-#| msgid "%sall%s"
+#, php-format
 msgid "%1$sall%2$s"
-msgstr "%sвсе%s"
+msgstr "%1$sall%2$s"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1187
 msgid ""
@@ -5571,6 +5387,10 @@ msgid ""
 "the recent (in this case the ID will not be essential). By default it will "
 "be false."
 msgstr ""
+"Этот шорткод поможет вам получить последний отправленный опрос. Вам нужно "
+"будет добавить идентификатор опроса в шорткод или выбрать параметр true в "
+"поле \"Недавний\" (в этом случае идентификатор не будет иметь значения). По "
+"умолчанию он будет равен false."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1255
 msgid "Recent Polls Settings"
@@ -5596,10 +5416,9 @@ msgstr ""
 "предпочтениями и вставьте в сообщение."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1277
-#, fuzzy, php-format
-#| msgid "%sRandom%s"
+#, php-format
 msgid "%1$sRandom%2$s"
-msgstr "%sСлучайный%s"
+msgstr "%1$sRandom%2$s"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1277
 msgid ""
@@ -5612,10 +5431,9 @@ msgstr ""
 "опросов из созданных вами опросов."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1286
-#, fuzzy, php-format
-#| msgid "%sRecent%s"
+#, php-format
 msgid "%1$sRecent%2$s"
-msgstr "%sНедавний%s"
+msgstr "%1$sRecent%2$s"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1286
 msgid ""
@@ -5637,12 +5455,16 @@ msgid ""
 "Display all the polls of your desired category on one page with the Poll "
 "Categories Shortcode of the plugin."
 msgstr ""
+"Отобразите все опросы нужной вам категории на одной странице с помощью "
+"шорткода категорий опросов плагина."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1314
 msgid ""
 "By doing so, you will surely boost your website engagement and get instant "
 "feedback from poll takers."
 msgstr ""
+"Поступая таким образом, вы, несомненно, повысите вовлеченность своего сайта "
+"и получите мгновенную обратную связь от участников опроса."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1325
 msgid ""
@@ -5685,12 +5507,17 @@ msgid ""
 "visitors. Insert the Leaderboard shortcodes into your desired page or post "
 "to show the list of top users who passed the polls."
 msgstr ""
+"Сделайте процесс онлайн-голосования конкурентным для посетителей вашего "
+"сайта. Вставьте шорткоды таблицы лидеров на нужную страницу или в сообщение, "
+"чтобы отобразить список лучших пользователей, прошедших опрос."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1378
 msgid ""
 "Website visitors will be more inclined to vote for polls, as their vote "
 "matters."
 msgstr ""
+"Посетители веб-сайта будут более склонны голосовать за опросы, поскольку их "
+"голос имеет значение."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1389
 msgid ""
@@ -5795,15 +5622,6 @@ msgid "Group users by"
 msgstr "Группируйте пользователей по"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1584
-#, fuzzy
-#| msgid ""
-#| "Select the way for grouping the results.\n"
-#| "                                        By ID - Choose by ID if you want "
-#| "to make a leaderboard for logged-in users. It will collect results by "
-#| "WordPress user ID.\n"
-#| "                                        By  Email - Choose by email if "
-#| "you want to make the leaderboard for guests. In this case,  do not forget "
-#| "to activate the Information Form of the given polls."
 msgid ""
 "Select the way for grouping the results.\n"
 "                                                By ID - Choose by ID if you "
@@ -5813,14 +5631,13 @@ msgid ""
 "if you want to make the leaderboard for guests. In this case,  do not forget "
 "to activate the Information Form of the given polls."
 msgstr ""
-"Выберите способ группировки результатов.\n"
-"                                        По идентификатору - выберите по "
-"идентификатору, если вы хотите создать таблицу лидеров для "
-"зарегистрированных пользователей. Он будет собирать результаты по "
-"идентификатору пользователя WordPress.\n"
-"                                        По электронной почте - выберите по "
-"электронной почте, если вы хотите попасть в таблицу лидеров для гостей. В "
-"этом случае не забудьте активировать информационную форму данных опросов."
+"Select the way for grouping the results.\n"
+"                                                By ID - Choose by ID if you "
+"want to make a leaderboard for logged-in users. It will collect results by "
+"WordPress user ID.\n"
+"                                                By  Email - Choose by email "
+"if you want to make the leaderboard for guests. In this case,  do not forget "
+"to activate the Information Form of the given polls."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1608
 msgid "Choose the color of the leaderboard's box."
@@ -5864,12 +5681,16 @@ msgid ""
 "With the User History Settings Shortcode, you can display all votes of the "
 "current user on one page."
 msgstr ""
+"С помощью шорткода настроек истории пользователей вы можете отобразить все "
+"голоса текущего пользователя на одной странице."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1716
 msgid ""
 "This is the best way to learn how the voting history of the current user has "
 "changed over time."
 msgstr ""
+"Это лучший способ узнать, как менялась история голосований текущего "
+"пользователя с течением времени."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1730
 msgid ""
@@ -5896,10 +5717,8 @@ msgstr ""
 
 #: ../admin/partials/settings/poll-maker-settings.php:1790
 #: ../admin/partials/settings/poll-maker-settings.php:1797
-#, fuzzy
-#| msgid "Results Settings"
 msgid "All Results Settings"
-msgstr "Настройки результатов"
+msgstr "Все настройки результатов"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1801
 msgid ""
@@ -5907,29 +5726,28 @@ msgid ""
 "poll results on one page. By this, you will surely boost your website "
 "engagement."
 msgstr ""
+"С помощью шорткода настроек всех результатов вы можете отобразить все "
+"результаты опросов на одной странице. Таким образом вы наверняка повысите "
+"вовлеченность вашего сайта."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1804
 msgid ""
 "The website visitors will see all the poll results on one page and pass them "
 "without any difficulties."
 msgstr ""
+"Посетители сайта увидят все результаты опросов на одной странице и пройдут "
+"их без каких-либо затруднений."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1818
-#, fuzzy
-#| msgid ""
-#| "You can copy the shortcode and paste it to any post/page to see the list "
-#| "of the top user’s who passed any poll."
 msgid ""
 "You can copy the shortcode and insert it to any post to show all results."
 msgstr ""
-"Вы можете скопировать шорткод и вставить его в любое сообщение / страницу, "
-"чтобы увидеть список лучших пользователей, прошедших любой опрос."
+"Вы можете скопировать шорткод и вставить его в любой пост, чтобы показать "
+"все результаты."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1831
-#, fuzzy
-#| msgid "Show result button"
 msgid "Show to guests too"
-msgstr "Показать кнопку результата"
+msgstr "Показывать и гостям тоже"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1832
 msgid ""
@@ -5939,12 +5757,15 @@ msgid ""
 "the table to the guests, the table will contain only info of the logged-in "
 "users."
 msgstr ""
+"Покажите таблицу всех результатов и гостям. По умолчанию она отображается "
+"только для зарегистрированных пользователей. Если эта опция отключена, то "
+"таблицу смогут увидеть только зарегистрированные пользователи. Примечание: "
+"Несмотря на то, что таблица будет показана гостям, в ней будет содержаться "
+"информация только о зарегистрированных пользователях."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1845
-#, fuzzy
-#| msgid "User history results table columns"
 msgid "All results tables columns"
-msgstr "Столбцы таблицы результатов истории пользователей"
+msgstr "Все столбцы таблиц результатов"
 
 #: ../admin/partials/settings/poll-maker-settings.php:1896
 #: ../admin/partials/settings/poll-maker-settings.php:1903
@@ -5957,12 +5778,17 @@ msgid ""
 "help of the Frontend Statistics Shortcode, you can display daily, weekly, "
 "monthly, and overall statistics of your polls."
 msgstr ""
+"Аналитика является наиболее важной частью проведения онлайн-опросов. С "
+"помощью шорт-кода Frontend Statistics вы можете отображать ежедневную, "
+"еженедельную, ежемесячную и общую статистику ваших опросов."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1910
 msgid ""
 "This will help you decrease the workload as you will see the statistics of "
 "your users in one place."
 msgstr ""
+"Это поможет вам снизить нагрузку, так как вы будете видеть статистику ваших "
+"пользователей в одном месте."
 
 #: ../admin/partials/settings/poll-maker-settings.php:1933
 msgid ""
@@ -6079,38 +5905,28 @@ msgid "Show poll categories descriptions"
 msgstr "Показать описания категорий опроса"
 
 #: ../admin/partials/settings/poll-maker-settings.php:2115
-#, fuzzy
-#| msgid ""
-#| "You need to insert Your Poll ID in the shortcode. It will show cateogries "
-#| "descriptions of the particular poll. If there is no poll available/found "
-#| "with that particular Poll ID, the shortcode will be empty."
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show categories "
 "descriptions of the particular poll. If there is no poll available/found "
 "with that particular Poll ID, the shortcode will be empty."
 msgstr ""
 "Вам нужно вставить свой идентификатор опроса в шорткод. В нем будут показаны "
-"описания категорий конкретного опроса. Если опрос не доступен/не найден с "
-"этим конкретным идентификатором опроса, шорткод будет пустым."
+"описания категорий для конкретного опроса. Если опрос с таким "
+"идентификатором не доступен/не найден, шорткод будет пустым."
 
 #: ../admin/partials/settings/poll-maker-settings.php:2132
 msgid "Show poll categories titles"
 msgstr "Показать названия категорий опроса"
 
 #: ../admin/partials/settings/poll-maker-settings.php:2133
-#, fuzzy
-#| msgid ""
-#| "You need to insert Your Poll ID in the shortcode. It will show cateogries "
-#| "titles of the particular poll. If there is no poll available/found with "
-#| "that particular Poll ID, the shortcode will be empty."
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show categories "
 "titles of the particular poll. If there is no poll available/found with that "
 "particular Poll ID, the shortcode will be empty."
 msgstr ""
 "Вам нужно вставить свой идентификатор опроса в шорткод. В нем будут показаны "
-"заголовки рубрик конкретного опроса. Если опрос не доступен/не найден с этим "
-"конкретным идентификатором опроса, шорткод будет пустым."
+"названия категорий конкретного опроса. Если опрос с таким идентификатором не "
+"доступен/не найден, шорткод будет пустым."
 
 #: ../admin/partials/settings/poll-maker-settings.php:2150
 msgid "Show current poll author"
@@ -6181,15 +5997,16 @@ msgstr ""
 
 #: ../admin/partials/settings/poll-maker-settings.php:2277
 msgid "The name the user entered into information form"
-msgstr ""
+msgstr "Имя, которое пользователь ввел в информационную форму"
 
 #: ../admin/partials/settings/poll-maker-settings.php:2287
 msgid "The E-mail the user entered into information form"
 msgstr ""
+"Адрес электронной почты, который пользователь ввел в информационную форму"
 
 #: ../admin/partials/settings/poll-maker-settings.php:2297
 msgid "The phone the user entered into information form"
-msgstr ""
+msgstr "Телефон, который пользователь ввел в информационную форму"
 
 #: ../admin/partials/settings/poll-maker-settings.php:2307
 msgid "The title of the poll."
@@ -6260,50 +6077,40 @@ msgid "Prints the webpage link where the current poll is posted."
 msgstr "Печатает ссылку на веб-страницу, на которой размещен текущий опрос."
 
 #: ../admin/partials/settings/poll-maker-settings.php:2437
-#, fuzzy
-#| msgid "The user's email that was filled in their WordPress profile."
 msgid "The user's website that was filled in their WordPress profile."
-msgstr ""
-"Адрес электронной почты пользователя, который был заполнен в его профиле "
-"WordPress."
+msgstr "Веб-сайт пользователя, указанный в его профиле WordPress."
 
 #: ../admin/partials/settings/poll-maker-settings.php:2457
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
 #: ../includes/class-poll-maker-ays-welcome.php:127
-#, fuzzy
-#| msgid "Poll Maker"
 msgid "Poll Maker Logo"
-msgstr "Poll Maker"
+msgstr "Логотип Poll Maker"
 
 #: ../includes/class-poll-maker-ays-welcome.php:132
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: ../includes/class-poll-maker-ays-welcome.php:136
-#, fuzzy
-#| msgid "Poll Maker"
 msgid "Welcome to Poll Maker"
-msgstr "Poll Maker"
+msgstr "Добро пожаловать в Poll Maker"
 
 #: ../includes/class-poll-maker-ays-welcome.php:137
 msgid ""
 "Thank you for choosing Poll Maker - the best poll and survey plugin for "
 "WordPress."
 msgstr ""
+"Спасибо, что выбрали Poll Maker — лучший плагин для проведения опросов и "
+"анкет для WordPress."
 
 #: ../includes/class-poll-maker-ays-welcome.php:141
-#, fuzzy
-#| msgid "Congrats! You have already created your first poll."
 msgid "Watch how to create your first poll"
-msgstr "Поздравляю! Вы уже создали свой первый опрос."
+msgstr "Посмотрите, как создать свой первый опрос"
 
 #: ../includes/class-poll-maker-ays-welcome.php:149
-#, fuzzy
-#| msgid "Create Your First Poll in Under One Minute"
 msgid "Create Your First Poll"
-msgstr "Создайте свой первый опрос менее чем за одну минуту"
+msgstr "Создайте свой первый опрос"
 
 #: ../includes/lists/class-poll-maker-categories-list-table.php:13
 msgid "Category"
@@ -6331,16 +6138,12 @@ msgid "Poll category deleted."
 msgstr "Категория опроса удалена."
 
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:11
-#, fuzzy
-#| msgid "See results"
 msgid "Each result"
-msgstr "Смотрите результаты"
+msgstr "Каждый результат"
 
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:12
-#, fuzzy
-#| msgid "See results"
 msgid "Each results"
-msgstr "Смотрите результаты"
+msgstr "Каждый результат"
 
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:256
 #: ../includes/lists/class-poll-maker-results-list-table.php:179
@@ -6369,17 +6172,15 @@ msgstr "Статус чтения"
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:422
 #: ../includes/lists/class-poll-maker-results-list-table.php:324
 msgid "Mark as read"
-msgstr ""
+msgstr "Отметить как прочитанное"
 
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:535
-#, fuzzy
-#| msgid "Result deleted."
 msgid "Result(s) deleted."
-msgstr "Результат удален."
+msgstr "Результат(ы) удалены."
 
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:538
 msgid "Result(s) marked as read."
-msgstr ""
+msgstr "Результат(ы) отмечены как прочитанные."
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:108
 #: ../includes/lists/class-poll-maker-results-list-table.php:478
@@ -6387,22 +6188,16 @@ msgid "Select Category"
 msgstr "Выберите категорию"
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:116
-#, fuzzy
-#| msgid "Select Color"
 msgid "Select Author"
-msgstr "Выбрать цвет"
+msgstr "Выберите автора"
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:126
-#, fuzzy
-#| msgid "Select User"
 msgid "Select Type"
-msgstr "Выберите пользователя"
+msgstr "Выберите тип"
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:136
-#, fuzzy
-#| msgid "Clear color"
 msgid "Clear filters"
-msgstr "Очистить цвет"
+msgstr "Очистить фильтры"
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:174
 msgid "All"
@@ -6461,16 +6256,12 @@ msgid "Result"
 msgstr "Результат"
 
 #: ../includes/lists/class-poll-maker-results-list-table.php:296
-#, fuzzy
-#| msgid "Users count"
 msgid "Voters count"
-msgstr "Количество пользователей"
+msgstr "Подсчет голосов"
 
 #: ../includes/lists/class-poll-maker-results-list-table.php:297
-#, fuzzy
-#| msgid "See results"
 msgid "New results count"
-msgstr "Смотрите результаты"
+msgstr "Учитываются новые результаты"
 
 #: ../includes/lists/class-poll-maker-results-list-table.php:442
 msgid "Result deleted."
@@ -6557,15 +6348,13 @@ msgstr "Спасибо за Ваш ответ"
 
 #: ../public/class-poll-maker-ays-public.php:712
 #: ../public/class-poll-maker-ays-public.php:719
-#, fuzzy
-#| msgid "You will be redirected "
 msgid "You will be redirected"
-msgstr "Вы будете перенаправлены "
+msgstr "Вы будете перенаправлены"
 
 #: ../public/class-poll-maker-ays-public.php:712
 #: ../public/class-poll-maker-ays-public.php:719
 msgid "after"
-msgstr ""
+msgstr "after"
 
 #: ../public/class-poll-maker-ays-public.php:1005
 msgid "Please add vote reason"
@@ -6584,10 +6373,8 @@ msgid "Submit"
 msgstr "Отправить"
 
 #: ../public/class-poll-maker-ays-public.php:1855
-#, fuzzy
-#| msgid "This Poll active until "
 msgid "This Poll is active until "
-msgstr "Этот опрос активен до "
+msgstr "Этот опрос активен до тех пор, пока"
 
 #: ../public/class-poll-maker-ays-public.php:1865
 msgid "This Poll will start "
@@ -6613,10 +6400,8 @@ msgstr "Неизвестный"
 
 #: ../public/class-poll-maker-ays-public.php:1972
 #: ../public/class-poll-maker-ays-public.php:3180
-#, fuzzy
-#| msgid "1 site"
 msgid "Website"
-msgstr "1 сайт"
+msgstr "Веб-сайт"
 
 #: ../public/class-poll-maker-ays-public.php:2059
 msgid "You must sign in for voting."
@@ -6628,7 +6413,7 @@ msgstr "У вас нет прав для голосования."
 
 #: ../public/class-poll-maker-ays-public.php:2190
 msgid "Min votes count should be"
-msgstr ""
+msgstr "Минимальное количество голосов должно быть"
 
 #: ../public/class-poll-maker-ays-public.php:2303
 msgid "Other - please specify"
@@ -6636,7 +6421,7 @@ msgstr "Другое - пожалуйста, укажите"
 
 #: ../public/class-poll-maker-ays-public.php:2310
 msgid "If 'Other' is filled, checked answers are ignored."
-msgstr ""
+msgstr "Если заполнено поле «Другое», отмеченные ответы игнорируются."
 
 #: ../public/class-poll-maker-ays-public.php:2387
 msgid "View more"
@@ -6675,10 +6460,9 @@ msgid "Poll link"
 msgstr "Ссылка на опрос"
 
 #: ../public/class-poll-maker-ays-public.php:3299
-#, fuzzy, php-format
-#| msgid "Someone's answer %s in your %s poll on %s."
+#, php-format
 msgid "Someone's answer %1$s in your %2$s poll on %3$s."
-msgstr "Чей-то ответ %s в вашем %s опросе по %s."
+msgstr "Someone's answer %1$s in your %2$s poll on %3$s."
 
 #: ../public/partials/class-poll-maker-extra-shortcode.php:87
 #: ../public/partials/class-poll-maker-extra-shortcode.php:216
