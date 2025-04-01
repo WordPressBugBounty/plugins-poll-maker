@@ -9383,9 +9383,13 @@ a.ays_save_default_button_box {
     margin: 0;
 }
 
-.ays-poll-open-polls-list{
+.ays-poll-open-list {
+    display: flex;
+}
+
+.ays-poll-open-list > img.ays-poll-open-polls-list {
+    margin-left: 20px;
     cursor: pointer;
-    padding: 3px;
 }
 
 .ays-poll-subtitle-main-box .ays-poll-polls-data .ays-poll-go-to-polls{

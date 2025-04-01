@@ -873,11 +873,11 @@ $emoji = array(
             </h1>
             <div>
             	<div class="ays-poll-subtitle-main-box">
-                    <p class="ays-subtitle">
-                        <?php if(isset($id) && count($get_all_polls) > 1):?>
-                        <i class="ays_poll_fas ays_fa_arrow_down ays-poll-open-polls-list" style="font-size: 15px;"></i>   
-                        <?php endif; ?>
+                    <p class="ays-subtitle ays-poll-open-list">
                         <strong class="ays_poll_title_in_top"><?php echo esc_html($poll['title']); ?></strong>
+                        <?php if(isset($id) && count($get_all_polls) > 1):?>                        
+                        <img class="ays-poll-open-polls-list" src="<?php echo esc_url( POLL_MAKER_AYS_ADMIN_URL ) .'/images/icons/list-icon.svg'; ?>">
+                        <?php endif; ?>
                     </p>
                     <?php if(isset($id) && count($get_all_polls) > 1):?>
                     <div class="ays-poll-polls-data">
@@ -2347,7 +2347,7 @@ $emoji = array(
                                         <div class="ays-poll-accordion-body">
                                             <div class="form-group row">
                                                 <div class="col-sm-4">
-                                                    <label for='ays-poll-box-shadow-color'><?php echo esc_html__('Enable answer styles', "poll-maker"); ?>
+                                                    <label for='ays_poll_enable_answer_style'><?php echo esc_html__('Enable answer styles', "poll-maker"); ?>
                                                         <a class="ays_help" data-toggle="tooltip" data-placement="top"
                                                         title="<?php echo esc_html__("Highlight the background of the answers' boxes. The option works only with choosing type.", "poll-maker"); ?>">
                                                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -2496,7 +2496,7 @@ $emoji = array(
                                                     </div> <!-- Answers image border radius -->
                                                     <div class="ays_toggle_target ays_divider_top ays_answer_style" style="margin-top: 10px; padding-top: 10px; <?php echo ($options['enable_answer_style'] == 'on') ? '' : 'display:none;' ?>">
                                                         <div >
-                                                            <label for="ays_poll_background_size">
+                                                            <label for="ays_poll_image_background_size">
                                                                 <?php echo esc_html__('Answer image object fit', "poll-maker"); ?>
                                                                 <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Specify how an answers’ images should be resized to fit its container.', "poll-maker"); ?>">
                                                                     <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -4245,7 +4245,7 @@ $emoji = array(
                                 <hr>
                                 <div class="form-group row">
                                     <div class="col-sm-3">
-                                        <label>
+                                        <label for="ays_poll_aysDropdown">
                                             <?php echo esc_html__('Answers numbering', "poll-maker"); ?>
                                             <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Assign numbering to each answer in ascending sequential order. Choose your preferred type from the list.', "poll-maker"); ?>">
                                                 <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -4253,7 +4253,7 @@ $emoji = array(
                                         </label>
                                     </div>
                                     <div class="col-sm-9">
-                                        <select class="ays_poll_aysDropdown" name="ays_poll_show_answers_numbering" style="width: 200px;">
+                                        <select class="ays_poll_aysDropdown" id="ays_poll_aysDropdown" name="ays_poll_show_answers_numbering" style="width: 200px;">
                                             <option <?php echo $show_answers_numbering == "none" ? "selected" : ""; ?> value="none"><?php echo esc_html__( "None", "poll-maker"); ?></option>
                                             <option <?php echo $show_answers_numbering == "1." ? "selected" : ""; ?> value="1."><?php echo esc_html__( "1.", "poll-maker"); ?></option>
                                             <option <?php echo $show_answers_numbering == "1)" ? "selected" : ""; ?> value="1)"><?php echo esc_html__( "1)", "poll-maker"); ?></option>
