@@ -160,7 +160,7 @@ span.ays-dashicons-star-filled:before {
 body.toplevel_page_poll-maker-ays #wpfooter,
 body.admin_page_poll-maker-ays-results-each #wpfooter,
 body[class*="poll-maker"] #wpfooter {
-    position: relative;
+    /*position: relative;*/
     height: 100px;
 }
 /* Poll Footer Support box end */
