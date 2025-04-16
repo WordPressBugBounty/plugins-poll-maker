@@ -78,7 +78,7 @@ class Poll_Maker_Ays {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
-
+        $this->define_custom_post_type_hooks();
     }
 
     /**
@@ -164,6 +164,11 @@ class Poll_Maker_Ays {
          * The class is responsible for showing poll settings
          */
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/settings/poll-maker-settings-actions.php';
+
+        /**
+         * The class responsible for defining all functions for getting all custom post type functions
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-poll-maker-custom-post-type.php';
 
         // Answer results actions
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/results/poll-maker-ays-answer-results-actions.php';
@@ -290,6 +295,15 @@ class Poll_Maker_Ays {
 
         $this->loader->add_action( 'wp_ajax_ays_poll_get_user_information', $plugin_public, 'ays_poll_get_user_information' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_get_user_information', $plugin_public, 'ays_poll_get_user_information' );
+    }
+
+    /**
+     * Run the loader to execute all of the hooks with WordPress.
+     *
+     * @since    1.0.0
+     */
+    private function define_custom_post_type_hooks(){
+        $plugin_custom_post_type = new Poll_Maker_Custom_Post_Type( $this->get_plugin_name(), $this->get_version() );
     }
 
     /**

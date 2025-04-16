@@ -229,11 +229,14 @@ class Poll_Maker_Ays_Admin {
             'clickForCopy' 			  =>esc_html__('Click for copy.', "poll-maker"),
 			'areYouSure' 			  =>esc_html__('Are you sure you want to redirect to another poll? Note that the changes made in this poll will not be saved.', "poll-maker"),
 			'deleteAnswer' 			  =>esc_html__('Are you sure you want to delete this answer?', "poll-maker"),
-			'youCanUuseThisShortcode' =>esc_html__('Your Poll is Created!<br>Copy the generated shortcode and paste it into any post or page to display Poll', "poll-maker"),
+			'youPollIsCreated'		  => esc_html__('Your Poll is Created!', 'poll-maker'),
+			'youCanUuseThisShortcode' =>esc_html__('Copy the generated shortcode and paste it into any post or page to display Poll', "poll-maker"),
 			'greateJob' 			  =>esc_html__('Great job', "poll-maker"),
+			'editPollPage'                  => __( 'edit poll page', 'poll-maker'),
 			'formMoreDetailed' 		  =>esc_html__('For more detailed configuration visit', "poll-maker"),
             'done' 					  =>esc_html__('Done', "poll-maker"),
             'thumbsUpGreat' 		  =>esc_html__('Thumbs up, Done', "poll-maker"),
+            "preivewPoll"             =>esc_html__( "Preview Poll", 'poll-maker' ),
         ) );
 
 		wp_localize_script('ays-poll-admin-js', 'poll', array(

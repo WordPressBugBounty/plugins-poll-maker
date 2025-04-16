@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
-Tested up to: 6.7.2
-Stable tag: 5.7.6
+Tested up to: 6.8
+Stable tag: 5.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -352,6 +352,13 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.7.7 =
+* Added: Auto-generate custom post for immediate poll preview on front-end
+* Added: Preview link on the Polls List Table
+* Added: Preview Poll button on the Preview Popup of the created poll
+* Improved: Some styles on the admin dashboard
+* Tested: Compatible up to 6.8
 
 = 5.7.6 =
 * Improved: Some styles on the admin dashboard

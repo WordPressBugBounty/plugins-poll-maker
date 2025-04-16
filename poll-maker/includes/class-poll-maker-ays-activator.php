@@ -1,6 +1,6 @@
 <?php
 global $ays_poll_db_version;
-$ays_poll_db_version = '1.8.7';
+$ays_poll_db_version = '1.8.8';
 /**
  * Fired during plugin activation
  *
@@ -52,6 +52,7 @@ class Poll_Maker_Ays_Activator {
                 image TEXT DEFAULT '',
                 show_title INT(1) DEFAULT 1,
                 styles TEXT DEFAULT '',
+                custom_post_id INT(16) UNSIGNED DEFAULT NULL,
                 custom_css TEXT DEFAULT '',
                 theme_id INT(5) DEFAULT 1,
                 PRIMARY KEY (id)

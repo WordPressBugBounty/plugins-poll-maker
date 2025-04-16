@@ -478,6 +478,7 @@ div.ays-notice-banner .navigation-bar li a:after {
 
 .ays-notice-banner li ul.ddmenu[data-expanded="true"] {
     display: flex;
+    align-items: flex-start;
     animation: slideInRight .2s;
 }
 
@@ -7031,7 +7032,7 @@ div#ays-poll-dicount-month-main button.notice-dismiss:before{
 /* New Mega Bundle Banner Poll | End */
 
 
-/* New Poll Pro Banner quiz by Emma | Start */
+/* New Poll Pro Banner poll by Emma | Start */
 
 /* div#ays-poll-new-mega-bundle-dicount-month-main-2024 {
     border: 0;
@@ -9561,10 +9562,14 @@ body.toplevel_page_poll-maker-ays .ays-poll-form .ays-top-menu-wrapper .nav-tab{
     border-left: none ;
     margin-left:0px;
     padding-bottom:12px;
-    background-color: #F3F4F5 ;
+    background-color: transparent;
     border-bottom:1px solid #c7c3c3;
     color:black;
     margin-bottom:0px;
+}
+.nav-tab {
+    padding: 8px 25px;
+    font-size: 15px;
 }
 a[href="#tab1"]{
     margin-left:0px !important;
@@ -9757,3 +9762,82 @@ a.ays-delete-answer:hover{
 }
 /*Dashboard Redesign End*/
 
+/* Preview Popup new design | Start */
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup {
+    padding: 27px 10px;
+    border-radius: 10px;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-title {
+    color: #000;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup #swal2-content {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .ays-poll-preview-popup-cancel-button.swal2-styled.swal2-cancel {
+    background-color: #fff;
+    color: #007DCB;
+    padding: 0;
+    border: 1px solid #007DCB;
+    border-radius: 6px;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .ays-poll-preview-popup-cancel-button.swal2-styled.swal2-cancel a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: .625em .75em;
+    text-decoration: none;
+    color: #007DCB;
+    min-width: 152px;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .ays-poll-maker-swal2-created-row {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .ays-poll-maker-swal2-content-text-row {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #6F6F6F;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup #ays-poll-create-new {
+    border: 1px solid #000000;
+    border-radius: 6px;
+    color: #000000;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-styled.swal2-confirm {
+    min-width: 152px;
+    background-color: #007DCB;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-styled.swal2-confirm:hover {
+    background-color: #29A6F4;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-close:hover {
+    color: #979797;
+}
+
+body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-actions {
+    flex-direction: row-reverse;
+}
+
+/* Preview Popup new design | End */
