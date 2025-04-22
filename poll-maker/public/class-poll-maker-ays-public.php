@@ -3317,6 +3317,48 @@ class Poll_Maker_Ays_Public {
 				);
 				
 				$user_ip = esc_sql($user_ips);
+				
+				// Race condition fix
+				$limitusers = isset($poll['styles']['limit_users']) ? intval($poll['styles']['limit_users']) : 0;
+
+				if ($limitusers > 0) {
+
+					$limit_users_method = isset($poll['styles']['limit_users_method']) ? $poll['styles']['limit_users_method'] : "ip";
+					
+					switch ($limit_users_method) {
+						case 'ip':
+						default:
+							$wpdb->query("START TRANSACTION");
+							$already_voted = $wpdb->get_var($wpdb->prepare(
+								"SELECT COUNT(*) FROM {$report_table} WHERE user_ip = %s AND poll_id = %d FOR UPDATE",
+								$user_ip,
+								$poll_id
+							));
+							break;
+						case 'cookie':
+							$wpdb->query("START TRANSACTION");
+							$already_voted = isset($_COOKIE["ays_this_poll_cookie_" . $poll_id]) ? 1 : 0;
+							break;
+						case 'user':
+							$wpdb->query("START TRANSACTION");
+							$already_voted = $wpdb->get_var($wpdb->prepare(
+								"SELECT COUNT(*) FROM {$report_table} WHERE user_id = %s AND poll_id = %d FOR UPDATE",
+								$user_id,
+								$poll_id
+							));
+							break;
+					}
+					
+					if ($already_voted > 0) {
+						$wpdb->query("ROLLBACK");
+
+						$res = $this->get_poll_by_id($poll_id);
+						$res['voted_status'] = false;
+						echo json_encode($res);
+						wp_die();
+					}
+				}
+
 				$multi_answer_ids = array();
 				if ((is_array($answer_id) && !empty($answer_id)) && $allow_multi_vote) {
 					$multi_answer_ids = $answer_id;
@@ -3374,6 +3416,12 @@ class Poll_Maker_Ays_Public {
 						'%s', // multi_answer_ids
 					)
 				);
+
+				// Race condition fix
+				if ($limitusers > 0) {
+					$wpdb->query("COMMIT");
+				}
+
 				// $answers = $this->get_answer_by_id($answer_changed_id);
 				if (!empty($options['notify_email_on'])) {
 					$notify_admin_email = $options['notify_email'];

@@ -94,7 +94,7 @@ $options['poll_exclude_general_css'] = isset($options['poll_exclude_general_css'
 $poll_exclude_general_css = (isset($options['poll_exclude_general_css']) && esc_attr( $options['poll_exclude_general_css'] ) == "on") ? true : false;
 
 // WP Editor height
-$poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['poll_wp_editor_height'] != '' && $options['poll_wp_editor_height'] != 0) ? absint( sanitize_text_field($options['poll_wp_editor_height']) ) : 100 ;
+$poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['poll_wp_editor_height'] != '' && $options['poll_wp_editor_height'] != 0) ? absint( sanitize_text_field($options['poll_wp_editor_height']) ) : 50 ;
 
 ?>
 <div class="wrap" style="position:relative;">
@@ -258,7 +258,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                     <label for="ays_poll_wp_editor_height">
                                         <?php echo esc_html__( "WP Editor height", "poll-maker" ); ?>
                                         <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Give the default value to the height of the WP Editor. It will apply to all WP Editors within the plugin on the dashboard.', "poll-maker"); ?>">
-                                            <i class="ays_fa ays_fa_info_circle"></i>
+                                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                         </a>
                                     </label>
                                 </div>

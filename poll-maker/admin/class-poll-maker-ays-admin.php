@@ -273,6 +273,16 @@ class Poll_Maker_Ays_Admin {
                 wp_dequeue_script('mwai');
                 wp_dequeue_script('mwai-vendor');
             }
+
+            if (is_plugin_active('html5-video-player/html5-video-player.php')) {
+                wp_dequeue_style('h5vp-admin');
+                wp_dequeue_style('fs_common');
+            }
+
+            if (is_plugin_active('panorama/panorama.php')) {
+                wp_dequeue_style('bppiv_admin_custom_css');
+                wp_dequeue_style('bppiv-custom-style');
+            }
 		}
 	}
 
@@ -2965,9 +2975,30 @@ class Poll_Maker_Ays_Admin {
 			));
 		}
 
+		$post_type_args = array(
+            'poll_id'       => $poll_id,
+            'author_id'     => !empty($user->ID) ? $user->ID : get_current_user_id(),
+            'poll_title'    => $poll_title,
+        );
+        
+        $custom_post_id = Poll_Maker_Custom_Post_Type::ays_poll_add_custom_post($post_type_args);
+
+		$preview_url = "#";
+        if(!empty($custom_post_id)){
+            $custom_post_url = array(
+                'post_type' => 'ays-poll-maker',
+                'p'         => $custom_post_id,
+                'preview'   => 'true',
+            );
+            $custom_post_url_ready = http_build_query($custom_post_url);
+            $preview_url = get_home_url();
+            $preview_url .= '/?' . $custom_post_url_ready;
+        }
+
 		echo json_encode(array(
             'status' => true,
-            'poll_id' => $poll_id
+            'poll_id' => $poll_id,
+            'preview_url' => $preview_url,
         ));
         wp_die();
 	}

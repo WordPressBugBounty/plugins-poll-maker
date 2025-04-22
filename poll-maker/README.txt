@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 5.7.7
+Stable tag: 5.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -238,7 +238,8 @@ Don't forget that, in case of any problems or upcoming questions, please contact
 **Other plugins from Ays Pro Team** 
 
 * [Quiz Maker](https://wordpress.org/plugins/quiz-maker/) for creating advanced quizzes and exams easily and quickly.
-* [Survey Maker](https://wordpress.org/plugins/survey-maker/) for collecting data and analyze it.  
+* [Survey Maker](https://wordpress.org/plugins/survey-maker/) for collecting data and analyze it.
+* [Fox LMS](https://wordpress.org/plugins/fox-lms/) to create online courses with quizzes and certificates for your WordPress website.
 * [Popup Box](https://wordpress.org/plugins/ays-popup-box/), an easy way to create eye-catching and engaging popups. 
 * [Secure Copy Content Protection](https://wordpress.org/plugins/secure-copy-content-protection/) to protect web content from being plagiarized.
 * [Chartify](https://wordpress.org/plugins/chart-builder/) to build both static and dynamic charts, graphs and diagrams. 
@@ -352,6 +353,13 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.7.8 =
+* Added: Preview Poll button on the Quick Poll Preview Popup
+* Improved: Some styles on the admin dashboard
+* Fixed: CSS conflict with the HTML5 Video Player plugin
+* Fixed: CSS conflict with the Panorama Viewer plugin
+* Fixed: Vulnerability issue with user vote limitation
 
 = 5.7.7 =
 * Added: Auto-generate custom post for immediate poll preview on front-end

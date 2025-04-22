@@ -1551,7 +1551,7 @@ class Polls_List_Table extends WP_List_Table {
 
 		$actions['edit'] = sprintf( '<a href="?page=%s&action=%s&poll=%d">'. esc_html__('Edit', 'poll-maker') .'</a>', esc_attr( $_REQUEST['page'] ), 'edit', absint( $item['id'] ) );
 
-        $actions['duplicate'] = sprintf( '<a href="?page=%s&action=%s&poll=%d">'. esc_html__('Duplicate', 'poll-maker') .'</a>', esc_attr( $_REQUEST['page'] ), 'duplicate', absint( $item['id'] ) );
+        $actions['duplicate'] = sprintf('<a href="?page=%s&action=%s&poll=%d&_wpnonce=%s">' .esc_html__('Duplicate', "poll-maker") . '</a>', esc_attr($_REQUEST['page']), 'duplicate', absint($item['id']),$duplicate_nonce);
 
         $actions['results'] = sprintf( '<a href="?page=%s&poll=%d&title=%s">'. esc_html__('View Results', 'poll-maker') .'</a>', esc_attr( $_REQUEST['page'] ) . '-results-each', absint( $item['id'] ), $poll_title );
 

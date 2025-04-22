@@ -67,7 +67,7 @@ class Poll_Maker_Settings_Actions {
             $poll_exclude_general_css = (isset( $data['ays_poll_exclude_general_css'] ) && sanitize_text_field( $data['ays_poll_exclude_general_css'] ) == 'on') ? 'on' : 'off';
 
             // WP Editor height
-            $poll_wp_editor_height = (isset($data['ays_poll_wp_editor_height']) && $data['ays_poll_wp_editor_height'] != '' && $data['ays_poll_wp_editor_height'] != 0) ? absint( sanitize_text_field($data['ays_poll_wp_editor_height']) ) : 100 ;
+            $poll_wp_editor_height = (isset($data['ays_poll_wp_editor_height']) && $data['ays_poll_wp_editor_height'] != '' && $data['ays_poll_wp_editor_height'] != 0) ? absint( sanitize_text_field($data['ays_poll_wp_editor_height']) ) : 50;
 
             $options = array(
                 "disable_ip_storing"        => $disable_ip_storing,
