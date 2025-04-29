@@ -3416,6 +3416,121 @@
         });
 	// 	// Pro features end
 
+    $(document).on("click", ".ays-poll-cards-block .ays-poll-card__footer button.status-missing", function(e){
+        var $this = $(this);
+        var thisParent = $this.parents(".ays-poll-cards-block");
+
+        $this.prop('disabled', true);
+        $this.addClass('disabled');
+
+        var loader_html = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>';
+
+        $this.html(loader_html);
+
+        var attr_plugin = $this.attr('data-plugin');
+        var wp_nonce = thisParent.find('#ays_poll_ajax_install_plugin_nonce').val();
+
+        var data = {
+            action: 'ays_poll_install_plugin',
+            _ajax_nonce: wp_nonce,
+            plugin: attr_plugin,
+            type: 'plugin'
+        };
+
+        $.ajax({
+            url: poll.ajax,
+            method: 'post',
+            dataType: 'json',
+            data: data,
+            success: function (response) {
+                if (response.success) {
+                    swal.fire({
+                        type: 'success',
+                        html: "<h4>"+ response['data']['msg'] +"</h4>"
+                    }).then( function(res) {
+                        if ( $this.hasClass('status-missing') ) {
+                            $this.removeClass('status-missing');
+                        }
+                        $this.text(poll.activated);
+                        $this.addClass('status-active');
+                    });
+                }
+                else {
+                    swal.fire({
+                        type: 'info',
+                        html: "<h4>"+ response['data'][0]['message'] +"</h4>"
+                    }).then( function(res) {
+                        $this.text(poll.errorMsg);
+                    });
+                }
+            },
+            error: function(){
+                swal.fire({
+                    type: 'info',
+                    html: "<h2>"+ poll.loadResource +"</h2><br><h6>"+ poll.somethingWentWrong +"</h6>"
+                }).then( function(res) {
+                    $this.text(poll.errorMsg);
+                });                
+            }
+        });
+    });
+
+    $(document).on("click", ".ays-poll-cards-block .ays-poll-card__footer button.status-installed", function(e){
+        var $this = $(this);
+        var thisParent = $this.parents(".ays-poll-cards-block");
+
+        $this.prop('disabled', true);
+        $this.addClass('disabled');
+
+        var loader_html = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>';
+
+        $this.html(loader_html);
+
+        var attr_plugin = $this.attr('data-plugin');
+        var wp_nonce = thisParent.find('#ays_poll_ajax_install_plugin_nonce').val();
+
+        var data = {
+            action: 'ays_poll_activate_plugin',
+            _ajax_nonce: wp_nonce,
+            plugin: attr_plugin,
+            type: 'plugin'
+        };
+
+        $.ajax({
+            url: poll.ajax,
+            method: 'post',
+            dataType: 'json',
+            data: data,
+            success: function (response) {
+                if( response.success ){
+                    swal.fire({
+                        type: 'success',
+                        html: "<h4>"+ response['data'] +"</h4>"
+                    }).then( function(res) {
+                        if ( $this.hasClass('status-installed') ) {
+                            $this.removeClass('status-installed');
+                        }
+                        $this.text(poll.activated);
+                        $this.addClass('status-active disabled');
+                    });
+                } else {
+                    swal.fire({
+                        type: 'info',
+                        html: "<h4>"+ response['data'][0]['message'] +"</h4>"
+                    });
+                }
+            },
+            error: function(){
+                swal.fire({
+                    type: 'info',
+                    html: "<h2>"+ poll.loadResource +"</h2><br><h6>"+ poll.somethingWentWrong +"</h6>"
+                }).then( function(res) {
+                    $this.text(poll.errorMsg);
+                });                
+            }
+        });
+    });
+
 })(jQuery);
 
 

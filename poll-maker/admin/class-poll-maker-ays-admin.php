@@ -221,28 +221,41 @@ class Poll_Maker_Ays_Admin {
 		wp_enqueue_script( $this->plugin_name . '-charts-google', plugin_dir_url(__FILE__) . 'js/google-chart.js', array('jquery'), $this->version, false);
 		wp_localize_script('ays-poll-admin-js', 'pollLangObj', array(
 			'pollBannerDate' 		  => $poll_banner_date,
-			'errorMsg'				  =>esc_html__('Error', "poll-maker"),
-            'somethingWentWrong' 	  =>esc_html__('Maybe something went wrong.', "poll-maker"),
-            'add' 					  =>esc_html__('Add', "poll-maker"),
-            'answersMinCount' 		  =>esc_html__('Sorry minimum count of answers should be 2', "poll-maker"),
-            'copied' 				  =>esc_html__('Copied!', "poll-maker"),
-            'clickForCopy' 			  =>esc_html__('Click for copy.', "poll-maker"),
-			'areYouSure' 			  =>esc_html__('Are you sure you want to redirect to another poll? Note that the changes made in this poll will not be saved.', "poll-maker"),
-			'deleteAnswer' 			  =>esc_html__('Are you sure you want to delete this answer?', "poll-maker"),
+			'errorMsg'				  => esc_html__('Error', "poll-maker"),
+            'somethingWentWrong' 	  => esc_html__('Maybe something went wrong.', "poll-maker"),
+            'add' 					  => esc_html__('Add', "poll-maker"),
+            'answersMinCount' 		  => esc_html__('Sorry minimum count of answers should be 2', "poll-maker"),
+            'copied' 				  => esc_html__('Copied!', "poll-maker"),
+            'clickForCopy' 			  => esc_html__('Click for copy.', "poll-maker"),
+			'areYouSure' 			  => esc_html__('Are you sure you want to redirect to another poll? Note that the changes made in this poll will not be saved.', "poll-maker"),
+			'deleteAnswer' 			  => esc_html__('Are you sure you want to delete this answer?', "poll-maker"),
 			'youPollIsCreated'		  => esc_html__('Your Poll is Created!', 'poll-maker'),
-			'youCanUuseThisShortcode' =>esc_html__('Copy the generated shortcode and paste it into any post or page to display Poll', "poll-maker"),
-			'greateJob' 			  =>esc_html__('Great job', "poll-maker"),
-			'editPollPage'                  => __( 'edit poll page', 'poll-maker'),
-			'formMoreDetailed' 		  =>esc_html__('For more detailed configuration visit', "poll-maker"),
-            'done' 					  =>esc_html__('Done', "poll-maker"),
-            'thumbsUpGreat' 		  =>esc_html__('Thumbs up, Done', "poll-maker"),
-            "preivewPoll"             =>esc_html__( "Preview Poll", 'poll-maker' ),
+			'youCanUuseThisShortcode' => esc_html__('Copy the generated shortcode and paste it into any post or page to display Poll', "poll-maker"),
+			'greateJob' 			  => esc_html__('Great job', "poll-maker"),
+			'editPollPage'			  => esc_html__( 'edit poll page', 'poll-maker'),
+			'formMoreDetailed' 		  => esc_html__('For more detailed configuration visit', "poll-maker"),
+            'done' 					  => esc_html__('Done', "poll-maker"),
+            'thumbsUpGreat' 		  => esc_html__('Thumbs up, Done', "poll-maker"),
+            "preivewPoll"             => esc_html__( "Preview Poll", 'poll-maker' ),
         ) );
 
 		wp_localize_script('ays-poll-admin-js', 'poll', array(
             'ajax' => admin_url('admin-ajax.php'),
             'pleaseEnterMore' =>esc_html__('Please select more', "poll-maker"),
             'urlImg' => (esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/'),
+            "emptyEmailError"               => esc_html__( 'Email field is empty', 'poll-maker'),
+            "invalidEmailError"             => esc_html__( 'Invalid Email address', 'poll-maker'),
+            'selectUser'                    => esc_html__( 'Select user', 'poll-maker'),
+            'pleaseEnterMore'               => esc_html__( "Please enter 1 or more characters", 'poll-maker' ),
+            'searching'                     => esc_html__( "Searching...", 'poll-maker' ),
+            'activated'                     => esc_html__( "Activated", 'poll-maker' ),
+            'errorMsg'                      => esc_html__( "Error", 'poll-maker' ),
+            'loadResource'                  => esc_html__( "Can't load resource.", 'poll-maker' ),
+            'somethingWentWrong'            => esc_html__( "Maybe something went wrong.", 'poll-maker' ),            
+            'greateJob'                     => esc_html__( 'Great job', 'poll-maker'),
+            'formMoreDetailed'              => esc_html__( 'For more detailed configuration visit', 'poll-maker'),
+            'greate'                        => esc_html__( 'Great!', 'poll-maker'),
+
         ));
 
 		wp_enqueue_script( $this->plugin_name . '-quick-start-js', plugin_dir_url(__FILE__) . 'js/poll-maker-poll-quick-start.js', array('jquery'), $this->version, true);
@@ -2603,6 +2616,539 @@ class Poll_Maker_Ays_Admin {
         $content = implode( '', $content );
 
         return wp_kses( $content, $allowed_tags );
+    }
+
+    /**
+     * Determine if the plugin/addon installations are allowed.
+     *
+     * @since 1.3.9
+     *
+     * @param string $type Should be `plugin` or `addon`.
+     *
+     * @return bool
+     */
+    public static function ays_poll_can_install( $type ) {
+
+        return self::ays_poll_can_do( 'install', $type );
+    }
+
+    /**
+     * Determine if the plugin/addon activations are allowed.
+     *
+     * @since 1.3.9
+     *
+     * @param string $type Should be `plugin` or `addon`.
+     *
+     * @return bool
+     */
+    public static function ays_poll_can_activate( $type ) {
+
+        return self::ays_poll_can_do( 'activate', $type );
+    }
+
+    /**
+     * Determine if the plugin/addon installations/activations are allowed.
+     *
+     * @since 1.3.9
+     *
+     * @param string $what Should be 'activate' or 'install'.
+     * @param string $type Should be `plugin` or `addon`.
+     *
+     * @return bool
+     */
+    public static function ays_poll_can_do( $what, $type ) {
+
+        if ( ! in_array( $what, array( 'install', 'activate' ), true ) ) {
+            return false;
+        }
+
+        if ( ! in_array( $type, array( 'plugin', 'addon' ), true ) ) {
+            return false;
+        }
+
+        $capability = $what . '_plugins';
+
+        if ( ! current_user_can( $capability ) ) {
+            return false;
+        }
+
+        // Determine whether file modifications are allowed and it is activation permissions checking.
+        if ( $what === 'install' && ! wp_is_file_mod_allowed( 'ays_poll_can_install' ) ) {
+            return false;
+        }
+
+        // All plugin checks are done.
+        if ( $type === 'plugin' ) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Activate plugin.
+     *
+     * @since 1.0.0
+     * @since 1.3.9 Updated the permissions checking.
+     */
+    public function ays_poll_activate_plugin() {
+
+        // Run a security check.
+        check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+
+        // Check for permissions.
+        if ( ! current_user_can( 'activate_plugins' ) ) {
+            wp_send_json_error( esc_html__( 'Plugin activation is disabled for you on this site.', $this->plugin_name ) );
+        }
+
+        $type = 'addon';
+
+        if ( isset( $_POST['plugin'] ) ) {
+
+            if ( ! empty( $_POST['type'] ) ) {
+                $type = sanitize_key( $_POST['type'] );
+            }
+
+            $plugin   = sanitize_text_field( wp_unslash( $_POST['plugin'] ) );
+            $activate = activate_plugins( $plugin );
+
+            if ( ! is_wp_error( $activate ) ) {
+                if ( $type === 'plugin' ) {
+                    wp_send_json_success( esc_html__( 'Plugin activated.', $this->plugin_name ) );
+                } else {
+                        ( esc_html__( 'Addon activated.', $this->plugin_name ) );
+                }
+            }
+        }
+
+        if ( $type === 'plugin' ) {
+            wp_send_json_error( esc_html__( 'Could not activate the plugin. Please activate it on the Plugins page.', $this->plugin_name ) );
+        }
+
+        wp_send_json_error( esc_html__( 'Could not activate the addon. Please activate it on the Plugins page.', $this->plugin_name ) );
+    }
+
+    /**
+     * Install addon.
+     *
+     * @since 1.0.0
+     * @since 1.3.9 Updated the permissions checking.
+     */
+    public function ays_poll_install_plugin() {
+
+        // Run a security check.
+        check_ajax_referer( $this->plugin_name . '-install-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
+
+        $generic_error = esc_html__( 'There was an error while performing your request.', $this->plugin_name );
+        $type          = ! empty( $_POST['type'] ) ? sanitize_key( $_POST['type'] ) : '';
+
+        // Check if new installations are allowed.
+        if ( ! self::ays_poll_can_install( $type ) ) {
+            wp_send_json_error( $generic_error );
+        }
+
+        $error = $type === 'plugin'
+            ? esc_html__( 'Could not install the plugin. Please download and install it manually.', $this->plugin_name )
+            : "";
+
+        $plugin_url = ! empty( $_POST['plugin'] ) ? esc_url_raw( wp_unslash( $_POST['plugin'] ) ) : '';
+
+        if ( empty( $plugin_url ) ) {
+            wp_send_json_error( $error );
+        }
+
+        // Prepare variables.
+        $url = esc_url_raw(
+            add_query_arg(
+                [
+                    'page' => 'poll-maker-ays-featured-plugins',
+                ],
+                admin_url( 'admin.php' )
+            )
+        );
+
+        ob_start();
+        $creds = request_filesystem_credentials( $url, '', false, false, null );
+
+        // Hide the filesystem credentials form.
+        ob_end_clean();
+
+        // Check for file system permissions.
+        if ( $creds === false ) {
+            wp_send_json_error( $error );
+        }
+        
+        if ( ! WP_Filesystem( $creds ) ) {
+            wp_send_json_error( $error );
+        }
+
+        /*
+         * We do not need any extra credentials if we have gotten this far, so let's install the plugin.
+         */
+        require_once POLL_MAKER_AYS_DIR . 'includes/admin/class-poll-maker-upgrader.php';
+        require_once POLL_MAKER_AYS_DIR . 'includes/admin/class-poll-maker-install-skin.php';
+        require_once POLL_MAKER_AYS_DIR . 'includes/admin/class-poll-maker-skin.php';
+
+
+        // Do not allow WordPress to search/download translations, as this will break JS output.
+        remove_action( 'upgrader_process_complete', array( 'Language_Pack_Upgrader', 'async_upgrade' ), 20 );
+
+        // Create the plugin upgrader with our custom skin.
+        $installer = new PollMaker\Helpers\PollMakerPluginSilentUpgrader( new Poll_Maker_Install_Skin() );
+
+        // Error check.
+        if ( ! method_exists( $installer, 'install' ) ) {
+            wp_send_json_error( $error );
+        }
+
+        $installer->install( $plugin_url );
+
+        // Flush the cache and return the newly installed plugin basename.
+        wp_cache_flush();
+
+        $plugin_basename = $installer->plugin_info();
+
+        if ( empty( $plugin_basename ) ) {
+            wp_send_json_error( $error );
+        }
+
+        $result = array(
+            'msg'          => $generic_error,
+            'is_activated' => false,
+            'basename'     => $plugin_basename,
+        );
+
+        // Check for permissions.
+        if ( ! current_user_can( 'activate_plugins' ) ) {
+            $result['msg'] = $type === 'plugin' ? esc_html__( 'Plugin installed.', $this->plugin_name ) : "";
+
+            wp_send_json_success( $result );
+        }
+
+        // Activate the plugin silently.
+        $activated = activate_plugin( $plugin_basename );
+        remove_action( 'activated_plugin', array( 'gallery_p_gallery_activation_redirect_method', 'ays_sccp_activation_redirect_method' ), 100 );
+
+        if ( ! is_wp_error( $activated ) ) {
+
+            $result['is_activated'] = true;
+            $result['msg']          = $type === 'plugin' ? esc_html__( 'Plugin installed and activated.', $this->plugin_name ) : esc_html__( 'Addon installed and activated.', $this->plugin_name );
+
+            wp_send_json_success( $result );
+        }
+
+        // Fallback error just in case.
+        wp_send_json_error( $result );
+    }
+
+    /**
+     * List of AM plugins that we propose to install.
+     *
+     * @since 1.3.9
+     *
+     * @return array
+     */
+    protected function poll_get_am_plugins() {
+        if ( !isset( $_SESSION ) ) {
+            session_start();
+        }
+
+        $images_url = POLL_MAKER_AYS_ADMIN_URL . '/images/icons/';
+
+        $plugin_slug = array(
+        	'fox-lms',
+            'quiz-maker',
+            'survey-maker',            
+            'ays-popup-box',
+            'gallery-photo-gallery',
+            'secure-copy-content-protection',
+            'personal-dictionary',
+            'chart-builder',
+            'easy-form',
+        );
+
+        $plugin_url_arr = array();
+        foreach ($plugin_slug as $key => $slug) {
+            if ( isset( $_SESSION['ays_poll_our_product_links'] ) && !empty( $_SESSION['ays_poll_our_product_links'] ) 
+                && isset( $_SESSION['ays_poll_our_product_links'][$slug] ) && !empty( $_SESSION['ays_poll_our_product_links'][$slug] ) ) {
+                $plugin_url = (isset( $_SESSION['ays_poll_our_product_links'][$slug] ) && $_SESSION['ays_poll_our_product_links'][$slug] != "") ? esc_url( $_SESSION['ays_poll_our_product_links'][$slug] ) : "";
+            } else {
+                $latest_version = $this->ays_poll_get_latest_plugin_version($slug);
+                $plugin_url = 'https://downloads.wordpress.org/plugin/'. $slug .'.zip';
+                if ( $latest_version != '' ) {
+                    $plugin_url = 'https://downloads.wordpress.org/plugin/'. $slug .'.'. $latest_version .'.zip';
+                    $_SESSION['ays_poll_our_product_links'][$slug] = $plugin_url;
+                }
+            }
+
+            $plugin_url_arr[$slug] = $plugin_url;
+        }
+
+        $plugins_array = array(
+        	'fox-lms/fox-lms.php'        => array(
+                'icon'        => $images_url . 'icon-fox-lms-128x128.png',
+                'name'        => __( 'Fox LMS', 'poll-maker' ),
+                'desc'        => __( 'Build and manage online courses directly on your WordPress site.', 'poll-maker' ),
+                'desc_hidden' => __( 'With the FoxLMS plugin, you can create, sell, and organize courses, lessons, and quizzes, transforming your website into a dynamic e-learning platform.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/fox-lms/',
+                'buy_now'     => 'https://foxlms.com/pricing/?utm_source=dashboard&utm_medium=poll-free&utm_campaign=fox-lms-our-products-page',
+                'url'         => $plugin_url_arr['fox-lms'],
+            ),
+           	'quiz-maker/quiz-maker.php'        => array(
+                'icon'        => $images_url . 'icon-quiz-128x128.png',
+                'name'        => __( 'Quiz Maker', 'poll-maker' ),
+                'desc'        => __( 'With our Quiz Maker plugin it’s easy to make a quiz in a short time.', 'poll-maker' ),
+                'desc_hidden' => __( 'You to add images to your quiz, order unlimited questions. Also you can style your quiz to satisfy your visitors.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/quiz-maker/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/quiz-maker/',
+                'url'         => $plugin_url_arr['quiz-maker'],
+            ),
+            'survey-maker/survey-maker.php'        => array(
+                'icon'        => $images_url . 'icon-survey-128x128.png',
+                'name'        => __( 'Survey Maker', 'poll-maker' ),
+                'desc'        => __( 'Make amazing online surveys and get real-time feedback quickly and easily.', 'poll-maker' ),
+                'desc_hidden' => __( 'Learn what your website visitors want, need, and expect with the help of Survey Maker. Build surveys without limiting your needs.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/survey-maker/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/survey-maker',
+                'url'         => $plugin_url_arr['survey-maker'],
+            ),            
+            'ays-popup-box/ays-pb.php'        => array(
+                'icon'        => $images_url . 'icon-popup-128x128.png',
+                'name'        => __( 'Popup Box', 'poll-maker' ),
+                'desc'        => __( 'Popup everything you want! Create informative and promotional popups all in one plugin.', 'poll-maker' ),
+                'desc_hidden' => __( 'Attract your visitors and convert them into email subscribers and paying customers.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/ays-popup-box/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/popup-box/',
+                'url'         => $plugin_url_arr['ays-popup-box'],
+            ),
+            'gallery-photo-gallery/gallery-photo-gallery.php'        => array(
+                'icon'        => $images_url . 'icon-gallery-128x128.png',
+                'name'        => __( 'Gallery Photo Gallery', 'poll-maker' ),
+                'desc'        => __( 'Create unlimited galleries and include unlimited images in those galleries.', 'poll-maker' ),
+                'desc_hidden' => __( 'Represent images in an attractive way. Attract people with your own single and multiple free galleries from your photo library.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/gallery-photo-gallery/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/photo-gallery/',
+                'url'         => $plugin_url_arr['gallery-photo-gallery'],
+            ),
+            'secure-copy-content-protection/secure-copy-content-protection.php'        => array(
+                'icon'        => $images_url . 'icon-sccp-128x128.png',
+                'name'        => __( 'Secure Copy Content Protection', 'poll-maker' ),
+                'desc'        => __( 'Disable the right click, copy paste, content selection and copy shortcut keys on your website.', 'poll-maker' ),
+                'desc_hidden' => __( 'Protect web content from being plagiarized. Prevent plagiarism from your website with this easy to use plugin.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/secure-copy-content-protection/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/secure-copy-content-protection/',
+                'url'         => $plugin_url_arr['secure-copy-content-protection'],
+            ),
+            'personal-dictionary/personal-dictionary.php'        => array(
+                'icon'        => $images_url . 'pd-logo-128x128.png',
+                'name'        => __( 'Personal Dictionary', 'poll-maker' ),
+                'desc'        => __( 'Allow your students to create personal dictionary, study and memorize the words.', 'poll-maker' ),
+                'desc_hidden' => __( 'Allow your users to create their own digital dictionaries and learn new words and terms as fastest as possible.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/personal-dictionary/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/personal-dictionary/',
+                'url'         => $plugin_url_arr['personal-dictionary'],
+            ),
+            'chart-builder/chart-builder.php'        => array(
+                'icon'        => $images_url . 'chartify-150x150.png',
+                'name'        => __( 'Chart Builder', 'poll-maker' ),
+                'desc'        => __( 'Chart Builder plugin allows you to create beautiful charts', 'poll-maker' ),
+                'desc_hidden' => __( ' and graphs easily and quickly.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/chart-builder/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/chart-builder/',
+                'url'         => $plugin_url_arr['chart-builder'],
+            ),
+            'easy-form/easy-form.php'        => array(
+                'icon'        => $images_url . 'easyform-150x150.png',
+                'name'        => __( 'Easy Form', 'poll-maker' ),
+                'desc'        => __( 'Choose the best WordPress form builder plugin. ', 'poll-maker' ),
+                'desc_hidden' => __( 'Create contact forms, payment forms, surveys, and many more custom forms. Build forms easily with us.', 'poll-maker' ),
+                'wporg'       => 'https://wordpress.org/plugins/easy-form/',
+                'buy_now'     => 'https://ays-pro.com/wordpress/easy-form',
+                'url'         => $plugin_url_arr['easy-form'],
+            ),
+        );
+
+        return $plugins_array;
+    }
+
+    protected function ays_poll_get_latest_plugin_version( $slug ){
+
+        if ( is_null( $slug ) || empty($slug) ) {
+            return "";
+        }
+
+        $version_latest = "";
+
+        if ( ! function_exists( 'plugins_api' ) ) {
+              require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+        }
+
+        // set the arguments to get latest info from repository via API ##
+        $args = array(
+            'slug' => $slug,
+            'fields' => array(
+                'version' => true,
+            )
+        );
+
+        /** Prepare our query */
+        $call_api = plugins_api( 'plugin_information', $args );
+
+        /** Check for Errors & Display the results */
+        if ( is_wp_error( $call_api ) ) {
+            $api_error = $call_api->get_error_message();
+        } else {
+
+            //echo $call_api; // everything ##
+            if ( ! empty( $call_api->version ) ) {
+                $version_latest = $call_api->version;
+            }
+        }
+
+        return $version_latest;
+    }
+
+    /**
+     * Get AM plugin data to display in the Addons section of About tab.
+     *
+     * @since 6.4.0.4
+     *
+     * @param string $plugin      Plugin slug.
+     * @param array  $details     Plugin details.
+     * @param array  $all_plugins List of all plugins.
+     *
+     * @return array
+     */
+    protected function poll_get_plugin_data( $plugin, $details, $all_plugins ) {
+
+        $have_pro = ( ! empty( $details['pro'] ) && ! empty( $details['pro']['plug'] ) );
+        $show_pro = false;
+
+        $plugin_data = array();
+
+        if ( $have_pro ) {
+            if ( array_key_exists( $plugin, $all_plugins ) ) {
+                if ( is_plugin_active( $plugin ) ) {
+                    $show_pro = true;
+                }
+            }
+            if ( array_key_exists( $details['pro']['plug'], $all_plugins ) ) {
+                $show_pro = true;
+            }
+            if ( $show_pro ) {
+                $plugin  = $details['pro']['plug'];
+                $details = $details['pro'];
+            }
+        }
+
+        if ( array_key_exists( $plugin, $all_plugins ) ) {
+            if ( is_plugin_active( $plugin ) ) {
+                // Status text/status.
+                $plugin_data['status_class'] = 'status-active';
+                $plugin_data['status_text']  = esc_html__( 'Active', 'poll-maker' );
+                // Button text/status.
+                $plugin_data['action_class'] = $plugin_data['status_class'] . ' ays-poll-card__btn-info disabled';
+                $plugin_data['action_text']  = esc_html__( 'Activated', 'poll-maker' );
+                $plugin_data['plugin_src']   = esc_attr( $plugin );
+            } else {
+                // Status text/status.
+                $plugin_data['status_class'] = 'status-installed';
+                $plugin_data['status_text']  = esc_html__( 'Inactive', 'poll-maker' );
+                // Button text/status.
+                $plugin_data['action_class'] = $plugin_data['status_class'] . ' ays-poll-card__btn-info';
+                $plugin_data['action_text']  = esc_html__( 'Activate', 'poll-maker' );
+                $plugin_data['plugin_src']   = esc_attr( $plugin );
+            }
+        } else {
+            // Doesn't exist, install.
+            // Status text/status.
+            $plugin_data['status_class'] = 'status-missing';
+
+            if ( isset( $details['act'] ) && 'go-to-url' === $details['act'] ) {
+                $plugin_data['status_class'] = 'status-go-to-url';
+            }
+            $plugin_data['status_text'] = esc_html__( 'Not Installed', 'poll-maker' );
+            // Button text/status.
+            $plugin_data['action_class'] = $plugin_data['status_class'] . ' ays-poll-card__btn-info';
+            $plugin_data['action_text']  = esc_html__( 'Install Plugin', 'poll-maker' );
+            $plugin_data['plugin_src']   = esc_url( $details['url'] );
+        }
+
+        $plugin_data['details'] = $details;
+
+        return $plugin_data;
+    }
+
+    /**
+     * Display the Addons section of About tab.
+     *
+     * @since 1.3.9
+     */
+    public function poll_output_about_addons() {
+
+        if ( ! function_exists( 'get_plugins' ) ) {
+            require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+
+        $all_plugins          = get_plugins();
+        $am_plugins           = $this->poll_get_am_plugins();
+        $can_install_plugins  = self::ays_poll_can_install( 'plugin' );
+        $can_activate_plugins = self::ays_poll_can_activate( 'plugin' );
+
+        $content = '';
+        $content.= '<div class="ays-poll-cards-block">';
+        foreach ( $am_plugins as $plugin => $details ){
+
+            $plugin_data = $this->poll_get_plugin_data( $plugin, $details, $all_plugins );
+            $plugin_ready_to_activate = $can_activate_plugins
+                && isset( $plugin_data['status_class'] )
+                && $plugin_data['status_class'] === 'status-installed';
+            $plugin_not_activated     = ! isset( $plugin_data['status_class'] )
+                || $plugin_data['status_class'] !== 'status-active';
+
+            $plugin_action_class = ( isset( $plugin_data['action_class'] ) && esc_attr( $plugin_data['action_class'] ) != "" ) ? esc_attr( $plugin_data['action_class'] ) : "";
+
+            $plugin_action_class_disbaled = "";
+            if ( strpos($plugin_action_class, 'status-active') !== false ) {
+                $plugin_action_class_disbaled = "disbaled='true'";
+            }
+
+            $content .= '
+                <div class="ays-poll-card">
+                    <div class="ays-poll-card__content flexible">
+                        <div class="ays-poll-card__content-img-box">
+                            <img class="ays-poll-card__img" src="'. esc_url( $plugin_data['details']['icon'] ) .'" alt="'. esc_attr( $plugin_data['details']['name'] ) .'">
+                        </div>
+                        <div class="ays-poll-card__text-block">
+                            <h5 class="ays-poll-card__title">'. esc_html( $plugin_data['details']['name'] ) .'</h5>
+                            <p class="ays-poll-card__text">'. wp_kses_post( $plugin_data['details']['desc'] ) .'
+                                <span class="ays-poll-card__text-hidden">
+                                    '. wp_kses_post( $plugin_data['details']['desc_hidden'] ) .'
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ays-poll-card__footer">';
+                        if ( $can_install_plugins || $plugin_ready_to_activate || ! $details['wporg'] ) {
+                            $content .= '<button class="'. esc_attr( $plugin_data['action_class'] ) .'" data-plugin="'. esc_attr( $plugin_data['plugin_src'] ) .'" data-type="plugin" '. $plugin_action_class_disbaled .'>
+                                '. wp_kses_post( $plugin_data['action_text'] ) .'
+                            </button>';
+                        }
+                        elseif ( $plugin_not_activated ) {
+                            $content .= '<a href="'. esc_url( $details['wporg'] ) .'" target="_blank" rel="noopener noreferrer">
+                                '. esc_html_e( 'WordPress.org', $this->plugin_name ) .'
+                                <span aria-hidden="true" class="dashicons dashicons-external"></span>
+                            </a>';
+                        }
+            $content .='
+                        <a target="_blank" href="'. esc_url( $plugin_data['details']['buy_now'] ) .'" class="ays-poll-card__btn-primary">'. __('Buy Now', 'poll-maker') .'</a>
+                    </div>
+                </div>';
+        }
+        $install_plugin_nonce = wp_create_nonce( $this->plugin_name . '-install-plugin-nonce' );
+        $content .= '<input type="hidden" id="ays_poll_ajax_install_plugin_nonce" name="ays_poll_ajax_install_plugin_nonce" value="'. $install_plugin_nonce .'">';
+        $content .= '</div>';
+
+        echo $content;
     }
 
     public function ays_poll_update_banner_time(){

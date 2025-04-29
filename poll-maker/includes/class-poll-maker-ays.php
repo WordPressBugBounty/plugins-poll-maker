@@ -258,6 +258,11 @@ class Poll_Maker_Ays {
         $this->loader->add_action( 'wp_ajax_ays_poll_dismiss_button', $plugin_admin, 'ays_poll_dismiss_button' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_dismiss_button', $plugin_admin, 'ays_poll_dismiss_button' );
 
+        $this->loader->add_action( 'wp_ajax_ays_poll_install_plugin', $plugin_admin, 'ays_poll_install_plugin' );
+        $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_install_plugin', $plugin_admin, 'ays_poll_install_plugin' );
+
+        $this->loader->add_action( 'wp_ajax_ays_poll_activate_plugin', $plugin_admin, 'ays_poll_activate_plugin' );
+        $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_activate_plugin', $plugin_admin, 'ays_poll_activate_plugin' );
 
         $this->loader->add_action( 'wp_ajax_ays_poll_create_author', $plugin_admin, 'ays_poll_create_author' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_create_author', $plugin_admin, 'ays_poll_create_author' );

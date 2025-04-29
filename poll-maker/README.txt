@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.8
-Stable tag: 5.7.8
+Stable tag: 5.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -353,6 +353,11 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.7.9 =
+* Added: [Fox LMS](https://wordpress.org/plugins/fox-lms) Plugin to the Our Products page
+* Added: Automatic activation/installation of the plugin on the Products submenu
+* Improved: Some styles on the admin dashboard
 
 = 5.7.8 =
 * Added: Preview Poll button on the Quick Poll Preview Popup
