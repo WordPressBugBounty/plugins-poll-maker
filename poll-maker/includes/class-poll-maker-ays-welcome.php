@@ -74,7 +74,27 @@ class Poll_Maker_Ays_Welcome {
             return;
         }
 
+        // Get the activation status
         $first_activation = get_option('ays_poll_maker_first_time_activation_page', false);
+        
+        // Check if we're in a multisite environment
+        if (function_exists('is_multisite') && is_multisite()) {
+            // Get current blog ID
+            $blog_id = get_current_blog_id();
+            
+            // Use a blog-specific option name to track activation for each site
+            $blog_specific_option = 'ays_poll_maker_first_time_activation_page_blog_' . $blog_id;
+            $blog_first_activation = get_option($blog_specific_option, null);
+            
+            // If blog-specific option doesn't exist yet, set it based on the main option
+            if ($blog_first_activation === null) {
+                update_option($blog_specific_option, $first_activation);
+                $first_activation = $first_activation;
+            } else {
+                // Use the blog-specific activation status
+                $first_activation = $blog_first_activation;
+            }
+        }
 
         if (isset($_GET['page']) && strpos($_GET['page'], POLL_MAKER_AYS_NAME) !== false && $first_activation) {
             wp_safe_redirect( admin_url( 'index.php?page=' . self::SLUG ) );
@@ -163,7 +183,14 @@ class Poll_Maker_Ays_Welcome {
                 </div>
             </div>
         <?php
+        // Update both the general option and the blog-specific option if in multisite
         update_option('ays_poll_maker_first_time_activation_page', false);
+        
+        if (function_exists('is_multisite') && is_multisite()) {
+            $blog_id = get_current_blog_id();
+            $blog_specific_option = 'ays_poll_maker_first_time_activation_page_blog_' . $blog_id;
+            update_option($blog_specific_option, false);
+        }
     }
 }
 new Poll_Maker_Ays_Welcome();

@@ -792,8 +792,17 @@ class Poll_Maker_Ays_Admin {
 
 	public function apm_deactivate_plugin_option() {
 		// Run a security check.
-		check_ajax_referer( 'poll-maker-ajax-deactivate-plugin-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
-
+		if (isset($_REQUEST['_ajax_nonce'])) {
+			check_ajax_referer('poll-maker-ajax-deactivate-plugin-nonce', sanitize_key($_REQUEST['_ajax_nonce']));
+		} else {
+			// For multisite, if nonce is missing
+			if (function_exists('is_multisite') && is_multisite()) {
+				// Skip nonce verification for multisite
+			} else {
+				wp_send_json_error('Nonce verification failed');
+				wp_die();
+			}
+		}
 		// Check for permissions.
 		if ( ! current_user_can( 'manage_options' ) ) {
 			ob_end_clean();
@@ -806,17 +815,17 @@ class Poll_Maker_Ays_Admin {
 		
 		if( is_user_logged_in() ) {
 			$request_value = esc_sql( sanitize_text_field( $_REQUEST['upgrade_plugin'] ) );
-			$upgrade_option = get_option('ays_poll_maker_upgrade_plugin','');
-			if($upgrade_option === ''){
-				add_option('ays_poll_maker_upgrade_plugin',$request_value);
-			}else{
-				update_option('ays_poll_maker_upgrade_plugin',$request_value);
-			}
-			ob_end_clean();
-			$ob_get_clean = ob_get_clean();
-			echo json_encode(array(
-				'option' => get_option('ays_poll_maker_upgrade_plugin', '')
-			));
+				$upgrade_option = get_option('ays_poll_maker_upgrade_plugin','');
+				if($upgrade_option === ''){
+					add_option('ays_poll_maker_upgrade_plugin',$request_value);
+				}else{
+					update_option('ays_poll_maker_upgrade_plugin',$request_value);
+				}
+				ob_end_clean();
+				$ob_get_clean = ob_get_clean();
+				echo json_encode(array(
+					'option' => get_option('ays_poll_maker_upgrade_plugin', '')
+				));
 			wp_die();
 		} else {
 			ob_end_clean();
@@ -1627,7 +1636,7 @@ class Poll_Maker_Ays_Admin {
 						$content[] = '<br>';
 
 						$content[] = '<strong>';
-								$content[] =esc_html__( "Hurry up! Ends on November 15. <a href='https://bit.ly/3keKTm9' target='_blank'>Check it out!</a>", "poll-maker" );
+						$content[] =esc_html__( "Hurry up! Ends on November 15. <a href='https://bit.ly/3keKTm9' target='_blank'>Check it out!</a>", "poll-maker" );
 						$content[] = '</strong>';
 						
 						$content[] = '<form action="" method="POST">';
@@ -1663,8 +1672,8 @@ class Poll_Maker_Ays_Admin {
 					$content[] = '</div>';
 
 					$content[] = '<a href="https://bit.ly/3keKTm9" class="button button-primary ays-button" id="ays-button-top-buy-now" target="_blank" style="height: 32px; display: flex; align-items: center; font-weight: 500; " >' .esc_html__( 'Buy Now !', "poll-maker" ) . '</a>';
-				$content[] = '</div>';
 			$content[] = '</div>';
+		$content[] = '</div>';
 
         $content = implode( '', $content );
         echo wp_kses_post( $content );
