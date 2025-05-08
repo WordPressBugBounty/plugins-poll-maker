@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
-Tested up to: 6.8
-Stable tag: 5.8.0
+Tested up to: 6.8.1
+Stable tag: 5.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -353,6 +353,11 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.8.1 =
+* Changed: The location of the Save as default button on the polls edit page
+* Improved: Some styles on the admin dashboard
+* Tested: Compatible up to 6.8.1
 
 = 5.8.0 =
 * Fixed: issue with multisite logs and network deactivation

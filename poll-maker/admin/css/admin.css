@@ -9,6 +9,11 @@
     font-style: normal;
 }
 
+div#screen-meta-links {
+    position: relative;
+    z-index: 99;
+}
+
 #adminmenu a.toplevel_page_poll-maker-ays div.wp-menu-image img {
     width: 28px;
     padding-top: 2px;
