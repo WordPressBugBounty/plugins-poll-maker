@@ -168,7 +168,7 @@ body[class*="poll-maker"] #wpfooter {
     height: 100px;
 }
 body[class*="poll-maker"] #wpfooter {
-    position: relative;
+    position: static;
 }
 /* Poll Footer Support box end */
 

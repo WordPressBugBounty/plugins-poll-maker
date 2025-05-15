@@ -16,7 +16,7 @@ ob_start();
  * Plugin Name:       Poll Maker
  * Plugin URI:        https://ays-pro.com/wordpress/poll-maker/
  * Description:       Poll Maker is a powerful plugin for creating custom polls and gathering opinions. It lets you design and share polls quickly to engage your audience and collect feedback.
- * Version:           5.8.1
+ * Version:           5.8.2
  * Author:            Poll Maker Team
  * Author URI:        https://ays-pro.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('POLL_MAKER_AYS_VERSION', '5.8.1');
+define('POLL_MAKER_AYS_VERSION', '5.8.2');
 define('POLL_MAKER_AYS_NAME', 'poll-maker-ays');
 
 if (!defined('POLL_MAKER_AYS_DIR')) {
@@ -153,6 +153,13 @@ function poll_maker_admin_notice() {
                                 <span><?php echo esc_html__( "Upgrade", "poll-maker" ); ?></span>
                             </a>
                             <span class="ays-poll-logo-container-one-time-text"><?php echo esc_html__( "One-time payment", "poll-maker" ); ?></span>
+                        </div>
+                        <div class="ays-poll-coupon-container">
+                            <div class="ays-poll-coupon-box ays-poll-copy-element-box-parent">
+                                <!-- <img src="<?php echo esc_attr(POLL_MAKER_AYS_ADMIN_URL . '/images/icons/receipt-solid.svg'); ?>" class="ays-poll-svg-light-hover"> -->
+                                <span onClick="selectAndCopyElementContents(this)" class="ays-poll-copy-element-box" data-toggle="tooltip" title="<?php echo esc_html__( "Click for copy", 'poll-maker' ); ?>"><?php echo esc_html__( "spring2025", 'poll-maker' ); ?></span>
+                            </div>
+                            <span class="ays-poll-logo-container-one-time-text"><?php echo esc_html__( "Extra 20% Coupon", 'poll-maker' ); ?></span>
                         </div>
                     </div>
                     <ul id="menu">
