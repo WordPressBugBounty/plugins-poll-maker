@@ -2298,6 +2298,10 @@
         var attr_plugin = $this.attr('data-plugin');
         var wp_nonce    = thisParent.find('#poll-maker-ays-sale-banner').val();
 
+        if(typeof wp_nonce == 'undefined'){
+            wp_nonce    = $(document).find('#poll-maker-ays-sale-banner').val();
+        }
+
         var data = {
             action: 'ays_poll_dismiss_button',
             _ajax_nonce: wp_nonce,

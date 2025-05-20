@@ -1012,8 +1012,8 @@ $emoji = array(
                                 </label>
                                 <div class="ays-poll-question-image-container" style="<?php echo esc_attr($style); ?>">
                                     <span class="ays-remove-question-img"></span>
-                                    <img src="<?php echo esc_url($poll['image']); ?>" id="ays-poll-img"/>
-                                    <input type="hidden" name="ays_poll_image" id="ays-poll-image" value="<?php echo esc_url($poll['image']); ?>"/>
+                                    <img src="<?php echo $poll['image']; ?>" id="ays-poll-img"/>
+                                    <input type="hidden" name="ays_poll_image" id="ays-poll-image" value="<?php echo $poll['image']; ?>"/>
                                 </div>
                             </div>
                             <div class="col-sm-9">
@@ -1141,8 +1141,8 @@ $emoji = array(
                                                         </label>
                                                         <div class="ays-poll-answer-image-container" style="<?php echo esc_attr($answer_img_class); ?>">
                                                             <span class="ays-poll-remove-answer-img"></span>
-                                                            <img src="<?php echo esc_url($answer_img); ?>" class="ays-poll-answer-img"/>
-                                                            <input type="hidden" name="ays-poll-answers-images[]" class="ays-poll-answer-image-path" value="<?php echo esc_url($answer_img); ?>">
+                                                            <img src="<?php echo $answer_img; ?>" class="ays-poll-answer-img"/>
+                                                            <input type="hidden" name="ays-poll-answers-images[]" class="ays-poll-answer-image-path" value="<?php echo $answer_img; ?>">
                                                         </div>
                                                     </td>
                                                     <td>
@@ -3127,10 +3127,7 @@ $emoji = array(
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-sm-12 ays_divider_left" style="position: relative;">
-                                    <!-- <style id='apm-custom-css'>
-                                        <?php echo wp_kses_post($poll['custom_css']); ?>
-                                    </style> -->
+                                <div class="col-lg-6 col-sm-12 ays_divider_left" style="position: relative;">                                    
                                     <?php
                                     
                                     $content = "
