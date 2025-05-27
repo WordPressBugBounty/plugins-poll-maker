@@ -480,8 +480,8 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                     <?php echo esc_html__("With the help of the Request Form shortcode, the users can create polls without having access to your Dashboard. Moreover, you can auto-approve users' requests to save more time.", "poll-maker"); ?>
                                                 </p>
                                             </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-auto-approve">
-                                                <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-auto-approve-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1535,8 +1535,8 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                     <?php echo esc_html__("By doing so, you will surely boost your website engagement and get instant feedback from poll takers.", "poll-maker"); ?>
                                                 </p>
                                             </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-poll-categories">
-                                                <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-poll-categories-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1599,8 +1599,8 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                     <?php echo esc_html__("Website visitors will be more inclined to vote for polls, as their vote matters.", "poll-maker"); ?>
                                                 </p>
                                             </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-global-leaderboard-settings">
-                                                <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-global-leaderboard-settings-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -1937,8 +1937,8 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                     <?php echo esc_html__("This is the best way to learn how the voting history of the current user has changed over time.", "poll-maker"); ?>
                                                 </p>
                                             </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-user-history">
-                                                <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-user-history-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -2025,8 +2025,8 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                     <?php echo esc_html__("The website visitors will see all the poll results on one page and pass them without any difficulties.", "poll-maker"); ?>
                                                 </p>
                                             </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-all-results-settings">
-                                                <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-all-results-settings-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -2131,8 +2131,8 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                     <?php echo esc_html__("This will help you decrease the workload as you will see the statistics of your users in one place.", "poll-maker"); ?>
                                                 </p>
                                             </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-frontend-statistics">
-                                                <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-frontend-statistics-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -2715,6 +2715,9 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                             <div class="pro-features-popup-modal-right-box-button">
                                 <a href="#" class="pro-features-popup-modal-right-box-link" target="_blank"></a>
                             </div>
+                        </div>
+                        <div class="pro-features-popup-modal-right-box-footer-text">
+                            <span class="ays_poll_small_hint_text_for_message_variables"><?php echo esc_html__( "One-time payment", 'poll-maker' ); ?></span>
                         </div>
                     </div>
                 </div>

@@ -1385,8 +1385,8 @@ $emoji = array(
                                                 <?php echo esc_html__("Have you just created your poll and want it to look trustworthy and popular? You can add this \"Add Fake Votes\" feature to your polls and increase the number of votes for your polls by making them look more credible. Add as many fake votes as you want to every poll option, then remove them easily.", "poll-maker"); ?>
                                             </p>
                                         </div>
-                                        <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-add-fake-votes">
-                                            <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                        <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-add-fake-votes-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                            <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -3313,8 +3313,8 @@ $emoji = array(
                                             <?php echo esc_html__("You just need to click on the Save as default button and, each time, creating a new poll, the system will take the settings and styles of the current poll.", "poll-maker"); ?>
                                         </p>
                                     </div>
-                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default">
-                                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                        <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -3667,8 +3667,8 @@ $emoji = array(
                                                         <?php echo esc_html__("Increase the poll response rates by allowing anonymity in your polls. Let your respondents vote in your polls without revealing their identity. This will allow you to get more accurate poll results as the participants will be more confident to express their honest opinions.", "poll-maker"); ?>
                                                     </p>
                                                 </div>
-                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-allow-anonymity">
-                                                    <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-allow-anonymity-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                    <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -4354,8 +4354,8 @@ $emoji = array(
                                             <?php echo esc_html__("You just need to click on the Save as default button and, each time, creating a new poll, the system will take the settings and styles of the current poll.", "poll-maker"); ?>
                                         </p>
                                     </div>
-                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default">
-                                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                        <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -4959,8 +4959,8 @@ $emoji = array(
                                             <?php echo esc_html__("You just need to click on the Save as default button and, each time, creating a new poll, the system will take the settings and styles of the current poll.", "poll-maker"); ?>
                                         </p>
                                     </div>
-                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default">
-                                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                        <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -5167,8 +5167,8 @@ $emoji = array(
                                             <?php echo esc_html__("You just need to click on the Save as default button and, each time, creating a new poll, the system will take the settings and styles of the current poll.", "poll-maker"); ?>
                                         </p>
                                     </div>
-                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default">
-                                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                        <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -5238,8 +5238,8 @@ $emoji = array(
                                                         <?php echo esc_html__("There are two ways to send email to the poll voters: Custom and SendGrid. Watch the video to learn more about the functionality.", "poll-maker"); ?>
                                                     </p>
                                                 </div>
-                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-send-mail-to-user">
-                                                    <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-send-mail-to-user-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                    <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -5421,8 +5421,8 @@ $emoji = array(
                                             <?php echo esc_html__("You just need to click on the Save as default button and, each time, creating a new poll, the system will take the settings and styles of the current poll.", "poll-maker"); ?>
                                         </p>
                                     </div>
-                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default">
-                                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                        <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -6956,8 +6956,8 @@ $emoji = array(
                                                                         <?php echo esc_html__("Show the visual representation of your poll results in visualized charts. You are welcome to use any of the chart types that best suit your goals and missions. You can use the bar chart, pie chart, column chart, bar chart Google, or the \"not reloading\" option to show the poll results. Each of them has its unique uses and features; consider each of them to suit your needs the best.", "poll-maker"); ?>
                                                                     </p>
                                                                 </div>
-                                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-show-results-by">
-                                                                    <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-show-results-by-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                                    <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -7043,8 +7043,8 @@ $emoji = array(
                                                         <?php echo esc_html__("Show an individual approach to every poll respondent and add result messages based on their answers.  Write result messages for every answer option and increase the user experience of your polls in seconds.", "poll-maker"); ?>
                                                     </p>
                                                 </div>
-                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-show-message-based-on-answer">
-                                                    <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                                <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-show-message-based-on-answer-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                                    <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -7234,8 +7234,8 @@ $emoji = array(
                                             <?php echo esc_html__("You just need to click on the Save as default button and, each time, creating a new poll, the system will take the settings and styles of the current poll.", "poll-maker"); ?>
                                         </p>
                                     </div>
-                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default">
-                                        <?php echo esc_html__("Upgrade PRO NOW", "poll-maker"); ?>
+                                    <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-save-as-default-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
+                                        <?php echo esc_html__("Pricing", "poll-maker"); ?>
                                     </div>
                                 </div>
                             </div>
@@ -7529,6 +7529,9 @@ $emoji = array(
                                     <a href="#" class="pro-features-popup-modal-right-box-link" target="_blank"></a>
                                 </div>
                            </div>
+                           <div class="pro-features-popup-modal-right-box-footer-text">
+                                <span class="ays_poll_small_hint_text_for_message_variables"><?php echo esc_html__( "One-time payment", 'poll-maker' ); ?></span>
+                            </div>
                         </div>
                     </div>
                 </div>

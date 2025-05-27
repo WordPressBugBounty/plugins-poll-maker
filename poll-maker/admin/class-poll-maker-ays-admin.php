@@ -302,6 +302,12 @@ class Poll_Maker_Ays_Admin {
                 wp_deregister_script('wp_social_select2_js');
                 wp_dequeue_script('wp_social_select2_js');
             }
+
+            // Theme | Pixel Ebook Store
+            wp_dequeue_style('pixel-ebook-store-free-demo-content-style');
+
+            // Theme | Interactive Education
+            wp_dequeue_style('interactive-education-free-demo-content-style');
 		}
 	}
 

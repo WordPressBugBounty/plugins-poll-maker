@@ -8,6 +8,10 @@ body {
     background: #ffffff !important;
 }
 
+div#wpcontent {
+    height: auto;
+}
+
 #wpwrap hr {
     border-top: 1px solid #ededed;
 }
@@ -3074,7 +3078,8 @@ div.pro-features-popup-conteiner {
     padding-right: 0;
 }
 
-#pro-features-popup-modal .pro-features-popup-modal-right-box {
+#pro-features-popup-modal .pro-features-popup-modal-right-box, 
+#pro-features-popup-modal .pro-features-popup-modal-right-box-footer-text {
     text-align: center;
 }
 
