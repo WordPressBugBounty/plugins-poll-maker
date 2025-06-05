@@ -76,6 +76,7 @@ $poll_message_vars = array(
     '%%creation_date%%'       			=>esc_html__("Creation date of the poll", "poll-maker"),
     '%%current_date%%'       			=>esc_html__("Current date", "poll-maker"),
     '%%current_poll_author%%'   		=>esc_html__("Author of the current poll", "poll-maker"),
+    '%%current_poll_author_email%%'     =>esc_html__("Author's Email of the current poll", "poll-maker"),
     '%%user_wordpress_roles%%'  		=>esc_html__("User's Wordpress Roles", "poll-maker"),    
     "%%user_wordpress_email%%"  		=>esc_html__("User's WordPress profile email", "poll-maker"),
     '%%user_wordpress_website%%'   		=>esc_html__("User's Wordpress Website", "poll-maker"),

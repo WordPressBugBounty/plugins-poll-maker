@@ -3232,6 +3232,7 @@ class Poll_Maker_Ays_Public {
 					$current_poll_user_data = get_userdata( $poll_current_author );
 					if ( ! is_null( $current_poll_user_data ) && $current_poll_user_data ) {
 						$current_poll_author = ( isset( $current_poll_user_data->data->display_name ) && $current_poll_user_data->data->display_name != '' ) ? sanitize_text_field( $current_poll_user_data->data->display_name ) : "";
+						$current_poll_author_email = ( isset( $current_poll_user_data->data->user_email ) && $current_poll_user_data->data->user_email != '' ) ? sanitize_text_field( $current_poll_user_data->data->user_email ) : "";
 					}
 				}
 
@@ -3305,6 +3306,7 @@ class Poll_Maker_Ays_Public {
 					'creation_date'    		      => $creation_date,
 					'current_date'                => $poll_current_date,
 					'current_poll_author'         => $current_poll_author,
+					'current_poll_author_email'   => $current_poll_author_email,
 					'user_nickname'   		      => $user_nickname,
 					'user_display_name'   	      => $user_display_name,
 					'user_wordpress_email'        => $user_wordpress_email,
