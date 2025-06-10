@@ -1983,7 +1983,7 @@ class Poll_Maker_Ays_Public {
 		$user_last_name = (isset( $poll_user_information['user_last_name'] ) && $poll_user_information['user_last_name']  != "") ? $poll_user_information['user_last_name'] : '';	
 		$creation_date = (isset( $poll['styles']['create_date'] ) && $poll['styles']['create_date'] != '') ? $poll['styles']['create_date'] : '';
 
-		$current_poll_author =esc_html__( "Unknown", "poll-maker" );
+		$current_poll_author = esc_html__( "Unknown", "poll-maker" );
 		if( !empty($options['author']) ){
 			if( !is_array($options['author']) ){
 				$options['author'] = json_decode($options['author'], true);
@@ -3238,6 +3238,10 @@ class Poll_Maker_Ays_Public {
 
                 $poll_current_date = date_i18n( 'M d, Y', strtotime( sanitize_text_field( $_REQUEST['end_date'] ) ) );
 
+                // Get Post Title
+                $post_id = url_to_postid( $_POST['_wp_http_referer'] );
+                $post_title = get_the_title( $post_id );
+
 				$user_nickname        	= '';
 				$user_display_name    	= '';
 				$user_wordpress_email 	= '';
@@ -3297,25 +3301,26 @@ class Poll_Maker_Ays_Public {
 				$form_apm_phone = (isset($_POST['apm_phone']) && $_POST['apm_phone'] != "") ? esc_attr($_POST['apm_phone']) : "";
 
 				$message_data = array(
-					'user_name'   				  => $form_apm_name,
-					'user_email'  				  => $form_apm_email,
-					'user_phone'  				  => $form_apm_phone,
-					'poll_title'       		      => $poll_title,
-					'users_first_name' 		      => $user_first_name,
-					'users_last_name'  		      => $user_last_name,
-					'creation_date'    		      => $creation_date,
-					'current_date'                => $poll_current_date,
-					'current_poll_author'         => $current_poll_author,
-					'current_poll_author_email'   => $current_poll_author_email,
-					'user_nickname'   		      => $user_nickname,
-					'user_display_name'   	      => $user_display_name,
-					'user_wordpress_email'        => $user_wordpress_email,
-					'user_wordpress_roles'        => $user_wordpress_roles,
-					'poll_pass_count'  			  => $pass_count,
-					'passed_poll_count_per_user'  => $passed_poll_count_per_user,
-					'current_poll_page_link'      => $current_poll_page_link_html,
-					'user_wordpress_website'	  => $user_wordpress_website,
-					'user_ip_address'			  => $user_ip_address,					
+					'user_name'   				  	=> $form_apm_name,
+					'user_email'  				  	=> $form_apm_email,
+					'user_phone'  				  	=> $form_apm_phone,
+					'poll_title'       		      	=> $poll_title,
+					'users_first_name' 		      	=> $user_first_name,
+					'users_last_name'  		      	=> $user_last_name,
+					'creation_date'    		      	=> $creation_date,
+					'current_date'                	=> $poll_current_date,
+					'current_poll_page_link'      	=> $current_poll_page_link_html,
+					'current_poll_author'         	=> $current_poll_author,
+					'current_poll_author_email'   	=> $current_poll_author_email,
+					'user_nickname'   		      	=> $user_nickname,
+					'user_display_name'   	      	=> $user_display_name,
+					'user_wordpress_email'        	=> $user_wordpress_email,
+					'user_wordpress_roles'        	=> $user_wordpress_roles,
+					'poll_pass_count'  			  	=> $pass_count,
+					'passed_poll_count_per_user'  	=> $passed_poll_count_per_user,
+					'user_wordpress_website'	  	=> $user_wordpress_website,
+					'user_ip_address'			  	=> $user_ip_address,
+					'post_title'			  		=> $post_title,
 				);
 				
 				$user_ip = esc_sql($user_ips);

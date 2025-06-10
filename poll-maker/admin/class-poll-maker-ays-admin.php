@@ -303,11 +303,18 @@ class Poll_Maker_Ays_Admin {
                 wp_dequeue_script('wp_social_select2_js');
             }
 
+            if (is_plugin_active('real-media-library-lite/index.php')) {
+                wp_dequeue_style('real-media-library-lite-rml');
+            }
+
             // Theme | Pixel Ebook Store
             wp_dequeue_style('pixel-ebook-store-free-demo-content-style');
 
             // Theme | Interactive Education
             wp_dequeue_style('interactive-education-free-demo-content-style');
+
+            // Theme | Phlox 2.17.6
+            wp_dequeue_style('auxin-admin-style');
 		}
 	}
 

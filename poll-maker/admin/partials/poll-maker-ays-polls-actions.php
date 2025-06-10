@@ -86,6 +86,7 @@ $poll_message_vars = array(
     '%%poll_pass_count%%'    			=>esc_html__("Polls pass count", "poll-maker"),
     '%%passed_poll_count_per_user%%'   	=>esc_html__("Passed polls count per user", "poll-maker"),
     '%%current_poll_page_link%%'   		=>esc_html__("Current polls posted link", "poll-maker"),
+    '%%post_title%%'                    =>esc_html__("Post Title", "poll-maker"),
 );
 
 $poll_message_vars_html = $this->ays_poll_generate_message_vars_html( $poll_message_vars );

@@ -2571,6 +2571,16 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
                                 <p class="vmessage">
                                     <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_page_link%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "Prints the webpage link where the current poll is posted.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
                                         <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_author%%" class='ays-poll-message-variables-inputs'/>
                                     </strong>
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
@@ -2661,16 +2671,6 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
                                 <p class="vmessage">
                                     <strong>
-                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_page_link%%" class='ays-poll-message-variables-inputs'/>
-                                    </strong>
-                                    <span class="ays-poll-message-variables-text-divider"> - </span>
-                                    <span class="ays-poll-message-variables-hint-text">
-                                        <?php echo esc_html__( "Prints the webpage link where the current poll is posted.", "poll-maker"); ?>
-                                    </span>
-                                </p>
-                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
-                                <p class="vmessage">
-                                    <strong>
                                         <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%user_wordpress_website%%" class='ays-poll-message-variables-inputs'/>
                                     </strong>
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
@@ -2678,7 +2678,16 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                         <?php echo esc_html__( "The user's website that was filled in their WordPress profile.", "poll-maker"); ?>
                                     </span>
                                 </p>
-                                
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%post_title%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The Post title of the current post.", "poll-maker"); ?>
+                                    </span>
+                                </p>                                
                             </div>
                         </div>
                     </div>
