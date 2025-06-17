@@ -42,12 +42,12 @@ class Poll_Maker_Ays_i18n {
                 unload_textdomain( $plugin );
             }
             $mofile = sprintf( '%s-%s.mo', $plugin, $locale );
-            //check the installation language path first.
-            $domain_path = path_join( WP_LANG_DIR, 'plugins' );
+            // check the plugin language folder.
+            $domain_path = path_join( WP_PLUGIN_DIR, "{$plugin}/languages" );
             $loaded = load_textdomain( $plugin, path_join( $domain_path, $mofile ) );
 
-            if ( ! $loaded ) { //else, check the plugin language folder.
-                $domain_path = path_join( WP_PLUGIN_DIR, "{$plugin}/languages" );
+            if ( ! $loaded ) { //else, check the installation language path first.
+                $domain_path = path_join( WP_LANG_DIR, 'plugins' );
                 load_textdomain( $plugin, path_join( $domain_path, $mofile ) );
             }
         } else {
