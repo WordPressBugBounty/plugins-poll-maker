@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.8.1
-Stable tag: 5.8.8
+Stable tag: 5.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -353,6 +353,9 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.8.9 ( June 24, 2025 ) =
+* Added: Site title message variable on the general settings
 
 = 5.8.8 ( June 17, 2025 ) =
 * Added: Home page message variable on the general settings

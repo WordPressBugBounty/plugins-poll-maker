@@ -3241,7 +3241,8 @@ class Poll_Maker_Ays_Public {
                 // Get Post Title
                 $post_id = url_to_postid( $_POST['_wp_http_referer'] );
                 $post_title = get_the_title( $post_id );
-
+                $get_site_title = get_bloginfo('name');
+                
                 // WP home page url
 		        $home_main_url = home_url();
 		        $home_page_url = '<a href="'. $home_main_url .'" target="_blank">'. $home_main_url .'</a>';
@@ -3325,6 +3326,7 @@ class Poll_Maker_Ays_Public {
 					'user_wordpress_website'	  	=> $user_wordpress_website,
 					'user_ip_address'			  	=> $user_ip_address,
 					'post_title'			  		=> $post_title,
+					'site_title'			  		=> $get_site_title,
 					'home_page_url'			  		=> $home_page_url,
 				);
 				

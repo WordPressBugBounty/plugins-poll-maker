@@ -87,6 +87,7 @@ $poll_message_vars = array(
     '%%passed_poll_count_per_user%%'   	=>esc_html__("Passed polls count per user", "poll-maker"),
     '%%current_poll_page_link%%'   		=>esc_html__("Current polls posted link", "poll-maker"),
     '%%post_title%%'                    =>esc_html__("Post Title", "poll-maker"),
+    '%%site_title%%'                    =>esc_html__("Site Title", "poll-maker"),
     '%%home_page_url%%'                 =>esc_html__("Home Page", "poll-maker"),
 );
 
