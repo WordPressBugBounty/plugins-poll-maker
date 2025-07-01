@@ -223,7 +223,8 @@ class Poll_Maker_Ays {
         // Add menu item
         $this->loader->add_action('admin_menu', $plugin_admin, 'add_plugin_admin_menu');
 
-        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_polls_submenu', 90 );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_dashboard_submenu', 80 );
+        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_polls_submenu', 85 );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_add_new_poll_submenu', 95 );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_categories_submenu', 100 );
         $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_results_submenu', 105 );

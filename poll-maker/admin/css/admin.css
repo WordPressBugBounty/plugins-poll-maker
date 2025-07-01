@@ -23,6 +23,10 @@ div#screen-meta-links {
     color: #e14d43;
 }
 
+.toplevel_page_poll-maker-ays .wp-first-item {
+    display: none !important;
+}
+
 .apm-badge {
     position: relative;
     top: -1px;

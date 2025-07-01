@@ -3521,7 +3521,20 @@ class Poll_Maker_Ays_Public {
 
 			$res['styles']['result_message'] = ( isset( $res['styles']['result_message'] ) && $res['styles']['result_message'] != "" ) ?  $this->ays_autoembed($this->replace_message_variables($res['styles']['result_message'], $message_data)) : "";
 			$res['styles']['hide_results_text'] = ( isset( $res['styles']['hide_results_text'] ) && $res['styles']['hide_results_text'] != "" ) ?  $this->ays_autoembed($this->replace_message_variables($res['styles']['hide_results_text'], $message_data)) : "";
-
+			$sensitive_fields = [
+				'notify_email',
+				'author',
+				'poll_create_author',
+				'mailchimp_list',
+				'users_role'
+			];
+			if (!current_user_can('manage_options')) {
+				foreach ($sensitive_fields as $field) {
+					if (isset($res['styles'][$field]) && $res['styles'][$field] != "") {
+						unset($res['styles'][$field]);
+					}
+				}
+			}
 			$res['styles']['poll_social_buttons_heading'] = ( isset( $res['styles']['poll_social_buttons_heading'] ) && $res['styles']['poll_social_buttons_heading'] != "" ) ? $this->ays_autoembed($res['styles']['poll_social_buttons_heading']) : "";
 			$res['check_admin_approval'] = $check_admin_approval;
 			ob_end_clean();
