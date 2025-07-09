@@ -35,6 +35,11 @@ div.ays-notice-banner{
     z-index: 300;
 }
 
+.error:not([class*="ays-poll"]):not([class*="ays_poll"]),
+.notice:not([class*="ays-poll"]):not([class*="ays_poll"]) {
+    display: none !important;
+}
+
 .ays-poll-logo-container-upgrade {
     display: flex;
     align-items: center;

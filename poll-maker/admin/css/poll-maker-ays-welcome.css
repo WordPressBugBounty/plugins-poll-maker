@@ -68,6 +68,10 @@
     box-shadow: none !important;
 }
 
+.error:not([class*="ays-poll"]):not([class*="ays_poll"]),
+.notice:not([class*="ays-poll"]):not([class*="ays_poll"]) {
+    display: none !important;
+}
 
 .ays-pm-w-header-dismiss:hover {
     color: #4b5563; 
