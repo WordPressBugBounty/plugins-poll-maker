@@ -3537,6 +3537,31 @@ class Poll_Maker_Ays_Public {
 			}
 			$res['styles']['poll_social_buttons_heading'] = ( isset( $res['styles']['poll_social_buttons_heading'] ) && $res['styles']['poll_social_buttons_heading'] != "" ) ? $this->ays_autoembed($res['styles']['poll_social_buttons_heading']) : "";
 			$res['check_admin_approval'] = $check_admin_approval;
+
+			/**
+			 * Fires after a user successfully submits a vote in Poll Maker.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param int        $poll_id    The poll ID.
+			 */
+			if (has_action('ays_poll_maker_after_vote')) {
+					// Collect extra contextual data for hooks
+					$user_id = get_current_user_id();
+					$data = array_merge(
+						(array) $message_data,
+						array(
+							'poll_id'   => $poll_id,
+							'answer_id' => $answer_id,
+							'user_id'   => $user_id,
+													)
+					);
+					do_action(
+						'ays_poll_maker_after_vote',
+						$data
+					);
+			}
+			
 			ob_end_clean();
 			$ob_get_clean = ob_get_clean();
 			echo json_encode($res);

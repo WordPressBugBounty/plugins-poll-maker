@@ -128,11 +128,11 @@ class Poll_Maker_Ays_Welcome {
 	 */
     public function enqueue_scripts() {
 
+        wp_enqueue_script( 'poll-maker-ays-welcome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/js/poll-maker-ays-welcome.js', array('jquery'), false, true);
         wp_localize_script( 'poll-maker-ays-welcome', 'poll_maker_ays_welcome', array(
             'show_more' => esc_html__( 'Show More', "poll-maker" ),
             'show_less' => esc_html__( 'Show Less', "poll-maker" ),
         ) );
-        wp_enqueue_script( 'poll-maker-ays-welcome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/js/poll-maker-ays-welcome.js', array('jquery'), false, true);
     }
 
     /**
@@ -310,27 +310,29 @@ class Poll_Maker_Ays_Welcome {
                         <p class="ays-pm-w-header-desc" style="font-size:1rem;margin-top:0.5rem;"><?php echo esc_html__( "Latest updates and improvements to Poll Maker", "poll-maker" ); ?></p>
                     </div>
                     <div class="ays-pm-w-changelog ays-pm-w-collapsed" style="margin-top:2rem;">
+                        <!-- Release 5.9.2 -->
+                        <div class="ays-pm-w-release">
+                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.2</span><span class="ays-pm-w-release-date">July 15, 2025</span></div>
+                            <ul class="ays-pm-w-release-list">
+                                <li><?php echo esc_html__( 'Added: After vote hook on front-end', "poll-maker" ); ?></li>
+                                <li><?php echo esc_html__( 'Improved: Notice functionality behavior', "poll-maker" ); ?></li>
+                                <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
+                            </ul>
+                        </div>
+                        <!-- Release 5.9.1 -->
+                        <div class="ays-pm-w-release">
+                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.1</span><span class="ays-pm-w-release-date">July 08, 2025</span></div>
+                            <ul class="ays-pm-w-release-list">
+                                <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
+                            </ul>
+                        </div>
                         <!-- Release 5.9.0 -->
                         <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.0</span><span class="ays-pm-w-release-date">June 26, 2025</span></div>
+                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.0</span><span class="ays-pm-w-release-date">July 01, 2025</span></div>
                             <ul class="ays-pm-w-release-list">
+                                 <li><?php echo esc_html__( 'Added: Dashboard submenu', "poll-maker" ); ?></li>
                                 <li><?php echo esc_html__( 'Improved: Poll Maker welcome page', "poll-maker" ); ?></li>
                                 <li><?php echo esc_html__( 'Fixed: Admin email vulnerability issue', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>
-                        <!-- Release 5.8.9 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.8.9</span><span class="ays-pm-w-release-date">June 24, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Added: Site title message variable on the general settings', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>
-                        <!-- Release 5.8.8 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.8.8</span><span class="ays-pm-w-release-date">June 17, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Added: Home page message variable on the general settings', "poll-maker" ); ?></li>
-                                <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
                             </ul>
                         </div>
                     </div>

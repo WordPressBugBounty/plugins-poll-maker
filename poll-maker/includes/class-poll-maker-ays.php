@@ -210,6 +210,8 @@ class Poll_Maker_Ays {
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'disable_scripts', 100);
+        $this->loader->add_action('current_screen', $plugin_admin, 'ays_poll_disable_all_notice_from_plugin', 200, 1);
+
         $this->loader->add_action('widgets_init', $plugin_admin, 'register_poll_ays_widget');
 
         //Plugin deactivate
