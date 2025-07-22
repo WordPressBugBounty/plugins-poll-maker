@@ -3326,6 +3326,7 @@ class Poll_Maker_Ays_Public {
 					'user_wordpress_website'	  	=> $user_wordpress_website,
 					'user_ip_address'			  	=> $user_ip_address,
 					'post_title'			  		=> $post_title,
+					'post_id'			  			=> $post_id,
 					'site_title'			  		=> $get_site_title,
 					'home_page_url'			  		=> $home_page_url,
 				);

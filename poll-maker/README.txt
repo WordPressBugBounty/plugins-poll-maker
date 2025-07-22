@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
-Tested up to: 6.8.1
-Stable tag: 5.9.2
+Tested up to: 6.8.2
+Stable tag: 5.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -353,6 +353,10 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.9.3 ( July 22, 2025 ) =
+* Added: Post ID message variable on the general settings
+* Tested: Compatible up to 6.8.2
 
 = 5.9.2 ( July 15, 2025 ) =
 * Added: After vote hook on front-end
