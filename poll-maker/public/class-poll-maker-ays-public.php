@@ -3254,6 +3254,7 @@ class Poll_Maker_Ays_Public {
 				$user_wordpress_website = '';
 				$user_ip_address 		= '';
 				$user_id = get_current_user_id();
+				$super_admin_email = get_option('admin_email');
 				if($user_id != 0){
 					$usermeta = get_user_meta( $user_id );
 					if($usermeta !== null){
@@ -3304,7 +3305,7 @@ class Poll_Maker_Ays_Public {
 				$form_apm_name = (isset($_POST['apm_name']) && $_POST['apm_name'] != "") ? esc_attr($_POST['apm_name']) : "";
 				$form_apm_email = (isset($_POST['apm_email']) && $_POST['apm_email'] != "") ? esc_attr($_POST['apm_email']) : "";
 				$form_apm_phone = (isset($_POST['apm_phone']) && $_POST['apm_phone'] != "") ? esc_attr($_POST['apm_phone']) : "";
-
+				
 				$message_data = array(
 					'user_name'   				  	=> $form_apm_name,
 					'user_email'  				  	=> $form_apm_email,
@@ -3317,6 +3318,7 @@ class Poll_Maker_Ays_Public {
 					'current_poll_page_link'      	=> $current_poll_page_link_html,
 					'current_poll_author'         	=> $current_poll_author,
 					'current_poll_author_email'   	=> $current_poll_author_email,
+					'admin_email'   				=> $super_admin_email,
 					'user_nickname'   		      	=> $user_nickname,
 					'user_display_name'   	      	=> $user_display_name,
 					'user_wordpress_email'        	=> $user_wordpress_email,
