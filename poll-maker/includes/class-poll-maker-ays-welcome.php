@@ -310,6 +310,13 @@ class Poll_Maker_Ays_Welcome {
                         <p class="ays-pm-w-header-desc" style="font-size:1rem;margin-top:0.5rem;"><?php echo esc_html__( "Latest updates and improvements to Poll Maker", "poll-maker" ); ?></p>
                     </div>
                     <div class="ays-pm-w-changelog ays-pm-w-collapsed" style="margin-top:2rem;">
+                        <!-- Release 5.9.5 -->
+                        <div class="ays-pm-w-release">
+                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.5</span><span class="ays-pm-w-release-date">August 05, 2025</span></div>
+                            <ul class="ays-pm-w-release-list">
+                                <li><?php echo esc_html__( 'Added: Post Author Email message variable on the general settings', "poll-maker" ); ?></li>
+                            </ul>
+                        </div>
                         <!-- Release 5.9.4 -->
                         <div class="ays-pm-w-release">
                             <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.4</span><span class="ays-pm-w-release-date">July 29, 2025</span></div>
@@ -324,16 +331,7 @@ class Poll_Maker_Ays_Welcome {
                                 <li><?php echo esc_html__( 'Added: Post ID message variable on the general settings', "poll-maker" ); ?></li>
                                 <li><?php echo esc_html__( 'Tested: Compatible up to 6.8.2', "poll-maker" ); ?></li>
                             </ul>
-                        </div>
-                        <!-- Release 5.9.2 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.2</span><span class="ays-pm-w-release-date">July 15, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Added: After vote hook on front-end', "poll-maker" ); ?></li>
-                                <li><?php echo esc_html__( 'Improved: Notice functionality behavior', "poll-maker" ); ?></li>
-                                <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>                                                
+                        </div>                                                                        
                     </div>
                 </section>
             </div>
