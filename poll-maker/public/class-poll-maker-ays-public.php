@@ -391,6 +391,31 @@ class Poll_Maker_Ays_Public {
 			else{
 				foreach ($poll_answers as $ans_key => $ans_val) {
 					$percent = round($one_percent*intval($ans_val['votes']));
+					$real_votes = 0;
+                    $all_votes_bar = 0;
+                    if($polls['type'] == 'choosing'){
+                        $real_votes = isset($ans_val['votes']) ? intval($ans_val['votes']) : 0;
+                        $fake_votes = isset($ans_val['fake_votes']) ? intval($ans_val['fake_votes']) : 0;
+                        if($poll_fake_votes){
+                            if($fake_votes + $real_votes < 0){
+                                $all_votes_bar += $real_votes;
+                            }
+                            else{
+                                $all_votes_bar += ($real_votes + $fake_votes);
+                            }
+                        }
+                        else{
+                            $all_votes_bar += $real_votes;
+                        }
+
+                        if($sum_of_votes > 0){
+                            $percent = round((100*$all_votes_bar)/$sum_of_votes);
+                        }
+                    }
+                    else{
+                        $all_votes_bar = $ans_val['votes'];
+                    }
+
 					if ($percent == 0) {
 						$perc_cont = '';
 					}else{
@@ -412,6 +437,7 @@ class Poll_Maker_Ays_Public {
 								<div class="ays-poll-answer-text-and-percent-box">
 									<div class="answer-title flex-apm">
 										<span class="answer-text">'.stripslashes($ans_val['answer']).'</span>
+										<span class="answer-votes">'.$all_votes_bar.' ('.$percent.'%)</span>
 									</div>
 									<div class="progress-bar-container">
 										<div class="answer-percent-res" 
@@ -506,7 +532,7 @@ class Poll_Maker_Ays_Public {
 									}
 									$content .= '<div class="answer-title flex-apm">
 													<span class="answer-text">'.$hand_type.'</span>
-													<span class="answer-votes">'.$ans_val['votes'].'</span>
+													<span class="answer-votes">'.$all_votes_bar.' ('.$percent.'%)</span>
 												</div>
 												<div class="answer-percent" style="width: '.$percent.'%; background-color: '.$polls_options['main_color'].'; color: '.$polls_options['bg_color'].';">'.$perc_cont.'</div>';
 									break;
@@ -519,7 +545,7 @@ class Poll_Maker_Ays_Public {
 									}
 									$content .= '<div class="answer-title flex-apm">
 													<span class="answer-text">'.$emojy_type.'</span>
-													<span class="answer-votes">'.$ans_val['votes'].'</span>
+													<span class="answer-votes">'.$all_votes_bar.' ('.$percent.'%)</span>
 												</div>
 												<div class="answer-percent" style="width: '.$percent.'%; background-color: '.$polls_options['main_color'].'; color: '.$polls_options['bg_color'].';">'.$perc_cont.'</div>';
 
@@ -3933,11 +3959,14 @@ class Poll_Maker_Ays_Public {
 					if($poll_show_answer_perc){
 						if ($percent == 0) {
 							$perc_cont = '0 %';
+							$perc_conta_hide_or_no = '';
 						}else{
 							$perc_cont = $percent.' %';
+							$perc_conta_hide_or_no = '('.$percent.'%'.')';
 						}
 
 					}
+
 					$answer_votes_count = '';
 					if($poll_show_votes_count){
 						$answer_votes_count = isset($ans_val['votes']) ? esc_attr($ans_val['votes']) : '';
@@ -3956,6 +3985,7 @@ class Poll_Maker_Ays_Public {
                             $content .= '<div class="ays-poll-answer-text-and-percent-box">';
 							$content .= '<div class="answer-title flex-apm">
 								<span class="answer-text">' . stripslashes($ans_val['answer']) . '</span>
+								<span class="answer-votes">'.$answer_votes_count.' '.$perc_conta_hide_or_no.'</span>
 							</div>
 							' . $poll_avatars_content . '
 							<div class="answer-percent-res" style="width: ' . ($percent == 0 ? '10' : $percent) . '%; 
