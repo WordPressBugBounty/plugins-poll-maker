@@ -128,6 +128,11 @@ class Poll_Maker_Ays {
          * The class responsible for showing Poll Maker Welcome page.
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-poll-maker-ays-welcome.php';
+
+        /**
+         * The class responsible for showing Poll Maker Feedback popup.
+         */
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-poll-maker-feedback.php';
         
         /*
          * The class is responsible for showing polls in wordpress default WP_LIST_TABLE style

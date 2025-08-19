@@ -5681,6 +5681,23 @@ div.wrap h1.wp-heading-inline .ays-poll-add-new-cat-button:hover {
     margin: 0px;
 }
 
+.ays-poll-create-poll-youtube-video-button-box.create-poll-youtube-video-bottom{
+    margin: 80px 0 10px;
+}
+
+.ays-poll-create-poll-youtube-video {
+    margin: 10px auto;
+}
+
+.ays-poll-youtube-placeholder {
+    position: relative;
+    cursor: pointer;
+    max-width: 100%;
+    width: 560px;
+    height: 315px;
+    margin: 0 auto;
+}
+
 .ays-poll-add-new-button-video{
     background-color: #08A9BE;
     color: #fff !important;

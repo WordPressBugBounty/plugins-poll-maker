@@ -275,6 +275,15 @@ class Poll_Maker_Ays_Activator {
 	        }
 
 		}
+
+		$terms_activation = get_option('ays_poll_show_agree_terms');
+		$first_activation = get_option('ays_poll_maker_first_time_activation_page', false);
+
+		if ( !$terms_activation && $first_activation ) {
+			self::ays_poll_activator_request( 'activator' );
+			update_option('ays_poll_agree_terms', 'true');
+			update_option('ays_poll_show_agree_terms', 'hide');
+		}
 	}
 
 	public static function ays_poll_update_db_check() {
@@ -301,4 +310,18 @@ class Poll_Maker_Ays_Activator {
 			}
 		}
 	}
+
+	public static function ays_poll_activator_request($cta){
+        $curl = curl_init();
+
+        $api_url = "https://poll-plugin.com/poll-maker/";
+
+        wp_remote_post( $api_url, array(
+            'timeout' => 30,
+            'body' => wp_json_encode(array(
+                'type'  => 'poll-maker',
+                'cta'   => $cta,
+            )),
+        ) );
+    }
 }

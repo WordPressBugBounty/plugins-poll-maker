@@ -3871,7 +3871,7 @@ class Poll_Maker_Ays_Public {
 		
 		
 		// $poll_answer_sorting = isset($polls_options['result_sort_type']) && $polls_options['result_sort_type'] != "none" ? $polls_options['result_sort_type'] : "ASC";
-		$ans_sql  = "SELECT * FROM ".$answ_table." WHERE poll_id =%d ORDER BY id ASC";
+		$ans_sql  = "SELECT * FROM ".$answ_table." WHERE poll_id =%d ORDER BY votes DESC";
 		$poll_answers = $wpdb->get_results(
 			   	  	$wpdb->prepare( $ans_sql, $id),
 			   	  	'ARRAY_A'

@@ -180,7 +180,14 @@ class Poll_Maker_Ays_Admin {
 			wp_enqueue_script('sweetalert-js-poll', plugin_dir_url(__FILE__) . 'js/sweetalert2.all.min.js', array('jquery'), $this->version, true);
 
 			wp_enqueue_script($this->plugin_name . '-admin', plugin_dir_url(__FILE__) . 'js/admin.js', array('jquery'), $this->version, true);
-			wp_localize_script($this->plugin_name . '-admin', 'apm_admin_ajax_obj', array('ajaxUrl' => admin_url('admin-ajax.php')));
+			wp_localize_script($this->plugin_name . '-admin', 'apm_admin_ajax_obj',
+			array(
+				'ajaxUrl' => admin_url('admin-ajax.php'),
+
+				'errorMsg'              => __( "Error", 'poll-maker' ),
+                'loadResource'          => __( "Can't load resource.", 'poll-maker' ),
+                'somethingWentWrong'    => __( "Maybe something went wrong.", 'poll-maker' ),
+			));
 		}
 
 		$version1 = $wp_version;
