@@ -503,6 +503,13 @@ div.ays-notice-banner .navigation-bar li a:after {
         display: block;
     }
 }
+
+@media screen and (max-width: 890px){
+    .ays_menu_left, .ays_menu_right {
+        height: 40% !important;
+        top: 10px;
+    }
+}
 @media screen and (max-width: 768px){
     div#ays-poll-dicount-month-main.ays_poll_dicount_info.notice {
         display: none;
@@ -5020,6 +5027,15 @@ form#ays-poll-general-settings-form .ays-poll-message-variables-inputs{
         min-width: 50px;
         min-height: 50px;
         font-size: 30px;
+    }
+    div.if-choosing div.form-group.row {
+        flex-wrap: nowrap;
+    }
+
+    }
+    .ays-poll-new-watch-video-button-box, 
+    .ays-poll-new-upgrade-button-box {
+        top: -25px;
     }
 }
 
