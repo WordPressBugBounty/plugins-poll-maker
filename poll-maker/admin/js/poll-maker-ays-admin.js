@@ -2871,7 +2871,7 @@
     $(document).on('click', '.ays_menu_right', function(){
         var scroll = parseInt($(this).attr('data-scroll'));
         var howTranslate = $(document).find('div.ays-top-tab-wrapper').width() - $(document).find('.ays-top-menu').width();
-        howTranslate += 7;
+        howTranslate += 250;
         if(scroll == -1){
             scroll = menuItemWidth;
         }

@@ -172,28 +172,28 @@ class Poll_Maker_Ays_Welcome {
                     <div class="ays-pm-w-steps-wrapper" style="margin-top:2rem;">
                         <!-- Step 1 -->
                         <div class="ays-pm-w-step-item">
-                        <div class="ays-pm-w-step-number">1</div>
+                        <div class="ays-pm-w-step-number"><?php echo esc_html__( 'Step 1', "poll-maker" ); ?></div>
                         <div class="ays-pm-w-step-content">
                             <h3><?php echo esc_html__( 'Add a New Poll', "poll-maker" ); ?></h3>
                         </div>
                         </div>
                         <!-- Step 2 -->
                         <div class="ays-pm-w-step-item">
-                        <div class="ays-pm-w-step-number">2</div>
+                        <div class="ays-pm-w-step-number"><?php echo esc_html__( 'Step 2', "poll-maker" ); ?></div>
                         <div class="ays-pm-w-step-content">
                             <h3><?php echo esc_html__( 'Add Options', "poll-maker" ); ?></h3>
                         </div>
                         </div>
                         <!-- Step 3 -->
                         <div class="ays-pm-w-step-item">
-                        <div class="ays-pm-w-step-number">3</div>
+                        <div class="ays-pm-w-step-number"><?php echo esc_html__( 'Step 3', "poll-maker" ); ?></div>
                         <div class="ays-pm-w-step-content">
                             <h3><?php echo esc_html__( 'Save the Poll', "poll-maker" ); ?></h3>
                         </div>
                         </div>
                         <!-- Step 4 -->
                         <div class="ays-pm-w-step-item">
-                        <div class="ays-pm-w-step-number">4</div>
+                        <div class="ays-pm-w-step-number"><?php echo esc_html__( 'Step 4', "poll-maker" ); ?></div>
                         <div class="ays-pm-w-step-content">
                             <h3><?php echo esc_html__( 'Copy the Shortcode', "poll-maker" ); ?></h3>
                         </div>
@@ -310,6 +310,14 @@ class Poll_Maker_Ays_Welcome {
                         <p class="ays-pm-w-header-desc" style="font-size:1rem;margin-top:0.5rem;"><?php echo esc_html__( "Latest updates and improvements to Poll Maker", "poll-maker" ); ?></p>
                     </div>
                     <div class="ays-pm-w-changelog ays-pm-w-collapsed" style="margin-top:2rem;">
+                        <!-- Release 5.9.9 -->
+                        <div class="ays-pm-w-release">
+                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.9</span><span class="ays-pm-w-release-date">September 03, 2025</span></div>
+                            <ul class="ays-pm-w-release-list">
+                                <li><?php echo esc_html__( 'Improved: Some styles on the admin dashboard', "poll-maker" ); ?></li>
+                                <li><?php echo esc_html__( 'Updated: POT and Po files', "poll-maker" ); ?></li>
+                            </ul>
+                        </div>                                                
                         <!-- Release 5.9.8 -->
                         <div class="ays-pm-w-release">
                             <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.8</span><span class="ays-pm-w-release-date">August 26, 2025</span></div>
@@ -325,14 +333,7 @@ class Poll_Maker_Ays_Welcome {
                                 <li><?php echo esc_html__( 'Improved: HTML structure for iframe embeds', "poll-maker" ); ?></li>
                                 <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
                             </ul>
-                        </div>
-                        <!-- Release 5.9.6 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.6</span><span class="ays-pm-w-release-date">August 12, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Fixed: See results in limitation user while Directly chosen', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>                                                
+                        </div>                        
                     </div>
                 </section>
             </div>

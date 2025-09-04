@@ -34,9 +34,9 @@
     transition-timing-function: ease-in-out;
     outline: 0;
     box-sizing: border-box;
-    background-color: #83ABED;
-    border: 1px solid #83ABED;
-    color: #000000;
+    background-color: #2463EB;
+    border: 1px solid #2463EB;
+    color: #fff;
     border-radius: 4px;
     font-size: 18px;
     font-weight: 600;
@@ -45,6 +45,12 @@
     text-align: center;
     text-decoration: none;
     width: 230px;
+}
+
+.ays-pm-w-header-create a:hover {    
+    background-color: #83ABED;
+    border-color: #83ABED;
+    color: #000;    
 }
 
 /* Header */
@@ -175,34 +181,31 @@
 
 /* Quick Start Steps */
 .ays-pm-w-steps-wrapper {
-    max-width: 450px;
+    max-width: 800px;
     margin: 0 auto;
 }
+
 .ays-pm-w-step-item {
     position: relative;
     border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
+    border-radius: 15px;
     padding: 1rem;
     display: flex;
     align-items: center;
     transition: all .2s ease;
     margin-top: 15px;
 }
-.ays-pm-w-step-item:hover {     
-    border-color: #93c5fd; 
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
-}
+
 .ays-pm-w-step-number {
-    width: 2.5rem;
-    height: 2.5rem;
     background: #dbeafe;
     color: #2563eb;
-    border-radius: 50%;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     margin-right: 1rem;
+    padding: 5px 15px;
 }
 .ays-pm-w-step-content h3 {
     font-size: 1.125rem;
@@ -210,6 +213,7 @@
     color: #111827;
     display: flex;
     align-items: center;
+    margin: 0;
     gap: 0.5rem;
 }
 .ays-pm-w-step-content p { 

@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 6.8.2
-Stable tag: 5.9.8
+Stable tag: 5.9.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -353,6 +353,10 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 5.9.9 ( September 03, 2025 ) =
+* Improved: Some styles on the admin dashboard
+* Updated: POT and Po files
 
 = 5.9.8 ( August 26, 2025 ) =
 * Added: Post Author Nickname message variable on the general settings
