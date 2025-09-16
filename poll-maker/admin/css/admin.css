@@ -23,7 +23,7 @@ div#screen-meta-links {
     color: #e14d43;
 }
 
-.toplevel_page_poll-maker-ays .wp-first-item {
+#toplevel_page_poll-maker-ays.wp-has-submenu .wp-first-item {
     display: none !important;
 }
 

@@ -35,6 +35,14 @@ div.ays-notice-banner{
     z-index: 300;
 }
 
+.ays-notice-banner .navigation-bar li.ays_poll_take_gift a {
+    color: #eb5757;
+}
+
+.ays-notice-banner .navigation-bar li.ays_poll_take_gift a:hover {
+    color: #c44949;
+}
+
 .error:not([class*="ays-poll"]):not([class*="ays_poll"]),
 .notice:not([class*="ays-poll"]):not([class*="ays_poll"]) {
     display: none !important;
