@@ -310,6 +310,13 @@ class Poll_Maker_Ays_Welcome {
                         <p class="ays-pm-w-header-desc" style="font-size:1rem;margin-top:0.5rem;"><?php echo esc_html__( "Latest updates and improvements to Poll Maker", "poll-maker" ); ?></p>
                     </div>
                     <div class="ays-pm-w-changelog ays-pm-w-collapsed" style="margin-top:2rem;">
+                        <!-- Release 6.0.2 -->
+                        <div class="ays-pm-w-release">
+                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v6.0.2</span><span class="ays-pm-w-release-date">September 23, 2025</span></div>
+                            <ul class="ays-pm-w-release-list">
+                                <li><?php echo esc_html__( 'Improved: The banner style on the admin dashboard', "poll-maker" ); ?></li>                                
+                            </ul>
+                        </div>
                         <!-- Release 6.0.1 -->
                         <div class="ays-pm-w-release">
                             <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v6.0.1</span><span class="ays-pm-w-release-date">September 16, 2025</span></div>
@@ -324,15 +331,7 @@ class Poll_Maker_Ays_Welcome {
                             <ul class="ays-pm-w-release-list">
                                 <li><?php echo esc_html__( 'Added: Post Author First name message variable on the general settings', "poll-maker" ); ?></li>                                
                             </ul>
-                        </div>  
-                        <!-- Release 5.9.9 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v5.9.9</span><span class="ays-pm-w-release-date">September 03, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Improved: Some styles on the admin dashboard', "poll-maker" ); ?></li>
-                                <li><?php echo esc_html__( 'Updated: POT and Po files', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>                                                                      
+                        </div>                                                                
                     </div>
                 </section>
             </div>

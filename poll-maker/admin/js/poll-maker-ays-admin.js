@@ -3552,6 +3552,81 @@
 
 })(jQuery);
 
+document.addEventListener("DOMContentLoaded", function() {
+    var startDate = new Date("2025-09-21");
+    var endDate = new Date("2025-10-21");
+    var totalLicenses = 50;
+    var progressionPattern = new Array(3, 2, 1, 4, 2, 3, 1, 2, 4, 3, 2, 1, 3, 2, 4, 1, 3, 2, 2, 3, 1, 2);
+    function getCurrentProgress() {
+        var today = new Date();
+        // today.setDate(today.getDate() + 1);
+        var daysPassed = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+        var usedLicenses = 0;
+        for (var i = 0; i < Math.min(daysPassed, progressionPattern.length); i++) {
+            usedLicenses += progressionPattern[i];
+        }
+        return Math.min(usedLicenses, totalLicenses);
+    }
+    function updateProgress() {
+        var usedLicenses = getCurrentProgress();
+        var remainingLicenses = totalLicenses - usedLicenses;
+        var progressPercentage = (usedLicenses / totalLicenses) * 100;
+        var remainingElement = document.getElementById("remaining-licenses");
+        var progressElement = document.getElementById("progress-fill");
+        if (remainingElement) remainingElement.textContent = remainingLicenses;
+        if (progressElement) progressElement.style.width = progressPercentage + "%";
+    }
+    updateProgress();
+});
+
+// Copy to clipboard function
+function pollCopyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function() {
+            pollShowCopyNotification(pollLangObj.successCopyCoupon);
+        }).catch(function() {
+            fallbackCopyTextToClipboard(text);
+        });
+    } else {
+        fallbackCopyTextToClipboard(text);
+    }
+}
+
+function fallbackCopyTextToClipboard(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.top = "-9999px";
+    textArea.style.left = "-9999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        var successful = document.execCommand("copy");
+        if (successful) {
+            pollShowCopyNotification(pollLangObj.successCopyCoupon);
+        } else {
+            pollShowCopyNotification(pollLangObj.failedCopyCoupon);
+        }
+    } catch (err) {
+        pollShowCopyNotification(pollLangObj.failedCopyCoupon);
+    }
+    document.body.removeChild(textArea);
+}
+
+function pollShowCopyNotification(message) {
+    var notification = document.createElement("div");
+    notification.className = "ays-poll-copy-notification show";
+    console.log(notification);
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(function() {
+        notification.classList.remove("show");
+        setTimeout(function() {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 2000);
+}
 
 function selectElementContents(el) {
     if (window.getSelection && document.createRange) {
