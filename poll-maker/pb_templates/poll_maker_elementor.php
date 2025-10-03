@@ -70,8 +70,8 @@ class Widget_Poll_Maker_Elementor extends Widget_Base {
     }
     protected function render( $instance = array() ) {
         $settings = $this->get_settings_for_display();
-        echo ( isset( $settings['poll_title'] ) && ! empty( $settings['poll_title'] ) ) ? "<h2 style='text-align: {$settings['poll_title_alignment']}'>{$settings['poll_title']}</h2>" : "";
-        echo do_shortcode("[ays_poll id={$settings['poll_selector']}]");
+        echo ( isset( $settings['poll_title'] ) && ! empty( $settings['poll_title'] ) ) ? "<h2 style='text-align: ". esc_attr( $settings['poll_title_alignment'] ) ."'>". esc_html($settings['poll_title']) ."</h2>" : "";
+        echo do_shortcode("[ays_poll id=". esc_attr( $settings['poll_selector'] ) ."]");
     }
 
     public function get_active_polls(){

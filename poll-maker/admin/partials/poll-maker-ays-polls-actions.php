@@ -89,6 +89,7 @@ $poll_message_vars = array(
     '%%current_poll_page_link%%'   		=>esc_html__("Current polls posted link", "poll-maker"),
     '%%post_title%%'                    =>esc_html__("Post Title", "poll-maker"),
     '%%post_author_email%%'             =>esc_html__("Post Author Email", "poll-maker"),
+    '%%post_author_display_name%%'      =>esc_html__("Post Author Display Name", "poll-maker"),
     '%%post_author_first_name%%'        =>esc_html__("Post Author First Name", "poll-maker"),
     '%%post_author_last_name%%'         =>esc_html__("Post Author Last Name", "poll-maker"),
     '%%post_author_nickname%%'          =>esc_html__("Post Author Nickname", "poll-maker"),

@@ -3285,6 +3285,7 @@ class Poll_Maker_Ays_Public {
 				$post_author = get_post_field( 'post_author', $post_id );
 				$author_id = get_the_author_meta('ID', $post_author);
 				$post_author_email = get_the_author_meta( 'email', $author_id );
+				$post_author_display_name = get_the_author_meta( 'display_name', $author_id );
 				$post_author_nickname = get_the_author_meta( 'nickname', $author_id );
 				$post_author_first_name = get_the_author_meta( 'first_name', $author_id );
 				$post_author_last_name = get_the_author_meta( 'last_name', $author_id );
@@ -3363,6 +3364,7 @@ class Poll_Maker_Ays_Public {
 					'user_ip_address'			  	=> $user_ip_address,
 					'post_title'			  		=> $post_title,
 					'post_author_email'			  	=> $post_author_email,
+					'post_author_display_name'		=> $post_author_display_name,
 					'post_author_nickname'			=> $post_author_nickname,
 					'post_author_first_name'		=> $post_author_first_name,
 					'post_author_last_name'			=> $post_author_last_name,
