@@ -25,22 +25,37 @@
         wp_localize_script(POLL_MAKER_AYS_NAME . '-ajax-public', 'poll_maker_ajax_public', array('ajax_url' => admin_url('admin-ajax.php')));
 
         // Enqueue the bundled block JS file
-        if( $versionCompare ){
-            wp_enqueue_script(
-                'poll-maker-block-js',
-                POLL_MAKER_AYS_BASE_URL ."/poll/poll-maker-block-new.js",
-                array( 'jquery', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ),
-                POLL_MAKER_AYS_VERSION, true
-            );
+        $dependencies = array( 'jquery', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components' );
+
+        if ( ! ( defined( 'WP_CUSTOMIZE_WIDGETS' ) && WP_CUSTOMIZE_WIDGETS ) && ! did_action( 'enqueue_block_editor_assets' ) ) {
+            $dependencies[] = 'wp-editor';
         }
-        else{
-            wp_enqueue_script(
-                'poll-maker-block-js',
-                POLL_MAKER_AYS_BASE_URL ."/poll/poll-maker-block.js",
-                array( 'jquery', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ),
-                POLL_MAKER_AYS_VERSION, true
-            );
-        }
+
+        wp_enqueue_script(
+            'poll-maker-block-js',
+            POLL_MAKER_AYS_BASE_URL . ($versionCompare ? "/poll/poll-maker-block-new.js" : "/poll/poll-maker-block.js"),
+            $dependencies,
+            POLL_MAKER_AYS_VERSION,
+            true
+        );
+
+        // if( $versionCompare ){
+        //     wp_enqueue_script(
+        //         'poll-maker-block-js',
+        //         POLL_MAKER_AYS_BASE_URL ."/poll/poll-maker-block-new.js",
+        //         array( 'jquery', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ),
+        //         POLL_MAKER_AYS_VERSION, true
+        //     );
+        // }
+        // else{
+        //     wp_enqueue_script(
+        //         'poll-maker-block-js',
+        //         POLL_MAKER_AYS_BASE_URL ."/poll/poll-maker-block.js",
+        //         array( 'jquery', 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ),
+        //         POLL_MAKER_AYS_VERSION, true
+        //     );
+        // }
+        
         wp_localize_script('ays-poll-gutenberg-block-js', 'ays_poll_block_ajax', array('aysDoShortCode' => admin_url('admin-ajax.php')));
 
         wp_enqueue_style( POLL_MAKER_AYS_NAME . '-font-awesome', esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/css/poll-maker-font-awesome-all.css', array(), POLL_MAKER_AYS_VERSION, 'all');

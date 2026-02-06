@@ -3,8 +3,8 @@ Contributors: ays-pro
 Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
-Tested up to: 6.8.2
-Stable tag: 6.0.3
+Tested up to: 6.9
+Stable tag: 6.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -22,9 +22,14 @@ Poll Maker is a FREE WordPress poll plugin that will let you create customizable
 
 https://www.youtube.com/watch?v=RDKZXFmG6Pc
 
-[WordPress Poll plugin](https://ays-pro.com/wordpress/poll-maker) is developed to build awesome polls and conduct interactive elections super easily and quickly.
+[WordPress Poll plugin](https://ays-pro.com/wordpress/poll-maker) is a powerful poll plugin for WordPress that helps you create online polls and voting forms in minutes.
+With this online poll plugin, you can easily build interactive polls, collect feedback, and increase audience engagement directly on your WordPress website.
 
-Our WordPress Polling Plugin gives impressive tools to create **powerful and simple polls**. You have 5 poll types to choose from, advanced settings, dozens of style options included 7 pre-build themes, and many more functionalities a professional poll builder will wish for. Looking for the **best poll plugin for WordPress** via which you can create a poll in minutes? You are in the right place!
+Our poll builder allows you to create polls in WordPress using multiple poll types, advanced settings, and flexible design options. 
+Whether you need a WordPress voting plugin for opinion polling, user interaction, or feedback collection, Poll Maker gives you all the tools to run interactive polls and manage online voting with ease.
+
+WordPress Polling Plugin gives impressive tools to create **powerful and simple polls**. You have 5 poll types to choose from, advanced settings, dozens of style options included 7 pre-build themes, and many more functionalities a professional poll builder will wish for. 
+Looking for the **best poll plugin for WordPress** via which you can create a poll in minutes? You are in the right place!
 
 Create and publish your first poll in *3 simple steps*:
 
@@ -35,13 +40,13 @@ Create and publish your first poll in *3 simple steps*:
 > <strong>Poll shortcode</strong><br>
 > <strong>[ays_poll id='your_poll_id']</strong>
 
-Data is an essential part of any business process, don't you agree? Data-oriented companies are the most successful ones nowadays. So, if you want to compete with them, you need to have this **lead generator tool** at your disposal. You need to imply the "give and take" rule: provide *interactive content* to your audience and *get new leads*.
+Data is an essential part of any business process, don't you agree? Data-oriented companies are the most successful ones nowadays. So, if you want to compete with them, you need to have this **lead generator tool** that offers responsive polls. You need to imply the "give and take" rule: provide *interactive content* to your audience and *get new leads*.
 The benefits of receiving new leads are many:
 
 * **Increase the traffic** of your website
-* Use the plugin as an effective marketing tool and build your **Social Media strategy** based on it: email marketing, SMM marketing,  etc.
-* Receive customer feedback, do **market research**, and improve your services and products
-* Get insights and take action: create an **opinion poll**, know more about your customers' habits, preferences, interests, and so on.
+* Use the plugin as an effective marketing tool and build your **Social Media strategy** around social voting, including email marketing, SMM marketing, and more.
+* Receive customer feedback, do **market research**, and track responses with live results.
+* Get customer insights and take action: create an **opinion poll**, know more about your customers' habits, preferences, interests, and so on.
 
 **[PRO](https://ays-pro.com/wordpress/poll-maker) | [DEMO](https://poll-plugin.com/wordpress-poll-plugin-pro-demo/) | [DOCUMENTATION](https://ays-pro.com/wordpress-poll-maker-user-manual)**
 
@@ -49,7 +54,8 @@ The benefits of receiving new leads are many:
 
 = Poll question =
 
-There is a default **WordPress classic editor** for adding and editing the question. You can use it for formatting your question text. Most importantly, it allows you to create an *image poll, video poll or audio poll*. If you have CSS or HTML skills, you are free to write your own code and design your question the way you wish it to be. Moreover, you can insert a shortcode of any other plugin easily. This WordPress Vote plugin's developers continually do their best to build the *Best WordPress Poll Plugin* ever. All you need is to grab the chance and give it a try!
+This online voting plugin comes with the default WordPress classic editor for adding and editing poll questions, making it easy to format your content. You can create customizable polls, including **image polls**, **video polls**, or **audio polls**, depending on your needs.
+If you have CSS or HTML skills, you are free to write your own code and design your question the way you wish it to be. Moreover, you can insert a shortcode of any other plugin easily. This WordPress Vote plugin's developers continually do their best to build the *Best WordPress Poll Plugin* ever. All you need is to grab the chance and give it a try!
 
 = Poll types =
 
@@ -83,7 +89,8 @@ This WordPress Poll plugin allows you to make 7 types of online polls:
 
 
 
-**Multivote functionality**: By selecting *Choosing* type, you can also activate *Multivote functionality*. It allows your respondents to choose more than one answer to your question. Moreover, you can give a maximum number to it, so your respondents can not vote more than the assigned count of answers to the given question.
+**Multivote functionality**: As part of the online voting system, you can activate *Multivote functionality*. It allows your respondents to choose more than one answer to your question. 
+Multivote improves audience engagement and provides richer data for poll analytics, helping you better understand how users interact with your polls.
 
 = Notify admin by email =
 
@@ -91,37 +98,18 @@ With our Vote plugin, you can be notified via email each time a vote is submitte
 
 Save your time, and in the meantime, be informed with our **WordPress Voting Plugin**!
 
-= Redirection (Individual and Global) =
-
-Redirection is a super-effective technique to **boost your website traffic**. Attract your website visitors via engaging polls and after voting, redirect them to another webpage. You can either redirect no matter the answer they give or redirect based on their answer. The latter one is a powerful **call-to-action** trick. For instance, if you are selling books, you can make a question like *What book genre is your personality?*. Then, redirect the participants to different book pages based on their answers. This a great marketing idea, isn't it?
-
-= Schedule Poll =
-
-Now there is wide used function: **schedule**. We also include this function in our poll builder plugin.
-
-It saves a mass of time. For example, if you are going to make an election in the near future, you don't need to remember and set the alarm for that. You can make it right now and set a start date for displaying it.
-
-Also, it is important to set an end date for the vote, as long as you may need to check product ratings for a **specific period of time**. The plugin will show the expiring message after the end date, which is provided from the dashboard. #1 poll plugin for WP, don't you agree?
-Moreover, you can create a [WordPress event poll](https://www.youtube.com/watch?v=uMwBPfrFkng&) and schedule it to get people engaged at a certain date. 
-
 = Limit by User Roles =
 
-This feature allows you to select **specific user roles** for displaying your online form. Only users with the selected user group can take it. Also, you can set the restriction that only logged-in users have permission to take the form. There is a message parameter for every option.
+This feature enables **user role based voting**, allowing you to choose which WordPress user roles can access and participate in your poll. Only users with the selected user group can take it. Also, you can create a logged-in users only poll by restricting participation exclusively to authenticated users, ensuring controlled and secure voting.
 
 = Limit to vote only once =
 
-Want to have **accurate results**? This online voting tool give it to you! By activating the *Maximum number of attempts per user* option, you will not receive multiple votes from the same person. The plugin offers 4 detection methods: *By IP address, by WP user ID, by Cookie, by Cookie and IP*.
+Want to have **accurate results**? This online voting tool give it to you! To ensure fair participation, the plugin supports one vote per user and displays real-time results, allowing both you and your audience to instantly see how responses evolve.
+By activating the *Maximum number of attempts per user* option, you will not receive multiple votes from the same person. The plugin offers 4 detection methods: *By IP address, by WP user ID, by Cookie, by Cookie and IP*.
 
 = Password Protected Poll =
 
 Create a password-protected poll to ensure privacy, limit participation to only authorized individuals, and safeguard sensitive information or opinions shared during the polling process. This security feature can be useful when the poll involves confidential information, or when the poll is intended for a specific audience or group of individuals. The given feature is available in the [premium version](https://ays-pro.com/wordpress/poll-maker) of the plugin.  
-
-
-= Results page on the front-end =
-
-The plugin lets you configure the result page and customize it on your own. You can either hide the results or display them instantly after the voting. You can choose the way of sorting the results: *Ascending, Descending, or none*. To make your form more engaging, you can activate the *Show passed users avatars* option. It will display the profile pictures of those users who have taken your voting form. You can type in your preferred thank you message, for instance, *Thank you for taking the time to complete this form*. Besides, the plugin allows you to **display different result messages** based on the answer the voter chooses ([Premium feature](https://ays-pro.com/wordpress/poll-maker)). Each voter will see an individual message most relevant to him.  Amazing, isn't it?
-
-Want to visualize the result via interactive and beautiful charts? No problem at all! The plugin gives that opportunity. It allows you to show your results via the following charts: **Bar chart, Pie chart, Column chart, and Versus chart**. Available in the [Premium version](https://ays-pro.com/wordpress/poll-maker). More are coming!
 
 = Information form with custom fields  =
 
@@ -129,23 +117,16 @@ Want to get more info from your website visitors with the **WP poll plugin**? It
 
 = Anonymous polls =
 
-Do not want to trace the data to an individual participant? Anonymity is an inseparable part of research conducting, particularly in Europe. After activating the *allow anonymity* option, WP User and the User IP will not be collected in your database.  Furthermore, [anonymous feedback](https://www.youtube.com/watch?v=JrTkFtliTVQ) can give valuable and more accurate answers. Protect the rights of your participants **under GDPR** with us. Please note that the option is available on the [Premium version](https://ays-pro.com/wordpress/poll-maker).
+Anonymous polls are essential for trustworthy opinion polling, especially when you want honest feedback without linking responses to individual participants. This option is ideal for free online polls where privacy encourages higher user interaction and more accurate answers. After activating the *allow anonymity* option, WP User and the User IP will not be collected in your database.  Furthermore, [anonymous feedback](https://www.youtube.com/watch?v=JrTkFtliTVQ) can give valuable and more accurate answers. You can still present the outcomes as visual poll results, while fully protecting participant rights under **GDPR**. Please note that the option is available on the [Premium version](https://ays-pro.com/wordpress/poll-maker).
 
 = Templates and style options =
 
-This *WordPress election voting plugin* has 7 awesome templates (4 of them available only in the [Pro version](https://ays-pro.com/wordpress/poll-maker)). You can choose your preferred template and customize it with style options in our free online poll maker plugin. There are **30+ style options** for customizing the design. You can customize colors, images, borders, backgrounds.
+This **easy poll plugin** helps you create engaging interactive content using 7 ready-made templates (4 of them available only in the [Pro version](https://ays-pro.com/wordpress/poll-maker)). There are **30+ style options** for customizing the design. You can customize colors, images, borders, backgrounds.
+As a lightweight poll plugin, it lets you choose a template and customize it using flexible style options in our free online poll maker - no coding required.
 
 = Additional functionalities(Shortcodes) =  
 
 This plugin offers several additional functionalities in the form of shortcodes. The *shortcode for all polls* will print all published polls after each other. So your website visitors can participate in all your polls simultaneously. The *Shortcode result by ID* will display only the result page of the particular form. Assume that it is already over and you want to show the results to your participants. In that case, this shortcode will be of help to you. You can choose to show the results via interactive charts: **Bar chart, Pie chart,** or **Column chart**. Other two awesome shortcodes that the plugin offers are the *Categories shortcode* and *Global leaderboard*. The latter one prints the list of top users who have voted your forms.
-
-= Social sharing =
-
-The social share opportunity is another awesome option that this WordPress Poll plugin offers you. By enabling the option,  the responders will be able to share the voting form to their social accounts: Facebook, Twitter, and LinkedIn. This will have a huge impact on the awareness and popularity of your form. Moreover, it will boost the traffic to your website. It is Great, isn't it?
-
-= Mailchimp integration  =
-
-MailChimp is a powerful online tool for **email marketing**. We've made integration with Mailchimp, which allows you to collect users' emails automatically. It saves a lot of time and allows you to make a huge community.
 
 
 = Voting Plugin =
@@ -170,6 +151,7 @@ Use a voting form to engage your audience, gather information, and improve your 
 * Style settings (10+)
 * Two themes
 * Live preview
+* Schedule Poll
 
 
 **[PRO](https://ays-pro.com/wordpress/poll-maker) Features**
@@ -228,10 +210,6 @@ If you want to create powerful and simple polls, it is essential to have a tool 
 Searching on *how to make a poll on your website?* Feel free to check out the following [User Manual](https://ays-pro.com/wordpress-poll-maker-user-manual).
 
 This *WordPress easy polling plugin* also has a widget possibility, and while installing the plugin, the widget is also installed. Many websites are most likely to place the form on the sidebar keeping it dominant. So your clients do not need to waste their time participating in some elections; they just do it on the spot with one click, which provides a huge amount of results. 
-By the way, we have created an awesome [Survey Maker plugin for WordPress](https://ays-pro.com/wordpress/survey-maker/).
-
-
-**New Chart Builder plugin:** Create static and dynamic charts for your WordPress website using our [WordPress Chart plugin](https://wordpress.org/plugins/chart-builder/). Transfer your data into charts easily.
 
 Don't forget that, in case of any problems or upcoming questions, please contact us via this [FREE SUPPORT FORUM](https://wordpress.org/support/plugin/poll-maker/).
 
@@ -263,7 +241,6 @@ Don't forget that, in case of any problems or upcoming questions, please contact
 9.  Poll Maker - dashboard preview gif
 
 == Installation ==
-
 
 There are two ways to install Poll maker: the easy way, when you install Poll maker from your WordPress dashboard, and the not so easy way, when you install it from WordPress.org.
 
@@ -353,6 +330,72 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 6.2.2 ( February 03, 2026 ) =
+* Added: User Registered message variable on the general settings
+
+= 6.2.1 ( January 27, 2026 ) =
+* Improved: Some changes on the admin dashboard
+* Updated: POT and Po files
+
+= 6.2.0 ( January 20, 2026 ) =
+* Added: Site Description message variable on the general settings
+
+= 6.1.9 ( January 14, 2026 ) =
+* Improved: Some changes on the admin dashboard
+
+= 6.1.8 ( January 08, 2026 ) =
+* Added: User ID message variable on the general settings
+
+= 6.1.7 ( December 24, 2025 ) =
+* Improved: Some changes on the admin dashboard
+
+= 6.1.6 ( December 16, 2025 ) =
+* Added: Current month message variable on the general settings
+
+= 6.1.5 ( December 09, 2025 ) =
+* Added: Current day message variable on the general settings
+
+= 6.1.4 ( December 05, 2025 ) =
+* Improved: Some changes on the admin dashboard
+* Updated: POT file
+
+= 6.1.3 ( December 02, 2025 ) =
+* Added: Current time message variable on the general settings
+* Improved: Some changes on the admin dashboard
+* Tested: Compatible up to WP 6.9
+
+= 6.1.2 ( November 25, 2025 ) =
+* Improved: Some changes on the admin dashboard
+
+= 6.1.1 ( November 20, 2025 ) =
+* Added: "Black Friday Deal" Banner
+
+= 6.1.0 ( November 18, 2025 ) =
+* Added: Post author roles message variable on the general settings
+* Improved: Some changes on the admin dashboard
+
+= 6.0.9 ( November 11, 2025 ) =
+* Added: Current poll author Website URL message variable on the general settings
+* Improved: Some changes on the admin dashboard
+
+= 6.0.8 ( November 04, 2025 ) =
+* Updated: POT file
+* Fixed: Code correction on the admin dashboard
+
+= 6.0.7 ( October 28, 2025 ) =
+* Added: Current poll author display name message variable on the general settings
+* Improved: Some changes on the admin dashboard
+
+= 6.0.6 ( October 21, 2025 ) =
+* Improved: Some changes on the admin dashboard
+
+= 6.0.5 ( October 14, 2025 ) =
+* Added: Post Author Website URL message variable on the general settings
+* Improved: Some changes on the admin dashboard
+
+= 6.0.4 ( October 08, 2025 ) =
+* Improved: Some changes on the admin dashboard
 
 = 6.0.3 ( October 03, 2025 ) =
 * Added: Post Author Display name message variable on the general settings

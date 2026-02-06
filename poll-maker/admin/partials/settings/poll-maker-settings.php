@@ -2571,6 +2571,36 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
                                 <p class="vmessage">
                                     <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_time%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The time of the submission poll.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_day%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The day of the submission poll.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_month%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The month of the submission poll.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
                                         <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_page_link%%" class='ays-poll-message-variables-inputs'/>
                                     </strong>
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
@@ -2596,6 +2626,26 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
                                     <span class="ays-poll-message-variables-hint-text">
                                         <?php echo esc_html__( "Shows the current poll author's email that was filled in their WordPress profile.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_author_display_name%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "Shows the current poll author's Display name that was filled in their WordPress profile.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_author_website_url%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "Shows the current poll author's Website URL that was filled in their WordPress profile.", "poll-maker"); ?>
                                     </span>
                                 </p>
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
@@ -2656,6 +2706,26 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
                                     <span class="ays-poll-message-variables-hint-text">
                                         <?php echo esc_html__( "The user's IP address.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%user_id%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The user's ID when logged-in. In case the user is not logged-in, the field will be empty.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%user_registered%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The user's registration date when logged-in. In case the user is not logged-in, the field will be empty.", "poll-maker"); ?>
                                     </span>
                                 </p>
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
@@ -2751,6 +2821,26 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
                                 <p class="vmessage">
                                     <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%post_author_website_url%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The website url of the author of the post.", "poll-maker"); ?>
+                                    </span>
+                                </p>    
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%post_author_roles%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The role(s) of the author of the post when logged-in. In case the user is not logged-in, the field will be empty.", "poll-maker"); ?>
+                                    </span>
+                                </p>   
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
                                         <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%post_id%%" class='ays-poll-message-variables-inputs'/>
                                     </strong>
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
@@ -2766,6 +2856,16 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
                                     <span class="ays-poll-message-variables-hint-text">
                                         <?php echo esc_html__( "The title of the website.", "poll-maker"); ?>
+                                    </span>
+                                </p>    
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%site_description%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The description of the website.", "poll-maker"); ?>
                                     </span>
                                 </p> 
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">

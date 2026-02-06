@@ -17,7 +17,13 @@
             <h4><?php echo esc_html__( "Learn How to Use Custom Fields in Poll Maker", "poll-maker" ); ?></h4>
         </div>
         <div class="ays-poll-how-to-user-custom-fields-youtube-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/LnaTowgH29c" loading="lazy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="ays-poll-community-youtube-video">
+                <div class="ays-poll-create-poll-youtube-video">
+                    <div class="ays-poll-youtube-placeholder" data-video-id="LnaTowgH29c">
+                        <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL .'/images/custom-fields-in-poll.webp'); ?>" loading="lazy" width="560" height="315">
+                    </div>
+                </div>                
+            </div>
         </div>
     </div>
     <div class="form-group row" style="margin: 20px 0 0 0;">

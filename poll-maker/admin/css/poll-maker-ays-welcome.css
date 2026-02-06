@@ -1,3 +1,4 @@
+body[class*="page_poll-maker-ays-dashboard"] .notice,
 #ays-poll-dicount-month-main,
 .ays-notice-banner{
     display: none !important;

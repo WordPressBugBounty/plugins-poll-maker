@@ -748,8 +748,8 @@ a.add-poll-bg-music {
 .ays-poll-question-image-container{
     position: relative;
     width: 360px;
-    /* display: none; */
     margin: 10px auto;
+    max-width: 100%;
 }
 
 .ays-poll-bg-image-container{
@@ -5722,6 +5722,24 @@ div.wrap h1.wp-heading-inline .ays-poll-add-new-cat-button:hover {
     margin: 0 auto;
 }
 
+.ays-poll-create-poll-youtube-video iframe {
+    max-width: 100%;
+}
+
+.ays-poll-youtube-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+    div.ays-poll-youtube-placeholder {
+        width: 100%;
+        height: auto;
+    }
+}
+
 .ays-poll-add-new-button-video{
     background-color: #08A9BE;
     color: #fff !important;
@@ -6941,5 +6959,16 @@ body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-actions {
     
     .ays-notice-banner .modile-ddmenu-sm, .ays-notice-banner .modile-ddmenu-md{
         width: fit-content;
+    }
+}
+
+@media screen and (max-width: 1600px) and (min-width:769px) {
+    body.toplevel_page_poll-maker-ays div.ays-top-menu-wrapper div.ays-top-menu {
+        flex-direction:column-reverse;
+        align-items: flex-end
+    }
+
+    body.toplevel_page_poll-maker-ays div.ays-top-menu-wrapper div.ays-top-menu div.ays-top-tab-wrapper {
+        width: 100%;
     }
 }

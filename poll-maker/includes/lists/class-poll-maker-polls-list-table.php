@@ -1268,13 +1268,13 @@ class Polls_List_Table extends WP_List_Table {
                 }
 
 				$new_post = array(
-                    'post_title' => $title,
-                    'post_content' => $post_content,
-                    'post_status' => 'publish',
-                    'post_date' => current_time( 'mysql' ),
-                    'post_author' => $user_ID,
-                    'post_type' => 'post',
-                    'post_category' => $add_postcat_for_poll
+                    'post_title' 		=> $title,
+                    'post_content' 		=> $post_content,
+                    'post_status' 	    => 'publish',
+                    'post_date' 		=> current_time( 'mysql' ),
+                    'post_author' 		=> $user_ID,
+                    'post_type' 	    => 'post',
+                    'post_category' 	=> $add_postcat_for_poll
 				);
 				$post_id = wp_insert_post($new_post);
                 if(! empty($image)){
@@ -1712,17 +1712,17 @@ class Polls_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 			'cb'				=> '<input type="checkbox" />',
-			'title'        		=>esc_html__('Title', "poll-maker"),
-			'poll_image'        =>esc_html__('Question image', "poll-maker"),
-			'type'         		=>esc_html__('Type', "poll-maker"),
-			'shortcode'   		=>esc_html__('Shortcode', "poll-maker"),
-			'code_include' 		=>esc_html__('Code Include', "poll-maker"),
-			'results'      		=>esc_html__('Results', "poll-maker"),
-			'categories'   		=>esc_html__('Categories', "poll-maker"),
-			'create_date'   	=>esc_html__('Created', "poll-maker" ),
-			'completed_count'   =>esc_html__('Completed count', "poll-maker" ),
-			'publish'      		=>esc_html__('Status', "poll-maker"),
-			'id'           		=>esc_html__('ID', "poll-maker"),
+			'title'        		=> esc_html__('Title', "poll-maker"),
+			'poll_image'        => esc_html__('Question image', "poll-maker"),
+			'type'         		=> esc_html__('Type', "poll-maker"),
+			'shortcode'   		=> esc_html__('Shortcode', "poll-maker"),
+			'code_include' 		=> esc_html__('Code Include', "poll-maker"),
+			'results'      		=> esc_html__('Results', "poll-maker"),
+			'categories'   		=> esc_html__('Categories', "poll-maker"),
+			'create_date'   	=> esc_html__('Created', "poll-maker" ),
+			'completed_count'   => esc_html__('Completed count', "poll-maker" ),
+			'publish'      		=> esc_html__('Status', "poll-maker"),
+			'id'           		=> esc_html__('ID', "poll-maker"),
 		);
 
 		return $columns;
@@ -2029,11 +2029,10 @@ class Polls_List_Table extends WP_List_Table {
             $where[] = sprintf(" categories LIKE('%%,%s,%%') ", esc_sql( $wpdb->esc_like( $cat_id ) ) );
 		}
 
-		if ( isset($_REQUEST['filterbyauthor'] ) && $_REQUEST['filterbyauthor'] > 0) {
-			$poll_author = esc_sql( sanitize_text_field( $_REQUEST['filterbyauthor'] ) );
-			
-			$where[] = " JSON_EXTRACT(styles, '$.poll_create_author') = " . ($poll_author);
-        }
+        if ( isset( $_REQUEST['filterbyauthor'] ) && absint( $_REQUEST['filterbyauthor'] ) > 0 ) {
+			$poll_author = absint( $_REQUEST['filterbyauthor'] );
+			$where[] = $wpdb->prepare( "JSON_EXTRACT(styles, '$.poll_create_author') = %d", $poll_author );
+		}
 
 		if(isset( $_REQUEST['filterbytype'] ) && $_REQUEST['filterbytype'] != "" ){
 			$type = esc_sql( sanitize_text_field( $_REQUEST['filterbytype'] ) );

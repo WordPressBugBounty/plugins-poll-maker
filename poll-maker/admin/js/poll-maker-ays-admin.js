@@ -2886,17 +2886,16 @@
     // Poll Responsive tabs end
 
 
-    var checkCountdownIsExists = $(document).find('#ays-poll-maker-countdown-main-container');
     // var checkCountdownIsExists = $(document).find('#ays-poll-countdown-main-container');
+    var checkCountdownIsExists = $(document).find('#ays-poll-maker-countdown-main-container');
     if ( checkCountdownIsExists.length > 0 ) {
         var second  = 1000,
             minute  = second * 60,
             hour    = minute * 60,
             day     = hour * 24;
 
+        // var pollCountdownEndTime = "DEC 05, 2025 23:59:59";
         var pollCountdownEndTime = pollLangObj.pollBannerDate;
-        // var pollCountdownEndTime = "DEC 09, 2024 23:59:59";
-        // var pollCountdownEndTime = "JAN 15, 2025 23:59:59";
         var countDown_new = new Date(pollCountdownEndTime).getTime();
         if ( isNaN(countDown_new) || isFinite(countDown_new) == false ) {
             var AYS_POLL_MILLISECONDS = 3 * day;

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Poll Maker\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-13 07:24+0300\n"
-"PO-Revision-Date: 2025-05-13 07:24+0300\n"
+"POT-Creation-Date: 2026-01-27 17:04+0300\n"
+"PO-Revision-Date: 2026-01-27 17:04+0300\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -11,181 +11,280 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n_noop:1,2;_x\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin/class-poll-maker-ays-admin.php:1818
-msgid "<span><a href='"
+#: ../admin/class-poll-maker-ays-admin.php:187
+msgid "Error"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1824
-msgid "30 Day Money Back Guarantee"
+#: ../admin/class-poll-maker-ays-admin.php:188
+msgid "Can't load resource."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1837
+#: ../admin/class-poll-maker-ays-admin.php:189
+msgid "Maybe something went wrong."
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:1766
+#: ../includes/class-poll-maker-feedback.php:131
+#: ../poll/poll-maker-block-new.js:64 ../poll/poll-maker-block.js:61
+msgid "Poll Maker"
+msgstr "Poll Maker"
+
+#: ../admin/class-poll-maker-ays-admin.php:1770
+msgid "CHRISTMAS SPECIAL"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:1776
+#, fuzzy
+#| msgid "Limitation of Users"
+msgid "Limited time offer"
+msgstr "Begränsning av Användare"
+
+#: ../admin/class-poll-maker-ays-admin.php:1780
+#: ../admin/class-poll-maker-ays-admin.php:3088
+msgid "Click to copy"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:1788
+#: ../admin/class-poll-maker-ays-admin.php:2421
+#: ../admin/class-poll-maker-ays-admin.php:3461
+#: ../admin/class-poll-maker-ays-admin.php:4264
+msgid "Buy Now"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:1798
+#: ../admin/class-poll-maker-ays-admin.php:2386
+#: ../admin/class-poll-maker-ays-admin.php:2531
+#: ../admin/class-poll-maker-ays-admin.php:3117
 msgid "Dismiss ad"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1855
+#: ../admin/class-poll-maker-ays-admin.php:1820
+msgid "Coupon code copied!"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:2201
+msgid "Coupon Code"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:2227
 msgid "Days"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1856
+#: ../admin/class-poll-maker-ays-admin.php:2228
 msgid "Hours"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1857
+#: ../admin/class-poll-maker-ays-admin.php:2229
 #, fuzzy
 #| msgid "Minute(s)"
 msgid "Minutes"
 msgstr "Minut(er)"
 
-#: ../admin/class-poll-maker-ays-admin.php:1858
+#: ../admin/class-poll-maker-ays-admin.php:2230
 msgid "Seconds"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1875
-#: ../admin/class-poll-maker-ays-admin.php:3152
-msgid "Buy Now"
+#: ../admin/class-poll-maker-ays-admin.php:2244
+msgid "Get Your Deal"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:1877
+#: ../admin/class-poll-maker-ays-admin.php:2359
+#, php-format
+msgid "%1$s Mega Bundle %2$s (Quiz + Survey + Poll)"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:2366
+msgid "30 Day Money Back Guarantee"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:2423
 msgid "One-time payment"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2898
+#: ../admin/class-poll-maker-ays-admin.php:2475
+msgid "days"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:2480
+msgid "hours"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:2485
+#, fuzzy
+#| msgid "Minute(s)"
+msgid "minutes"
+msgstr "Minut(er)"
+
+#: ../admin/class-poll-maker-ays-admin.php:2490
+msgid "seconds"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:3081
+#, php-format
+msgid "Get the Pro Version of %s Poll Maker%s – 20%% OFF"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:3082
+msgid "Unlock advanced features + 30 day Money Back Guarantee"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:3097
+msgid "Only"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:3097
+msgid "of 50 discounted licenses left"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:3109
+msgid "Upgrade Now"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:3399
+msgid "<span><a href='"
+msgstr ""
+
+#: ../admin/class-poll-maker-ays-admin.php:4010
 msgid "Fox LMS"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2899
+#: ../admin/class-poll-maker-ays-admin.php:4011
 msgid "Build and manage online courses directly on your WordPress site."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2900
+#: ../admin/class-poll-maker-ays-admin.php:4012
 msgid ""
 "With the FoxLMS plugin, you can create, sell, and organize courses, lessons, "
 "and quizzes, transforming your website into a dynamic e-learning platform."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2907
+#: ../admin/class-poll-maker-ays-admin.php:4019
 msgid "Quiz Maker"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2908
+#: ../admin/class-poll-maker-ays-admin.php:4020
 msgid "With our Quiz Maker plugin it’s easy to make a quiz in a short time."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2909
+#: ../admin/class-poll-maker-ays-admin.php:4021
 msgid ""
 "You to add images to your quiz, order unlimited questions. Also you can "
 "style your quiz to satisfy your visitors."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2916
+#: ../admin/class-poll-maker-ays-admin.php:4028
 msgid "Survey Maker"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2917
+#: ../admin/class-poll-maker-ays-admin.php:4029
 msgid ""
 "Make amazing online surveys and get real-time feedback quickly and easily."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2918
+#: ../admin/class-poll-maker-ays-admin.php:4030
 msgid ""
 "Learn what your website visitors want, need, and expect with the help of "
 "Survey Maker. Build surveys without limiting your needs."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2925
+#: ../admin/class-poll-maker-ays-admin.php:4037
 msgid "Popup Box"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2926
+#: ../admin/class-poll-maker-ays-admin.php:4038
 msgid ""
 "Popup everything you want! Create informative and promotional popups all in "
 "one plugin."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2927
+#: ../admin/class-poll-maker-ays-admin.php:4039
 msgid ""
 "Attract your visitors and convert them into email subscribers and paying "
 "customers."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2934
+#: ../admin/class-poll-maker-ays-admin.php:4046
 msgid "Gallery Photo Gallery"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2935
+#: ../admin/class-poll-maker-ays-admin.php:4047
 msgid ""
 "Create unlimited galleries and include unlimited images in those galleries."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2936
+#: ../admin/class-poll-maker-ays-admin.php:4048
 msgid ""
 "Represent images in an attractive way. Attract people with your own single "
 "and multiple free galleries from your photo library."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2943
+#: ../admin/class-poll-maker-ays-admin.php:4055
 msgid "Secure Copy Content Protection"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2944
+#: ../admin/class-poll-maker-ays-admin.php:4056
 msgid ""
 "Disable the right click, copy paste, content selection and copy shortcut "
 "keys on your website."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2945
+#: ../admin/class-poll-maker-ays-admin.php:4057
 msgid ""
 "Protect web content from being plagiarized. Prevent plagiarism from your "
 "website with this easy to use plugin."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2952
+#: ../admin/class-poll-maker-ays-admin.php:4064
 msgid "Personal Dictionary"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2953
+#: ../admin/class-poll-maker-ays-admin.php:4065
 msgid ""
 "Allow your students to create personal dictionary, study and memorize the "
 "words."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2954
+#: ../admin/class-poll-maker-ays-admin.php:4066
 msgid ""
 "Allow your users to create their own digital dictionaries and learn new "
 "words and terms as fastest as possible."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2961
+#: ../admin/class-poll-maker-ays-admin.php:4073
 msgid "Chart Builder"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2962
+#: ../admin/class-poll-maker-ays-admin.php:4074
 msgid "Chart Builder plugin allows you to create beautiful charts"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2963
+#: ../admin/class-poll-maker-ays-admin.php:4075
 msgid " and graphs easily and quickly."
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2970
+#: ../admin/class-poll-maker-ays-admin.php:4082
 msgid "Easy Form"
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2971
+#: ../admin/class-poll-maker-ays-admin.php:4083
 msgid "Choose the best WordPress form builder plugin. "
 msgstr ""
 
-#: ../admin/class-poll-maker-ays-admin.php:2972
+#: ../admin/class-poll-maker-ays-admin.php:4084
 msgid ""
 "Create contact forms, payment forms, surveys, and many more custom forms. "
 "Build forms easily with us."
+msgstr ""
+
+#: ../includes/class-poll-maker-feedback.php:108
+#, php-format
+msgid "Contact our %s support team %s to find and fix the issue."
 msgstr ""
 
 #: ../includes/lists/class-poll-maker-categories-list-table.php:202
@@ -200,10 +299,6 @@ msgstr "Det finns inga resultat ännu."
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1485
 msgid "There are no polls yet."
 msgstr "Det finns inga omröstningar ännu."
-
-#: ../poll/poll-maker-block-new.js:64 ../poll/poll-maker-block.js:61
-msgid "Poll Maker"
-msgstr "Poll Maker"
 
 #: ../poll/poll-maker-block-new.js:78 ../poll/poll-maker-block.js:75
 msgid "Something went wrong please reload page"
@@ -1388,9 +1483,6 @@ msgstr "Välj Omröstning"
 #~ msgid "Descending"
 #~ msgstr "Fallande"
 
-#~ msgid "Limitation of Users"
-#~ msgstr "Begränsning av Användare"
-
 #~ msgid "Maximum number of attempts per user"
 #~ msgstr "Maximalt antal försök per användare"
 
@@ -2344,11 +2436,6 @@ msgstr "Välj Omröstning"
 #, fuzzy
 #~| msgid "Minute(s)"
 #~ msgid "minute"
-#~ msgstr "Minut(er)"
-
-#, fuzzy
-#~| msgid "Minute(s)"
-#~ msgid "minutes"
 #~ msgstr "Minut(er)"
 
 #, fuzzy

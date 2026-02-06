@@ -251,7 +251,8 @@ class Poll_Maker_Ays {
 
         // Add footer message
         $this->loader->add_action( 'in_admin_footer', $plugin_admin, 'poll_maker_admin_footer', 1 );
-
+        // $this->loader->add_action( 'in_admin_footer', $plugin_admin, 'ays_poll_black_friady_popup_box', 10 );
+        
         // Add aditional links to the plugin
         $this->loader->add_filter( 'plugin_row_meta', $plugin_admin, 'add_poll_row_meta' , 10 , 2 );
 
@@ -260,7 +261,7 @@ class Poll_Maker_Ays {
         $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_maker_quick_start', $plugin_admin, 'ays_poll_maker_quick_start' );
         
         // Sale Banner
-        $this->loader->add_action( 'admin_notices', $plugin_admin, 'ays_poll_sale_baner', 1 );
+        $this->loader->add_action( 'admin_notices', $plugin_admin, 'ays_poll_sale_baner', 10 );
         $this->loader->add_action( 'admin_notices', $plugin_admin, 'display_poll_creation_popup' );
 
         $this->loader->add_action( 'wp_ajax_ays_poll_dismiss_button', $plugin_admin, 'ays_poll_dismiss_button' );

@@ -135,12 +135,63 @@ class Poll_Maker_Ays_Welcome {
         ) );
     }
 
+    private function get_latest_changelog_entries($limit = 3) {
+        $readme_path = plugin_dir_path(__FILE__) . '../README.txt';
+        if ( ! file_exists( $readme_path ) ) {
+            return array();
+        }
+
+        $content = file_get_contents( $readme_path );
+
+        // Extract only the Changelog section
+        if ( preg_match( '/==\s*Changelog\s*==(.*)/is', $content, $matches ) ) {
+            $changelog = trim($matches[1]);
+        } else {
+            return array();
+        }
+
+        // Split each version entry
+        preg_match_all( '/=+\s*(.*?)\s*=+\s*(.*?)(?=(?:=+\s*[\d\.]+|\Z))/is', $changelog, $entries, PREG_SET_ORDER );
+
+        $releases = array();
+        foreach ( $entries as $entry ) {
+            $title = trim($entry[1]);
+            $changes = trim($entry[2]);
+
+            // Extract version and date if available
+            if ( preg_match('/([\d\.]+).*?\((.*?)\)/', $title, $version_match) ) {
+                $version = trim($version_match[1]);
+                $date = trim($version_match[2]);
+            } else {
+                $version = $title;
+                $date = '';
+            }
+
+            // Split lines like * Added: Something
+            $lines = array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $changes)));
+            $lines = array_map(function($line) {
+                return preg_replace('/^\*\s*/', '', $line);
+            }, $lines);
+
+            $releases[] = array(
+                'version' => $version,
+                'date'    => $date,
+                'changes' => $lines,
+            );
+        }
+
+        return array_slice($releases, 0, $limit);
+    }
+
     /**
      * Getting Started screen. Shows after first install.
      *
      * @since 1.0.0
      */
     public function output($hide_close_button = false) {
+
+        $latest_changelog = $this->get_latest_changelog_entries(3);
+
         ?>
             <div class="ays-pm-w-container">
                 <!-- Header -->
@@ -303,38 +354,34 @@ class Poll_Maker_Ays_Welcome {
                 </section>
 
                 <!-- What's New -->
+                <?php
+                if ( ! empty( $latest_changelog ) ) :
+                ?>
                 <section class="ays-pm-w-section ays-pm-w-wn-section" style="position:relative;">
                     <div class="ays-pm-w-text-center">
                         <h2 class="ays-pm-w-header-title" style="font-size:1.5rem;"><?php echo esc_html__( "What's New", "poll-maker" ); ?></h2>
-                        <button id="wn-toggle" aria-label="Toggle changelog visibility" class="ays-pm-w-wn-toggle" style="position:absolute; top:1rem; right:1rem; background:none;border:none;font-size:0.875rem;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:0.25rem;">Show More <span class="ays-pm-w-wn-arrow">▾</span></button>
+                        <button id="wn-toggle" class="ays-pm-w-wn-toggle" style="position:absolute; top:1rem; right:1rem; background:none;border:none;font-size:0.875rem;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:0.25rem;">Show More <span class="ays-pm-w-wn-arrow">▾</span></button>
                         <p class="ays-pm-w-header-desc" style="font-size:1rem;margin-top:0.5rem;"><?php echo esc_html__( "Latest updates and improvements to Poll Maker", "poll-maker" ); ?></p>
                     </div>
                     <div class="ays-pm-w-changelog ays-pm-w-collapsed" style="margin-top:2rem;">
-                        <!-- Release 6.0.3 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v6.0.3</span><span class="ays-pm-w-release-date">October 03, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Added: Post Author Display name message variable on the general settings', "poll-maker" ); ?></li>
-                                <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>
-                        <!-- Release 6.0.2 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v6.0.2</span><span class="ays-pm-w-release-date">September 23, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Improved: The banner style on the admin dashboard', "poll-maker" ); ?></li>                                
-                            </ul>
-                        </div>
-                        <!-- Release 6.0.1 -->
-                        <div class="ays-pm-w-release">
-                            <div class="ays-pm-w-release-header"><span class="ays-pm-w-badge">v6.0.1</span><span class="ays-pm-w-release-date">September 16, 2025</span></div>
-                            <ul class="ays-pm-w-release-list">
-                                <li><?php echo esc_html__( 'Added: Post Author Last name message variable on the general settings', "poll-maker" ); ?></li>
-                                <li><?php echo esc_html__( 'Improved: Some changes on the admin dashboard', "poll-maker" ); ?></li>
-                            </ul>
-                        </div>
+                        <?php foreach ( $latest_changelog as $release ) : ?>
+                            <div class="ays-pm-w-release">
+                                <div class="ays-pm-w-release-header">
+                                    <span class="ays-pm-w-badge">v<?php echo esc_html( $release['version'] ); ?></span>
+                                    <?php if ( ! empty( $release['date'] ) ) : ?>
+                                        <span class="ays-pm-w-release-date"><?php echo esc_html( $release['date'] ); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                                <ul class="ays-pm-w-release-list">
+                                    <?php foreach ( $release['changes'] as $change ) : ?>
+                                        <li><?php echo esc_html( $change ); ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                 </section>
+                <?php endif; ?>
             </div>
               <!-- Video Lightbox -->
             <div id="ays-pm-w-video-lightbox" class="ays-pm-w-video-lightbox">

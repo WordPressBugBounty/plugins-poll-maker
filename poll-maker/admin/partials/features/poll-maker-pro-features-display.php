@@ -52,7 +52,7 @@
                             <span style="text-decoration: line-through; color: red;">$75</span>
                         </div>
                         <div class="price-now">
-                            <span>$37</span>
+                            <span>$39</span>
                         </div>
                         <div class="ays-poll-pracing-table-td-flex">
                             <a href="https://ays-pro.com/wordpress/poll-maker" class="price-buy"><?php echo esc_html__('Buy now','poll-maker')?><span class="hide-mobile"></span></a>
@@ -76,7 +76,7 @@
                             <span span style="text-decoration: line-through; color: red;">$450</span>
                         </div>
                         <div class="price-now">
-                            <span>$299</span>
+                            <span>$249</span>
                         </div>
                         <div class="ays-poll-pracing-table-td-flex">
                             <a href="https://ays-pro.com/wordpress/poll-maker" class="price-buy"><?php echo esc_html__('Buy now','poll-maker')?><span class="hide-mobile"></span></a>
