@@ -1662,7 +1662,7 @@ class Polls_List_Table extends WP_List_Table {
 		$options = json_decode($res['styles'], true);
 		$status  = isset($options['published']) ? $options['published'] : 1;
 
-		return $status ? "<i class=\"ays_poll_far ays_poll_fa-check-square\"></i> " .esc_html__("Published", "poll-maker") : "<i class=\"ays_poll_far ays_poll_fa-square\"></i> " .esc_html__("Unpublished", "poll-maker");
+		return $status ? "<i class=\"ays_poll_far ays_poll_fa-check-square\"></i> " .esc_html__("Published", "poll-maker") : "<i class=\"ays_poll_far ays_poll_fa-xmark-square\"></i> " .esc_html__("Unpublished", "poll-maker");
 	}
 
 	function column_poll_image( $item ) {

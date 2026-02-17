@@ -329,6 +329,10 @@ div.ays-notice-banner{
     content: "\f14a";
 }
 
+.ays_poll_fa-xmark-square:before {
+    content: "\f410";
+}
+
 .ays_fa_arrow_down::before {
     content: "\f078";
 }
@@ -2329,11 +2333,13 @@ i.ays_poll_fa-check-square {
     color: var(--success);
 }
 
+i.ays_poll_fa-xmark-square {
+    color: var(--danger);
+}
 
 i.ays_poll_fa-square {
     color: var(--danger);
 }
-
 
 h1.wp-heading-inline {
     margin-bottom: 20px;
