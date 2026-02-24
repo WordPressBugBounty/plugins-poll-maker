@@ -2478,6 +2478,8 @@ blockquote.ays_poll_warning_triangle i {
     min-width: 150px;
     margin-right: 15px;
     border-bottom: none;
+    padding: 0;
+    background: revert;
 }
 
 .ays-settings-wrapper .nav-tab-wrapper .nav-tab {
@@ -2486,6 +2488,26 @@ blockquote.ays_poll_warning_triangle i {
     border: 1px solid #ccc;
     margin: 0;
     float: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #dcdcde;
+}
+
+.ays-settings-wrapper .nav-tab-wrapper .nav-tab-active, 
+.ays-settings-wrapper .nav-tab-wrapper .nav-tab-active:focus, 
+.ays-settings-wrapper .nav-tab-wrapper .nav-tab-active:focus:active,
+.ays-settings-wrapper .nav-tab-wrapper .nav-tab-active:hover {
+    color: #000;
+    border: 1px solid #ccc;
+    background: #f0f0f1;
+    box-shadow: unset;
+}
+
+.ays-settings-wrapper .nav-tab-wrapper .nav-tab-active {
+    border-bottom: 1px solid #f0f0f1;
+    background: #f0f0f1;
+    color: #000;
 }
 
 .ays-settings-wrapper .nav-tab-wrapper .nav-tab:last-child {
@@ -4960,7 +4982,7 @@ div.ays-top-menu-wrapper {
 }
 div.ays-top-menu-wrapper div.ays-top-menu {
     overflow: hidden;
-    width: 98%;
+    width: 100%;
     margin: auto;
 }
 div.ays-top-menu-wrapper div.ays-top-menu div.ays-top-tab-wrapper {
@@ -4969,10 +4991,9 @@ div.ays-top-menu-wrapper div.ays-top-menu div.ays-top-tab-wrapper {
     transform: translate(0);
     transition: .5s ease-in-out;
     padding-right: 7px;
-    /* width: fit-content; */
-    width: 100%;
-    padding-bottom:4px;
-    padding-left:0.5rem;
+    padding-left: 0;
+    background: revert;
+    padding-bottom: 0;
 }
 /* Poll Responsive tabs end */
 
@@ -6613,8 +6634,11 @@ body.toplevel_page_poll-maker-ays .ays-poll-form .ays-top-menu-wrapper .nav-tab{
     padding-bottom:12px;
     background-color: transparent;
     border-bottom:1px solid #c7c3c3;
-    color:black;
-    margin-bottom:0px;
+    color: #333;
+    margin-bottom: 0px;
+    margin-right: 0;
+    padding: 5px 10px;
+    font-weight: 500;
 }
 .nav-tab {
     padding: 8px 25px;

@@ -622,13 +622,18 @@
         var elemenetID = $(this).attr('href');
         var activeTab = $(this).attr('data-title');
         var activeTabData = $(this).attr('data-tab');
+        var $this = $(this);
 
         $(document).find('.nav-tab-wrapper a.nav-tab').each(function () {
             if ($(this).hasClass('nav-tab-active')) {
                 $(this).removeClass('nav-tab-active');
             }
         });
-        $(this).addClass('nav-tab-active');
+
+        setTimeout(function() {
+             $this.addClass('nav-tab-active');
+        }, 50);
+
         $(document).find('.ays-poll-tab-content').each(function () {
             $(this).css('display', 'none');
         });
@@ -638,9 +643,11 @@
         $('.ays-poll-tab-content' + elemenetID).css('display', 'block');
         e.preventDefault();
     });
+
     $('.button-primary#ays-button').on('click', function () {
         $('#ays_poll_active_tab').val("General");
     });
+    
     $('.button-primary#ays-button-top').on('click', function () {
         $('#ays_poll_active_tab').val("General");
     });

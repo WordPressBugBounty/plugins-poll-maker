@@ -1452,6 +1452,8 @@ class Poll_Maker_Ays_Public {
 			border-radius: " . $buttons_border_radius . ";
 			color: ". $poll_button_text_color ." !important;
 			background: ". $button_bg_color ." !important;
+			border: none;
+			line-height: 12px !important;
 		}
 
 		#".$this_poll_id ." .apm-add-answer input.ays-poll-new-answer-apply-text{
