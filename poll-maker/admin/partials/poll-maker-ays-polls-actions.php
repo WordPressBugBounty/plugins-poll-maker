@@ -1065,7 +1065,7 @@ $emoji = array(
                             <div class="form-group row if-not-choosing-hide ays_poll_option_only_for_choosing_type" style="display: flex;">
                                 <div class="col-sm-3">
                                     <label for="ays-poll-answer" >
-                                        <?php echo esc_html__('Options', "poll-maker")?>
+                                        <?php echo esc_html__('Options', "poll-maker"); ?>
                                     </label>
                                 </div>
                                 <div class="col-sm-9 poll-type-block  ays-poll-type-block ays-poll-answers-table-scroll-mobile" >
@@ -1073,7 +1073,7 @@ $emoji = array(
                                         <div class='add-option-top-container'>
                                             <a class="ays-add-answer ays-click-once" id='add-answer'>
                                                 <img src= "<?php echo (esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/plus.svg') ?>" class='plus-sign'>
-                                                <span>Add Option</span>
+                                                <span><?php echo esc_html__('Add Option', "poll-maker"); ?></span>
                                             </a>
                                         </div>
                                     <table class="ays-answers-table" id="ays-answers-table" ays_default_count="<?php echo 2; ?>">
@@ -1223,7 +1223,7 @@ $emoji = array(
                                     <div class='add-option-top-container'>
                                         <a class="ays-add-answer" id='add-answer'>
                                             <img src= "<?php echo (esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/plus.svg') ?>" class='plus-sign'>
-                                            <span>Add Option</span>
+                                            <span><?php echo esc_html__('Add Option', "poll-maker"); ?></span>
                                         </a>
                                     </div> 		
                                     <input type="hidden" id="ays_poll_answers_count" value="<?php echo esc_attr($answers_count); ?>">
@@ -3343,7 +3343,7 @@ $emoji = array(
                             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff; overflow: visible; position: static; padding: 0; font-size: 16px">
                                 <span class="ays_save_as_default_content_for_mobile">
                                     <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" title="This property aviable only in pro version" style="text-decoration: none">
-                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="Save as default">
+                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="<?php echo esc_attr__( "Save as default", "poll-maker" ); ?>">
                                     </a>
                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__( "Saves the assigned settings of the current poll as default. After clicking on this button, each time creating a new poll, the system will take the settings and styles of the current poll. If you want to change and renew it, please click on this button on another poll.", "poll-maker" ); ?>">
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -4384,7 +4384,7 @@ $emoji = array(
                             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff; overflow: visible; position: static; padding: 0; font-size: 16px">
                                 <span class="ays_save_as_default_content_for_mobile">
                                     <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" title="This property aviable only in pro version" style="text-decoration: none">
-                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="Save as default">
+                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="<?php echo esc_attr__( "Save as default", "poll-maker" ); ?>">
                                     </a>
                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__( "Saves the assigned settings of the current poll as default. After clicking on this button, each time creating a new poll, the system will take the settings and styles of the current poll. If you want to change and renew it, please click on this button on another poll.", "poll-maker" ); ?>">
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -4989,7 +4989,7 @@ $emoji = array(
                             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff; overflow: visible; position: static; padding: 0; font-size: 16px">
                                 <span class="ays_save_as_default_content_for_mobile">
                                     <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" title="This property aviable only in pro version" style="text-decoration: none">
-                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="Save as default">
+                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="<?php echo esc_attr__( "Save as default", "poll-maker" ); ?>">
                                     </a>
                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__( "Saves the assigned settings of the current poll as default. After clicking on this button, each time creating a new poll, the system will take the settings and styles of the current poll. If you want to change and renew it, please click on this button on another poll.", "poll-maker" ); ?>">
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -5197,7 +5197,7 @@ $emoji = array(
                             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff; overflow: visible; position: static; padding: 0; font-size: 16px">
                                 <span class="ays_save_as_default_content_for_mobile">
                                     <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" title="This property aviable only in pro version" style="text-decoration: none">
-                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="Save as default">
+                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="<?php echo esc_attr__( "Save as default", "poll-maker" ); ?>">
                                     </a>
                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__( "Saves the assigned settings of the current poll as default. After clicking on this button, each time creating a new poll, the system will take the settings and styles of the current poll. If you want to change and renew it, please click on this button on another poll.", "poll-maker" ); ?>">
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -5451,7 +5451,7 @@ $emoji = array(
                             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff; overflow: visible; position: static; padding: 0; font-size: 16px">
                                 <span class="ays_save_as_default_content_for_mobile">
                                     <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" title="This property aviable only in pro version" style="text-decoration: none">
-                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="Save as default">
+                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="<?php echo esc_attr__( "Save as default", "poll-maker" ); ?>">
                                     </a>
                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__( "Saves the assigned settings of the current poll as default. After clicking on this button, each time creating a new poll, the system will take the settings and styles of the current poll. If you want to change and renew it, please click on this button on another poll.", "poll-maker" ); ?>">
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -6918,7 +6918,7 @@ $emoji = array(
                                             id="ays_poll_answer_redirect_delay"
                                             name="ays_poll_answer_redirect_delay"
                                             value="<?php echo $poll_every_answer_redirect_delay; ?>"/>
-                                        <span class="ays_poll_small_hint_text">Seconds</span>
+                                        <span class="ays_poll_small_hint_text"><?php echo esc_html__("Seconds", "poll-maker"); ?></span>
                                     </div>
                                 </div>
                                 <hr>
@@ -7224,7 +7224,7 @@ $emoji = array(
                                                 <div class="ays-poll-center-new-watch-video-demo-button">
                                                     <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/video_24x24.svg'?>" class="ays-poll-new-button-img-hide">
                                                     <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/video_24x24_hover.svg'?>" class="ays-poll-new-watch-video-button-hover">
-                                                    <?php echo esc_html__("Watch Video", "poll-maker"); ?>
+                                                    <span class="ays-poll-center-new-watch-video-demo-name"><?php echo esc_html__("Watch Video", "poll-maker"); ?></span>
                                                 </div>
                                             </div>
                                             <div class="ays-poll-center-big-upgrade-button-box">
@@ -7264,7 +7264,7 @@ $emoji = array(
                             <div class="pro_features pro_features_popup" style="background: none; box-shadow: none; color: #fff; overflow: visible; position: static; padding: 0; font-size: 16px">
                                 <span class="ays_save_as_default_content_for_mobile">
                                     <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" title="This property aviable only in pro version" style="text-decoration: none">
-                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="Save as default">
+                                        <input type="button" class="button ays_default_btn ays-loader-banner" value="<?php echo esc_attr__( "Save as default", "poll-maker" ); ?>">
                                     </a>
                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__( "Saves the assigned settings of the current poll as default. After clicking on this button, each time creating a new poll, the system will take the settings and styles of the current poll. If you want to change and renew it, please click on this button on another poll.", "poll-maker" ); ?>">
                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -7354,7 +7354,7 @@ $emoji = array(
                         <div class="ays_poll_layer_box">
                             <div class="ays-poll-close-layer">
                                 <div class="ays-poll-choose-type">
-                                    <p style="margin: 0;">Choose Your Poll Type</p>
+                                    <p style="margin: 0;"><?php echo esc_html__('Choose Your Poll Type', "poll-maker"); ?></p>
                                 </div>
                             </div>
                             <div class="ays_poll_layer_box_blocks">
@@ -7370,7 +7370,7 @@ $emoji = array(
                                         </div>
                                         <div class="ays_poll_layer_item_title">
                                             <p style="margin:0px;"><?php echo esc_html__('Choosing', "poll-maker") ?><p>
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/image-choosing/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/image-choosing/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>
@@ -7388,7 +7388,7 @@ $emoji = array(
                                         </div>
                                         <div class="ays_poll_layer_item_title">
                                             <p style="margin:0px;"><?php echo esc_html__('Rating', "poll-maker") ?><p>
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/rating-polls-rating-type/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/rating-polls-rating-type/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>
@@ -7406,8 +7406,7 @@ $emoji = array(
                                         </div>
                                         <div class="ays_poll_layer_item_title">
                                             <p style="margin:0px;"><?php echo esc_html__('Text', "poll-maker") ?><p>
-                                            <!-- <a href="https://bit.ly/3P42n1R" style="font-size:12px;font-style: italic;" target="_blank">View demo</a> -->
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/open-ended-question-polls-text-type/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/open-ended-question-polls-text-type/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>  
@@ -7423,7 +7422,7 @@ $emoji = array(
                                         </div>
                                         <div class="ays_poll_layer_item_title">
                                             <p style="margin:0px;"><?php echo esc_html__('Voting', "poll-maker") ?><p>
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/voting-polls-voting-type/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/voting-polls-voting-type/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>  
@@ -7450,8 +7449,7 @@ $emoji = array(
                                             		<?php echo esc_html__('Dropdown', "poll-maker") ?>
                                             	</a>
                                             <p>
-                                            <!-- <a href="https://bit.ly/3P42n1R" style="font-size:12px;font-style: italic;" target="_blank">View demo</a> -->
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/anonymous-polls-dropdown-type/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/anonymous-polls-dropdown-type/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>  
@@ -7478,8 +7476,7 @@ $emoji = array(
                                             		<?php echo esc_html__('Range', "poll-maker") ?>
                                             	</a>
                                             <p>
-                                            <!-- <a href="https://bit.ly/3P42n1R" style="font-size:12px;font-style: italic;" target="_blank">View demo</a> -->
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/slider-rating-polls-slider-type/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/slider-rating-polls-slider-type/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>  
@@ -7505,8 +7502,7 @@ $emoji = array(
                                             		<?php echo esc_html__('Versus', "poll-maker") ?>
                                             	</a>
                                             <p>
-                                            <!-- <a href="https://bit.ly/3P42n1R" style="font-size:12px;font-style: italic;" target="_blank">View demo</a> -->
-                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/versus-poll-versus-type/" style="font-size:14px;" target="_blank">View demo</a>
+                                            <a class="ays_poll_view_demo_link" href="https://poll-plugin.com/versus-poll-versus-type/" style="font-size:14px;" target="_blank"><?php echo esc_html__('View demo', "poll-maker"); ?></a>
                                             <i class="ays_poll_fas ays_poll_fa_play" aria-hidden="true"></i>
                                         </div>
                                         <div class="ays_poll_layer_item_description"></div>  
@@ -7515,7 +7511,7 @@ $emoji = array(
                             </div>        
                             <div class="ays_poll_select_button_layer">
                                 <div class="ays_poll_select_button_item">
-                                    <input type="button" class="ays_poll_layer_button" name="" value="Next" data-type="<?php echo $poll['type']; ?>">
+                                    <input type="button" class="ays_poll_layer_button" name="" value="<?php echo esc_attr__('Next', "poll-maker"); ?>" data-type="<?php echo $poll['type']; ?>">
                                     <input type="hidden"  name="ays-poll-type" id="poll_choose_type" value="<?php echo $poll['type']; ?>" >
                                 </div>
                             </div>

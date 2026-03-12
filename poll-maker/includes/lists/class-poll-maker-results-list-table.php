@@ -247,9 +247,17 @@ class Pma_Results_List_Table extends WP_List_Table {
 		$res = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}ayspoll_polls WHERE id={$item['id']}", "ARRAY_A");
 
 		$restitle = Poll_Maker_Ays_Admin::ays_restriction_string("word",stripcslashes($res['title']), $this->title_length);
-		$title   = sprintf('<a href="?page=%s-each&poll=%d&title=%s">' . $restitle . '</a>', esc_attr($_REQUEST['page']), absint($item['id']), stripslashes($res['title']));
+		$title   = sprintf('<a href="?page=%s-each&poll=%d&title=%s">' . $restitle . '</a>', esc_attr($_REQUEST['page']), absint($item['id']), stripslashes($res['title']));		
+
 		$actions = [
-			'delete' => sprintf('<a href="?page=%s&action=%s&result=%s&_wpnonce=%s">Delete</a>', esc_attr($_REQUEST['page']), 'delete', absint($item['id']), $delete_nonce),
+		    'delete' => sprintf(
+		        '<a href="?page=%s&action=%s&result=%s&_wpnonce=%s">%s</a>',
+		        esc_attr( $_REQUEST['page'] ),
+		        'delete',
+		        absint( $item['id'] ),
+		        $delete_nonce,
+		        __( 'Delete', 'poll-maker' )
+		    ),
 		];
 
 		return $title . $this->row_actions($actions);
@@ -318,10 +326,10 @@ class Pma_Results_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 			'cb'         => '<input type="checkbox" />',
-			'id'         =>esc_html__('ID',"poll-maker"),
 			'poll_title' =>esc_html__('Poll',"poll-maker"),
 			'voted'      =>esc_html__('Voters count',"poll-maker"),
-			'unread'     =>esc_html__('New results count',"poll-maker")
+			'unread'     =>esc_html__('New results count',"poll-maker"),
+			'id'         =>esc_html__('ID',"poll-maker")
 		);
 
 		return $columns;

@@ -353,7 +353,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <div class="col-sm-4">
                                     <label for="ays_delete_results_by">
                                         <?php echo esc_html__( "Delete results older then 'X' the month", "poll-maker" ); ?>
-                                        <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Specify count of months and save changes. Attention! it will remove submissions older than specified months permanently.', "poll-maker")?>">
+                                        <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Specify count of months and save changes. Attention! it will remove submissions older than specified months permanently.', "poll-maker"); ?>">
                                             <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                         </a>
                                     </label>
@@ -362,7 +362,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                     <input type="number" name="ays_delete_results_by" id="ays_delete_results_by" class="ays-text-input">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="submit" name="ays_submit" id="ays_submit" class="button button-primary ays-button" value="Apply changes">
+                                    <input type="submit" name="ays_submit" id="ays_submit" class="button button-primary ays-button" value="<?php echo esc_attr__('Apply changes', "poll-maker"); ?>">
                                 </div>
                             </div>
                         </fieldset>
@@ -749,7 +749,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                         <div class="col-sm-12">
                                             <div class="form-group row" aria-describedby="aaa">
                                                 <div class="col-sm-3">
-                                                    <button id="slackInstructionsPopOver" type="button" class="btn btn-info"
+                                                    <button id="slackInstructionsPopOver" style="color: white;" type="button" class="btn btn-info"
                                                             data-toggle="popover"
                                                             title="<?php echo esc_html__("Slack Integration Setup Instructions", "poll-maker") ?>"><?php echo esc_html__("Instructions", "poll-maker") ?></button>
                                                     
@@ -778,7 +778,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                 </div>
                                                 <div class="col-sm-9">
                                                     
-                                                        <span class="btn btn-success pointer-events-none">
+                                                        <span class="btn btn-success pointer-events-none" style="color: white;">
                                                         <?php echo esc_html__("Authorized", "poll-maker") ?></span>
                                                 </div>
                                             </div>
@@ -841,7 +841,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                         <div class="col-sm-12">
                                             <div class="form-group row" aria-describedby="aaa">
                                                 <div class="col-sm-3">
-                                                    <button id="googleInstructionsPopOver" type="button" class="btn btn-info" data-toggle="popover" title="" data-original-title="Google Integration Setup Instructions" aria-describedby="popover188544">Instructions</button>
+                                                    <button id="googleInstructionsPopOver" style="color: white;" type="button" class="btn btn-info" data-toggle="popover" title="" data-original-title="Google Integration Setup Instructions" aria-describedby="popover188544">Instructions</button>
                                                     <div class="d-none">
                                                         <p>1. <a href="https://console.developers.google.com/apis/credentials" target="_blank">Create</a> new Google Oauth cliend ID credentials (if you do not still have).</p>
                                                         <p>2. Choose the application type as <b>Web application</b></p>
@@ -1062,7 +1062,12 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                                 </div>
                                             </div>
                                             <blockquote>
-                                                <?php echo sprintf( esc_html__("You can get your API key from your <a href='#' target='_blank'>account</a>.", "poll-maker")); ?>
+                                            <?php 
+                                                printf(
+                                                    __( 'You can get your API key from your <a href="%s" target="_blank" rel="noopener">account</a>.', 'poll-maker' ),
+                                                    esc_url( '#' )
+                                                ); 
+                                            ?>
                                             </blockquote>
                                             <blockquote>
                                                 <?php echo esc_html__("For security reasons, unused API keys expire after 90 days. When that happens, you’ll need to generate a new key.", "poll-maker") ?>
@@ -1722,7 +1727,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                             <div class="ays-poll-center-new-watch-video-demo-button">
                                                 <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/video_24x24.svg'?>" class="ays-poll-new-button-img-hide">
                                                 <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/video_24x24_hover.svg'?>" class="ays-poll-new-watch-video-button-hover">
-                                                <?php echo esc_html__("Watch Video", "poll-maker"); ?>
+                                                <span class="ays-poll-center-new-watch-video-demo-name"><?php echo esc_html__("Watch Video", "poll-maker"); ?></span>
                                             </div>
                                         </div>
                                         <div class="ays-poll-center-big-upgrade-button-box">
@@ -1738,6 +1743,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 </div>
                             </div>                        
                         </fieldset>
+                        <hr>
                         <fieldset>
                             <legend>
                                 <strong style="font-size:30px;">[ ]</strong>
@@ -1758,7 +1764,7 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                             </label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text"  value='[ays_poll_cat_gleaderboard id="Your Poll Category ID"]'>
+                                            <input type="text" style="width: 100%;" value='[ays_poll_cat_gleaderboard id="Your Poll Category ID"]'>
                                         </div>
                                     </div>
                                     <hr/>

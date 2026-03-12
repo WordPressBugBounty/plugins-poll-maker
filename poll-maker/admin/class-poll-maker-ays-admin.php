@@ -1129,7 +1129,7 @@ class Poll_Maker_Ays_Admin {
 					}
 
 					$row .= "<tr class='ays_result_element'>
-                            <td>". $key ."</td>
+                            <td>". esc_html__( $key, "poll-maker") ."</td>
                             <td>". $value ."</td>
                             <td></td>
                             <td></td>
@@ -2143,7 +2143,7 @@ class Poll_Maker_Ays_Admin {
 
                             $content[] = '
                                 <span class="ays-poll-dicount-black-friday-banner-2025-coupon-wrapper">
-                                    <span class="ays-poll-dicount-black-friday-banner-2025-coupon-box" onclick="aysPollHalloweenCopyToClipboard(\'FREE2PROBF\')" title="Click to copy">
+                                    <span class="ays-poll-dicount-black-friday-banner-2025-coupon-box" onclick="aysPollHalloweenCopyToClipboard(\'FREE2PROBF\')" title="' . __( 'Click to copy', "poll-maker" ) . '">
                                         <span class="ays-poll-dicount-black-friday-banner-2025-coupon-text">FREE2PROBF</span>
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ays-poll-dicount-black-friday-banner-2025-copy-icon">
                                             <path d="M13.5 2.5H6.5C5.67 2.5 5 3.17 5 4V10C5 10.83 5.67 11.5 6.5 11.5H13.5C14.33 11.5 15 10.83 15 10V4C15 3.17 14.33 2.5 13.5 2.5ZM13.5 10H6.5V4H13.5V10ZM2.5 6.5V12.5C2.5 13.33 3.17 14 4 14H10V12.5H4V6.5H2.5Z" fill="white"/>
@@ -2455,7 +2455,7 @@ class Poll_Maker_Ays_Admin {
                         <div class="ays-poll-halloween-banner-2025-discount-section">
                             <div class="ays-poll-halloween-banner-2025-discount">50% OFF</div>
                             <div class="ays-poll-halloween-banner-2025-coupon-wrapper">
-                                <div class="ays-poll-halloween-banner-2025-coupon-box" onclick="aysPollHalloweenCopyToClipboard(\'HALLOWEEN25\')" title="Click to copy">
+                                <div class="ays-poll-halloween-banner-2025-coupon-box" onclick="aysPollHalloweenCopyToClipboard(\'HALLOWEEN25\')" title="' . __( 'Click to copy', "poll-maker" ) . '">
                                     <span class="ays-poll-halloween-banner-2025-coupon-text">HALLOWEEN25</span>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ays-poll-halloween-banner-2025-copy-icon">
                                         <path d="M13.5 2.5H6.5C5.67 2.5 5 3.17 5 4V10C5 10.83 5.67 11.5 6.5 11.5H13.5C14.33 11.5 15 10.83 15 10V4C15 3.17 14.33 2.5 13.5 2.5ZM13.5 10H6.5V4H13.5V10ZM2.5 6.5V12.5C2.5 13.33 3.17 14 4 14H10V12.5H4V6.5H2.5Z" fill="white"/>
@@ -3424,38 +3424,38 @@ class Poll_Maker_Ays_Admin {
 			return;
 		}
         
-        $title   =esc_html__( 'General Information:', "poll-maker");
+        $title   = esc_html__( 'General Information:', "poll-maker");
         $content_text = '<div>
-							<span>The WordPress Poll Maker plugin is here to help you quickly create advanced-level online polls and make your WordPress website more interactive. Use it to conduct elections, surveys and etc. Easily generate poll types like;</span>
+							<span>'. esc_html__( "The WordPress Poll Maker plugin is here to help you quickly create advanced-level online polls and make your WordPress website more interactive. Use it to conduct elections, surveys and etc. Easily generate poll types like;", "poll-maker") .'</span>
 						</div>
 						<br>
         				<div>
-							<span><strong>Choosing</strong> – create many options and let your users choose, or add their custom answers.</span>
+							<span><strong>'. esc_html__( "Choosing", "poll-maker") .'</strong> – '. esc_html__( "create many options and let your users choose, or add their custom answers.", "poll-maker") .'</span>
 						</div>
         				<div>
-							<span><strong>Rating</strong> – with this poll type, the visitors will be able to weigh via a 1-5 star rating system or emojis via the graphical interface.</span>
+        					<span><strong>'. esc_html__( "Rating", "poll-maker") .'</strong> – '. esc_html__( "with this poll type, the visitors will be able to weigh via a 1-5 star rating system or emojis via the graphical interface.", "poll-maker") .'</span>
 						</div>
         				<div>
-							<span><strong>Voting</strong> – make the participants evaluate your product by using like/dislike buttons or smiley/frown emojis.</span>
+        					<span><strong>'. esc_html__( "Voting", "poll-maker") .'</strong> – '. esc_html__( "make the participants evaluate your product by using like/dislike buttons or smiley/frown emojis.", "poll-maker") .'</span>
 						</div>
         				<div>
-							<span><strong>Versus</strong> – Select two statements or images that are opposed to each other, and make your users choose the perfect one.</span>
+        					<span><strong>'. esc_html__( "Versus", "poll-maker") .'</strong> – '. esc_html__( "Select two statements or images that are opposed to each other, and make your users choose the perfect one.", "poll-maker") .'</span>
 						</div>
         				<div>
-							<span><strong>Range</strong> – the users will be able to choose the answer across the 0-100 scale.</span>
+        					<span><strong>'. esc_html__( "Range", "poll-maker") .'</strong> – '. esc_html__( "the users will be able to choose the answer across the 0-100 scale.", "poll-maker") .'</span>
 						</div>
         				<div>
-							<span><strong>Text</strong> – with this poll type the visitors should write down their own answers on the text boundaries.</span>
+        					<span><strong>'. esc_html__( "Text", "poll-maker") .'</strong> – '. esc_html__( "with this poll type the visitors should write down their own answers on the text boundaries.", "poll-maker") .'</span>
 						</div>
         				<div>
-							<span><strong>Dropdown</strong> – the users will choose the multiple-choice answers from a list of answers appeared in a dropdown form.</span>
+        					<span><strong>'. esc_html__( "Dropdown", "poll-maker") .'</strong> – '. esc_html__( "the users will choose the multiple-choice answers from a list of answers appeared in a dropdown form.", "poll-maker") .'</span>
 						</div>
 						<br>
         				<div>
-							<span>Increase engagement of your website with the integrated,  formatting, image, audio, video poll question types feature.</span>
+        					<span>'. esc_html__( "Increase engagement of your website with the integrated,  formatting, image, audio, video poll question types feature.", "poll-maker") .'</span>
 						</div>';
 
-        $sidebar_content = '<p><strong>' .esc_html__( 'For more information:', "poll-maker") . '</strong></p>' .
+        $sidebar_content = '<p><strong>'. esc_html__( 'For more information:', "poll-maker") .'</strong></p>' .
                             '<p>
                                 <a href="https://www.youtube.com/watch?v=RDKZXFmG6Pc" target="_blank">' .esc_html__( 'YouTube video tutorials' , "poll-maker" ) . '</a>
                             </p>' .
@@ -3474,7 +3474,7 @@ class Poll_Maker_Ays_Admin {
 		$content .= '<div>' . $content_text . '</div>';
 
         $help_tab_content = array(
-            'id'      => 'survey_maker_help_tab',
+            'id'      => 'poll_maker_help_tab',
             'title'   => $title,
             'content' => $content
         );

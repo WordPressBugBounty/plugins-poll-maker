@@ -360,7 +360,7 @@ class Poll_Maker_Ays_Welcome {
                 <section class="ays-pm-w-section ays-pm-w-wn-section" style="position:relative;">
                     <div class="ays-pm-w-text-center">
                         <h2 class="ays-pm-w-header-title" style="font-size:1.5rem;"><?php echo esc_html__( "What's New", "poll-maker" ); ?></h2>
-                        <button id="wn-toggle" class="ays-pm-w-wn-toggle" style="position:absolute; top:1rem; right:1rem; background:none;border:none;font-size:0.875rem;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:0.25rem;">Show More <span class="ays-pm-w-wn-arrow">▾</span></button>
+                        <button id="wn-toggle" class="ays-pm-w-wn-toggle" style="position:absolute; top:1rem; right:1rem; background:none;border:none;font-size:0.875rem;color:#2563eb;cursor:pointer;display:flex;align-items:center;gap:0.25rem;"><?php echo esc_html__( "Show More", "poll-maker" ); ?> <span class="ays-pm-w-wn-arrow">▾</span></button>
                         <p class="ays-pm-w-header-desc" style="font-size:1rem;margin-top:0.5rem;"><?php echo esc_html__( "Latest updates and improvements to Poll Maker", "poll-maker" ); ?></p>
                     </div>
                     <div class="ays-pm-w-changelog ays-pm-w-collapsed" style="margin-top:2rem;">

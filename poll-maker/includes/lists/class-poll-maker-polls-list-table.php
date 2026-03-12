@@ -123,7 +123,7 @@ class Polls_List_Table extends WP_List_Table {
 				?>
 			</select>
 			<select name="filterbytype-<?php echo esc_attr( $which ); ?>" id="bulk-action-selector-<?php echo esc_attr( $which ); ?>">
-				<option value=""><?php echo esc_html__('Select Type', "poll-maker")?></option>
+				<option value=""><?php echo esc_html__('Select Type', "poll-maker"); ?></option>
 				<?php
 					foreach( $types as $type_key => $type){
 						$user_selected_type = ( isset($type_select) && $type == $type_select ) ? "selected" : "";
@@ -131,7 +131,7 @@ class Polls_List_Table extends WP_List_Table {
 					}
 				?>
 			</select>
-			<input type="button" id="doaction-<?php echo esc_attr($which); ?>" class="ays-poll-question-tab-all-filter-button-<?php echo esc_attr($which); ?> button" value="Filter">
+			<input type="button" id="doaction-<?php echo esc_attr($which); ?>" class="ays-poll-question-tab-all-filter-button-<?php echo esc_attr($which); ?> button" value="<?php echo esc_attr__('Filter', "poll-maker"); ?>">
         </div>
 		<a href="?page=<?php echo esc_attr( $_REQUEST['page'] ); ?>" class="button actions_style"><?php echo esc_html__( "Clear filters", "poll-maker" ); ?></a>
         <?php
@@ -1567,7 +1567,7 @@ class Polls_List_Table extends WP_List_Table {
 
 	function column_shortcode( $item ) {
 		$shortcode_content = '<div class="ays-poll-shortcode-container">
-								<div class="ays-poll-copy-image" data-toggle="tooltip" aria-label="Click to copy" data-original-title="Click to copy">
+								<div class="ays-poll-copy-image" data-toggle="tooltip" aria-label="' . __( 'Click to copy', "poll-maker" ) . '" data-original-title="' . __( 'Click to copy', "poll-maker" ) . '">
 									<img src="' . esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/edit-shortcode.svg">
 								</div>';
 

@@ -138,7 +138,7 @@
                 <div>
                     <input type="hidden" name="page" value="poll-maker-ays-results">
                     <select name="filter_answer" <?php echo $disable_chart_filter; ?>>
-                        <option value="0"><?php echo esc_html__("Select Poll", "poll-maker")?></option>
+                        <option value="0"><?php echo esc_html__("Select Poll", "poll-maker"); ?></option>
                         <?php
                             $selected_poll = "";
                             $opt_cont = "";
@@ -153,7 +153,7 @@
                                 echo $opt_cont;                            
                         ?>
                     </select>
-                    <input type="submit" value="Filter" class="button action" <?php echo $disable_chart_filter; ?>>                          
+                    <input type="submit" value="<?php echo esc_attr__("Filter", "poll-maker"); ?>" class="button action" <?php echo $disable_chart_filter; ?>>                          
                     <input type="hidden" name="active-tab" value="tab2">
                 </div>
                 <div id="ays_poll_answer_chart" style = "width: 100%;">

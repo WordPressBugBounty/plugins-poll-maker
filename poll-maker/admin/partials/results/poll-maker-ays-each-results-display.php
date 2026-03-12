@@ -81,8 +81,8 @@
                 <img class="loader" src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/loaders/tail-spin.svg">
             </div>
             <div class="ays-modal-header">
-                <span class="ays-close" id="ays-close-results">&times;</span>
                 <h2><?php echo esc_html__("Details report", "poll-maker"); ?></h2>
+                <span class="ays-close" id="ays-close-results">&times;</span>
             </div>
             <div class="ays-modal-body" id="ays-results-body">
                 <table id="ays-results-table">
