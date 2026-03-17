@@ -81,6 +81,7 @@ $poll_message_vars = array(
     '%%current_month%%'                      =>esc_html__("Current Month", "poll-maker"),
     '%%current_poll_author%%'   		     =>esc_html__("Author of the current poll", "poll-maker"),
     '%%current_poll_author_email%%'          =>esc_html__("Author's Email of the current poll", "poll-maker"),
+    '%%current_poll_author_nickname%%'       =>esc_html__("Author's Nick Name of the current poll", "poll-maker"),
     '%%current_poll_author_display_name%%'   =>esc_html__("Author's Display Name of the current poll", "poll-maker"),
     '%%current_poll_author_website_url%%'    =>esc_html__("Author's Website URl of the current poll", "poll-maker"),
     '%%admin_email%%'  		                 =>esc_html__("Admin Email", "poll-maker"),    

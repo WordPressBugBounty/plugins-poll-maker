@@ -3250,6 +3250,7 @@ class Poll_Maker_Ays_Public {
 
 				$current_poll_author = esc_html__( "Unknown", "poll-maker" );
 				$current_poll_author_email = '';
+				$current_poll_author_nickname = '';
 				$current_poll_author_display_name = '';
 				$current_poll_author_website_url = '';
 				if( !empty($options['author']) ){
@@ -3263,6 +3264,7 @@ class Poll_Maker_Ays_Public {
 					if ( ! is_null( $current_poll_user_data ) && $current_poll_user_data ) {
 						$current_poll_author = ( isset( $current_poll_user_data->data->display_name ) && $current_poll_user_data->data->display_name != '' ) ? sanitize_text_field( $current_poll_user_data->data->display_name ) : "";
 						$current_poll_author_email = ( isset( $current_poll_user_data->data->user_email ) && $current_poll_user_data->data->user_email != '' ) ? sanitize_text_field( $current_poll_user_data->data->user_email ) : "";
+						$current_poll_author_nickname = ( isset( $current_poll_user_data->data->user_nicename ) && $current_poll_user_data->data->user_nicename != '' ) ? sanitize_text_field( $current_poll_user_data->data->user_nicename ) : "";
 						$current_poll_author_display_name = ( isset( $current_poll_user_data->data->display_name ) && $current_poll_user_data->data->display_name != '' ) ? sanitize_text_field( $current_poll_user_data->data->display_name ) : "";
 						$current_poll_author_website_url = ( isset( $current_poll_user_data->data->user_url ) && $current_poll_user_data->data->user_url != '' ) ? sanitize_text_field( $current_poll_user_data->data->user_url ) : "";
 					}
@@ -3403,6 +3405,7 @@ class Poll_Maker_Ays_Public {
 					'current_poll_page_link'      				=> $current_poll_page_link_html,
 					'current_poll_author'         				=> $current_poll_author,
 					'current_poll_author_email'   				=> $current_poll_author_email,
+					'current_poll_author_nickname'   			=> $current_poll_author_nickname,
 					'current_poll_author_display_name' 			=> $current_poll_author_display_name,
 					'current_poll_author_website_url'  			=> $current_poll_author_website_url,
 					'admin_email'   							=> $super_admin_email,

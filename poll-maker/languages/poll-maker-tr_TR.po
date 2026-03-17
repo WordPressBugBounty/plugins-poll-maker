@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Poll Maker &#8211; Versus Polls, Anonymous Polls, Image Polls - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-27 12:03+0000\n"
+"PO-Revision-Date: 2026-03-13 12:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -101,12 +101,12 @@ msgstr "#BLACKFRIDAY"
 msgid "%1$s Mega Bundle %2$s (Quiz + Survey + Poll)"
 msgstr "%1$s Mega Paket %2$s (Quiz + Anket + Oylama)"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1408
+#: ../admin/partials/settings/poll-maker-settings.php:1413
 #, php-format
 msgid "%1$sall%2$s"
 msgstr "%1$stümü%2$s"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1389
+#: ../admin/partials/settings/poll-maker-settings.php:1394
 #, php-format
 msgid "%1$sDisplay%2$s"
 msgstr "%1$sGörüntüle%2$s"
@@ -124,17 +124,17 @@ msgstr ""
 "oluşturduğunuz hiçbir şeyi yeniden yapmanıza gerek yoktur. Ayrıntılı "
 "talimatlar için lütfen %3$syükseltme rehberimize%4$s göz atın."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1398
+#: ../admin/partials/settings/poll-maker-settings.php:1403
 #, php-format
 msgid "%1$spublished%2$s"
 msgstr "%1$syayınlandı%2$s"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1498
+#: ../admin/partials/settings/poll-maker-settings.php:1503
 #, php-format
 msgid "%1$sRandom%2$s"
 msgstr "%1$sRastgele%2$s"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1507
+#: ../admin/partials/settings/poll-maker-settings.php:1512
 #, php-format
 msgid "%1$sRecent%2$s"
 msgstr "%1$sSon%2$s"
@@ -278,7 +278,7 @@ msgstr "a."
 msgid "Ability to add custom option"
 msgstr "Özel seçenek ekleme imkanı"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1915
+#: ../admin/partials/settings/poll-maker-settings.php:1921
 msgid "Ability to allow users to create a poll from the front-end."
 msgstr "Kullanıcıların ön yüzden anket oluşturmasına izin verme özelliği."
 
@@ -421,6 +421,11 @@ msgstr "Yeni kategori ekle"
 msgid "Add new poll"
 msgstr "Yeni anket ekle"
 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:1076 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:1226
+msgid "Add Option"
+msgstr "Seçenek Ekle"
+
 #: ../admin/class-poll-maker-ays-admin.php:639 
 #: ../includes/class-poll-maker-ays-welcome.php:235
 msgid "Add Options"
@@ -511,7 +516,7 @@ msgstr "Hizalama"
 msgid "All"
 msgstr "Tümü"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2317
+#: ../admin/partials/settings/poll-maker-settings.php:2323
 msgid "All passed polls count per user"
 msgstr "Kullanıcı başına geçilen tüm anket sayısı"
 
@@ -524,12 +529,12 @@ msgstr "Tüm Anketler"
 msgid "All Results"
 msgstr "Tüm Sonuçlar"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2011 
-#: ../admin/partials/settings/poll-maker-settings.php:2018
+#: ../admin/partials/settings/poll-maker-settings.php:2017 
+#: ../admin/partials/settings/poll-maker-settings.php:2024
 msgid "All Results Settings"
 msgstr "Tüm Sonuç Ayarları"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2066
+#: ../admin/partials/settings/poll-maker-settings.php:2072
 msgid "All results tables columns"
 msgstr "Tüm sonuç tablolarının sütunları"
 
@@ -633,7 +638,7 @@ msgstr ""
 "Kullanıcılarınızın kendi dijital sözlüklerini oluşturmalarına ve yeni kelime "
 "ile terimleri mümkün olan en hızlı şekilde öğrenmelerine izin verin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2128
+#: ../admin/partials/settings/poll-maker-settings.php:2134
 msgid ""
 "Analytics is the most important part of conducting online polls. With the "
 "help of the Frontend Statistics Shortcode, you can display daily, weekly, "
@@ -801,8 +806,8 @@ msgstr "API Access URL"
 
 #: ../admin/partials/settings/poll-maker-settings.php:603 
 #: ../admin/partials/settings/poll-maker-settings.php:1019 
-#: ../admin/partials/settings/poll-maker-settings.php:1099 
-#: ../admin/partials/settings/poll-maker-settings.php:1244
+#: ../admin/partials/settings/poll-maker-settings.php:1104 
+#: ../admin/partials/settings/poll-maker-settings.php:1249
 msgid "API Key"
 msgstr "API Key"
 
@@ -934,7 +939,7 @@ msgid "Autofill logged-in user data"
 msgstr "Giriş yapmış kullanıcı verilerini otomatik doldur"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6001 
-#: ../admin/partials/settings/poll-maker-settings.php:1129
+#: ../admin/partials/settings/poll-maker-settings.php:1134
 msgid "Aweber"
 msgstr "Aweber"
 
@@ -963,7 +968,7 @@ msgstr "Arka Plan Görseli"
 msgid "Background image position"
 msgstr "Arka plan görseli konumu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1449
+#: ../admin/partials/settings/poll-maker-settings.php:1454
 msgid "Bar Chart"
 msgstr "Çubuk Grafik"
 
@@ -1106,7 +1111,7 @@ msgstr "Şimdi Satın Al"
 msgid "Buy now"
 msgstr "Şimdi satın al"
 
-#: ../public/class-poll-maker-ays-public.php:1981
+#: ../public/class-poll-maker-ays-public.php:1983
 msgid "By"
 msgstr "Tarafından"
 
@@ -1132,7 +1137,7 @@ msgstr "Çerez ve IP ile "
 msgid "By count"
 msgstr "Sayıya göre"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1535
+#: ../admin/partials/settings/poll-maker-settings.php:1540
 msgid ""
 "By doing so, you will surely boost your website engagement and get instant "
 "feedback from poll takers."
@@ -1298,7 +1303,7 @@ msgstr ""
 "Anketinizin ait olduğu kategoriyi seçin. Kategori oluşturmak için "
 "`Kategoriler` sayfasına gidin (Poll Maker sol menüsünde bulabilirsiniz)."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1829
+#: ../admin/partials/settings/poll-maker-settings.php:1835
 msgid "Choose the color of the leaderboard's box."
 msgstr "Liderlik tablosu kutusunun rengini seçin."
 
@@ -1310,7 +1315,7 @@ msgstr "Anket sonuçlarının görüntülenmesi için yükleme efektini seçin."
 msgid "Choose the method of detection of the user:"
 msgstr "Kullanıcı tespit yöntemini seçin:"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1389
+#: ../admin/partials/settings/poll-maker-settings.php:1394
 msgid "Choose the method of displaying. Example: display=\"published\"."
 msgstr "Görüntüleme yöntemini seçin. Örnek: display=\"published\"."
 
@@ -1367,6 +1372,10 @@ msgstr ""
 "anket web sitenizde hiçbir yerde gösterilmez. (Kısa kodları kaldırmanız "
 "gerekmez)."
 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7357
+msgid "Choose Your Poll Type"
+msgstr "Anket Türünüzü Seçin"
+
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3738
 msgid "Choose your preferred creation date."
 msgstr "Tercih ettiğiniz oluşturma tarihini seçin."
@@ -1411,6 +1420,7 @@ msgstr ""
 "Tercih ettiğiniz, kullanıma hazır şablonu seçin ve aşağıdaki seçeneklerle "
 "özelleştirin."
 
+#: ../admin/class-poll-maker-ays-admin.php:3433 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7368 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7372
 msgid "Choosing"
@@ -1453,17 +1463,20 @@ msgid "click here"
 msgstr "buraya tıklayın"
 
 #: ../admin/class-poll-maker-ays-admin.php:1720 
-#: ../admin/class-poll-maker-ays-admin.php:3028
+#: ../admin/class-poll-maker-ays-admin.php:2146 
+#: ../admin/class-poll-maker-ays-admin.php:2458 
+#: ../admin/class-poll-maker-ays-admin.php:3028 
+#: ../includes/lists/class-poll-maker-polls-list-table.php:1570
 #| msgid "Click for copy"
 msgid "Click to copy"
 msgstr "Kopyalamak için tıklayın"
 
 #: ../admin/partials/settings/poll-maker-settings.php:588 
-#: ../admin/partials/settings/poll-maker-settings.php:1144
+#: ../admin/partials/settings/poll-maker-settings.php:1149
 msgid "Client ID"
 msgstr "Client ID"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1153
+#: ../admin/partials/settings/poll-maker-settings.php:1158
 msgid "Client Secret"
 msgstr "İstemci Gizli Anahtarı"
 
@@ -1477,8 +1490,8 @@ msgid "Code Include"
 msgstr "Kod Dahil"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2147 
-#: ../admin/partials/settings/poll-maker-settings.php:1680 
-#: ../admin/partials/settings/poll-maker-settings.php:1828
+#: ../admin/partials/settings/poll-maker-settings.php:1685 
+#: ../admin/partials/settings/poll-maker-settings.php:1834
 msgid "Color"
 msgstr "Renk"
 
@@ -1495,7 +1508,7 @@ msgid "Color value"
 msgstr "Renk değeri"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6997 
-#: ../admin/partials/settings/poll-maker-settings.php:1461
+#: ../admin/partials/settings/poll-maker-settings.php:1466
 msgid "Column Chart"
 msgstr "Sütun Grafiği"
 
@@ -1523,7 +1536,7 @@ msgstr "Diğer eklentiler veya temalarla çakışmalar"
 msgid "Congrats! You have already created your first poll."
 msgstr "Tebrikler! İlk anketinizi oluşturdunuz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1163
+#: ../admin/partials/settings/poll-maker-settings.php:1168
 msgid "Connect"
 msgstr "Bağlan"
 
@@ -1558,7 +1571,7 @@ msgstr ""
 "Kontrol panelinden eklentiye kimlerin erişebileceğini kontrol edin ve "
 "yönetin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1088
+#: ../admin/partials/settings/poll-maker-settings.php:1093
 msgid "ConvertKit"
 msgstr "ConvertKit"
 
@@ -1587,7 +1600,7 @@ msgstr "Çerez ve IP"
 msgid "Copied!"
 msgstr "Kopyalandı!"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2154
+#: ../admin/partials/settings/poll-maker-settings.php:2160
 msgid ""
 "Copy and paste this shortcode into any post or page, and insert the Poll ID, "
 "which statistics you want to display."
@@ -1604,7 +1617,7 @@ msgstr "Kopya koruması"
 msgid "Copy the"
 msgstr "Kopyalayın"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2192
+#: ../admin/partials/settings/poll-maker-settings.php:2198
 msgid ""
 "Copy the following shortcode and paste it in posts. Insert the Poll ID to "
 "receive the number of participants of the poll."
@@ -1612,7 +1625,7 @@ msgstr ""
 "Aşağıdaki kısa kodu kopyalayın ve gönderilere yapıştırın. Anketin katılımcı "
 "sayısını almak için Anket ID’sini ekleyin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1895
+#: ../admin/partials/settings/poll-maker-settings.php:1901
 msgid ""
 "Copy the following shortcode and paste it into your desired post. It will "
 "allow users to send a request for building a poll with simple settings (Poll "
@@ -1627,7 +1640,7 @@ msgstr ""
 "menüsünde bulunan Talepler sayfasında bulabilirsiniz. Talebi kabul etmek "
 "için yönetici, ilgili anketin yanındaki Onayla düğmesine tıklamalıdır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1492
+#: ../admin/partials/settings/poll-maker-settings.php:1497
 msgid ""
 "Copy the following shortcode, configure it based on your preferences and "
 "paste it into the post."
@@ -1635,7 +1648,7 @@ msgstr ""
 "Aşağıdaki kısa kodu kopyalayın, tercihlerinize göre yapılandırın ve "
 "gönderiye yapıştırın."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1553
+#: ../admin/partials/settings/poll-maker-settings.php:1558
 msgid ""
 "Copy the following shortcode, configure it based on your preferences and "
 "paste it into the post. Put the shortcode of your preferred category,  "
@@ -1715,6 +1728,13 @@ msgstr ""
 "İletişim formları, ödeme formları, anketler ve daha birçok özel form "
 "oluşturun. Formları bizimle kolayca oluşturun."
 
+#: ../admin/class-poll-maker-ays-admin.php:3433
+msgid ""
+"create many options and let your users choose, or add their custom answers."
+msgstr ""
+"Birçok seçenek oluşturun ve kullanıcılarınızın seçim yapmasına veya kendi "
+"özel cevaplarını eklemesine izin verin."
+
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3425
 msgid "Create post for poll"
 msgstr "Anket için yazı oluştur"
@@ -1740,11 +1760,11 @@ msgstr "İlk Anketinizi Bir Dakikadan Kısa Sürede Oluşturun"
 msgid "Created"
 msgstr "Oluşturuldu"
 
-#: ../public/class-poll-maker-ays-public.php:1983
+#: ../public/class-poll-maker-ays-public.php:1985
 msgid "Created by"
 msgstr "Oluşturan"
 
-#: ../public/class-poll-maker-ays-public.php:1958
+#: ../public/class-poll-maker-ays-public.php:1960
 msgid "Created on"
 msgstr "Oluşturulma tarihi"
 
@@ -1778,8 +1798,8 @@ msgid "Custom class for poll container"
 msgstr "Anket kapsayıcısı için özel sınıf"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3294 
-#: ../admin/partials/settings/poll-maker-settings.php:1693 
-#: ../admin/partials/settings/poll-maker-settings.php:1843
+#: ../admin/partials/settings/poll-maker-settings.php:1698 
+#: ../admin/partials/settings/poll-maker-settings.php:1849
 msgid "Custom CSS"
 msgstr "Özel CSS"
 
@@ -1797,7 +1817,7 @@ msgstr "Özel Form Alanları"
 msgid "Custom GIF"
 msgstr "Özel GIF"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1318
+#: ../admin/partials/settings/poll-maker-settings.php:1323
 msgid "Dark"
 msgstr "Koyu"
 
@@ -1820,7 +1840,7 @@ msgstr "Gün"
 
 #: ../admin/class-poll-maker-ays-admin.php:2415 
 #: ../public/class-poll-maker-ays-public.php:193 
-#: ../public/class-poll-maker-ays-public.php:2889
+#: ../public/class-poll-maker-ays-public.php:2891
 msgid "days"
 msgstr "gün"
 
@@ -1933,7 +1953,8 @@ msgstr "Gecikme"
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:435 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1562 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1766 
-#: ../includes/lists/class-poll-maker-results-list-table.php:352
+#: ../includes/lists/class-poll-maker-results-list-table.php:259 
+#: ../includes/lists/class-poll-maker-results-list-table.php:360
 msgid "Delete"
 msgstr "Sil"
 
@@ -1965,7 +1986,7 @@ msgstr "Azalan – sıralama Z’den A’ya alfabetik olarak yapılır."
 msgid "Description"
 msgstr "Açıklama"
 
-#: ../admin/partials/results/poll-maker-ays-each-results-display.php:85
+#: ../admin/partials/results/poll-maker-ays-each-results-display.php:84
 msgid "Details report"
 msgstr "Ayrıntı raporu"
 
@@ -2069,7 +2090,7 @@ msgstr ""
 msgid "Dismiss ad"
 msgstr "Reklamı kapat"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1532
+#: ../admin/partials/settings/poll-maker-settings.php:1537
 msgid ""
 "Display all the polls of your desired category on one page with the Poll "
 "Categories Shortcode of the plugin."
@@ -2179,8 +2200,9 @@ msgstr "Noktalı"
 msgid "Double"
 msgstr "Çift"
 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7444 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7450
+#: ../admin/class-poll-maker-ays-admin.php:3451 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7443 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7449
 msgid "Dropdown"
 msgstr "Açılır liste"
 
@@ -2188,7 +2210,7 @@ msgstr "Açılır liste"
 msgid "Duplicate"
 msgstr "Çoğalt"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1302
+#: ../admin/partials/settings/poll-maker-settings.php:1307
 #, php-format
 msgid ""
 "e.g. en, de - Language used by reCAPTCHA. To get the code for your language "
@@ -2242,11 +2264,11 @@ msgstr "Önceki gönderimi düzenle"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:378 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:967 
-#: ../admin/partials/settings/poll-maker-settings.php:1673 
-#: ../admin/partials/settings/poll-maker-settings.php:1819 
-#: ../admin/partials/settings/poll-maker-settings.php:2445 
-#: ../public/class-poll-maker-ays-public.php:4471 
-#: ../public/class-poll-maker-ays-public.php:4483
+#: ../admin/partials/settings/poll-maker-settings.php:1678 
+#: ../admin/partials/settings/poll-maker-settings.php:1825 
+#: ../admin/partials/settings/poll-maker-settings.php:2451 
+#: ../public/class-poll-maker-ays-public.php:4473 
+#: ../public/class-poll-maker-ays-public.php:4485
 msgid "Email"
 msgstr "E-posta"
 
@@ -2499,7 +2521,7 @@ msgstr "Bitiş tarihi:"
 msgid "Enter the poll title"
 msgstr "Anket başlığını girin"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1844
+#: ../admin/partials/settings/poll-maker-settings.php:1850
 msgid "Enter your own custom CSS code."
 msgstr "Kendi özel CSS kodunuzu girin."
 
@@ -2544,11 +2566,11 @@ msgid "Extra 4 themes"
 msgstr "Ekstra 4 tema"
 
 #: ../admin/partials/settings/poll-maker-settings.php:140 
-#: ../admin/partials/settings/poll-maker-settings.php:2179
+#: ../admin/partials/settings/poll-maker-settings.php:2185
 msgid "Extra Shortcodes"
 msgstr "Ekstra Kısa Kodlar"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2184
+#: ../admin/partials/settings/poll-maker-settings.php:2190
 msgid "Extra shortcodes"
 msgstr "Ekstra kısa kodlar"
 
@@ -2578,12 +2600,12 @@ msgstr "SSS"
 msgid "Feature options"
 msgstr "Özellik seçenekleri"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1694
+#: ../admin/partials/settings/poll-maker-settings.php:1699
 msgid "Field for entering your own CSS code"
 msgstr "Kendi CSS kodunuzu girmek için alan"
 
 #: ../admin/partials/settings/poll-maker-settings.php:144 
-#: ../admin/partials/settings/poll-maker-settings.php:2405
+#: ../admin/partials/settings/poll-maker-settings.php:2411
 msgid "Fields placeholders"
 msgstr "Alan yer tutucuları"
 
@@ -2603,7 +2625,7 @@ msgstr ""
 msgid "Fill out the information."
 msgstr "Bilgileri doldurun."
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:522
+#: ../includes/lists/class-poll-maker-results-list-table.php:530
 msgid "Filter"
 msgstr "Filtre"
 
@@ -2613,8 +2635,8 @@ msgstr "İlk anketinizi oluşturmak için bu basit adımları izleyin"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2237 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:2271 
-#: ../admin/partials/settings/poll-maker-settings.php:1654 
-#: ../admin/partials/settings/poll-maker-settings.php:1796
+#: ../admin/partials/settings/poll-maker-settings.php:1659 
+#: ../admin/partials/settings/poll-maker-settings.php:1802
 msgid "For 100% leave blank"
 msgstr "%100 için boş bırakın"
 
@@ -2648,7 +2670,7 @@ msgstr "Daha ayrıntılı yapılandırma için ziyaret edin"
 msgid "For more information:"
 msgstr "Daha fazla bilgi için:"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1068
+#: ../admin/partials/settings/poll-maker-settings.php:1073
 msgid ""
 "For security reasons, unused API keys expire after 90 days. When that "
 "happens, you’ll need to generate a new key."
@@ -2689,8 +2711,8 @@ msgstr "Gönderen e-postası"
 msgid "From name"
 msgstr "Gönderen adı"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2117 
-#: ../admin/partials/settings/poll-maker-settings.php:2124
+#: ../admin/partials/settings/poll-maker-settings.php:2123 
+#: ../admin/partials/settings/poll-maker-settings.php:2130
 msgid "Frontend Statistics"
 msgstr "Ön Yüz İstatistikleri"
 
@@ -2743,6 +2765,11 @@ msgid ""
 msgstr ""
 "Business paketi için 12 aylık güncelleme ve destek, Developer paketi için "
 "ise ömür boyu güncelleme ve destek alın."
+
+#: ../poll-maker-ays.php:162 ../poll-maker-ays.php:168 
+#: ../poll-maker-ays.php:180
+msgid "Get 50% discount"
+msgstr "%50 indirim kazanın"
 
 #: ../includes/class-poll-maker-ays-welcome.php:349
 msgid "Get help from our friendly support team whenever you need it"
@@ -2812,16 +2839,16 @@ msgstr ""
 msgid "Global Leaderboard"
 msgstr "Küresel Liderlik Tablosu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1744
+#: ../admin/partials/settings/poll-maker-settings.php:1750
 msgid "Global Leaderboard By Category Settings"
 msgstr "Kategoriye Göre Global Liderlik Tablosu Ayarları"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1585 
-#: ../admin/partials/settings/poll-maker-settings.php:1592
+#: ../admin/partials/settings/poll-maker-settings.php:1590 
+#: ../admin/partials/settings/poll-maker-settings.php:1597
 msgid "Global Leaderboard Settings"
 msgstr "Global Liderlik Tablosu Ayarları"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1616
+#: ../admin/partials/settings/poll-maker-settings.php:1621
 msgid "Global Leaderboard shortcode"
 msgstr "Global Liderlik Tablosu kısa kodu"
 
@@ -2854,11 +2881,6 @@ msgstr "Google Sheets"
 msgid "Google Sign in"
 msgstr "Google ile Oturum Aç"
 
-#: ../poll-maker-ays.php:162 ../poll-maker-ays.php:168 
-#: ../poll-maker-ays.php:180
-msgid "Grab your GIFT"
-msgstr "HEDİYENİZİ Alın"
-
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1908
 msgid "Gradient direction"
 msgstr "Gradyan yönü"
@@ -2880,7 +2902,7 @@ msgstr "Izgara"
 msgid "Groove"
 msgstr "Oluklu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1804
+#: ../admin/partials/settings/poll-maker-settings.php:1810
 msgid "Group users by"
 msgstr "Kullanıcıları şuna göre grupla"
 
@@ -2937,8 +2959,8 @@ msgstr "Sonuç sayfasında arka plan görselini gizle"
 
 #: ../admin/partials/poll-maker-ays-admin-display.php:129 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6141 
-#: ../admin/partials/settings/poll-maker-settings.php:2479 
-#: ../admin/partials/settings/poll-maker-settings.php:2487
+#: ../admin/partials/settings/poll-maker-settings.php:2485 
+#: ../admin/partials/settings/poll-maker-settings.php:2493
 msgid "Hide results"
 msgstr "Sonuçları gizle"
 
@@ -2968,7 +2990,7 @@ msgstr "Saat"
 
 #: ../admin/class-poll-maker-ays-admin.php:2420 
 #: ../public/class-poll-maker-ays-public.php:195 
-#: ../public/class-poll-maker-ays-public.php:2895
+#: ../public/class-poll-maker-ays-public.php:2897
 msgid "hours"
 msgstr "saat"
 
@@ -2980,7 +3002,7 @@ msgstr "Anketin tasarımını nasıl değiştirebilirim?"
 msgid "How do I limit access to the poll?"
 msgstr "Ankete erişimi nasıl sınırlandırırım?"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1630
+#: ../admin/partials/settings/poll-maker-settings.php:1635
 msgid "How many users’ results will be shown in the leaderboard."
 msgstr "Liderlik tablosunda kaç kullanıcının sonucu gösterilecek."
 
@@ -3019,15 +3041,15 @@ msgstr "Simge boyutu (px)"
 msgid "Icons Color"
 msgstr "Simge Rengi"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1669 
-#: ../admin/partials/settings/poll-maker-settings.php:1815 
+#: ../admin/partials/settings/poll-maker-settings.php:1674 
+#: ../admin/partials/settings/poll-maker-settings.php:1821 
 #: ../includes/lists/class-poll-maker-categories-list-table.php:305 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1725 
-#: ../includes/lists/class-poll-maker-results-list-table.php:321
+#: ../includes/lists/class-poll-maker-results-list-table.php:332
 msgid "ID"
 msgstr "ID"
 
-#: ../public/class-poll-maker-ays-public.php:2397
+#: ../public/class-poll-maker-ays-public.php:2399
 msgid "If 'Other' is filled, checked answers are ignored."
 msgstr "'Diğer' doldurulursa, işaretlenen cevaplar yok sayılır."
 
@@ -3154,7 +3176,7 @@ msgstr ""
 "Eklentimizi seviyorsanız, lütfen büyük bir iyilik yapın ve WordPress.org'da "
 "bizi değerlendirin"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2406
+#: ../admin/partials/settings/poll-maker-settings.php:2412
 msgid "If you make a change here, these words will not be translated either․"
 msgstr "Burada değişiklik yaparsanız, bu kelimeler de çevrilmeyecektir."
 
@@ -3167,14 +3189,14 @@ msgstr ""
 "Bir üyelik web sitesine sahipseniz ve ziyaretçilerinize ön yüzden anket "
 "oluşturma erişimi vermek istiyorsanız, bu özellik sizin için en iyi çözümdür."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1408
+#: ../admin/partials/settings/poll-maker-settings.php:1413
 msgid ""
 "If you set the method as all, it will show all polls including expired polls."
 msgstr ""
 "Yöntemi tümü olarak ayarlarsanız, süresi dolmuş anketler dahil tüm anketleri "
 "gösterecektir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1398
+#: ../admin/partials/settings/poll-maker-settings.php:1403
 msgid ""
 "If you set the method as published, it will show only published polls "
 "excluding expired polls."
@@ -3182,7 +3204,7 @@ msgstr ""
 "Yöntemi yayınlanmış olarak ayarlarsanız, süresi dolmuş anketler hariç "
 "yalnızca yayınlanmış anketleri gösterecektir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1498
+#: ../admin/partials/settings/poll-maker-settings.php:1503
 msgid ""
 "If you set the ordering method as random and gave a value to count option, "
 "then it will randomly display that given amount of polls from your created "
@@ -3192,7 +3214,7 @@ msgstr ""
 "verirseniz, oluşturduğunuz anketlerden belirtilen miktarda anket rastgele "
 "görüntülenecektir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1507
+#: ../admin/partials/settings/poll-maker-settings.php:1512
 msgid ""
 "If you set the ordering method as recent and gave a value to count option, "
 "then it will display that given amount of polls from your recently created "
@@ -3230,6 +3252,14 @@ msgstr ""
 #: ../admin/class-poll-maker-ays-admin.php:4012
 msgid "Inactive"
 msgstr "Etkin Değil"
+
+#: ../admin/class-poll-maker-ays-admin.php:3455
+msgid ""
+"Increase engagement of your website with the integrated,  formatting, image, "
+"audio, video poll question types feature."
+msgstr ""
+"Entegre biçimlendirme, görsel, ses ve video anket soru türleri özelliği ile "
+"web sitenizin etkileşimini artırın."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:3689
 msgid ""
@@ -3293,7 +3323,7 @@ msgstr ""
 "GamiPress eklentisindeki Otomatik Puan Ödülleri bölümünden yapılandırın."
 
 #: ../admin/partials/settings/poll-maker-settings.php:754 
-#: ../admin/partials/settings/poll-maker-settings.php:1139
+#: ../admin/partials/settings/poll-maker-settings.php:1144
 msgid "Instructions"
 msgstr "Talimatlar"
 
@@ -3333,7 +3363,7 @@ msgstr ""
 msgid "It is PRO version feature"
 msgstr "Bu bir PRO sürüm özelliğidir"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2628
+#: ../admin/partials/settings/poll-maker-settings.php:2634
 msgid "It will show the author of the current poll."
 msgstr "Mevcut anketin yazarını gösterecektir."
 
@@ -3355,7 +3385,7 @@ msgid "Just create contact"
 msgstr "Sadece kişi oluştur"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:5960 
-#: ../admin/partials/settings/poll-maker-settings.php:1236
+#: ../admin/partials/settings/poll-maker-settings.php:1241
 msgid "Klaviyo"
 msgstr "Klaviyo"
 
@@ -3368,7 +3398,7 @@ msgstr "Klaviyo entegrasyonu"
 msgid "Klaviyo list"
 msgstr "Klaviyo listesi"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2424
+#: ../admin/partials/settings/poll-maker-settings.php:2430
 msgid "Labels"
 msgstr "Etiketler"
 
@@ -3444,7 +3474,7 @@ msgstr "En az oy alan - oy sayısına göre"
 msgid "Lifetime"
 msgstr "Ömür boyu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1317
+#: ../admin/partials/settings/poll-maker-settings.php:1322
 msgid "Light"
 msgstr "Açık"
 
@@ -3553,7 +3583,7 @@ msgstr "MailChimp Kullanıcı Adı"
 msgid "MailPoet"
 msgstr "MailPoet"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1184
+#: ../admin/partials/settings/poll-maker-settings.php:1189
 msgid "Mailpoet"
 msgstr "MailPoet"
 
@@ -3577,7 +3607,7 @@ msgstr ""
 "Harika çevrimiçi anketler oluşturun ve hızlı ve kolay bir şekilde gerçek "
 "zamanlı geri bildirim alın."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1596
+#: ../admin/partials/settings/poll-maker-settings.php:1601
 msgid ""
 "Make the online voting process a competitive experience for your website "
 "visitors. Insert the Leaderboard shortcodes into your desired page or post "
@@ -3588,8 +3618,16 @@ msgstr ""
 "göstermek için Liderlik Tablosu kısa kodlarını istediğiniz sayfa veya yazıya "
 "ekleyin."
 
+#: ../admin/class-poll-maker-ays-admin.php:3439
+msgid ""
+"make the participants evaluate your product by using like/dislike buttons or "
+"smiley/frown emojis."
+msgstr ""
+"Katılımcıların ürününüzü beğen/beğenme butonları veya gülen/üzgün emojiler "
+"kullanarak değerlendirmelerini sağlayın."
+
 #: ../includes/lists/class-poll-maker-each-results-poll-list-table.php:434 
-#: ../includes/lists/class-poll-maker-results-list-table.php:351
+#: ../includes/lists/class-poll-maker-results-list-table.php:359
 msgid "Mark as read"
 msgstr "Okundu olarak işaretle"
 
@@ -3626,7 +3664,7 @@ msgstr "MEGA"
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4791 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4897 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6353 
-#: ../admin/partials/settings/poll-maker-settings.php:1370
+#: ../admin/partials/settings/poll-maker-settings.php:1375
 msgid "Message"
 msgstr "Mesaj"
 
@@ -3643,7 +3681,7 @@ msgid "Message Variables"
 msgstr "Mesaj Değişkenleri"
 
 #: ../admin/partials/settings/poll-maker-settings.php:148 
-#: ../admin/partials/settings/poll-maker-settings.php:2475
+#: ../admin/partials/settings/poll-maker-settings.php:2481
 msgid "Message variables"
 msgstr "Mesaj değişkenleri"
 
@@ -3661,7 +3699,7 @@ msgstr "Cevaplara dayalı mesajlar"
 msgid "Min"
 msgstr "Min"
 
-#: ../public/class-poll-maker-ays-public.php:2273
+#: ../public/class-poll-maker-ays-public.php:2275
 msgid "Min votes count should be"
 msgstr "Minimum oy sayısı şu kadar olmalıdır"
 
@@ -3684,7 +3722,7 @@ msgstr "Dakika"
 
 #: ../admin/class-poll-maker-ays-admin.php:2425 
 #: ../public/class-poll-maker-ays-public.php:197 
-#: ../public/class-poll-maker-ays-public.php:2901
+#: ../public/class-poll-maker-ays-public.php:2903
 msgid "minutes"
 msgstr "dakika"
 
@@ -3713,7 +3751,7 @@ msgstr "En çok oy alan - oy sayısına göre"
 msgid "Multilingual polls"
 msgstr "Çok dilli anketler"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1211
+#: ../admin/partials/settings/poll-maker-settings.php:1216
 msgid "MyCred"
 msgstr "MyCred"
 
@@ -3724,9 +3762,9 @@ msgstr "MyCred entegrasyonu"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:374 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:206 
-#: ../admin/partials/settings/poll-maker-settings.php:2430 
-#: ../public/class-poll-maker-ays-public.php:4470 
-#: ../public/class-poll-maker-ays-public.php:4482
+#: ../admin/partials/settings/poll-maker-settings.php:2436 
+#: ../public/class-poll-maker-ays-public.php:4472 
+#: ../public/class-poll-maker-ays-public.php:4484
 msgid "Name"
 msgstr "İsim"
 
@@ -3738,11 +3776,11 @@ msgstr "Anketinize İsim Verin"
 msgid "Need Authorization"
 msgstr "Yetkilendirme gerekiyor"
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:324
+#: ../includes/lists/class-poll-maker-results-list-table.php:331
 msgid "New results count"
 msgstr "Yeni sonuç sayısı"
 
-#: ../public/class-poll-maker-ays-public.php:2714
+#: ../public/class-poll-maker-ays-public.php:2716
 msgid "Next"
 msgstr "Sonraki"
 
@@ -3772,7 +3810,7 @@ msgstr "Hiçbiri"
 msgid "Not Installed"
 msgstr "Yüklü Değil"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2413
+#: ../admin/partials/settings/poll-maker-settings.php:2419
 msgid ""
 "Note: If you make a change here, these words will not be translated either."
 msgstr "Not: Burada değişiklik yaparsanız, bu kelimeler de çevrilmeyecektir."
@@ -3807,9 +3845,9 @@ msgstr "Mobilde"
 
 #: ../admin/class-poll-maker-ays-admin.php:2363 
 #: ../admin/class-poll-maker-ays-admin.php:3404 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7555 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7551 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:424 
-#: ../admin/partials/settings/poll-maker-settings.php:2939 
+#: ../admin/partials/settings/poll-maker-settings.php:2945 
 #: ../poll-maker-ays.php:155
 msgid "One-time payment"
 msgstr "Tek seferlik ödeme"
@@ -3866,7 +3904,7 @@ msgstr "Sıralama"
 msgid "Other"
 msgstr "Diğer"
 
-#: ../public/class-poll-maker-ays-public.php:2390
+#: ../public/class-poll-maker-ays-public.php:2392
 msgid "Other - please specify"
 msgstr "Diğer - lütfen belirtin"
 
@@ -3907,15 +3945,15 @@ msgid "Paragraph"
 msgstr "Paragraf"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:96 
-#: ../admin/partials/settings/poll-maker-settings.php:2299
+#: ../admin/partials/settings/poll-maker-settings.php:2305
 msgid "Passed polls count per user"
 msgstr "Kullanıcı başına geçilen anket sayısı"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2758
+#: ../admin/partials/settings/poll-maker-settings.php:2764
 msgid "Passed polls count per user."
 msgstr "Kullanıcı başına tamamlanan anket sayısı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2191
+#: ../admin/partials/settings/poll-maker-settings.php:2197
 msgid "Passed users count"
 msgstr "Geçen kullanıcı sayısı"
 
@@ -3932,7 +3970,7 @@ msgstr "Anketi geçmek için şifre"
 msgid "Password protected poll"
 msgstr "Şifre korumalı anket"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1951
+#: ../admin/partials/settings/poll-maker-settings.php:1957
 msgid ""
 "Paste the shortcode into any of your posts or pages to show the current "
 "user’s votes history. Each user will see individually presented content "
@@ -3942,8 +3980,8 @@ msgstr ""
 "gönderinize veya sayfanıza yapıştırın. Her kullanıcı, katıldığı anketlere "
 "göre bireysel olarak sunulan içeriği görecektir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1755 
-#: ../admin/partials/settings/poll-maker-settings.php:1856
+#: ../admin/partials/settings/poll-maker-settings.php:1761 
+#: ../admin/partials/settings/poll-maker-settings.php:1862
 msgid ""
 "Paste the shortcode into any of your posts or pages to show the list of the "
 "top users who have voted your polls. It will print the attempts count of "
@@ -3953,13 +3991,13 @@ msgstr ""
 "kodu herhangi bir gönderinize veya sayfanıza yapıştırın. Ayrıca her anket "
 "katılımcısının deneme sayısını da yazdıracaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1384
+#: ../admin/partials/settings/poll-maker-settings.php:1389
 msgid "Paste the shortcode into any of your posts to show all polls together."
 msgstr ""
 "Tüm anketleri birlikte göstermek için kısa kodu herhangi bir gönderinize "
 "yapıştırın."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1546
+#: ../admin/partials/settings/poll-maker-settings.php:1551
 msgid ""
 "Paste the shortcode into any of your posts to show all/random polls from the "
 "given category by list/grid view."
@@ -3967,7 +4005,7 @@ msgstr ""
 "Verilen kategorideki tüm/rastgele anketleri liste/ızgara görünümünde "
 "göstermek için kısa kodu herhangi bir gönderinize yapıştırın."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1610
+#: ../admin/partials/settings/poll-maker-settings.php:1615
 msgid ""
 "Paste the shortcode into any of your posts to show the list of the top users "
 "who have passed your polls."
@@ -3984,14 +4022,14 @@ msgid "Personal Dictionary"
 msgstr "Kişisel Sözlük"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:382 
-#: ../admin/partials/settings/poll-maker-settings.php:2460 
-#: ../public/class-poll-maker-ays-public.php:4472 
-#: ../public/class-poll-maker-ays-public.php:4484
+#: ../admin/partials/settings/poll-maker-settings.php:2466 
+#: ../public/class-poll-maker-ays-public.php:4474 
+#: ../public/class-poll-maker-ays-public.php:4486
 msgid "Phone"
 msgstr "Telefon"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6991 
-#: ../admin/partials/settings/poll-maker-settings.php:1455
+#: ../admin/partials/settings/poll-maker-settings.php:1460
 msgid "Pie Chart"
 msgstr "Pasta Grafiği"
 
@@ -3999,7 +4037,7 @@ msgstr "Pasta Grafiği"
 msgid "Placeholder"
 msgstr "Yer tutucu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2421
+#: ../admin/partials/settings/poll-maker-settings.php:2427
 msgid "Placeholders"
 msgstr "Yer tutucular"
 
@@ -4059,7 +4097,7 @@ msgstr "Eklenti yüklendi."
 
 #: ../admin/partials/features/poll-maker-how-to-use-display.php:28 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:13 
-#: ../includes/lists/class-poll-maker-results-list-table.php:322
+#: ../includes/lists/class-poll-maker-results-list-table.php:329
 msgid "Poll"
 msgstr "Anket"
 
@@ -4075,8 +4113,8 @@ msgstr "Anket özelliği."
 msgid "Poll attribute deleted."
 msgstr "Anket özelliği silindi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1521 
-#: ../admin/partials/settings/poll-maker-settings.php:1528
+#: ../admin/partials/settings/poll-maker-settings.php:1526 
+#: ../admin/partials/settings/poll-maker-settings.php:1533
 msgid "Poll Categories"
 msgstr "Anket Kategorileri"
 
@@ -4092,7 +4130,7 @@ msgstr "Anket kategorisi silindi."
 msgid "Poll category saved."
 msgstr "Anket kategorisi kaydedildi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1552
+#: ../admin/partials/settings/poll-maker-settings.php:1557
 msgid "Poll category shortcode"
 msgstr "Anket kategorisi kısa kodu"
 
@@ -4129,7 +4167,7 @@ msgstr "Anket Kimliği"
 msgid "Poll Information"
 msgstr "Anket Bilgileri"
 
-#: ../public/class-poll-maker-ays-public.php:3382
+#: ../public/class-poll-maker-ays-public.php:3384
 msgid "Poll link"
 msgstr "Anket bağlantısı"
 
@@ -4281,7 +4319,7 @@ msgstr "Önizleme"
 msgid "Preview Poll"
 msgstr "Anketi Önizle"
 
-#: ../public/class-poll-maker-ays-public.php:2721
+#: ../public/class-poll-maker-ays-public.php:2723
 msgid "Previous"
 msgstr "Önceki"
 
@@ -4306,17 +4344,17 @@ msgstr "Önceki Anket Kategorisi"
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7260 
 #: ../admin/partials/results/poll-maker-ays-results-display.php:90 
 #: ../admin/partials/settings/poll-maker-settings.php:484 
-#: ../admin/partials/settings/poll-maker-settings.php:1539 
-#: ../admin/partials/settings/poll-maker-settings.php:1603 
-#: ../admin/partials/settings/poll-maker-settings.php:1941 
-#: ../admin/partials/settings/poll-maker-settings.php:2029 
-#: ../admin/partials/settings/poll-maker-settings.php:2135 
+#: ../admin/partials/settings/poll-maker-settings.php:1544 
+#: ../admin/partials/settings/poll-maker-settings.php:1608 
+#: ../admin/partials/settings/poll-maker-settings.php:1947 
+#: ../admin/partials/settings/poll-maker-settings.php:2035 
+#: ../admin/partials/settings/poll-maker-settings.php:2141 
 #: ../poll-maker-ays.php:159 ../poll-maker-ays.php:167 
 #: ../poll-maker-ays.php:177
 msgid "Pricing"
 msgstr "Fiyatlandırma"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2618
+#: ../admin/partials/settings/poll-maker-settings.php:2624
 msgid "Prints the webpage link where the current poll is posted."
 msgstr "Geçerli anketin yayınlandığı web sayfasının bağlantısını yazdırır."
 
@@ -4384,8 +4422,9 @@ msgstr "Yanıtları Rastgele Sırala"
 msgid "Randomize answers"
 msgstr "Yanıtları rastgele sırala"
 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7472 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7478
+#: ../admin/class-poll-maker-ays-admin.php:3445 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7470 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7476
 msgid "Range"
 msgstr "Aralık"
 
@@ -4393,6 +4432,7 @@ msgstr "Aralık"
 msgid "Rate us"
 msgstr "Bizi değerlendirin"
 
+#: ../admin/class-poll-maker-ays-admin.php:3436 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7386 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7390
 msgid "Rating"
@@ -4410,11 +4450,11 @@ msgstr "Dokümanları Oku →"
 msgid "Read Status"
 msgstr "Okunma Durumu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1266
+#: ../admin/partials/settings/poll-maker-settings.php:1271
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1292
+#: ../admin/partials/settings/poll-maker-settings.php:1297
 msgid "reCAPTCHA Language"
 msgstr "reCAPTCHA Dili"
 
@@ -4422,19 +4462,19 @@ msgstr "reCAPTCHA Dili"
 msgid "reCAPTCHA Settings"
 msgstr "reCAPTCHA Ayarları"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1313
+#: ../admin/partials/settings/poll-maker-settings.php:1318
 msgid "reCAPTCHA Theme"
 msgstr "reCAPTCHA Teması"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1283
+#: ../admin/partials/settings/poll-maker-settings.php:1288
 msgid "reCAPTCHA v2 Secret Key"
 msgstr "reCAPTCHA v2 Gizli Anahtar"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1274
+#: ../admin/partials/settings/poll-maker-settings.php:1279
 msgid "reCAPTCHA v2 Site Key"
 msgstr "reCAPTCHA v2 Site Anahtarı"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1476
+#: ../admin/partials/settings/poll-maker-settings.php:1481
 msgid "Recent Polls Settings"
 msgstr "Son Anket Ayarları"
 
@@ -4451,7 +4491,7 @@ msgstr "Yönlendirme gecikmesi (sn)"
 msgid "Redirect URL"
 msgstr "Yönlendirme URL'si"
 
-#: ../public/class-poll-maker-ays-public.php:2543
+#: ../public/class-poll-maker-ays-public.php:2545
 msgid "Redirecting after"
 msgstr "Sonrasında yönlendiriliyor"
 
@@ -4488,7 +4528,7 @@ msgstr ""
 "Görselleri çekici bir şekilde sunun. Fotoğraf kütüphanenizden kendi tekli ve "
 "çoklu ücretsiz galerilerinizle ziyaretçilerin ilgisini çekin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1885
+#: ../admin/partials/settings/poll-maker-settings.php:1891
 msgid "Request Form"
 msgstr "Talep Formu"
 
@@ -4528,13 +4568,13 @@ msgstr ""
 msgid "Result"
 msgstr "Sonuç"
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:475
+#: ../includes/lists/class-poll-maker-results-list-table.php:483
 msgid "Result deleted."
 msgstr "Sonuç silindi."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6224 
-#: ../admin/partials/settings/poll-maker-settings.php:2478 
-#: ../admin/partials/settings/poll-maker-settings.php:2486
+#: ../admin/partials/settings/poll-maker-settings.php:2484 
+#: ../admin/partials/settings/poll-maker-settings.php:2492
 msgid "Result Message"
 msgstr "Sonuç Mesajı"
 
@@ -4651,7 +4691,7 @@ msgstr "Kaydet ve kapat"
 msgid "Save as Default feature of Poll"
 msgstr "Anketin Varsayılan Olarak Kaydet Özelliği"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2907
+#: ../admin/partials/settings/poll-maker-settings.php:2913
 msgid "Save changes"
 msgstr "Değişiklikleri kaydet"
 
@@ -4704,7 +4744,8 @@ msgstr "Aranıyor..."
 msgid "second"
 msgstr "saniye"
 
-#: ../admin/class-poll-maker-ays-admin.php:2170
+#: ../admin/class-poll-maker-ays-admin.php:2170 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:6921
 msgid "Seconds"
 msgstr "Saniye"
 
@@ -4712,7 +4753,7 @@ msgstr "Saniye"
 #: ../public/class-poll-maker-ays-public.php:199 
 #: ../public/class-poll-maker-ays-public.php:766 
 #: ../public/class-poll-maker-ays-public.php:773 
-#: ../public/class-poll-maker-ays-public.php:2907
+#: ../public/class-poll-maker-ays-public.php:2909
 msgid "seconds"
 msgstr "saniye"
 
@@ -4752,7 +4793,7 @@ msgid "Select Author"
 msgstr "Yazar Seçin"
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:108 
-#: ../includes/lists/class-poll-maker-results-list-table.php:511
+#: ../includes/lists/class-poll-maker-results-list-table.php:519
 msgid "Select Category"
 msgstr "Kategori Seçin"
 
@@ -4815,7 +4856,7 @@ msgstr ""
 "Cevapların görünümünü seçin: Liste veya Izgara. Izgara görünümünü "
 "seçtiyseniz sütun sayısını seçin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1805
+#: ../admin/partials/settings/poll-maker-settings.php:1811
 msgid ""
 "Select the way for grouping the results.\n"
 "                                                By ID - Choose by ID if you "
@@ -4834,7 +4875,7 @@ msgstr ""
 "için liderlik tablosu oluşturmak istiyorsanız E-postaya Göre seçeneğini "
 "seçin. Bu durumda, ilgili anketlerin Bilgi Formunu etkinleştirmeyi unutmayın."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1661
+#: ../admin/partials/settings/poll-maker-settings.php:1666
 msgid ""
 "Select the way for grouping the results. If you want to make Leaderboard for "
 "logged in users, then choose ID. It will collect results by WP user ID. If "
@@ -4867,13 +4908,21 @@ msgid ""
 "Select the way of displaying the results on the result page of the poll."
 msgstr "Anketin sonuç sayfasında sonuçların görüntülenme şeklini seçin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1440
+#: ../admin/partials/settings/poll-maker-settings.php:1445
 msgid ""
 "Select the way of displaying the results: Bar chart , Pie chart or Column "
 "Chart."
 msgstr ""
 "Sonuçların görüntülenme şeklini seçin: Çubuk grafik, Pasta grafik veya Sütun "
 "grafik."
+
+#: ../admin/class-poll-maker-ays-admin.php:3442
+msgid ""
+"Select two statements or images that are opposed to each other, and make "
+"your users choose the perfect one."
+msgstr ""
+"Birbirine zıt iki ifade veya görsel seçin ve kullanıcılarınızın en uygun "
+"olanı seçmesini sağlayın."
 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:126
 msgid "Select Type"
@@ -4899,7 +4948,7 @@ msgstr "Hangi alanların gerekli olduğunu seçin."
 msgid "Select which fields the user should fill out."
 msgstr "Kullanıcının hangi alanları doldurması gerektiğini seçin."
 
-#: ../public/class-poll-maker-ays-public.php:2504
+#: ../public/class-poll-maker-ays-public.php:2506
 msgid "Send"
 msgstr "Gönder"
 
@@ -4970,7 +5019,7 @@ msgstr ""
 "Sonuç Grafiğinin yüksekliğini ayarlayın. Not: Bu seçenek yalnızca Google "
 "Çubuk Grafiği için geçerlidir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1787
+#: ../admin/partials/settings/poll-maker-settings.php:1793
 msgid ""
 "Set the width of the leaderboard's box. It accepts only numeric values. For "
 "100%, leave the field blank."
@@ -4994,12 +5043,12 @@ msgstr "Ayarlar"
 msgid "Short text"
 msgstr "Kısa metin"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1481 
-#: ../admin/partials/settings/poll-maker-settings.php:1754 
-#: ../admin/partials/settings/poll-maker-settings.php:1894 
-#: ../admin/partials/settings/poll-maker-settings.php:1950 
-#: ../admin/partials/settings/poll-maker-settings.php:2038 
-#: ../admin/partials/settings/poll-maker-settings.php:2144 
+#: ../admin/partials/settings/poll-maker-settings.php:1486 
+#: ../admin/partials/settings/poll-maker-settings.php:1760 
+#: ../admin/partials/settings/poll-maker-settings.php:1900 
+#: ../admin/partials/settings/poll-maker-settings.php:1956 
+#: ../admin/partials/settings/poll-maker-settings.php:2044 
+#: ../admin/partials/settings/poll-maker-settings.php:2150 
 #: ../includes/lists/class-poll-maker-categories-list-table.php:303 
 #: ../includes/lists/class-poll-maker-polls-list-table.php:1718
 msgid "Shortcode"
@@ -5009,19 +5058,19 @@ msgstr "Kısa kod"
 msgid "shortcode"
 msgstr "kısa kod"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1354
+#: ../admin/partials/settings/poll-maker-settings.php:1359
 msgid "Shortcode for all polls"
 msgstr "Tüm anketler için kısa kod"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1359
+#: ../admin/partials/settings/poll-maker-settings.php:1364
 msgid "Shortcode for all polls "
 msgstr "Tüm anketler için kısa kod "
 
-#: ../admin/partials/settings/poll-maker-settings.php:1423
+#: ../admin/partials/settings/poll-maker-settings.php:1428
 msgid "Shortcode result by ID"
 msgstr "ID’ye göre sonuç kısa kodu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1428
+#: ../admin/partials/settings/poll-maker-settings.php:1433
 msgid "Shortcode result by ID "
 msgstr "ID’ye göre sonuç kısa kodu "
 
@@ -5030,7 +5079,7 @@ msgid "Shortcode text for editor"
 msgstr "Editör için kısa kod metni"
 
 #: ../admin/partials/settings/poll-maker-settings.php:136 
-#: ../admin/partials/settings/poll-maker-settings.php:1349
+#: ../admin/partials/settings/poll-maker-settings.php:1354
 msgid "Shortcodes"
 msgstr "Kısa Kodlar"
 
@@ -5082,7 +5131,7 @@ msgstr "Geri sayımı göster"
 msgid "Show creation date"
 msgstr "Oluşturulma tarihini göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2371
+#: ../admin/partials/settings/poll-maker-settings.php:2377
 msgid "Show current poll author"
 msgstr "Geçerli anket yazarını göster"
 
@@ -5110,7 +5159,8 @@ msgstr "Daha Az Göster"
 msgid "Show Login form"
 msgstr "Giriş formunu göster"
 
-#: ../includes/class-poll-maker-ays-welcome.php:133
+#: ../includes/class-poll-maker-ays-welcome.php:133 
+#: ../includes/class-poll-maker-ays-welcome.php:363
 msgid "Show More"
 msgstr "Daha Fazla Göster"
 
@@ -5130,19 +5180,19 @@ msgstr "Oy veren kullanıcıların avatarlarını göster"
 msgid "Show passed users count"
 msgstr "Geçen kullanıcı sayısını göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2389
+#: ../admin/partials/settings/poll-maker-settings.php:2395
 msgid "Show poll answers count"
 msgstr "Anket cevap sayısını göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2335
+#: ../admin/partials/settings/poll-maker-settings.php:2341
 msgid "Show poll categories descriptions"
 msgstr "Anket kategori açıklamalarını göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2353
+#: ../admin/partials/settings/poll-maker-settings.php:2359
 msgid "Show poll categories titles"
 msgstr "Anket kategori başlıklarını göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2281
+#: ../admin/partials/settings/poll-maker-settings.php:2287
 msgid "Show poll creation date"
 msgstr "Anket oluşturulma tarihini göster"
 
@@ -5155,11 +5205,11 @@ msgid "Show Results by"
 msgstr "Sonuçları Gösterme Şekli"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6944 
-#: ../admin/partials/settings/poll-maker-settings.php:1439
+#: ../admin/partials/settings/poll-maker-settings.php:1444
 msgid "Show results by"
 msgstr "Sonuçları şu şekilde göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2053
+#: ../admin/partials/settings/poll-maker-settings.php:2059
 msgid ""
 "Show the All results table to guests as well. By default, it is displayed "
 "only for logged-in users. If this option is disabled, then only the logged-"
@@ -5218,23 +5268,23 @@ msgstr "Başlığı Göster"
 msgid "Show title"
 msgstr "Başlığı göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2052
+#: ../admin/partials/settings/poll-maker-settings.php:2058
 msgid "Show to guests too"
 msgstr "Misafirlere de göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2245
+#: ../admin/partials/settings/poll-maker-settings.php:2251
 msgid "Show User Display name"
 msgstr "Kullanıcı Görünen Adını Göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2263
+#: ../admin/partials/settings/poll-maker-settings.php:2269
 msgid "Show User Email"
 msgstr "Kullanıcı E-postasını Göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2209
+#: ../admin/partials/settings/poll-maker-settings.php:2215
 msgid "Show User First Name"
 msgstr "Kullanıcı Adını Göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2227
+#: ../admin/partials/settings/poll-maker-settings.php:2233
 msgid "Show User Last Name"
 msgstr "Kullanıcı Soyadını Göster"
 
@@ -5250,11 +5300,11 @@ msgstr "Oylamadan önce cevap başına oy sayısını göster"
 msgid "Show word/character counter"
 msgstr "Kelime/karakter sayacını göster"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2668
+#: ../admin/partials/settings/poll-maker-settings.php:2674
 msgid "Shows the admin's email that was filled in their WordPress profile."
 msgstr "WordPress profilinde girilmiş olan yönetici e-posta adresini gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2648
+#: ../admin/partials/settings/poll-maker-settings.php:2654
 msgid ""
 "Shows the current poll author's Display name that was filled in their "
 "WordPress profile."
@@ -5262,7 +5312,7 @@ msgstr ""
 "WordPress profilinde girilmiş olan mevcut anket yazarının Görünen adını "
 "gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2638
+#: ../admin/partials/settings/poll-maker-settings.php:2644
 msgid ""
 "Shows the current poll author's email that was filled in their WordPress "
 "profile."
@@ -5270,7 +5320,7 @@ msgstr ""
 "Mevcut anket yazarının WordPress profilinde doldurduğu e-posta adresini "
 "gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2658
+#: ../admin/partials/settings/poll-maker-settings.php:2664
 msgid ""
 "Shows the current poll author's Website URL that was filled in their "
 "WordPress profile."
@@ -5278,7 +5328,7 @@ msgstr ""
 "WordPress profilinde girilmiş olan mevcut anket yazarının Web Sitesi "
 "URL’sini gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2246
+#: ../admin/partials/settings/poll-maker-settings.php:2252
 msgid ""
 "Shows the logged-in user's Display name. If the user is not logged-in, the "
 "shortcode will be empty."
@@ -5286,7 +5336,7 @@ msgstr ""
 "Oturum açmış kullanıcının görünen adını gösterir. Kullanıcı giriş yapmamışsa "
 "kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2264
+#: ../admin/partials/settings/poll-maker-settings.php:2270
 msgid ""
 "Shows the logged-in user's Email. If the user is not logged-in, the "
 "shortcode will be empty."
@@ -5294,7 +5344,7 @@ msgstr ""
 "Oturum açmış kullanıcının e-posta adresini gösterir. Kullanıcı giriş "
 "yapmamışsa kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2210
+#: ../admin/partials/settings/poll-maker-settings.php:2216
 msgid ""
 "Shows the logged-in user's First Name. If the user is not logged-in, the "
 "shortcode will be empty."
@@ -5302,7 +5352,7 @@ msgstr ""
 "Oturum açmış kullanıcının adını gösterir. Kullanıcı giriş yapmamışsa kısa "
 "kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2228
+#: ../admin/partials/settings/poll-maker-settings.php:2234
 msgid ""
 "Shows the logged-in user's Last Name. If the user is not logged-in, the "
 "shortcode will be empty."
@@ -5310,7 +5360,7 @@ msgstr ""
 "Oturum açmış kullanıcının soyadını gösterir. Kullanıcı giriş yapmamışsa kısa "
 "kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2300
+#: ../admin/partials/settings/poll-maker-settings.php:2306
 msgid ""
 "Shows the number of passed polls of the current user. For instance, the "
 "current user has passed 20 polls. If the user is not logged in shortcode "
@@ -5320,30 +5370,30 @@ msgstr ""
 "kullanıcı 20 anketi geçmiştir. Kullanıcı giriş yapmamışsa kısa kod boş "
 "olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2798
+#: ../admin/partials/settings/poll-maker-settings.php:2804
 msgid ""
 "Shows the post author's email that was filled in their WordPress profile."
 msgstr ""
 "WordPress profilinde girilmiş olan yazı yazarının e-posta adresini gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2818
+#: ../admin/partials/settings/poll-maker-settings.php:2824
 msgid ""
 "Shows the post author's First name that was filled in their WordPress "
 "profile."
 msgstr "WordPress profilinde girilmiş olan yazı yazarının adını gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2828
+#: ../admin/partials/settings/poll-maker-settings.php:2834
 msgid ""
 "Shows the post author's Last name that was filled in their WordPress profile."
 msgstr "WordPress profilinde girilmiş olan yazı yazarının soyadını gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2788
+#: ../admin/partials/settings/poll-maker-settings.php:2794
 msgid ""
 "Shows the post author's nickname that was filled in their WordPress profile."
 msgstr ""
 "WordPress profilinde girilmiş olan yazı yazarının takma adını gösterir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2318
+#: ../admin/partials/settings/poll-maker-settings.php:2324
 msgid ""
 "Shows the total sum of how many times the particular user has passed all the "
 "polls. For instance, the current user has passed 20 polls 500 times in total."
@@ -5406,7 +5456,7 @@ msgstr "Sosyal paylaşım düğmeleri"
 msgid "Solid"
 msgstr "Düz"
 
-#: ../public/class-poll-maker-ays-public.php:3550
+#: ../public/class-poll-maker-ays-public.php:3552
 #, php-format
 msgid "Someone's answer %1$s in your %2$s poll on %3$s."
 msgstr "%3$s üzerindeki %2$s anketinizde birinin cevabı: %1$s."
@@ -5445,7 +5495,7 @@ msgstr ""
 "Cevap görsellerinin kapsayıcıya sığacak şekilde nasıl yeniden "
 "boyutlandırılacağını belirtin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1770
+#: ../admin/partials/settings/poll-maker-settings.php:1776
 msgid "Specify how many users’ results to be shown on the leaderboard."
 msgstr ""
 "Liderlik tablosunda kaç kullanıcının sonuçlarının gösterileceğini belirtin."
@@ -5701,6 +5751,7 @@ msgstr "destek uzmanlarımız."
 msgid "Survey Maker"
 msgstr "Survey Maker"
 
+#: ../admin/class-poll-maker-ays-admin.php:3448 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7154 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7404 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7408
@@ -5756,35 +5807,35 @@ msgstr "Cevabınız için teşekkürler!"
 msgid "The color of the answers border"
 msgstr "Cevap kenarlığının rengi"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2568
+#: ../admin/partials/settings/poll-maker-settings.php:2574
 msgid "The creation date of the poll."
 msgstr "Anketin oluşturulma tarihi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2578
+#: ../admin/partials/settings/poll-maker-settings.php:2584
 msgid "The date of the submission poll."
 msgstr "Anket gönderim tarihi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2598
+#: ../admin/partials/settings/poll-maker-settings.php:2604
 msgid "The day of the submission poll."
 msgstr "Anket gönderiminin günü."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2878
+#: ../admin/partials/settings/poll-maker-settings.php:2884
 msgid "The description of the website."
 msgstr "Web sitesinin açıklaması."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2808
+#: ../admin/partials/settings/poll-maker-settings.php:2814
 msgid "The Display name of the author of the post."
 msgstr "Yazı yazarının Görünen adı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2508
+#: ../admin/partials/settings/poll-maker-settings.php:2514
 msgid "The E-mail the user entered into information form"
 msgstr "Kullanıcının bilgi formuna girdiği e-posta"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2858
+#: ../admin/partials/settings/poll-maker-settings.php:2864
 msgid "The ID of the current post."
 msgstr "Mevcut yazının kimliği."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2538
+#: ../admin/partials/settings/poll-maker-settings.php:2544
 msgid "The ID of the poll."
 msgstr "Anketin kimliği."
 
@@ -5796,15 +5847,15 @@ msgstr ""
 "Bu kategoriye ait tüm anketlerin süresi dolduğunda veya yayınlanmadığında "
 "mesaj görüntülenecektir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2608
+#: ../admin/partials/settings/poll-maker-settings.php:2614
 msgid "The month of the submission poll."
 msgstr "Anket gönderiminin ayı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2498
+#: ../admin/partials/settings/poll-maker-settings.php:2504
 msgid "The name the user entered into information form"
 msgstr "Kullanıcının bilgi formuna girdiği ad"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1371
+#: ../admin/partials/settings/poll-maker-settings.php:1376
 msgid ""
 "The notification message will be appeared when all polls of the given "
 "category expires or becomes unpublished."
@@ -5816,7 +5867,7 @@ msgstr ""
 msgid "The number of users who can pass the poll."
 msgstr "Anketi geçebilecek kullanıcı sayısı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2518
+#: ../admin/partials/settings/poll-maker-settings.php:2524
 msgid "The phone the user entered into information form"
 msgstr "Kullanıcının bilgi formuna girdiği telefon"
 
@@ -5828,7 +5879,7 @@ msgstr "Eklenti beklediğim gibi çalışmadı"
 msgid "The poll has expired!"
 msgstr "Anketin süresi doldu!"
 
-#: ../public/class-poll-maker-ays-public.php:2629
+#: ../public/class-poll-maker-ays-public.php:2631
 msgid "The poll has expired."
 msgstr "Anketin süresi dolmuştur."
 
@@ -5836,11 +5887,11 @@ msgstr "Anketin süresi dolmuştur."
 msgid "The poll will be available soon!"
 msgstr "Anket yakında hazır olacak!"
 
-#: ../public/class-poll-maker-ays-public.php:2625
+#: ../public/class-poll-maker-ays-public.php:2627
 msgid "The poll will be available soon."
 msgstr "Anket yakında hazır olacak."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2748
+#: ../admin/partials/settings/poll-maker-settings.php:2754
 msgid "The poll's pass count."
 msgstr "Anketin geçilme sayısı."
 
@@ -5848,11 +5899,11 @@ msgstr "Anketin geçilme sayısı."
 msgid "The position of background image of the polls"
 msgstr "Anket arka plan görselinin konumu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2778
+#: ../admin/partials/settings/poll-maker-settings.php:2784
 msgid "The Post title of the current post."
 msgstr "Mevcut yazının başlığı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2848
+#: ../admin/partials/settings/poll-maker-settings.php:2854
 msgid ""
 "The role(s) of the author of the post when logged-in. In case the user is "
 "not logged-in, the field will be empty."
@@ -5880,37 +5931,37 @@ msgstr "Anket konteynerinin gölge rengi"
 msgid "The style of answers border"
 msgstr "Cevap kenarlığının stili"
 
-#: ../admin/partials/settings/poll-maker-settings.php:2588
+#: ../admin/partials/settings/poll-maker-settings.php:2594
 msgid "The time of the submission poll."
 msgstr "Anket gönderiminin saati."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2528
+#: ../admin/partials/settings/poll-maker-settings.php:2534
 msgid "The title of the poll."
 msgstr "Anketin başlığı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2868
+#: ../admin/partials/settings/poll-maker-settings.php:2874
 msgid "The title of the website."
 msgstr "Web sitesinin başlığı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2888
+#: ../admin/partials/settings/poll-maker-settings.php:2894
 msgid "The URL of the home page."
 msgstr "Ana sayfanın URL’si."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2698
+#: ../admin/partials/settings/poll-maker-settings.php:2704
 msgid "The user's display name that was filled in their WordPress profile."
 msgstr "Kullanıcının WordPress profilinde doldurduğu görünen adı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2688
+#: ../admin/partials/settings/poll-maker-settings.php:2694
 msgid "The user's email that was filled in their WordPress profile."
 msgstr "Kullanıcının WordPress profilinde doldurduğu e-posta adresi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2548
+#: ../admin/partials/settings/poll-maker-settings.php:2554
 msgid ""
 "The user's first name that was filled in their WordPress site during "
 "registration."
 msgstr "Kullanıcının WordPress sitesine kayıt sırasında doldurduğu adı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2728
+#: ../admin/partials/settings/poll-maker-settings.php:2734
 msgid ""
 "The user's ID when logged-in. In case the user is not logged-in, the field "
 "will be empty."
@@ -5918,21 +5969,21 @@ msgstr ""
 "Kullanıcı giriş yapmışsa kullanıcının kimliği. Kullanıcı giriş yapmamışsa "
 "alan boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2718
+#: ../admin/partials/settings/poll-maker-settings.php:2724
 msgid "The user's IP address."
 msgstr "Kullanıcının IP adresi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2558
+#: ../admin/partials/settings/poll-maker-settings.php:2564
 msgid ""
 "The user's last name that was filled in their WordPress site during "
 "registration."
 msgstr "Kullanıcının WordPress sitesine kayıt sırasında doldurduğu soyadı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2708
+#: ../admin/partials/settings/poll-maker-settings.php:2714
 msgid "The user's nickname that was filled in their WordPress profile."
 msgstr "Kullanıcının WordPress profilinde doldurduğu takma adı."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2738
+#: ../admin/partials/settings/poll-maker-settings.php:2744
 msgid ""
 "The user's registration date when logged-in. In case the user is not logged-"
 "in, the field will be empty."
@@ -5940,7 +5991,7 @@ msgstr ""
 "Kullanıcı giriş yapmışsa kullanıcının kayıt tarihi. Kullanıcı giriş "
 "yapmamışsa alan boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2678
+#: ../admin/partials/settings/poll-maker-settings.php:2684
 msgid ""
 "The user's role(s) when logged-in. In case the user is not logged-in, the "
 "field will be empty."
@@ -5948,15 +5999,27 @@ msgstr ""
 "Kullanıcının giriş yaptığındaki rol(ler)i. Kullanıcı giriş yapmamışsa, alan "
 "boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2768
+#: ../admin/partials/settings/poll-maker-settings.php:2774
 msgid "The user's website that was filled in their WordPress profile."
 msgstr "Kullanıcının WordPress profilinde doldurduğu web sitesi."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2838
+#: ../admin/class-poll-maker-ays-admin.php:3445
+msgid "the users will be able to choose the answer across the 0-100 scale."
+msgstr "Kullanıcılar cevabı 0-100 ölçeği üzerinden seçebilecektir."
+
+#: ../admin/class-poll-maker-ays-admin.php:3451
+msgid ""
+"the users will choose the multiple-choice answers from a list of answers "
+"appeared in a dropdown form."
+msgstr ""
+"Kullanıcılar çoktan seçmeli cevapları açılır menüde görünen cevap "
+"listesinden seçecektir."
+
+#: ../admin/partials/settings/poll-maker-settings.php:2844
 msgid "The website url of the author of the post."
 msgstr "Yazı yazarının web sitesi URL’si."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2025
+#: ../admin/partials/settings/poll-maker-settings.php:2031
 msgid ""
 "The website visitors will see all the poll results on one page and pass them "
 "without any difficulties."
@@ -5968,13 +6031,24 @@ msgstr ""
 msgid "The width of answers border"
 msgstr "Cevap kenarlığının genişliği"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1645
+#: ../admin/partials/settings/poll-maker-settings.php:1650
 msgid ""
 "The width of the Leaderboard box. It accepts only numeric values. For 100% "
 "leave it blank."
 msgstr ""
 "Liderlik tablosu kutusunun genişliği. Yalnızca sayısal değerleri kabul eder. "
 "%100 için boş bırakın."
+
+#: ../admin/class-poll-maker-ays-admin.php:3429
+msgid ""
+"The WordPress Poll Maker plugin is here to help you quickly create advanced-"
+"level online polls and make your WordPress website more interactive. Use it "
+"to conduct elections, surveys and etc. Easily generate poll types like;"
+msgstr ""
+"WordPress Poll Maker eklentisi, hızlı bir şekilde gelişmiş seviyede "
+"çevrimiçi anketler oluşturmanıza ve WordPress sitenizi daha etkileşimli hale "
+"getirmenize yardımcı olur. Seçimler, anketler vb. yapmak için "
+"kullanabilirsiniz. Aşağıdaki gibi anket türlerini kolayca oluşturabilirsiniz;"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1586
 msgid "Theme"
@@ -6026,7 +6100,7 @@ msgstr "İsteğiniz gerçekleştirilirken bir hata oluştu."
 msgid "this"
 msgstr "bu"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1937
+#: ../admin/partials/settings/poll-maker-settings.php:1943
 msgid ""
 "This is the best way to learn how the voting history of the current user has "
 "changed over time."
@@ -6039,11 +6113,11 @@ msgid "This option allows to block the users who have already voted."
 msgstr ""
 "Bu seçenek, daha önce oy kullanmış kullanıcıları engellemeye olanak tanır."
 
-#: ../public/class-poll-maker-ays-public.php:1938
+#: ../public/class-poll-maker-ays-public.php:1940
 msgid "This Poll is active until "
 msgstr "Bu anket şu tarihe kadar aktiftir "
 
-#: ../public/class-poll-maker-ays-public.php:1948
+#: ../public/class-poll-maker-ays-public.php:1950
 msgid "This Poll will start "
 msgstr "Bu anket başlayacak "
 
@@ -6052,7 +6126,7 @@ msgstr "Bu anket başlayacak "
 msgid "This property available only in PRO version"
 msgstr "Bu özellik yalnızca PRO sürümünde mevcuttur"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1469
+#: ../admin/partials/settings/poll-maker-settings.php:1474
 msgid ""
 "This shortcode will help you to get the recent submitted poll. You will need "
 "to add the ID of the poll into the shortcode or choose the true option in "
@@ -6064,7 +6138,7 @@ msgstr ""
 "seçmeniz gerekir (bu durumda ID gerekli olmayacaktır). Varsayılan olarak "
 "false değerindedir."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2131
+#: ../admin/partials/settings/poll-maker-settings.php:2137
 msgid ""
 "This will help you decrease the workload as you will see the statistics of "
 "your users in one place."
@@ -6172,11 +6246,11 @@ msgstr ""
 "Ayrıca, %5$sÖzel CSS%6$s alanını kullanarak tasarımı web siteniz ve "
 "markanızla tamamen uyumlu hale getirebilirsiniz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1192
+#: ../admin/partials/settings/poll-maker-settings.php:1197
 msgid "To enable the integration, please install the MailPoet plugin."
 msgstr "Entegrasyonu etkinleştirmek için lütfen MailPoet eklentisini yükleyin."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1218
+#: ../admin/partials/settings/poll-maker-settings.php:1223
 msgid "To enable the integration, please install the MyCred plugin."
 msgstr "Entegrasyonu etkinleştirmek için lütfen MyCred eklentisini yükleyin."
 
@@ -6200,7 +6274,7 @@ msgstr "Üst"
 msgid "Top / Bottom"
 msgstr "Üst / Alt"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1681
+#: ../admin/partials/settings/poll-maker-settings.php:1686
 msgid "Top color of the leaderboard"
 msgstr "Liderlik tablosunun üst rengi"
 
@@ -6225,8 +6299,8 @@ msgstr ""
 msgid "Type"
 msgstr "Tür"
 
-#: ../public/class-poll-maker-ays-public.php:2011 
-#: ../public/class-poll-maker-ays-public.php:3249 
+#: ../public/class-poll-maker-ays-public.php:2013 
+#: ../public/class-poll-maker-ays-public.php:3251 
 #: ../public/partials/class-poll-maker-extra-shortcode.php:729
 msgid "Unknown"
 msgstr "Bilinmiyor"
@@ -6298,22 +6372,22 @@ msgstr "Kadar"
 #: ../admin/partials/settings/poll-maker-settings.php:956 
 #: ../admin/partials/settings/poll-maker-settings.php:987 
 #: ../admin/partials/settings/poll-maker-settings.php:1034 
-#: ../admin/partials/settings/poll-maker-settings.php:1078 
-#: ../admin/partials/settings/poll-maker-settings.php:1119 
-#: ../admin/partials/settings/poll-maker-settings.php:1174 
-#: ../admin/partials/settings/poll-maker-settings.php:1201 
-#: ../admin/partials/settings/poll-maker-settings.php:1226 
-#: ../admin/partials/settings/poll-maker-settings.php:1256 
-#: ../admin/partials/settings/poll-maker-settings.php:1328 
-#: ../admin/partials/settings/poll-maker-settings.php:1568 
-#: ../admin/partials/settings/poll-maker-settings.php:1710 
-#: ../admin/partials/settings/poll-maker-settings.php:1733 
-#: ../admin/partials/settings/poll-maker-settings.php:1864 
-#: ../admin/partials/settings/poll-maker-settings.php:1873 
-#: ../admin/partials/settings/poll-maker-settings.php:1910 
-#: ../admin/partials/settings/poll-maker-settings.php:1993 
-#: ../admin/partials/settings/poll-maker-settings.php:2099 
-#: ../admin/partials/settings/poll-maker-settings.php:2164 
+#: ../admin/partials/settings/poll-maker-settings.php:1083 
+#: ../admin/partials/settings/poll-maker-settings.php:1124 
+#: ../admin/partials/settings/poll-maker-settings.php:1179 
+#: ../admin/partials/settings/poll-maker-settings.php:1206 
+#: ../admin/partials/settings/poll-maker-settings.php:1231 
+#: ../admin/partials/settings/poll-maker-settings.php:1261 
+#: ../admin/partials/settings/poll-maker-settings.php:1333 
+#: ../admin/partials/settings/poll-maker-settings.php:1573 
+#: ../admin/partials/settings/poll-maker-settings.php:1715 
+#: ../admin/partials/settings/poll-maker-settings.php:1738 
+#: ../admin/partials/settings/poll-maker-settings.php:1870 
+#: ../admin/partials/settings/poll-maker-settings.php:1879 
+#: ../admin/partials/settings/poll-maker-settings.php:1916 
+#: ../admin/partials/settings/poll-maker-settings.php:1999 
+#: ../admin/partials/settings/poll-maker-settings.php:2105 
+#: ../admin/partials/settings/poll-maker-settings.php:2170 
 #: ../poll-maker-ays.php:153
 msgid "Upgrade"
 msgstr "Yükselt"
@@ -6367,12 +6441,12 @@ msgstr "Kullanıcı E-postası"
 msgid "User Email"
 msgstr "Kullanıcı E-postası"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1964
+#: ../admin/partials/settings/poll-maker-settings.php:1970
 msgid "User history results table columns"
 msgstr "Kullanıcı geçmişi sonuçları tablosu sütunları"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1923 
-#: ../admin/partials/settings/poll-maker-settings.php:1930
+#: ../admin/partials/settings/poll-maker-settings.php:1929 
+#: ../admin/partials/settings/poll-maker-settings.php:1936
 msgid "User History Settings"
 msgstr "Kullanıcı Geçmişi Ayarları"
 
@@ -6453,16 +6527,17 @@ msgid "Username"
 msgstr "Kullanıcı Adı"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:6883 
-#: ../admin/partials/settings/poll-maker-settings.php:1629 
-#: ../admin/partials/settings/poll-maker-settings.php:1769
+#: ../admin/partials/settings/poll-maker-settings.php:1634 
+#: ../admin/partials/settings/poll-maker-settings.php:1775
 msgid "Users count"
 msgstr "Kullanıcı sayısı"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1660
+#: ../admin/partials/settings/poll-maker-settings.php:1665
 msgid "Users group by"
 msgstr "Kullanıcıları gruplama"
 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7505
+#: ../admin/class-poll-maker-ays-admin.php:3442 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7502
 msgid "Versus"
 msgstr "Versus"
 
@@ -6494,6 +6569,16 @@ msgstr "Video eğitimi"
 msgid "View"
 msgstr "Görüntüle"
 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7373 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7391 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7409 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7425 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7452 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7479 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7505
+msgid "View demo"
+msgstr "Demoyu Gör"
+
 #: ../includes/class-poll-maker-ays-welcome.php:326
 msgid "View Demo →"
 msgstr "Demoyu Görüntüle →"
@@ -6512,7 +6597,7 @@ msgstr "Demoyu Görüntüle →"
 msgid "View Documentation"
 msgstr "Dokümantasyonu Görüntüle"
 
-#: ../public/class-poll-maker-ays-public.php:2489
+#: ../public/class-poll-maker-ays-public.php:2491
 msgid "View more"
 msgstr "Daha fazla görüntüle"
 
@@ -6539,7 +6624,7 @@ msgstr ""
 "bağlantısı."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:145 
-#: ../public/class-poll-maker-ays-public.php:2593
+#: ../public/class-poll-maker-ays-public.php:2595
 msgid "Vote"
 msgstr "Oy Ver"
 
@@ -6566,12 +6651,13 @@ msgstr "Oy verme nedeni seçeneği"
 msgid "Vote session"
 msgstr "Oy oturumu"
 
-#: ../includes/lists/class-poll-maker-results-list-table.php:323
+#: ../includes/lists/class-poll-maker-results-list-table.php:330
 msgid "Voters count"
 msgstr "Oy veren sayısı"
 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7421 
-#: ../admin/partials/poll-maker-ays-polls-actions.php:7425
+#: ../admin/class-poll-maker-ays-admin.php:3439 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7420 
+#: ../admin/partials/poll-maker-ays-polls-actions.php:7424
 msgid "Voting"
 msgstr "Oylama"
 
@@ -6591,12 +6677,12 @@ msgstr "Poll Maker’ı ustalıkla kullanmak için bu kısa eğitimleri izleyin"
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7220 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:7227 
 #: ../admin/partials/settings/poll-maker-settings.php:519 
-#: ../admin/partials/settings/poll-maker-settings.php:1576 
-#: ../admin/partials/settings/poll-maker-settings.php:1718 
-#: ../admin/partials/settings/poll-maker-settings.php:1725 
-#: ../admin/partials/settings/poll-maker-settings.php:2001 
-#: ../admin/partials/settings/poll-maker-settings.php:2107 
-#: ../admin/partials/settings/poll-maker-settings.php:2172
+#: ../admin/partials/settings/poll-maker-settings.php:1581 
+#: ../admin/partials/settings/poll-maker-settings.php:1723 
+#: ../admin/partials/settings/poll-maker-settings.php:1730 
+#: ../admin/partials/settings/poll-maker-settings.php:2007 
+#: ../admin/partials/settings/poll-maker-settings.php:2113 
+#: ../admin/partials/settings/poll-maker-settings.php:2178
 msgid "Watch Video"
 msgstr "Videoyu İzle"
 
@@ -6629,12 +6715,12 @@ msgstr ""
 " para iade garantimiz vardır ve\n"
 "                    ödemenizi iade ederiz."
 
-#: ../public/class-poll-maker-ays-public.php:2055 
-#: ../public/class-poll-maker-ays-public.php:3354
+#: ../public/class-poll-maker-ays-public.php:2057 
+#: ../public/class-poll-maker-ays-public.php:3356
 msgid "Website"
 msgstr "Web sitesi"
 
-#: ../admin/partials/settings/poll-maker-settings.php:1599
+#: ../admin/partials/settings/poll-maker-settings.php:1604
 msgid ""
 "Website visitors will be more inclined to vote for polls, as their vote "
 "matters."
@@ -6657,8 +6743,8 @@ msgid "Who will have permission to Poll menu"
 msgstr "Anket menüsüne kimlerin erişim izni olacak"
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:1496 
-#: ../admin/partials/settings/poll-maker-settings.php:1644 
-#: ../admin/partials/settings/poll-maker-settings.php:1786
+#: ../admin/partials/settings/poll-maker-settings.php:1649 
+#: ../admin/partials/settings/poll-maker-settings.php:1792
 msgid "Width"
 msgstr "Genişlik"
 
@@ -6696,7 +6782,7 @@ msgstr ""
 "Ücretsiz sürümle eklentiyi ömür boyu kullanabilirsiniz, ancak yeni "
 "güncellemeler ve destek yalnızca 1 ay boyunca sağlanır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2022
+#: ../admin/partials/settings/poll-maker-settings.php:2028
 msgid ""
 "With the help of the All Results Settings Shortcode, you can display all "
 "poll results on one page. By this, you will surely boost your website "
@@ -6716,7 +6802,7 @@ msgstr ""
 "anket oluşturabilir. Ayrıca daha fazla zaman kazanmak için kullanıcı "
 "isteklerini otomatik olarak onaylayabilirsiniz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2412
+#: ../admin/partials/settings/poll-maker-settings.php:2418
 msgid ""
 "With the help of this section, you can change the fields' placeholders of "
 "the Information form. Find the available fields in the User data tab of your "
@@ -6726,13 +6812,28 @@ msgstr ""
 "değiştirebilirsiniz. Anketlerinizin Kullanıcı verileri sekmesinde mevcut "
 "alanları bulun."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1934
+#: ../admin/partials/settings/poll-maker-settings.php:1940
 msgid ""
 "With the User History Settings Shortcode, you can display all votes of the "
 "current user on one page."
 msgstr ""
 "Kullanıcı Geçmişi Ayarları Kısa Kodu ile mevcut kullanıcının tüm oylarını "
 "tek bir sayfada görüntüleyebilirsiniz."
+
+#: ../admin/class-poll-maker-ays-admin.php:3448
+msgid ""
+"with this poll type the visitors should write down their own answers on the "
+"text boundaries."
+msgstr ""
+"Bu anket türünde ziyaretçiler kendi cevaplarını metin alanlarına yazmalıdır."
+
+#: ../admin/class-poll-maker-ays-admin.php:3436
+msgid ""
+"with this poll type, the visitors will be able to weigh via a 1-5 star "
+"rating system or emojis via the graphical interface."
+msgstr ""
+"Bu anket türünde ziyaretçiler grafik arayüz üzerinden 1-5 yıldızlı "
+"değerlendirme sistemi veya emojiler ile oy verebilecektir."
 
 #: ../admin/partials/poll-maker-ays-polls-actions.php:4010
 msgid "Without See Results button"
@@ -6875,14 +6976,14 @@ msgstr ""
 msgid "You can choose how many users can pass the poll."
 msgstr "Anketi kaç kullanıcının geçebileceğini seçebilirsiniz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2039
+#: ../admin/partials/settings/poll-maker-settings.php:2045
 msgid ""
 "You can copy the shortcode and insert it to any post to show all results."
 msgstr ""
 "Tüm sonuçları göstermek için kısa kodu kopyalayıp herhangi bir yazıya "
 "ekleyebilirsiniz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1617
+#: ../admin/partials/settings/poll-maker-settings.php:1622
 msgid ""
 "You can copy the shortcode and paste it to any post/page to see the list of "
 "the top user’s who passed any poll."
@@ -6890,8 +6991,8 @@ msgstr ""
 "Kısa kodu kopyalayıp herhangi bir yazı/sayfaya yapıştırarak herhangi bir "
 "anketi geçen en iyi kullanıcıların listesini görüntüleyebilirsiniz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2476 
-#: ../admin/partials/settings/poll-maker-settings.php:2485
+#: ../admin/partials/settings/poll-maker-settings.php:2482 
+#: ../admin/partials/settings/poll-maker-settings.php:2491
 msgid ""
 "You can copy these variables and paste them in the following options from "
 "the poll settings"
@@ -6916,7 +7017,7 @@ msgstr ""
 msgid "You can get your API key from "
 msgstr "API anahtarınızı şuradan alabilirsiniz "
 
-#: ../admin/partials/settings/poll-maker-settings.php:1109
+#: ../admin/partials/settings/poll-maker-settings.php:1114
 msgid "You can get your API Key from your "
 msgstr "API anahtarınızı şuradan alabilirsiniz: "
 
@@ -6924,11 +7025,14 @@ msgstr "API anahtarınızı şuradan alabilirsiniz: "
 msgid "You can get your API key from your "
 msgstr "API anahtarınızı şuradan alabilirsiniz "
 
-#: ../admin/partials/settings/poll-maker-settings.php:1065
+#: ../admin/partials/settings/poll-maker-settings.php:1067
+#, php-format
 msgid ""
-"You can get your API key from your <a href='#' target='_blank'>account</a>."
+"You can get your API key from your <a href=\"%s\" target=\"_blank\" "
+"rel=\"noopener\">account</a>."
 msgstr ""
-"API anahtarınızı <a href='#' target='_blank'>hesabınızdan</a> alabilirsiniz."
+"API anahtarınızı <a href=\"%s\" target=\"_blank\" rel=\"noopener\">"
+"hesabınızdan</a> alabilirsiniz."
 
 #: ../admin/partials/settings/poll-maker-settings.php:814
 msgid ""
@@ -6951,8 +7055,8 @@ msgstr ""
 "WordPress Anket Eklentisinin Varsayılan Olarak Kaydet özelliğiyle çevrimiçi "
 "anket oluşturma sürecini eğlenceli ve kolay hale getirebilirsiniz."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1965 
-#: ../admin/partials/settings/poll-maker-settings.php:2067
+#: ../admin/partials/settings/poll-maker-settings.php:1971 
+#: ../admin/partials/settings/poll-maker-settings.php:2073
 msgid ""
 "You can sort table columns and select which columns must display on the "
 "front-end."
@@ -6969,7 +7073,7 @@ msgstr "Anketi geçmek için izniniz yok"
 msgid "You have already voted"
 msgstr "Zaten oy kullandınız"
 
-#: ../public/class-poll-maker-ays-public.php:2540
+#: ../public/class-poll-maker-ays-public.php:2542
 msgid "You have already voted."
 msgstr "Zaten oy kullandınız."
 
@@ -6992,11 +7096,11 @@ msgstr ""
 msgid "You must sign in for passing the poll"
 msgstr "Anketi geçmek için oturum açmalısınız"
 
-#: ../public/class-poll-maker-ays-public.php:2142
+#: ../public/class-poll-maker-ays-public.php:2144
 msgid "You must sign in for voting."
 msgstr "Oylama için oturum açmalısınız."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2336
+#: ../admin/partials/settings/poll-maker-settings.php:2342
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show categories "
 "descriptions of the particular poll. If there is no poll available/found "
@@ -7006,7 +7110,7 @@ msgstr ""
 "açıklamalarını gösterecektir. Belirtilen Anket ID’sine sahip bir anket "
 "mevcut değilse/bulunamazsa, kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2354
+#: ../admin/partials/settings/poll-maker-settings.php:2360
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show categories "
 "titles of the particular poll. If there is no poll available/found with that "
@@ -7016,7 +7120,7 @@ msgstr ""
 "başlıklarını gösterecektir. Belirtilen Anket ID’sine sahip bir anket mevcut "
 "değilse/bulunamazsa, kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2282
+#: ../admin/partials/settings/poll-maker-settings.php:2288
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show the creation "
 "date of the particular poll. If there is no poll available/found with that "
@@ -7026,7 +7130,7 @@ msgstr ""
 "tarihini gösterecektir. Belirtilen Anket ID’sine sahip bir anket mevcut "
 "değilse/bulunamazsa, kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2372
+#: ../admin/partials/settings/poll-maker-settings.php:2378
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show the current "
 "author of the particular poll. If there is no poll or questions "
@@ -7036,7 +7140,7 @@ msgstr ""
 "yazarını gösterecektir. Belirtilen Anket ID’sine ait bir anket veya soru "
 "mevcut değilse/bulunamazsa, kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:2390
+#: ../admin/partials/settings/poll-maker-settings.php:2396
 msgid ""
 "You need to insert Your Poll ID in the shortcode. It will show the total "
 "count of answers in particular poll. If there is no poll available/found "
@@ -7046,7 +7150,7 @@ msgstr ""
 "cevap sayısını gösterecektir. Belirtilen Anket ID’sine sahip bir anket "
 "mevcut değilse/bulunamazsa, kısa kod boş olacaktır."
 
-#: ../admin/partials/settings/poll-maker-settings.php:1337
+#: ../admin/partials/settings/poll-maker-settings.php:1342
 #, php-format
 msgid ""
 "You need to set up reCAPTCHA in your Google account to generate the required "
@@ -7056,7 +7160,7 @@ msgstr ""
 "yapmalı ve bunları %1$sGoogle reCAPTCHA yönetim konsolu%2$s üzerinden "
 "almalısınız."
 
-#: ../public/class-poll-maker-ays-public.php:2158
+#: ../public/class-poll-maker-ays-public.php:2160
 msgid "You not have permissions for voting."
 msgstr "Oylama için izniniz yok."
 
@@ -7074,7 +7178,7 @@ msgstr ""
 msgid "You will be redirected"
 msgstr "Yönlendirileceksiniz"
 
-#: ../public/class-poll-maker-ays-public.php:2618
+#: ../public/class-poll-maker-ays-public.php:2620
 msgid ""
 "You're in the preview mode. Note: All elements work correctly on the front "
 "end."
