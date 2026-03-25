@@ -226,25 +226,33 @@ class Polls_List_Table extends WP_List_Table {
 		$poll_table   = esc_sql($wpdb->prefix . 'ayspoll_polls');
 		$answer_table = esc_sql($wpdb->prefix . 'ayspoll_answers');
 		if (isset($data["poll_action"]) && wp_verify_nonce($data["poll_action"], 'poll_action')) {
+
+			$poll_allowed_html = Poll_Maker_Data::ays_poll_custom_allowed_html();
+
 			$title                     = isset($data['ays-poll-title']) && $data['ays-poll-title'] != "" ? sanitize_text_field($data['ays-poll-title']) : "Default title";
 			$show_title                = isset($data['show_title']) && $data['show_title'] == 'show' ? 1 : 0;
 			$limit_users               = isset($data['apm_limit_users']) && $data['apm_limit_users'] == 'on' ? 1 : 0;
 			$limit_users_method        = isset($data['ays_limit_method']) ? sanitize_text_field($data['ays_limit_method']) : 'ip';
-			$limit_users_msg           = isset($data['ays_limitation_message']) ? wpautop($data['ays_limitation_message']) : "";
+			$limit_users_msg           = isset($data['ays_limitation_message']) ? wp_kses( $data['ays_limitation_message'], $poll_allowed_html ) : "";
 			$limit_users_url           = isset($data['ays_redirect_url']) ? wp_http_validate_url($data['ays_redirect_url']) : "";
 			$limit_users_delay         = isset($data['ays_redirection_delay']) ? absint($data['ays_redirection_delay']) : 0;
 			$limit_users_role_enable   = isset($data['ays_enable_restriction_pass']) && $data['ays_enable_restriction_pass'] == 'on' ? 1 : 0;
 			$limit_users_role          = (isset($data["ays_users_roles"]) && !empty($data["ays_users_roles"])) ? $data["ays_users_roles"] : array();
-			$limit_users_role_msg      = isset($data['restriction_pass_message']) ? wpautop($data['restriction_pass_message']) : "";
+			$limit_users_role_msg      = isset($data['restriction_pass_message']) ? wp_kses( $data['restriction_pass_message'], $poll_allowed_html ) : "";
+
 			$limit_users_logged_enable = (isset($data['ays_enable_logged_users']) && $data['ays_enable_logged_users'] == 'on') || $limit_users_role_enable ? 1 : 0;
-			$limit_users_logged_msg    = isset($data['ays_enable_logged_users_message']) ? wpautop($data['ays_enable_logged_users_message']) : "";
+			$limit_users_logged_msg    = isset($data['ays_enable_logged_users_message']) ? wp_kses( $data['ays_enable_logged_users_message'], $poll_allowed_html ) : "";
+
 			$hide_results              = isset($data['ays-poll-hide-results']) && 'hide' == $data['ays-poll-hide-results'] ? 1 : 0;
 			$hide_result_message       = isset($data['ays_poll_result_message']) && 'hide' == $data['ays_poll_result_message'] ? 1 : 0;
-			$hide_results_text         = stripcslashes($data['ays-poll-hide-results-text']);
-			$ays_result_message        = wp_kses_post(stripcslashes($data['ays_result_message']));
+
+			$hide_results_text         = isset( $data['ays-poll-hide-results-text'] ) && $data['ays-poll-hide-results-text'] != '' ? wp_kses( $data['ays-poll-hide-results-text'], $poll_allowed_html ) : '';
+
+			$ays_result_message        = isset( $data['ays_result_message'] ) && $data['ays_result_message'] != '' ? wp_kses( $data['ays_result_message'], $poll_allowed_html ) : '';
+
 			$allow_not_vote            = isset($data['ays-poll-allow-not-vote']) && 'allow' == $data['ays-poll-allow-not-vote'] ? 1 : 0;
 			$show_social               = isset($data['ays-poll-show-social']) && 'show' == $data['ays-poll-show-social'] ? 1 : 0;
-			$poll_social_buttons_heading = ( isset( $data[ 'ays_poll_social_buttons_heading' ] ) && $data[ 'ays_poll_social_buttons_heading' ] != '' ) ? stripslashes(wp_kses_post($data[ 'ays_poll_social_buttons_heading' ])) : '';
+			$poll_social_buttons_heading = ( isset( $data[ 'ays_poll_social_buttons_heading' ] ) && $data[ 'ays_poll_social_buttons_heading' ] != '' ) ? wp_kses( $data['ays_poll_social_buttons_heading'], $poll_allowed_html ) : '';
 			$poll_show_social_ln       = isset($data['ays_poll_enable_linkedin_share_button'])  && $data['ays_poll_enable_linkedin_share_button']  == "on" ? "on" : "off";
 			$poll_show_social_fb	   = isset($data['ays_poll_enable_facebook_share_button'])  && $data['ays_poll_enable_facebook_share_button']  == "on" ? "on" : "off";
 			$poll_show_social_tr	   = isset($data['ays_poll_enable_twitter_share_button'])   && $data['ays_poll_enable_twitter_share_button']   == "on" ? "on" : "off";
@@ -252,14 +260,11 @@ class Polls_List_Table extends WP_List_Table {
 			$categories                = isset($data['ays-poll-categories']) ? ',' . implode(',', $data['ays-poll-categories']) . ',' : ',1,';
 			$description               = isset($data['ays-poll-description']) && $data['ays-poll-description'] != '' ? sanitize_textarea_field($data['ays-poll-description']) : "";
 			$type                      = isset($data['ays-poll-type']) ? sanitize_text_field($data['ays-poll-type']) : "";
-			$question                  = wp_kses_post(stripcslashes($data['ays_poll_question']));
+
+			$question                  = isset( $data['ays_poll_question'] ) && $data['ays_poll_question'] != '' ? wp_kses( $data['ays_poll_question'], $poll_allowed_html ) : '';
+
 			$image = isset($data['ays_poll_image']) && $data['ays_poll_image'] != '' ? sanitize_url($data['ays_poll_image']): '';
-			// if ($image != '') {
-			// 	if ( !(filter_var($image, FILTER_VALIDATE_URL) && wp_http_validate_url($image)) ) {
-			// 		// invalid URL, handle accordingly
-			// 		$image = '';
-			// 	}
-			// }
+
 			if( $image != "" ){
 				$check_if_current_image_exists = Poll_Maker_Ays_Admin::ays_poll_check_if_current_image_exists($image);
 
@@ -342,8 +347,9 @@ class Polls_List_Table extends WP_List_Table {
 			$deactiveInterval          = isset($deactiveInterval_fullArr[0]) ? $deactiveInterval_fullArr[0] : "";
 			$deactiveIntervalSec       = isset($deactiveInterval_fullArr[1]) ? $deactiveInterval_fullArr[1] : "";
 
-			$active_date_message       = wpautop($data['active_date_message']);
-			$active_date_message_soon  = wpautop($data['active_date_message_soon']);
+			$active_date_message       = isset( $data['active_date_message'] ) && $data['active_date_message'] != '' ? wp_kses( $data['active_date_message'], $poll_allowed_html ) : '';
+			$active_date_message_soon  = isset( $data['active_date_message_soon'] ) && $data['active_date_message_soon'] != '' ? wp_kses( $data['active_date_message_soon'], $poll_allowed_html ) : '';
+
 			$css                       = stripcslashes($data['ays_custom_css']);
 			$active_date_check         = isset($data['active_date_check']) && !empty($data['active_date_check']) ? $data['active_date_check'] : '';
 			$enable_restart_button     = isset($data['ays_enable_restart_button']) && 'on' == $data['ays_enable_restart_button'] ? 1 : 0;
@@ -360,7 +366,7 @@ class Polls_List_Table extends WP_List_Table {
 			$info_form                 = isset($data['ays_poll_info_form']) && 'on' == $data['ays_poll_info_form'] ? 1 : 0;
 			$form_fields               = isset($data['ays-poll-form-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-fields'])) : "";
 			$form_required_fields      = isset($data['ays-poll-form-required-fields']) ? sanitize_text_field(implode(',', $data['ays-poll-form-required-fields'])) : "";
-			$info_form_title           = isset($data['ays-poll-info-form-text']) ? wpautop(wp_kses_post(stripslashes($data['ays-poll-info-form-text']))) : "";
+			$info_form_title           = isset($data['ays-poll-info-form-text']) ? wp_kses( $data['ays-poll-info-form-text'], $poll_allowed_html ) : "";
 			$title_bg_color            = sanitize_text_field($data['ays_poll_title_bg_color']);
 
 			// Poll main URL
@@ -623,7 +629,7 @@ class Polls_List_Table extends WP_List_Table {
 			$poll_password = ( isset($data['ays_poll_password']) && $data['ays_poll_password'] != "" ) ? sanitize_text_field($data['ays_poll_password']) : "";
 			// Enable toggle password visibility
 			$poll_enable_password_visibility = (isset($data['ays_poll_enable_password_visibility']) && $data['ays_poll_enable_password_visibility'] == 'on') ? 'on' : 'off';
-			$poll_password_message = ( isset($data['ays_poll_password_message']) && $data['ays_poll_password_message'] != "" ) ? wp_kses_post($data['ays_poll_password_message']) : "Please enter password";
+			$poll_password_message = ( isset($data['ays_poll_password_message']) && $data['ays_poll_password_message'] != "" ) ? wp_kses( $data['ays_poll_password_message'], $poll_allowed_html ) : "Please enter password";
 
 			// Add post for poll
 			$ays_add_post_for_poll = isset($data['ays_add_post_for_poll']) && $data['ays_add_post_for_poll'] == 'on' ? 'on' : 'off';
@@ -653,7 +659,7 @@ class Polls_List_Table extends WP_List_Table {
 
 			// Social Media links
             $enable_social_links = (isset($data['ays_poll_enable_social_links']) && sanitize_text_field( $data['ays_poll_enable_social_links'] ) == "on") ? 'on' : 'off';
-            $poll_social_links_heading = ( isset( $data[ 'ays_poll_social_links_heading' ] ) && $data[ 'ays_poll_social_links_heading' ] != '' ) ? stripslashes(wp_kses_post($data[ 'ays_poll_social_links_heading' ])) : '';
+            $poll_social_links_heading = ( isset( $data[ 'ays_poll_social_links_heading' ] ) && $data[ 'ays_poll_social_links_heading' ] != '' ) ? wp_kses( $data['ays_poll_social_links_heading'], $poll_allowed_html ) : '';
             $ays_social_links = (isset($data['ays_poll_social_links'])) ? array_map( 'sanitize_text_field', $data['ays_poll_social_links'] ) : array(
                 'linkedin_link' => '',
                 'facebook_link' => '',

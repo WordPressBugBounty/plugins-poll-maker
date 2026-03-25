@@ -90,19 +90,17 @@ class Pma_Categories_List_Table extends WP_List_Table {
 		$cats_table = $wpdb->prefix . 'ayspoll_categories';
 
 		if (isset($data["poll_category_action"]) && wp_verify_nonce($data["poll_category_action"], 'poll_category_action')) {
+
+			$poll_allowed_html = Poll_Maker_Data::ays_poll_custom_allowed_html();
+
 			$title       = isset($data['ays_title']) && $data['ays_title'] != "" ? stripslashes(sanitize_text_field($data['ays_title'])) :  "Category";
-			if(function_exists("sanitize_textarea_field")){
-				$description = isset($data['ays_description']) && $data['ays_description'] != "" ? stripslashes(sanitize_textarea_field($data['ays_description'])) : "";
-			}
-			else{
-				$description = isset($data['ays_description']) && $data['ays_description'] != "" ? stripslashes(sanitize_text_field($data['ays_description'])) : "";
-			}
+
+			$description = isset( $data['ays_description'] ) && $data['ays_description'] != '' ? wp_kses( $data['ays_description'], $poll_allowed_html ) : '';			
 			
 			$skip_poll   = isset($data['ays_poll_allow_skip']) && $data['ays_poll_allow_skip'] == "allow" ? sanitize_text_field($data['ays_poll_allow_skip']) : "";
 			$next_text   = isset($data['ays_poll_next_text']) && $data['ays_poll_next_text'] != "" ? sanitize_text_field($data['ays_poll_next_text']) : "Next";
 			$default_message = 'The polls that belong to this category are expired or unpublished';
-			$exp_message = (isset($data['ays_poll_cat_message']) && $data['ays_poll_cat_message'] != '') ? stripslashes( wp_kses_post($data['ays_poll_cat_message']) ) : $default_message;
-			// $exp_message   = (isset($data['ays_poll_cat_message']) && $data['ays_poll_cat_message'] != '') ? sanitize_text_field($data['ays_poll_cat_message']) : $default_message;
+			$exp_message = (isset($data['ays_poll_cat_message']) && $data['ays_poll_cat_message'] != '') ? wp_kses( $data['ays_poll_cat_message'], $poll_allowed_html ) : $default_message;
 			$previous_text = (isset($data['ays_poll_previous_text']) && $data['ays_poll_previous_text'] != '') ? sanitize_text_field($data['ays_poll_previous_text']) : 'Previous';
 			$message     = '';
 			$options     = array(

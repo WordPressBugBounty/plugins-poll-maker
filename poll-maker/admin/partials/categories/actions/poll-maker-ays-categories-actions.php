@@ -60,7 +60,7 @@ if (isset($_POST['ays_submit'])) {
 
 // Category expired message
 $default_message = 'The polls that belong to this category are expired or unpublished';
-$exp_message = (isset($cat_opt['exp_message']) && $cat_opt['exp_message'] != '') ? stripslashes(esc_attr($cat_opt['exp_message'])) : $default_message;
+$exp_message = (isset($cat_opt['exp_message']) && $cat_opt['exp_message'] != '') ? stripslashes(wpautop($cat_opt['exp_message'])) : $default_message;
 
 // Category previous button
 $previous_button = isset($cat_opt['previous_text']) && $cat_opt['previous_text'] != '' ? esc_attr($cat_opt['previous_text']) : 'Previous';
@@ -69,7 +69,7 @@ $previous_button = isset($cat_opt['previous_text']) && $cat_opt['previous_text']
 $category_title  = ( isset( $category['title'] ) && $category['title'] != '' ) ? stripslashes( esc_attr( $category['title'] ) ) : '';
 
 //Category description
-$category_description  = ( isset( $category['description'] ) && $category['description'] != '' ) ? stripslashes( esc_attr( $category['description']) ) : '';
+$category_description  = ( isset( $category['description'] ) && $category['description'] != '' ) ? stripslashes( wpautop( $category['description']) ) : '';
 
 // // WP Editor height
 $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $settings_options['poll_wp_editor_height'] != '') ? absint( sanitize_text_field($settings_options['poll_wp_editor_height']) ) : 100 ;
@@ -108,27 +108,31 @@ $poll_wp_editor_height = (isset($settings_options['poll_wp_editor_height']) && $
                 </div>
             </div>
             <hr>
-            <div class='ays-field'>
-                <label for='ays-description'>
-					<?php echo esc_html__('Description', "poll-maker"); ?>
-                    <a class="ays_help"
-                       data-toggle="tooltip"
-                       data-placement="top"
-                       title="<?php echo esc_html__('Provide more information about the poll category.', "poll-maker"); ?>">
-                        <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
-                    </a>
-                </label>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <label for='ays-description'>
+    					<?php echo esc_html__('Description', "poll-maker"); ?>
+                        <a class="ays_help"
+                           data-toggle="tooltip"
+                           data-placement="top"
+                           title="<?php echo esc_html__('Provide more information about the poll category.', "poll-maker"); ?>">
+                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                        </a>
+                    </label>
+                </div>
+                <div class="col-sm-9">
 				<?php
-				$content = $category_description;
-				$editor_id = 'ays-description';
-				$settings  = array(
-					'editor_height' => $poll_wp_editor_height,
-					'textarea_name' => 'ays_description',   
-					'editor_class'  => 'ays-textarea',
-					'media_buttons' => false
-				);
-				wp_editor($content, $editor_id, $settings);
+    				$content = $category_description;
+    				$editor_id = 'ays-description';
+    				$settings  = array(
+    					'editor_height' => $poll_wp_editor_height,
+    					'textarea_name' => 'ays_description',   
+    					'editor_class'  => 'ays-textarea',
+    					'media_buttons' => false
+    				);
+    				wp_editor($content, $editor_id, $settings);
 				?>
+                </div>
             </div>
             <hr>
             <div class="form-group row">
