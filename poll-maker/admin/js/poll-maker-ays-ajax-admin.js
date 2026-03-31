@@ -65,7 +65,7 @@
         quickPollFormData._ajax_nonce = wp_nonce;
 
         $.ajax({
-            url: apm_ajax_obj.ajaxUrl,
+            url: poll_maker_ajax.ajax_url,
             method: 'post',
             dataType: 'json',
             data: quickPollFormData,
@@ -104,5 +104,148 @@
         })
     
     })
+
+    function updateProgress() {
+        var total = $(document).find(".ays-poll-checklist-step").length;
+        var done = $(document).find(".ays-poll-checklist-step input:checked").length;
+        var percent = Math.round((done / total) * 100);
+
+        $(document).find(".ays-poll-checklist-progress-text").text(percent + "%");
+        $(document).find(".ays-poll-checklist-progress-bar span").css("width", percent + "%");
+    }
+
+    function saveChecklist() {
+        var checked = [];
+        $(document).find(".ays-poll-checklist-step input:checked").each(function () {
+                checked.push($(this).closest(".ays-poll-checklist-step").data("step"));
+            });
+
+        $.post(poll_maker_ajax.ajax_url, {
+            action: "ays_poll_save_checklist_progress",
+            nonce: poll_maker_ajax.nonce,
+            steps: checked,
+        });
+    }
+
+    $(document).find(".ays-poll-checklist-step").each(function () {
+        var $step = $(this);
+        var $checkbox = $step.find('input[type="checkbox"]');
+        var $content = $step.find(".ays-poll-checklist-step-content");
+        var $button = $step.find(".ays-poll-checklist-mark-done");
+
+        $checkbox.on("change", function () {
+            if ($(this).is(':checked')) {
+                $step.addClass('completed');
+                $button.text(poll_maker_ajax.checklistUnmarkAsDone);
+            } else {
+                $step.removeClass('completed');
+                $button.text(poll_maker_ajax.checklistMarkAsDone);
+            }
+
+            updateProgress();
+            saveChecklist();
+        });
+    });
+
+    $(document).find('.ays-poll-checklist-mark-done').on('click', function () {
+        var $button = $(this);
+        var $step = $button.closest('.ays-poll-checklist-step');
+        var $checkbox = $step.find('input[type="checkbox"]');
+
+        var isChecked = $checkbox.prop('checked');
+
+        $checkbox.prop('checked', !isChecked);
+        $step.toggleClass('completed', !isChecked);
+
+        if (isChecked) {
+          $button.text(poll_maker_ajax.checklistMarkAsDone);
+        } else {
+          $button.text(poll_maker_ajax.checklistUnmarkAsDone);
+        }
+
+        updateProgress();
+        saveChecklist();
+    });
+
+    $(document).find('.ays-poll-checklist-toggle-step').on('click', function () {
+        var $step = $(this).closest('.ays-poll-checklist-step');
+        var $content = $step.find('.ays-poll-checklist-step-content');
+
+        $(document).find('.ays-poll-checklist-step-content').not($content).slideUp(200);
+        $(document).find('.ays-poll-checklist-toggle-step').not(this).removeClass('open');
+
+        $content.slideToggle(200);
+        $(this).toggleClass('open');
+    });
+
+    // Reopen checklist on checklist icon click
+    $(document).find('.ays-poll-checklist-open-icon').on('click', function () {
+        var $checklist = $(document).find('#ays-poll-checklist-container');
+        $checklist.fadeIn(200);
+
+        $.ajax({
+            type: 'POST',
+            url: poll_maker_ajax.ajax_url,
+            data: {
+                action: 'ays_poll_checklist_reopen_callback',
+                nonce: poll_maker_ajax.nonce
+            },
+            success: function () {
+            }
+        });
+    });
+
+    // Hide popup permanently
+    $(document).find('.ays-poll-checklist-popup-close').on('click', function () {
+        var $checklist = $(this).closest('.ays-poll-checklist-popup');
+        $checklist.fadeOut(200);
+    });
+
+    $(document).find('.ays-poll-checklist-minimize-btn').on('click', function () {
+        var $panel = $(document).find('.ays-poll-checklist-panel');
+        var $expandedIcon = $(this).find('.ays-poll-checklist-minimize-icon-expanded');
+        var $collapsedIcon = $(this).find('.ays-poll-checklist-minimize-icon-collapsed');
+
+        $panel.toggleClass('ays-poll-checklist-minimized');
+
+        if ($panel.hasClass('ays-poll-checklist-minimized')) {
+            $expandedIcon.hide();
+            $collapsedIcon.show();
+        } else {
+            $expandedIcon.show();
+            $collapsedIcon.hide();
+        }
+    });
+
+    $(document).find('.ays-poll-checklist-close-btn').on('click', function () {
+        var $checklist = $(this).closest('#ays-poll-checklist-container');
+        $.ajax({
+            type: 'POST',
+            url: poll_maker_ajax.ajax_url,
+            data: {
+                action: 'ays_poll_checklist_close_popup',
+                nonce: poll_maker_ajax.nonce
+            },
+            success: function (response) {
+                if (response.success) {
+                    $checklist.fadeOut(200);
+                } else {
+                    console.error(response.data);
+                    $checklist.fadeOut(200);
+                }
+
+                if (localStorage.getItem('ays_poll_checklist_popup_closed') !== '1') {
+                    $(document).find('.ays-poll-checklist-popup').fadeIn(200);
+                }
+
+                localStorage.setItem('ays_poll_checklist_popup_closed', '1');
+            },
+            error: function() {
+                $checklist.fadeOut(200);
+            }
+        });
+    });
+
+    updateProgress();
 
 })(jQuery)

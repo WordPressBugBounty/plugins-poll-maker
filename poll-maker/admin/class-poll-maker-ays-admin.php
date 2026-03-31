@@ -269,8 +269,31 @@ class Poll_Maker_Ays_Admin {
 
 		wp_enqueue_script( $this->plugin_name . '-quick-start-js', plugin_dir_url(__FILE__) . 'js/poll-maker-poll-quick-start.js', array('jquery'), $this->version, true);
 		wp_enqueue_script( $this->plugin_name . '-admin-ajax', plugin_dir_url(__FILE__) . 'js/poll-maker-ays-ajax-admin.js', array('jquery'), $this->version, true);
-		wp_localize_script($this->plugin_name . '-admin-ajax', 'apm_ajax_obj', array('ajaxUrl' => admin_url('admin-ajax.php')));
+		
+		wp_localize_script($this->plugin_name . '-admin-ajax', 'poll_maker_ajax', array(
+            'ajax_url'                          => admin_url('admin-ajax.php'),
+            'nonce'                             => wp_create_nonce('ays_poll_nonce'),
+            "emptyEmailError"                   => esc_html__( 'Email field is empty', 'poll-maker'),
+            "invalidEmailError"                 => esc_html__( 'Invalid Email address', 'poll-maker'),
+            'selectUser'                        => esc_html__( 'Select user', 'poll-maker'),
+            'pleaseEnterMore'                   => esc_html__( "Please enter 1 or more characters", 'poll-maker' ),
+            'searching'                         => esc_html__( "Searching...", 'poll-maker' ),
+            'activated'                         => esc_html__( "Activated", 'poll-maker' ),
+            'errorMsg'                          => esc_html__( "Error", 'poll-maker' ),
+            'loadResource'                      => esc_html__( "Can't load resource.", 'poll-maker' ),
+            'somethingWentWrong'                => esc_html__( "Maybe something went wrong.", 'poll-maker' ),
+            'youCanUuseThisShortcode'           => esc_html__( 'Copy the generated shortcode and paste it into any post or page to display Poll.', 'poll-maker'),
+            'youPollIsCreated'                  => esc_html__( 'Your Poll is Created!', 'poll-maker'),
+            'greateJob'                         => esc_html__( 'Great job', 'poll-maker'),
+            'formMoreDetailed'                  => esc_html__( 'For more detailed configuration visit', 'poll-maker'),
+            'editpollPage'                      => esc_html__( 'edit poll page', 'poll-maker'),
+            'greate'                            => esc_html__( 'Great!', 'poll-maker'),
+            'thumbsUpGreat'                     => esc_html__( 'Thumbs up, great!', 'poll-maker'),
+            "preivewPoll"                       => esc_html__( "Preview Poll", 'poll-maker' ),
 
+            "checklistMarkAsDone"               => esc_html__( "Mark as done", 'poll-maker' ),
+            "checklistUnmarkAsDone"             => esc_html__( "Unmark as done", 'poll-maker' ),
+        ));
 		$color_picker_strings = array(
 			'clear' =>esc_html__('Clear', "poll-maker"),
 			'clearAriaLabel' =>esc_html__('Clear color', "poll-maker"),
@@ -617,63 +640,7 @@ class Poll_Maker_Ays_Admin {
             array($this, 'display_plugin_featured_plugins_page') 
         );
 		add_action("load-$hook_pro_features", array($this, 'add_tabs'));
-	}
-
-	public function	display_poll_creation_popup() {
-		$is_challange_enabled = get_option('ays_poll_maker_poll_creation_challange', false);
-
-		if (!$is_challange_enabled) {
-			return;
-		}
-
-		if (isset($_GET['page']) && strpos($_GET['page'], POLL_MAKER_AYS_NAME) !== false) {
-			$poll_ajax_challenge_cancel_nonce = wp_create_nonce( 'poll-maker-ajax-challenge-cancel-nonce' );
-			?>
-			<div class="poll-maker-challenge">
-				<div class="poll-maker-challenge-list-block">
-					<i class="fa fa-times-circle list-block-button poll-maker-challenge-cancel" aria-hidden="true" title="Cancel challenge"></i>
-					<input type="hidden" id="poll_maker_ajax_challenge_cancel_nonce" name="poll_maker_ajax_challenge_cancel_nonce" value="<?php echo esc_attr($poll_ajax_challenge_cancel_nonce) ?>">
-					<ul class="poll-maker-challenge-list">
-						<li class="poll-maker-challenge-step-item"><?php echo esc_html__('Add a New Poll', "poll-maker"); ?></li>
-						<li class="poll-maker-challenge-step-item"><?php echo esc_html__('Name Your Poll', "poll-maker"); ?></li>
-						<li class="poll-maker-challenge-step-item"><?php echo esc_html__('Add Options', "poll-maker"); ?></li>
-						<li class="poll-maker-challenge-step-item"><?php echo esc_html__('Save the Poll', "poll-maker"); ?></li>
-						<li class="poll-maker-challenge-step-item"><?php echo esc_html__('Copy the Shortcode', "poll-maker"); ?></li>
-						<li class="poll-maker-challenge-step-item"><?php echo esc_html__('Embed in a Page', "poll-maker"); ?></li>
-					</ul>
-				</div>
-				<div class="poll-maker-challenge-block-timer">
-					<img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL) ?>/images/icons/poll-maker-logo.png" alt="Poll Maker logo">
-					<h3>Poll Maker</h3>
-				</div>
-			</div>
-			<?php
-		}
-	}
-
-	public function delete_challenge_box() {
-		// Run a security check.
-        check_ajax_referer( 'poll-maker-ajax-challenge-cancel-nonce', sanitize_key( $_REQUEST['_ajax_nonce'] ) );
-
-		// Check for permissions.
-		if ( ! current_user_can( 'manage_options' ) ) {
-			ob_end_clean();
-			$ob_get_clean = ob_get_clean();
-			echo json_encode(array("success" => false));
-			wp_die();
-		}
-
-		$result = array("success" => false);
-		if( is_user_logged_in() ) {
-			delete_option('ays_poll_maker_poll_creation_challange');
-            $result = array("success" => true);
-		}
-
-		ob_end_clean();
-		$ob_get_clean = ob_get_clean();
-		echo json_encode($result);
-		wp_die();
-	}
+	}	
 
 	/**
 	 * Add settings action link to the plugins page.
@@ -1444,6 +1411,149 @@ class Poll_Maker_Ays_Admin {
         }
         return $capability;
 	}
+
+	public function ays_poll_exclude_custom_post_type_from_sitemap($exclude, $type){
+        if($type == 'ays-poll-maker'){
+            return $type;
+        }
+    }
+
+    public function ays_poll_add_checklist_guide(){
+
+        if(!empty($_REQUEST['page']) && sanitize_text_field( $_REQUEST['page'] ) != $this->plugin_name . "-getting-started"){
+            if(false !== strpos( sanitize_text_field( $_REQUEST['page'] ), $this->plugin_name)){
+                $current_user_id = get_current_user_id();
+                $completed_steps = get_user_meta($current_user_id, 'ays_poll_checklist_completed_steps', true);
+
+                // Make sure we always get an array
+                if (!is_array($completed_steps)) {
+                    $completed_steps = array();
+                }
+
+                $popup_closed = get_user_meta($current_user_id, 'ays_poll_checklist_popup_closed', true);
+
+                $checklist_steps = array(
+                    array(
+                        'title' => esc_html__('Add a New Poll', 'poll-maker'),                        
+                    ),
+                    array(
+                        'title' => esc_html__('Add Options', 'poll-maker'),                        
+                    ),
+                    array(
+                        'title' => esc_html__('Save the Poll', 'poll-maker'),                        
+                    ),
+                    array(
+                        'title' => esc_html__('Copy the Shortcode', 'poll-maker'),                        
+                        'img_style' => 'object-fit:contain; height:auto;',
+                    ),
+                );
+                ?>
+                <div class="ays-poll-checklist-panel" id="ays-poll-checklist-container" style="<?php echo ($popup_closed) ? 'display: none;' : ''; ?>">
+                    <header class="ays-poll-checklist-header">
+                        <h3><?php echo esc_html__('Create a Poll with 4 Easy Steps', 'poll-maker'); ?></h3>
+
+                        <!-- Minimize Button -->
+                        <button class="ays-poll-checklist-minimize-btn" aria-label="Minimize">
+                            <svg class="ays-poll-checklist-minimize-icon-expanded" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 12h12" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <svg class="ays-poll-checklist-minimize-icon-collapsed" style="display:none;" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 3.25H8C8.41421 3.25 8.75 3.58579 8.75 4C8.75 4.41421 8.41421 4.75 8 4.75H5.81066L10.5303 9.46967C10.8232 9.76256 10.8232 10.2374 10.5303 10.5303C10.2374 10.8232 9.76256 10.8232 9.46967 10.5303L4.75 5.81066V8C4.75 8.41421 4.41421 8.75 4 8.75C3.58579 8.75 3.25 8.41421 3.25 8V4C3.25 3.58579 3.58579 3.25 4 3.25ZM13.4697 13.4697C13.7626 13.1768 14.2374 13.1768 14.5303 13.4697L19.25 18.1893V16C19.25 15.5858 19.5858 15.25 20 15.25C20.4142 15.25 20.75 15.5858 20.75 16V20C20.75 20.4142 20.4142 20.75 20 20.75H16C15.5858 20.75 15.25 20.4142 15.25 20C15.25 19.5858 15.5858 19.25 16 19.25H18.1893L13.4697 14.5303C13.1768 14.2374 13.1768 13.7626 13.4697 13.4697Z"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Close Button -->
+                        <button class="ays-poll-checklist-close-btn" aria-label="Close"><svg width="24" height="24" class="" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967Z"></path></svg></button>
+                    </header>
+
+                    <div class="ays-poll-checklist-progress">
+                        <div class="ays-poll-checklist-progress-bar"><span style="width: 0%"></span></div>
+                        <span class="ays-poll-checklist-progress-text">0%</span>
+                    </div>
+
+                    <ul class="ays-poll-checklist-items">
+                    <?php foreach ($checklist_steps as $index => $step): 
+                        $is_checked = in_array($index, $completed_steps);
+                    ?>
+                        <li class="ays-poll-checklist-step<?php echo $is_checked ? ' completed' : ''; ?>" data-step="<?php echo esc_attr($index); ?>">
+                            <div class="ays-poll-checklist-header-row">
+                                <label>
+                                    <input type="checkbox" <?php checked($is_checked); ?> />
+                                    <span class="ays-poll-checklist-step-title"><?php echo esc_html($step['title']); ?></span>
+                                </label>                                
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                    <style>
+                       #ays-poll-checklist-container.ays-poll-checklist-panel{max-width:100%;background:#fff;font-family:Arial,sans-serif;overflow:hidden;margin:0 auto;color:#0c0d0e;box-shadow:rgba(0,0,0,.2) 0 3px 5px -1px,rgba(0,0,0,.14) 0 5px 8px 0,rgba(0,0,0,.12) 0 1px 14px 0;position:fixed;width:360px;bottom:40px;inset-inline-end:40px;z-index:99999;max-height:730px;overflow-y:auto;transition:box-shadow .3s cubic-bezier(.4, 0, .2, 1);border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-header{box-shadow:none;display:flex;flex-direction:row;align-items:center;width:100%;box-sizing:border-box;flex-shrink:0;position:sticky;z-index:1100;top:0;left:auto;right:0;color:rgba(0,0,0,.87);background-color:#fff;transition:box-shadow .3s cubic-bezier(.4, 0, .2, 1);padding:16px}#ays-poll-checklist-container .ays-poll-checklist-header-row{-webkit-tap-highlight-color:transparent;background-color:transparent;user-select:none;vertical-align:middle;appearance:none;display:flex;-webkit-box-flex:1;flex-grow:1;-webkit-box-pack:start;justify-content:space-between;-webkit-box-align:center;align-items:center;position:relative;min-width:0;box-sizing:border-box;text-align:left;padding:0;color:#0c0d0e;outline:0;border:0;margin:0;border-radius:0;text-decoration:none;transition:background-color 150ms cubic-bezier(.4, 0, .2, 1)}#ays-poll-checklist-container .ays-poll-checklist-header h3{box-sizing:content-box;display:inline;height:auto;padding:0;width:auto;text-transform:none;margin:0;font-weight:600;line-height:1.3;font-family:Arial,sans-serif;font-size:1rem;letter-spacing:.00938em;-webkit-box-flex:1;flex-grow:1}#ays-poll-checklist-container .ays-poll-checklist-close-btn,#ays-poll-checklist-container .ays-poll-checklist-minimize-btn{border:none;background:0 0;font-size:20px;cursor:pointer;outline:unset;transition:background-color .3s ease-in-out;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-close-btn:hover,#ays-poll-checklist-container .ays-poll-checklist-minimize-btn:hover{background-color:rgba(0,0,0,.04)}#ays-poll-checklist-container .ays-poll-checklist-progress{display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid #eee}#ays-poll-checklist-container .ays-poll-checklist-progress-bar{flex:1;background:#eee;height:6px;border-radius:4px;margin-right:10px;overflow:hidden}#ays-poll-checklist-container .ays-poll-checklist-progress-bar span{display:block;height:100%;background:#00a0d2;transition:width .3s ease-in-out}#ays-poll-checklist-container .ays-poll-checklist-progress-text{font-size:13px;min-width:30px}#ays-poll-checklist-container .ays-poll-checklist-items{list-style:none;padding:0;margin:0}#ays-poll-checklist-container .ays-poll-checklist-step{padding:12px 16px;border-bottom:1px solid #f0f0f0;transition:background .2s}#ays-poll-checklist-container .ays-poll-checklist-step:hover{background-color:#f9f9f9}#ays-poll-checklist-container .ays-poll-checklist-step label{display:flex;align-items:center;cursor:pointer}#ays-poll-checklist-container .ays-poll-checklist-step input[type=checkbox]{margin-right:10px}#ays-poll-checklist-container .ays-poll-checklist-step.completed label span{text-decoration:line-through;opacity:.6}#ays-poll-checklist-container .ays-poll-checklist-step-title{margin:0;font-family:Arial,sans-serif;font-weight:400;font-size:.875rem;letter-spacing:.01071em;display:block}#ays-poll-checklist-container .ays-poll-checklist-step-content{display:none;margin-top:12px}#ays-poll-checklist-container .ays-poll-checklist-step-content img{width:100%;max-width:100%;border-radius:4px;margin-bottom:0;height:180px;object-fit:contain}#wpwrap #wpfooter #ays-poll-checklist-container .ays-poll-checklist-step-content p{margin:0;font-size:13px;padding:16px 0}#ays-poll-checklist-container .ays-poll-checklist-step-content a:not(.ays-poll-checklist-primary-action){color:#0073aa;text-decoration:underline}#ays-poll-checklist-container .ays-poll-checklist-actions{display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:end;justify-content:flex-end;padding-bottom:12px}#ays-poll-checklist-container .ays-poll-checklist-mark-done,#ays-poll-checklist-container .ays-poll-checklist-primary-action{display:inline-flex;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;vertical-align:middle;appearance:none;text-transform:none;font-family:Arial,sans-serif;font-weight:500;font-size:.8125rem;line-height:1.75;letter-spacing:.02857em;min-width:64px;box-shadow:none;outline:0;text-decoration:none;padding:4px 10px;transition:background-color 250ms cubic-bezier(.4, 0, .2, 1),box-shadow 250ms cubic-bezier(.4, 0, .2, 1),border-color 250ms cubic-bezier(.4, 0, .2, 1),color 250ms cubic-bezier(.4, 0, .2, 1);white-space:nowrap;cursor:pointer}#ays-poll-checklist-container .ays-poll-checklist-mark-done{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background-color:transparent;color:#515962;border:0;margin:0;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-mark-done:hover{color:#515962;text-decoration:none;background-color:rgba(81,89,98,.04)}#ays-poll-checklist-container .ays-poll-checklist-primary-action{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;color:#fff;background-color:#00a0d2;border:0 initial initial;border-image:initial;margin:0 0 0 8px;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-toggle-step{background:0 0;border:none;font-size:16px;cursor:pointer;transform:rotate(0);transition:transform .2s}#ays-poll-checklist-container .ays-poll-checklist-toggle-step.open{transform:rotate(180deg)}#ays-poll-checklist-container.ays-poll-checklist-panel.ays-poll-checklist-minimized .ays-poll-checklist-items{display:none}.ays-poll-launch-icon::after{content:"";width:8px;height:8px;background-color:#d179f2;border-radius:50%;position:absolute;top:0;right:0}.ays-poll-checklist-open-icon{position:absolute;bottom:36px;right:20px;cursor:pointer}@media (max-width:1280px){div#ays-poll-checklist-container.ays-poll-checklist-panel{max-height:580px;width:300px;bottom:20px;inset-inline-end:20px}div#ays-poll-checklist-container .ays-poll-checklist-step-content img{height:150px}}@media (max-width:782px){#ays-poll-checklist-container.ays-poll-checklist-panel,.ays-poll-checklist-open-icon{display:none}}@media (max-width:480px){#ays-poll-checklist-container.ays-poll-checklist-panel{border-radius:0;max-width:100%}#ays-poll-checklist-container .ays-poll-checklist-header h3{font-size:16px}#ays-poll-checklist-container .ays-poll-checklist-step-content p{font-size:13px}#ays-poll-checklist-container .ays-poll-checklist-actions{flex-direction:column}}
+                    </style>
+                </div>
+                <?php
+            }
+        }
+
+    }
+
+    public function ays_poll_save_checklist_progress() {
+        check_ajax_referer('ays_poll_nonce', 'nonce');
+
+        $user_can_capability = self::poll_maker_capabilities();
+
+        // Check for permissions.
+        if ( ! current_user_can( $user_can_capability ) ) {
+            wp_send_json_error( esc_html__( 'Something went wrong', 'poll-maker' ) );
+        }
+
+        if( !is_user_logged_in() ) {
+            wp_send_json_error( esc_html__( 'Something went wrong', 'poll-maker' ) );
+        }
+
+        $user_id = get_current_user_id();
+        $steps = isset($_POST['steps']) ? array_map('sanitize_text_field', $_POST['steps']) : array();
+
+        update_user_meta($user_id, 'ays_poll_checklist_completed_steps', $steps);
+
+        wp_send_json_success(array('saved' => true));
+    }
+
+    public function ays_poll_checklist_close_popup() {
+        check_ajax_referer('ays_poll_nonce', 'nonce');
+
+        $user_can_capability = self::poll_maker_capabilities();
+
+        // Check for permissions.
+        if ( ! current_user_can( $user_can_capability ) ) {
+            wp_send_json_error( esc_html__( 'Something went wrong', 'poll-maker' ) );
+        }
+
+        if (is_user_logged_in()) {
+            $user_id = get_current_user_id();
+            update_user_meta($user_id, 'ays_poll_checklist_popup_closed', 1);
+            wp_send_json_success( esc_html__( 'Popup marked as closed.', 'poll-maker' ) );
+        }
+
+        wp_send_json_error( esc_html__( 'User not logged in.', 'poll-maker' ) );
+    }
+
+    public function ays_poll_checklist_reopen_callback() {
+        check_ajax_referer('ays_poll_nonce', 'nonce');
+
+        $user_can_capability = self::poll_maker_capabilities();
+
+        // Check for permissions.
+        if ( ! current_user_can( $user_can_capability ) ) {
+            wp_send_json_error( esc_html__( 'Something went wrong', 'poll-maker' ) );
+        }
+
+        if (is_user_logged_in()) {
+            $user_id = get_current_user_id();
+            delete_user_meta($user_id, 'ays_poll_checklist_popup_closed');
+            wp_send_json_success('Popup reopened.');
+        }
+
+        wp_send_json_error( esc_html__( 'User not logged in.', 'poll-maker' ) );
+    }
 
 	public function get_next_or_prev_row_by_id( $id, $type = "next", $table = "ayspoll_polls" ) {
         global $wpdb;

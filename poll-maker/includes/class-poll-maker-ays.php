@@ -251,6 +251,7 @@ class Poll_Maker_Ays {
 
         // Add footer message
         $this->loader->add_action( 'in_admin_footer', $plugin_admin, 'poll_maker_admin_footer', 1 );
+        $this->loader->add_action( 'in_admin_footer', $plugin_admin, 'ays_poll_add_checklist_guide', 10 );
         // $this->loader->add_action( 'in_admin_footer', $plugin_admin, 'ays_poll_black_friady_popup_box', 10 );
         
         // Add aditional links to the plugin
@@ -262,7 +263,6 @@ class Poll_Maker_Ays {
         
         // Sale Banner
         $this->loader->add_action( 'admin_notices', $plugin_admin, 'ays_poll_sale_baner', 10 );
-        $this->loader->add_action( 'admin_notices', $plugin_admin, 'display_poll_creation_popup' );
 
         $this->loader->add_action( 'wp_ajax_ays_poll_dismiss_button', $plugin_admin, 'ays_poll_dismiss_button' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_dismiss_button', $plugin_admin, 'ays_poll_dismiss_button' );
@@ -275,8 +275,15 @@ class Poll_Maker_Ays {
 
         $this->loader->add_action( 'wp_ajax_ays_poll_create_author', $plugin_admin, 'ays_poll_create_author' );
         $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_create_author', $plugin_admin, 'ays_poll_create_author' );
-        $this->loader->add_action( 'wp_ajax_delete_challenge_box', $plugin_admin, 'delete_challenge_box' );
-        $this->loader->add_action( 'wp_ajax_nopriv_delete_challenge_box', $plugin_admin, 'delete_challenge_box' );
+
+        $this->loader->add_action( 'wp_ajax_ays_poll_save_checklist_progress', $plugin_admin, 'ays_poll_save_checklist_progress' );
+        $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_save_checklist_progress', $plugin_admin, 'ays_poll_save_checklist_progress' );
+
+        $this->loader->add_action( 'wp_ajax_ays_poll_checklist_close_popup', $plugin_admin, 'ays_poll_checklist_close_popup' );
+        $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_checklist_close_popup', $plugin_admin, 'ays_poll_checklist_close_popup' );
+
+        $this->loader->add_action( 'wp_ajax_ays_poll_checklist_reopen_callback', $plugin_admin, 'ays_poll_checklist_reopen_callback' );
+        $this->loader->add_action( 'wp_ajax_nopriv_ays_poll_checklist_reopen_callback', $plugin_admin, 'ays_poll_checklist_reopen_callback' );
 
     }
 

@@ -365,6 +365,7 @@ div.ays-notice-banner{
 }
 
 .ays-notice-banner #navigation-container {
+    position: relative;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -1571,7 +1572,7 @@ input[type='button'].ays_poll_minimal_theme_btn.ays-poll-btn{
 }
 
 /* Poll Maker Challange Start */
-.poll-maker-challenge {
+/*.poll-maker-challenge {
     position: fixed;
     right: 20px;
     bottom: 0;
@@ -1648,7 +1649,7 @@ input[type='button'].ays_poll_minimal_theme_btn.ays-poll-btn{
     font-weight: 500;
     color: #ffffff;
     margin: 0;
-}
+}*/
 /* Poll Maker Challange End */
 
 
