@@ -3474,10 +3474,10 @@ $emoji = array(
                                     <div class="col-sm-8" style="margin-left: 15px;">
                                         <div class="row">
                                             <div style="margin-right: 10px;">
-                                                <a class="button" href="<?php echo esc_url($ays_poll_view_post_url); ?>" target="_blank"><?php echo esc_html__( "View Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
+                                                <a class="button action" href="<?php echo esc_url($ays_poll_view_post_url); ?>" target="_blank"><?php echo esc_html__( "View Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
                                             </div>
                                             <div>
-                                                <a class="button" href="<?php echo esc_url($ays_poll_edit_post_url); ?>" target="_blank"><?php echo esc_html__( "Edit Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
+                                                <a class="button action" href="<?php echo esc_url($ays_poll_edit_post_url); ?>" target="_blank"><?php echo esc_html__( "Edit Post", "poll-maker" ); ?> <i class="ays_fa ays_fa_external_link"></i></a>
                                             </div>
                                         </div>
                                     </div>
