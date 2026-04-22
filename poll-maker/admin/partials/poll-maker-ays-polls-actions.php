@@ -66,6 +66,8 @@ $cat_list = get_categories(
     )
 );
 
+$poll_category_page_url  = admin_url( 'admin.php?page=poll-maker-ays-cats' );
+
 $poll_message_vars = array(
     '%%user_name%%'                         =>esc_html__("User Name", "poll-maker"),
     '%%user_email%%'                        =>esc_html__("User Email", "poll-maker"),
@@ -3414,6 +3416,18 @@ $emoji = array(
                                                 <?php }
                                                 ?>
                                             </select>
+                                            <div class="ays_poll_small_hint_text_for_message_variables" style="margin-top: 5px;">
+                                                <span>
+                                                    <?php
+                                                        echo (sprintf(
+                                                            /* translators: %s: opening and closing <a> HTML code  */
+                                                            wp_kses_post(__('Create a new category %s here %s', 'poll-maker')),
+                                                            '<a href="'. esc_url( $poll_category_page_url ) .'" target="_blank">',
+                                                            '</a>'
+                                                        ));
+                                                    ?>
+                                                </span>
+                                            </div>
                                         <?php else: ?>
                                             <a href="?page=poll-maker-ays-cats&action=add"><?php echo esc_html__("Create category", "poll-maker") ?></a>
                                         <?php endif; ?>

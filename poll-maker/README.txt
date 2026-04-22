@@ -1,10 +1,10 @@
-=== Poll Maker - Versus Polls, Anonymous Polls, Image Polls  ===
+=== Poll Maker by AYS - Versus Polls, Anonymous Polls, Image Polls  ===
 Contributors: ays-pro
 Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 6.3.2
+Stable tag: 6.3.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -330,6 +330,10 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 6.3.3 ( April 21, 2026 ) =
+* Improved: Some changes on the admin dashboard
+* Updated: POT files
 
 = 6.3.2 ( April 14, 2026 ) =
 * Added: User First Name message variable on the general settings page
