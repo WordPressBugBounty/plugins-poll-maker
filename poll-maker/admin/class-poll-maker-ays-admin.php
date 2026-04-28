@@ -4384,7 +4384,8 @@ class Poll_Maker_Ays_Admin {
 				"facebook_link" 	=> "",
 				"twitter_link" 		=> "",
 				"vkontakte_link" 	=> "",
-				"youtube_link" 		=> ""
+				"youtube_link" 		=> "",
+				"tiktok_link" 		=> ""
 			),
 			"load_effect" 					=> "load_gif",
 			"load_gif" 						=> "plg_pro1",

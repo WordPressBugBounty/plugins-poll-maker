@@ -803,12 +803,14 @@ $social_links = (isset($options['social_links'])) ? $options['social_links'] : a
     'vkontakte_link' => '',
     'instagram_link' => '',
     'youtube_link' => '',
+    'tiktok_link' => '',
 );
 $linkedin_link = isset($social_links['linkedin_link']) && $social_links['linkedin_link'] != '' ? $social_links['linkedin_link'] : '';
 $facebook_link = isset($social_links['facebook_link']) && $social_links['facebook_link'] != '' ? $social_links['facebook_link'] : '';
 $twitter_link = isset($social_links['twitter_link']) && $social_links['twitter_link'] != '' ? $social_links['twitter_link'] : '';
 $vkontakte_link = isset($social_links['vkontakte_link']) && $social_links['vkontakte_link'] != '' ? $social_links['vkontakte_link'] : '';
 $youtube_link = isset($social_links['youtube_link']) && $social_links['youtube_link'] != '' ? $social_links['youtube_link'] : '';
+$tiktok_link = isset($social_links['tiktok_link']) && $social_links['tiktok_link'] != '' ? $social_links['tiktok_link'] : '';
 $poll_social_links_heading = ( isset( $options[ 'poll_social_links_heading' ] ) && $options[ 'poll_social_links_heading' ] != '' ) ? stripslashes( wpautop( $options[ 'poll_social_links_heading' ] ) ) : '';
 
 $show_chart_type = (isset($options['show_chart_type']) && $options['show_chart_type'] != "") ? $options['show_chart_type'] : 'google_bar_chart';
@@ -6814,8 +6816,8 @@ $emoji = array(
                                             <div class="col-sm-4">
                                                 <label for="ays_twitter_link">
                                                     <i class="ays_fa ays_fa_twitter_square"></i>
-                                                    <?php echo esc_html__('Twitter link', "poll-maker")?>
-                                                    <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Twitter profile or page link for showing after poll finish.', "poll-maker")?>">
+                                                    <?php echo esc_html__('X link', "poll-maker")?>
+                                                    <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('X profile or page link for showing after poll finish.', "poll-maker")?>">
                                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                     </a>
                                                 </label>
@@ -6855,6 +6857,21 @@ $emoji = array(
                                             <div class="col-sm-8">
                                                 <input type="text" class="ays-text-input" id="ays_youtube_link" name="ays_poll_social_links[ays_youtube_link]"
                                                     value="<?php echo $youtube_link; ?>" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="ays_youtube_link">
+                                                    <i class="ays_fa ays_fa_vk"></i>
+                                                    <?php echo esc_html__('TikTok link', "poll-maker")?>
+                                                    <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Tiktok profile or page link for showing after poll finish.', "poll-maker")?>">
+                                                        <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                    </a>
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="ays-text-input" id="ays_youtube_link" name="ays_poll_social_links[ays_tiktok_link]"
+                                                    value="<?php echo $tiktok_link; ?>" />
                                             </div>
                                         </div>
                                     </div>
