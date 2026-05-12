@@ -3026,10 +3026,23 @@
 
     $(document).find('.ays_poll_layer_button').on('click',function(){
         $('.ays_poll_layer_container').css({'position':'unset' , 'display':'none'});
+        $(document.body).removeClass('ays-poll-modal-open');
         $(document).find('.ays-poll-show-result-chart-google').prop("checked", true);
 
         checkType($(this).attr("data-type"));
+        
+        var $checklistPanel = $(document).find('.ays-poll-checklist-panel');
+        if ($checklistPanel.length > 0) {
+            $checklistPanel.show();
+        }
     })
+    
+    // Add body class when modal is visible
+    $(document).ready(function(){
+        if($('.ays_poll_layer_container').is(':visible')) {
+            $(document.body).addClass('ays-poll-modal-open');
+        }
+    });
     // CHOOSE POLL TYPE FROM MODAL END
 
     $(document).find('.ays-poll-open-polls-list').on('click', function(e){

@@ -8,7 +8,7 @@
     if (isset($_REQUEST['ays_poll_tab_results'])) {
         $ays_poll_tab = sanitize_text_field($_REQUEST['ays_poll_tab_results']);
     } else {
-        $ays_poll_tab = 'tab1';
+        $ays_poll_tab = 'tab2';
     }
 ?>
 <script>
@@ -50,8 +50,8 @@
         </div>
     </h1>
     <div class="nav-tab-wrapper">
-        <a href="#statistics" class="ays-poll-google-chart nav-tab <?php echo ($ays_poll_tab == 'tab1') ? 'nav-tab-active' : ''; ?>" data-tab="tab1"><?php echo esc_html__('Statistics', "poll-maker"); ?></a>
         <a href="#poststuff" class="nav-tab <?php echo ($ays_poll_tab == 'tab2') ? 'nav-tab-active' : ''; ?>" data-tab="tab2"><?php echo esc_html__('Results', "poll-maker"); ?></a>
+        <a href="#statistics" class="ays-poll-google-chart nav-tab <?php echo ($ays_poll_tab == 'tab1') ? 'nav-tab-active' : ''; ?>" data-tab="tab1"><?php echo esc_html__('Statistics', "poll-maker"); ?></a>
     </div>
     <div id="poststuff" class="ays-poll-tab-content <?php echo ($ays_poll_tab == 'tab2') ? 'ays-poll-tab-content-active' : ''; ?>">
         <div id="post-body" class="metabox-holder">

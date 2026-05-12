@@ -45,6 +45,7 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
         </div>
         <div class="create_quick_poll_container">
             <button class="create_quick_poll" id="ays_create_quick_poll" title="<?php echo esc_html__( "Create Quick Poll", "poll-maker" ); ?>"><img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/icon-128x128.png' ?>" alt="Create Quick Poll"></button> 
+            <span style=""><?php echo esc_html__("Quick Poll", "poll-maker"); ?></span>
         </div>
     </div>
     <div class="ays_poll_modal" id="ays-poll-quick-create" style='display:none'>
@@ -189,7 +190,7 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
                 <h4><?php echo esc_html__( "Create Your First Poll in Under One Minute", "poll-maker" ); ?></h4>
             </div>
             <div class="ays-poll-create-poll-youtube-video">
-                <div class="ays-poll-youtube-placeholder" data-video-id="0dfJQdAwdL4">
+                <div class="ays-poll-youtube-placeholder" data-video-id="VhsTmx02LHQ">
                     <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL .'/images/create-poll-on-wordpress.webp'); ?>" loading="lazy" width="560" height="315">
                 </div>
             </div>
@@ -203,7 +204,7 @@ $quick_poll_plugin_nonce = wp_create_nonce( 'poll-maker-ajax-quick-poll-nonce' )
     <?php else: ?>
         <div class="ays-poll-create-poll-video-box" style="margin: auto;">
             <div class="ays-poll-create-poll-youtube-video">
-                <a href="https://www.youtube.com/watch?v=0dfJQdAwdL4" target="_blank" title="YouTube video player" >
+                <a href="https://www.youtube.com/watch?v=VhsTmx02LHQ" target="_blank" title="YouTube video player" >
                     <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/video_youtube_icon.svg' ?>" alt="How to create a Poll in Under One Minute">
                     <span>How to create a Poll in Under One Minute</span>
                 </a>

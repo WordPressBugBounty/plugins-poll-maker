@@ -7307,29 +7307,6 @@ $emoji = array(
                         </div>
                     </div>
                     <div class="bottom-buttons-container">
-                        <div class="ays_save_default_button_box">
-                            <?php 
-                                if ( $prev_poll_id != "" && !is_null( $prev_poll_id ) ) {
-        
-                                    $other_attributes = array(
-                                        'id' => 'ays-polls-prev-button',
-                                        'data-message' =>esc_html__( 'Are you sure you want to go to the previous poll page?', "poll-maker"),
-                                        'href' => sprintf( '?page=%s&action=%s&poll=%d', esc_attr( $_REQUEST['page'] ), 'edit', absint( $prev_poll_id ) )
-                                    );
-                                    submit_button( esc_html__('Prev Poll', "poll-maker"), 'button button-primary ays-button ays-poll-prev-poll-button ays-poll-next-prev-button-class', 'ays_poll_prev_button', false, $other_attributes);
-                                }
-        
-                                if ( $next_poll_id != "" && !is_null( $next_poll_id ) ) {
-        
-                                    $other_attributes = array(
-                                        'id' => 'ays-polls-next-button',
-                                        'data-message' =>esc_html__( 'Are you sure you want to go to the next poll page?', "poll-maker"),
-                                        'href' => sprintf( '?page=%s&action=%s&poll=%d', esc_attr( $_REQUEST['page'] ), 'edit', absint( $next_poll_id ) )
-                                    );
-                                    submit_button( esc_html__('Next Poll', "poll-maker"), 'button button-primary ays-button ays_poll_next_poll_button ays-poll-next-prev-button-class', 'ays_poll_next_button', false, $other_attributes);
-                                }
-                            ?>
-                        </div>
                         <div class='bottom-save-buttons-container'>
                             <div class="ays_save_buttons_box_for_mobile" id="ays-save-buttons-box-for-mobile">
                                 <?php
@@ -7379,15 +7356,15 @@ $emoji = array(
             <?php if($id === null): ?>
                 <div class="ays_poll_layer_container">
                     <div class="ays_poll_layer_content">
-                    	<div class="ays-poll-close-type">
-                            <a href="?page=poll-maker-ays">
-                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/icons/cross.png">
-                            </a>
-                        </div>
                         <div class="ays_poll_layer_box">
                             <div class="ays-poll-close-layer">
                                 <div class="ays-poll-choose-type">
                                     <p style="margin: 0;"><?php echo esc_html__('Choose Your Poll Type', "poll-maker"); ?></p>
+                                </div>
+                                <div class="ays-poll-close-type">
+                                    <a href="?page=poll-maker-ays">
+                                        <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL); ?>/images/icons/cross.png">
+                                    </a>
                                 </div>
                             </div>
                             <div class="ays_poll_layer_box_blocks">

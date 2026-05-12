@@ -581,7 +581,13 @@ body.ays-poll-editor-active :is(.is-desktop-preview, .is-tablet-preview, .is-mob
     line-height: 2;
     overflow: hidden;
 }
-
+.ays-poll-checklist-open-icon {
+    position: absolute;
+    bottom: 36px;
+    right: 20px;
+    cursor: pointer;
+    
+}
 @media screen and (max-width: 782px) {
     div#ays-poll-deactivate-feedback-modal .ays-poll-deactivate-feedback-dialog-input {
         min-width: 25px;

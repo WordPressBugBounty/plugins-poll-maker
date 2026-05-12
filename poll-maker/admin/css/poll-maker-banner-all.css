@@ -2712,7 +2712,7 @@ div#ays-poll-dicount-month-main button.notice-dismiss:before{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
     background-color: rgb(255, 255, 255);
     position: fixed;
-    width: 360px;
+    width: 300px;
     bottom: 40px;
     inset-inline-end: 40px;
     z-index: 99999;
@@ -2751,7 +2751,6 @@ div#ays-poll-dicount-month-main button.notice-dismiss:before{
     -webkit-box-flex: 1;
     flex-grow: 1;
     -webkit-box-pack: start;
-    justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
     position: relative;
@@ -3017,6 +3016,7 @@ div#ays-poll-dicount-month-main button.notice-dismiss:before{
     bottom: 36px;
     right: 20px;
     cursor: pointer;
+
 }
 
 @media (max-width: 1280px) {

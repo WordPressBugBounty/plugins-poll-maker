@@ -3934,6 +3934,19 @@ div.ays_poll_loader_show_results_by {
     .ays_poll_block_with_hidden_row.ays_poll_result_view_type>.form-group.row>.col-sm-10>.form-group.row>.col-sm-4 {
         margin-bottom: 20px;
     }
+
+    /* Fix responsive display for Bar chart options on tablets */
+    .ays_poll_block_with_hidden_row.ays_poll_result_view_type .col-sm-4 > div {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .ays_poll_block_with_hidden_row.ays_poll_result_view_type .col-sm-4 .ays_poll_loader_show_results_by {
+        margin-right: 0;
+        margin-bottom: 6px;
+        flex: 1 1 calc(50% - 3px);
+        min-width: 130px;
+    }
 }
 
 @media screen and (max-width: 782px) {
@@ -3959,6 +3972,24 @@ div.ays_poll_loader_show_results_by {
 
     .col-sm-12.only_pro .form-check.form-check-inline.ays_poll_loader_show_results_by {
         margin-bottom: 5px;
+    }
+
+    /* Fix responsive display for Bar chart options in apm_allow_add_answers */
+    .ays_poll_block_with_hidden_row.ays_poll_result_view_type .col-sm-4 > div {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .ays_poll_block_with_hidden_row.ays_poll_result_view_type .ays_poll_loader_show_results_by {
+        margin-right: 0;
+        margin-bottom: 8px;
+        flex: 1 1 calc(50% - 4px);
+        min-width: 140px;
+    }
+
+    .ays_poll_block_with_hidden_row.ays_poll_result_view_type .col-sm-8 .ays_poll_loader_show_results_by {
+        flex: 1 1 calc(33.333% - 6px);
+        min-width: 120px;
     }
 }
 
@@ -6595,6 +6626,10 @@ div.ays_polls_list_table .column-publish > i{
     margin-left:10px;
     line-height: unset;
 }
+.bottom-save-buttons-container #ays-button-apply{
+    background-color: #005AE0 !important;
+    color:white !important;
+}
 .ays-poll-form .button-primary.ays-top-menu-save-and-close:hover,
 .ays-poll-form .button-primary.ays-bottom-menu-save-and-close:hover{
     background-color: #E5EEFF;
@@ -6652,7 +6687,7 @@ body.toplevel_page_poll-maker-ays .ays-poll-form .ays-top-menu-wrapper .nav-tab{
     color: #333;
     margin-bottom: 0px;
     margin-right: 0;
-    padding: 5px 10px;
+    padding: 5px 25px;
     font-weight: 500;
 }
 .nav-tab {
@@ -6770,7 +6805,7 @@ body.toplevel_page_poll-maker-ays .ays-top-menu{
     display: flex;
     /* align-items: flex-end; */
     /* flex-direction: column; */
-    justify-content: space-between;
+    justify-content: flex-end;
     padding-top:20px;
 }
 
