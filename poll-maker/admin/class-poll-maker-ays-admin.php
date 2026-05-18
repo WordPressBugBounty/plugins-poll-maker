@@ -1436,9 +1436,6 @@ class Poll_Maker_Ays_Admin {
 
         if(!empty($_REQUEST['page']) && sanitize_text_field( $_REQUEST['page'] ) != $this->plugin_name . "-getting-started"){
             if(false !== strpos( sanitize_text_field( $_REQUEST['page'] ), $this->plugin_name)){
-                if(isset($_GET['action']) && in_array($_GET['action'], ['add', 'edit'])) {
-                    return;
-                }
                 $current_user_id = get_current_user_id();
                 $completed_steps = get_user_meta($current_user_id, 'ays_poll_checklist_completed_steps', true);
 
@@ -1496,7 +1493,7 @@ class Poll_Maker_Ays_Admin {
                     <?php endforeach; ?>
                     </ol>
                     <style>
-                       #ays-poll-checklist-container.ays-poll-checklist-panel{max-width:100%;background:#fff;font-family:Arial,sans-serif;overflow:hidden;margin:0 auto;color:#0c0d0e;box-shadow:rgba(0,0,0,.2) 0 3px 5px -1px,rgba(0,0,0,.14) 0 5px 8px 0,rgba(0,0,0,.12) 0 1px 14px 0;position:fixed;width:300px;bottom:40px;inset-inline-end:40px;z-index:99999;max-height:730px;overflow-y:auto;transition:box-shadow .3s cubic-bezier(.4, 0, .2, 1);border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-header{box-shadow:none;display:flex;flex-direction:row;align-items:center;width:100%;box-sizing:border-box;flex-shrink:0;position:sticky;z-index:1100;top:0;left:auto;right:0;color:rgba(0,0,0,.87);background-color:#fff;transition:box-shadow .3s cubic-bezier(.4, 0, .2, 1);padding:16px}#ays-poll-checklist-container .ays-poll-checklist-header-row{-webkit-tap-highlight-color:transparent;background-color:transparent;user-select:none;vertical-align:middle;appearance:none;display:flex;-webkit-box-flex:1;flex-grow:1;-webkit-box-pack:start;-webkit-box-align:center;align-items:center;position:relative;min-width:0;box-sizing:border-box;text-align:left;padding:0;color:#0c0d0e;outline:0;border:0;margin:0;border-radius:0;text-decoration:none;transition:background-color 150ms cubic-bezier(.4, 0, .2, 1)}#ays-poll-checklist-container .ays-poll-checklist-header h3{box-sizing:content-box;display:inline;height:auto;padding:0;width:auto;text-transform:none;margin:0;font-weight:600;line-height:1.3;font-family:Arial,sans-serif;font-size:1rem;letter-spacing:.00938em;-webkit-box-flex:1;flex-grow:1}#ays-poll-checklist-container .ays-poll-checklist-close-btn,#ays-poll-checklist-container .ays-poll-checklist-minimize-btn{border:none;background:0 0;font-size:20px;cursor:pointer;outline:unset;transition:background-color .3s ease-in-out;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-close-btn:hover,#ays-poll-checklist-container .ays-poll-checklist-minimize-btn:hover{background-color:rgba(0,0,0,.04)}#ays-poll-checklist-container .ays-poll-checklist-items{list-style:none;padding:0;margin:0}#ays-poll-checklist-container .ays-poll-checklist-step{padding:12px 16px;border-bottom:1px solid #f0f0f0;transition:background .2s}#ays-poll-checklist-container .ays-poll-checklist-step:hover{background-color:#f9f9f9}#ays-poll-checklist-container .ays-poll-checklist-step label{display:flex;align-items:center;cursor:pointer}#ays-poll-checklist-container .ays-poll-checklist-step.completed label span{text-decoration:line-through;opacity:.6}#ays-poll-checklist-container .ays-poll-checklist-step-title{margin:0;margin-left:5px;font-family:Arial,sans-serif;font-weight:400;font-size:.875rem;letter-spacing:.01071em;display:block}#ays-poll-checklist-container .ays-poll-checklist-step-content{display:none;margin-top:12px}#ays-poll-checklist-container .ays-poll-checklist-step-content img{width:100%;max-width:100%;border-radius:4px;margin-bottom:0;height:180px;object-fit:contain}#wpwrap #wpfooter #ays-poll-checklist-container .ays-poll-checklist-step-content p{margin:0;font-size:13px;padding:16px 0}#ays-poll-checklist-container .ays-poll-checklist-step-content a:not(.ays-poll-checklist-primary-action){color:#0073aa;text-decoration:underline}#ays-poll-checklist-container .ays-poll-checklist-actions{display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:end;justify-content:flex-end;padding-bottom:12px}#ays-poll-checklist-container .ays-poll-checklist-mark-done,#ays-poll-checklist-container .ays-poll-checklist-primary-action{display:inline-flex;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;vertical-align:middle;appearance:none;text-transform:none;font-family:Arial,sans-serif;font-weight:500;font-size:.8125rem;line-height:1.75;letter-spacing:.02857em;min-width:64px;box-shadow:none;outline:0;text-decoration:none;padding:4px 10px;transition:background-color 250ms cubic-bezier(.4, 0, .2, 1),box-shadow 250ms cubic-bezier(.4, 0, .2, 1),border-color 250ms cubic-bezier(.4, 0, .2, 1),color 250ms cubic-bezier(.4, 0, .2, 1);white-space:nowrap;cursor:pointer}#ays-poll-checklist-container .ays-poll-checklist-mark-done{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background-color:transparent;color:#515962;border:0;margin:0;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-mark-done:hover{color:#515962;text-decoration:none;background-color:rgba(81,89,98,.04)}#ays-poll-checklist-container .ays-poll-checklist-primary-action{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;color:#fff;background-color:#00a0d2;border:0 initial initial;border-image:initial;margin:0 0 0 8px;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-toggle-step{background:0 0;border:none;font-size:16px;cursor:pointer;transform:rotate(0);transition:transform .2s}#ays-poll-checklist-container .ays-poll-checklist-toggle-step.open{transform:rotate(180deg)}#ays-poll-checklist-container.ays-poll-checklist-panel.ays-poll-checklist-minimized .ays-poll-checklist-items{display:none}.ays-poll-launch-icon::after{content:"";width:8px;height:8px;background-color:#d179f2;border-radius:50%;position:absolute;top:0;right:0}.ays-poll-checklist-open-icon{position:absolute;bottom:36px;right:20px;cursor:pointer}@media (max-width:1280px){div#ays-poll-checklist-container.ays-poll-checklist-panel{max-height:580px;width:300px;bottom:20px;inset-inline-end:20px}div#ays-poll-checklist-container .ays-poll-checklist-step-content img{height:150px}}@media (max-width:782px){#ays-poll-checklist-container.ays-poll-checklist-panel,.ays-poll-checklist-open-icon{display:none}}@media (max-width:480px){#ays-poll-checklist-container.ays-poll-checklist-panel{border-radius:0;max-width:100%}#ays-poll-checklist-container .ays-poll-checklist-header h3{font-size:16px}#ays-poll-checklist-container .ays-poll-checklist-step-content p{font-size:13px}#ays-poll-checklist-container .ays-poll-checklist-actions{flex-direction:column}}
+                       #ays-poll-checklist-container.ays-poll-checklist-panel{max-width:100%;background:#fff;font-family:Arial,sans-serif;overflow:hidden;margin:0 auto;color:#0c0d0e;box-shadow:rgba(0,0,0,.2) 0 3px 5px -1px,rgba(0,0,0,.14) 0 5px 8px 0,rgba(0,0,0,.12) 0 1px 14px 0;position:fixed;width:300px;bottom:40px;inset-inline-end:40px;z-index:999;max-height:730px;overflow-y:auto;transition:box-shadow .3s cubic-bezier(.4, 0, .2, 1);border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-header{box-shadow:none;display:flex;flex-direction:row;align-items:center;width:100%;box-sizing:border-box;flex-shrink:0;position:sticky;z-index:1100;top:0;left:auto;right:0;color:rgba(0,0,0,.87);background-color:#fff;transition:box-shadow .3s cubic-bezier(.4, 0, .2, 1);padding:16px}#ays-poll-checklist-container .ays-poll-checklist-header-row{-webkit-tap-highlight-color:transparent;background-color:transparent;user-select:none;vertical-align:middle;appearance:none;display:flex;-webkit-box-flex:1;flex-grow:1;-webkit-box-pack:start;-webkit-box-align:center;align-items:center;position:relative;min-width:0;box-sizing:border-box;text-align:left;padding:0;color:#0c0d0e;outline:0;border:0;margin:0;border-radius:0;text-decoration:none;transition:background-color 150ms cubic-bezier(.4, 0, .2, 1)}#ays-poll-checklist-container .ays-poll-checklist-header h3{box-sizing:content-box;display:inline;height:auto;padding:0;width:auto;text-transform:none;margin:0;font-weight:600;line-height:1.3;font-family:Arial,sans-serif;font-size:1rem;letter-spacing:.00938em;-webkit-box-flex:1;flex-grow:1}#ays-poll-checklist-container .ays-poll-checklist-close-btn,#ays-poll-checklist-container .ays-poll-checklist-minimize-btn{border:none;background:0 0;font-size:20px;cursor:pointer;outline:unset;transition:background-color .3s ease-in-out;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-close-btn:hover,#ays-poll-checklist-container .ays-poll-checklist-minimize-btn:hover{background-color:rgba(0,0,0,.04)}#ays-poll-checklist-container .ays-poll-checklist-items{list-style:none;padding:0;margin:0}#ays-poll-checklist-container .ays-poll-checklist-step{padding:12px 16px;border-bottom:1px solid #f0f0f0;transition:background .2s}#ays-poll-checklist-container .ays-poll-checklist-step:hover{background-color:#f9f9f9}#ays-poll-checklist-container .ays-poll-checklist-step label{display:flex;align-items:center;cursor:pointer}#ays-poll-checklist-container .ays-poll-checklist-step.completed label span{text-decoration:line-through;opacity:.6}#ays-poll-checklist-container .ays-poll-checklist-step-title{margin:0;margin-left:5px;font-family:Arial,sans-serif;font-weight:400;font-size:.875rem;letter-spacing:.01071em;display:block}#ays-poll-checklist-container .ays-poll-checklist-step-content{display:none;margin-top:12px}#ays-poll-checklist-container .ays-poll-checklist-step-content img{width:100%;max-width:100%;border-radius:4px;margin-bottom:0;height:180px;object-fit:contain}#wpwrap #wpfooter #ays-poll-checklist-container .ays-poll-checklist-step-content p{margin:0;font-size:13px;padding:16px 0}#ays-poll-checklist-container .ays-poll-checklist-step-content a:not(.ays-poll-checklist-primary-action){color:#0073aa;text-decoration:underline}#ays-poll-checklist-container .ays-poll-checklist-actions{display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:end;justify-content:flex-end;padding-bottom:12px}#ays-poll-checklist-container .ays-poll-checklist-mark-done,#ays-poll-checklist-container .ays-poll-checklist-primary-action{display:inline-flex;position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;vertical-align:middle;appearance:none;text-transform:none;font-family:Arial,sans-serif;font-weight:500;font-size:.8125rem;line-height:1.75;letter-spacing:.02857em;min-width:64px;box-shadow:none;outline:0;text-decoration:none;padding:4px 10px;transition:background-color 250ms cubic-bezier(.4, 0, .2, 1),box-shadow 250ms cubic-bezier(.4, 0, .2, 1),border-color 250ms cubic-bezier(.4, 0, .2, 1),color 250ms cubic-bezier(.4, 0, .2, 1);white-space:nowrap;cursor:pointer}#ays-poll-checklist-container .ays-poll-checklist-mark-done{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background-color:transparent;color:#515962;border:0;margin:0;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-mark-done:hover{color:#515962;text-decoration:none;background-color:rgba(81,89,98,.04)}#ays-poll-checklist-container .ays-poll-checklist-primary-action{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;color:#fff;background-color:#00a0d2;border:0 initial initial;border-image:initial;margin:0 0 0 8px;border-radius:4px}#ays-poll-checklist-container .ays-poll-checklist-toggle-step{background:0 0;border:none;font-size:16px;cursor:pointer;transform:rotate(0);transition:transform .2s}#ays-poll-checklist-container .ays-poll-checklist-toggle-step.open{transform:rotate(180deg)}#ays-poll-checklist-container.ays-poll-checklist-panel.ays-poll-checklist-minimized .ays-poll-checklist-items{display:none}.ays-poll-launch-icon::after{content:"";width:8px;height:8px;background-color:#d179f2;border-radius:50%;position:absolute;top:0;right:0}.ays-poll-checklist-open-icon{position:absolute;bottom:36px;right:20px;cursor:pointer}@media (max-width:1280px){div#ays-poll-checklist-container.ays-poll-checklist-panel{max-height:580px;width:300px;bottom:20px;inset-inline-end:20px}div#ays-poll-checklist-container .ays-poll-checklist-step-content img{height:150px}}@media (max-width:782px){#ays-poll-checklist-container.ays-poll-checklist-panel,.ays-poll-checklist-open-icon{display:none}}@media (max-width:480px){#ays-poll-checklist-container.ays-poll-checklist-panel{border-radius:0;max-width:100%}#ays-poll-checklist-container .ays-poll-checklist-header h3{font-size:16px}#ays-poll-checklist-container .ays-poll-checklist-step-content p{font-size:13px}#ays-poll-checklist-container .ays-poll-checklist-actions{flex-direction:column}}
                     </style>
                 </div>
                 <?php
@@ -1731,13 +1728,329 @@ class Poll_Maker_Ays_Admin {
 							// $this->ays_poll_new_halloween_bundle_message_2025();
 							// $this->ays_poll_black_friday_message();
 							// $this->ays_poll_christmas_banner_message_2025();
-							$this->ays_poll_new_mega_bundle_message_2026();
+							$this->ays_poll_footer_sale_banner_2026($ays_poll_flag);
 						}
 					}
 				}
 			}
 		}
 	}
+// Poll Footer Blue Banner Sale 20%
+    public function ays_poll_footer_sale_banner_2026($ishmar){
+        if($ishmar == 0 ){
+            $content = array();
+
+            $poll_cta_button_link = esc_url('https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=private-offer-20-off-' . POLL_MAKER_AYS_VERSION);
+
+            $content[] = '
+                <div class="ays-poll-footer-banner-bottom-banner-wrapper" style="display: none;">
+                    <div class="ays-poll-footer-banner-bottom-banner-container">
+                        <div class="ays-poll-footer-banner-bottom-banner-content">
+                            <div class="ays-poll-footer-banner-bottom-banner-inner">
+                                <div class="ays-poll-footer-banner-bottom-banner-left">
+                                    <div class="ays-poll-footer-banner-bottom-banner-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <path d="M12 7v14"></path>
+                                            <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"></path>
+                                            <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5"></path>
+                                            <rect x="3" y="7" width="18" height="4" rx="1"></rect>
+                                        </svg>
+                                    </div>
+                                    <span class="ays-poll-footer-banner-bottom-banner-title">'. esc_html__('Poll Maker by AYS', 'poll-maker') .'</span>
+                                </div>
+                                <span class="ays-poll-footer-banner-bottom-banner-separator"></span>
+                                <span class="ays-poll-footer-banner-bottom-banner-discount">'. esc_html__('20% Off', 'poll-maker') .'</span>
+                                <div class="ays-poll-footer-banner-bottom-banner-code" onclick="aysPollFooterBannerCopyToClipboard()" title="'. esc_html__('Copy Coupon Code', 'poll-maker') .'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
+                                        <path d="M13 5v2"></path>
+                                        <path d="M13 17v2"></path>
+                                        <path d="M13 11v2"></path>
+                                    </svg>
+                                    <span>POLLPRO20</span>
+                                    <button type="button" class="ays-poll-footer-banner-bottom-banner-copy" aria-label="'. esc_html__('Copy Coupon Code', 'poll-maker') .'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <button type="button" class="ays-poll-footer-banner-bottom-banner-cta">
+                                    '. esc_html__('Get Deal', 'poll-maker') .'
+                                </button>
+                                <button type="button" class="ays-poll-footer-banner-bottom-banner-close" aria-label="'. esc_html__('Close popup', 'poll-maker') .'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M18 6 6 18"></path>
+                                        <path d="m6 6 12 12"></path>
+                                    </svg>
+                                </button>
+                                    </div>
+                        </div>
+                    </div>
+                </div>';
+
+            $content[] = '<style id="ays-poll-progress-banner-styles-inline-css">';
+
+            $content[] = '@keyframes ays-pro-slide-up{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}@keyframes ays-pro-slide-down{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(24px)}}.ays-poll-footer-banner-bottom-banner-wrapper{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:0 16px 28px;text-align:center;animation:.45s cubic-bezier(.16,1,.3,1) forwards ays-pro-slide-up}.ays-poll-footer-banner-bottom-banner-wrapper.ays-pro-banner-closing{animation:.32s cubic-bezier(.16,1,.3,1) forwards ays-pro-slide-down}.ays-poll-footer-banner-bottom-banner-container{display:inline-block;max-width:100%;border-radius:16px;background:linear-gradient(90deg,#2f6bff 0,#3e7bff 100%);box-shadow:0 20px 40px -15px rgba(47,107,255,.55),0 8px 20px -10px rgba(47,107,255,.35);overflow:hidden}.ays-poll-footer-banner-bottom-banner-code,.ays-poll-footer-banner-bottom-banner-content,.ays-poll-footer-banner-bottom-banner-inner,.ays-poll-footer-banner-bottom-banner-left{display:flex;align-items:center}.ays-poll-footer-banner-bottom-banner-inner{gap:16px;padding:8px 14px 8px 10px;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}.ays-poll-footer-banner-bottom-banner-left{gap:14px}.ays-poll-footer-banner-bottom-banner-icon{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.15);color:#fff}.ays-poll-footer-banner-bottom-banner-icon svg{width:24px;height:24px}.ays-poll-footer-banner-bottom-banner-discount,.ays-poll-footer-banner-bottom-banner-title{font-size:17px;font-weight:600;line-height:1.25;letter-spacing:0;white-space:nowrap;color:#fff}.ays-poll-footer-banner-bottom-banner-separator{display:block;width:1px;height:24px;background:rgba(255,255,255,.4)}.ays-poll-footer-banner-bottom-banner-code{gap:6px;border:1px dashed rgba(255,255,255,.7);border-radius:999px;padding:6px 9px;color:#fff;cursor:pointer;transition:background-color .15s,border-color .15s}.ays-poll-footer-banner-bottom-banner-code:hover{background:rgba(255,255,255,.1);border-color:#fff}.ays-poll-footer-banner-bottom-banner-code button svg,.ays-poll-footer-banner-bottom-banner-code>svg{width:16px;height:16px}.ays-poll-footer-banner-bottom-banner-code span{font-size:14px;font-weight:600;line-height:1;letter-spacing:.05em;color:#fff}.ays-poll-footer-banner-bottom-banner-close,.ays-poll-footer-banner-bottom-banner-copy{display:flex;align-items:center;justify-content:center;margin:0;padding:0;background:0 0;border:0;color:rgba(255,255,255,.9);cursor:pointer;box-shadow:none;transition:color .15s,background-color .15s}.ays-poll-footer-banner-bottom-banner-close:hover,.ays-poll-footer-banner-bottom-banner-copy:hover{color:#fff;background:0 0}.ays-poll-footer-banner-bottom-banner-wrapper .ays-poll-footer-banner-bottom-banner-cta{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 20px;border:0;border-radius:999px;background:#fff;color:#2f6bff;font-size:15px;font-weight:600;line-height:1;white-space:nowrap;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.08);transition:background-color .15s,transform .15s}.ays-poll-footer-banner-bottom-banner-wrapper .ays-poll-footer-banner-bottom-banner-cta:hover{background:rgba(255,255,255,.95);color:#2f6bff;transform:translateY(-1px)}.ays-poll-footer-banner-bottom-banner-close{width:22px;height:22px;margin-left:2px}.ays-poll-footer-banner-bottom-banner-close svg{width:20px;height:20px}.ays-poll-footer-banner-copy-notification{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.8);color:#fff;padding:12px 24px;border-radius:8px;font-size:14px;z-index:10000;opacity:0;transition:opacity .3s}.ays-poll-footer-banner-copy-notification.show{opacity:1}@media (max-width:768px){.ays-poll-footer-banner-bottom-banner-wrapper{display:none}}';
+            $content[] = '</style>';
+
+            $content[] = '<script>';
+
+            $content[] = "
+            /**
+             * Footer Banner JavaScript - ES5 Compatible
+             * With delayed popup and visit tracking
+             */
+            
+            (function() {
+              'use strict';
+              
+              // Configuration
+              var STORAGE_KEY = 'ays_poll_footer_banner_data';
+              var POPUP_RULES = [
+                { visit: 1, delay: 10000 },   // 1st visit: 10 seconds
+                { visit: 2, delay: 10000 },   // 2nd visit: 10 seconds
+                { visit: 3, delay: 15000 },   // 3th visit: 15 seconds
+                { visit: 4, delay: 15000 },   // 4th visit: 15 seconds
+                { visit: 5, delay: 20000 },   // 5th visit: 20 seconds
+                { visit: 7, delay: 20000 },   // 7th visit: 20 seconds
+                { visit: 10, delay: 30000 }   // 10th visit: 30 seconds
+              ];
+              var MAX_SHOWS_PER_DAY = 7;
+              
+              // Wait for DOM to be ready
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initBanner);
+              } else {
+                initBanner();
+              }
+              
+              function initBanner() {
+                var banner = document.querySelector('.ays-poll-footer-banner-bottom-banner-wrapper');
+                var closeButton = document.querySelector('.ays-poll-footer-banner-bottom-banner-close');
+                var ctaButton = document.querySelector('.ays-poll-footer-banner-bottom-banner-cta');
+                
+                if (!banner) {
+                  return;
+                }
+                
+                // Hide banner initially
+                banner.style.display = 'none';
+                
+                // Get or initialize banner data
+                var bannerData = getBannerData();
+                
+                // Check if we need to reset daily data
+                if (shouldResetData(bannerData.lastResetDate)) {
+                  bannerData = resetDailyData();
+                }
+                
+                // Increment visit count
+                bannerData.visitCount++;
+                saveBannerData(bannerData);
+                
+                // Check if banner should be shown
+                var shouldShow = shouldShowBanner(bannerData);
+                
+                if (shouldShow.show) {
+                  // Show banner after delay
+                  setTimeout(function() {
+                    banner.style.display = 'block';
+                    
+                    // Increment show count
+                    bannerData.showCount++;
+                    saveBannerData(bannerData);
+                  }, shouldShow.delay);
+                }
+                
+                // Close button handler
+                if (closeButton) {
+                  closeButton.addEventListener('click', function() {
+                    closeBanner(banner);
+                  });
+                }
+                
+                // CTA button handler
+                if (ctaButton) {
+                  ctaButton.addEventListener('click', function() {
+                    window.open('https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=private-offer-20-off-". POLL_MAKER_AYS_VERSION ."', '_blank');
+                    // Optionally close banner after click
+                    closeBanner(banner);
+                  });
+                }
+              }
+              
+              /**
+               * Get banner data from localStorage
+               */
+              function getBannerData() {
+                try {
+                  var data = localStorage.getItem(STORAGE_KEY);
+                  if (data) {
+                    return JSON.parse(data);
+                  }
+                } catch (e) {
+                  // localStorage not available or parsing error
+                }
+                
+                // Return default data
+                return {
+                  visitCount: 0,
+                  showCount: 0,
+                  lastResetDate: getTodayDate()
+                };
+              }
+              
+              /**
+               * Save banner data to localStorage
+               */
+              function saveBannerData(data) {
+                try {
+                  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                } catch (e) {
+                  // localStorage not available
+                }
+              }
+              
+              /**
+               * Check if data should be reset (new day)
+               */
+              function shouldResetData(lastResetDate) {
+                var today = getTodayDate();
+                return lastResetDate !== today;
+              }
+              
+              /**
+               * Reset daily data
+               */
+              function resetDailyData() {
+                var newData = {
+                  visitCount: 0,
+                  showCount: 0,
+                  lastResetDate: getTodayDate()
+                };
+                saveBannerData(newData);
+                return newData;
+              }
+              
+              /**
+               * Get today's date as string (YYYY-MM-DD)
+               */
+              function getTodayDate() {
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = String(date.getMonth() + 1).padStart(2, '0');
+                var day = String(date.getDate()).padStart(2, '0');
+                return year + '-' + month + '-' + day;
+              }
+              
+              /**
+               * Check if banner should be shown based on rules
+               */
+              function shouldShowBanner(bannerData) {
+                // Check if already shown max times today
+                if (bannerData.showCount >= MAX_SHOWS_PER_DAY) {
+                  return { show: false, delay: 0 };
+                }
+                
+                // Check visit count against rules
+                for (var i = 0; i < POPUP_RULES.length; i++) {
+                  var rule = POPUP_RULES[i];
+                  if (bannerData.visitCount === rule.visit) {
+                    return { show: true, delay: rule.delay };
+                  }
+                }
+                
+                return { show: false, delay: 0 };
+              }
+              
+              /**
+               * Close banner with animation
+               */
+              function closeBanner(banner) {
+                if (!banner) {
+                  return;
+                }
+                
+                // Add closing animation class
+                banner.classList.add('ays-pro-banner-closing');
+                
+                // Wait for animation to complete
+                setTimeout(function() {
+                  banner.style.display = 'none';
+                }, 400);
+              }
+              
+              // Polyfill for String.padStart (for older browsers)
+              if (!String.prototype.padStart) {
+                String.prototype.padStart = function(targetLength, padString) {
+                  targetLength = targetLength >> 0;
+                  padString = String(typeof padString !== 'undefined' ? padString : ' ');
+                  if (this.length >= targetLength) {
+                    return String(this);
+                  } else {
+                    targetLength = targetLength - this.length;
+                    if (targetLength > padString.length) {
+                      padString += padString.repeat(targetLength / padString.length);
+                    }
+                    return padString.slice(0, targetLength) + String(this);
+                  }
+                };
+              }
+            })();
+            
+            function aysPollFooterBannerCopyToClipboard() {
+                var textarea = document.createElement('textarea');
+                textarea.value = 'POLLPRO20';
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                
+                textarea.select();
+                textarea.setSelectionRange(0, 99999);
+                
+                try {
+                    document.execCommand('copy');
+                    aysPollFooterBannerShowCopyNotification('". esc_html__('Coupon code copied', 'poll-maker') ."');
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                }
+                
+                document.body.removeChild(textarea);
+            }
+
+            function aysPollFooterBannerShowCopyNotification(message) {
+                var existingNotification = document.querySelector('.ays-poll-footer-banner-copy-notification');
+                if (existingNotification) {
+                    document.body.removeChild(existingNotification);
+                }
+                
+                var notification = document.createElement('div');
+                notification.className = 'ays-poll-footer-banner-copy-notification';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(function() {
+                    notification.classList.add('show');
+                }, 10);
+                
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                    setTimeout(function() {
+                        if (notification.parentNode) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 300);
+                }, 2000);
+            }";
+
+            $content[] = '</script>';
+
+            $content = implode( '', $content );
+            echo ($content);
+        }
+    }
+
 
 	public function ays_poll_dismiss_button(){
 

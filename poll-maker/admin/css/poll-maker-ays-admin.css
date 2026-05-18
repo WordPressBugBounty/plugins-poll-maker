@@ -21,9 +21,10 @@ div#wpcontent {
     box-shadow: 0px 1px 2px #0000001f;
 }
 
-body.toplevel_page_poll-maker-ays #wpwrap {
+body[class*="poll-maker"] #wpwrap {
     background-color: #F3F4F5 !important;
 }
+
 
 /* Notice banner styles start */    
 div.ays-notice-banner{
@@ -82,7 +83,7 @@ div.ays-notice-banner{
     color: #fff;
     background-color: #10a37f;
     border: 2px solid #10a37f;
-    margin-left: 5px;
+    margin-left: 0px;
     padding: 5px 15px;
     border-radius: 25px;
     font-size: 13px;
@@ -7052,3 +7053,336 @@ body[class~="toplevel_page_poll-maker-ays"] .swal2-popup .swal2-actions {
         width: 100%;
     }
 }
+
+/* Poll Maker top banner redesign | Start */
+div.ays-notice-banner {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    margin: 33px 0 0 0;
+    background: #fff;
+    /* border: 1px solid rgba(203, 213, 225, .8); */
+    border: unset;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px -8px rgba(15, 23, 42, .08);
+    overflow: visible;
+}
+
+.ays-notice-banner #navigation-container {
+    min-height: 76px;
+    padding: 0 20px;
+    background: #fff;
+    border-radius: 16px;
+    align-items: center;
+    gap: 22px;
+}
+
+.ays-notice-banner .navigation-bar {
+    text-align: center;
+}
+
+.ays-notice-banner .ays-poll-logo-container-upgrade {
+    flex: 0 0 auto;
+    gap: 0;
+}
+
+.ays-notice-banner .logo-container {
+    width: 50px;
+    height: 50px;
+    margin-left: 0;
+    flex: 0 0 60px;
+}
+
+.ays-notice-banner .logo-container a {
+    display: flex !important;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ays-notice-banner .logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ays-poll-top-banner-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 80px;
+    line-height: 1.1;
+}
+
+.ays-poll-top-banner-title span.ays-poll-top-banner-main-title {
+    color: #0f172a;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.ays-poll-top-banner-title span.ays-poll-top-banner-sub-title {
+    margin-top: 4px;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: none;
+}
+
+.ays-notice-banner .ays-poll-upgrade-container {
+    margin-left: 20px;
+    align-self: center;
+}
+
+.ays-notice-banner .ays-poll-upgrade-container a {
+    /* min-height: 30px; */
+    padding: 6px 12px;
+    border: 1px solid rgba(4, 120, 87, .2);
+    border-radius: 999px;
+    background: #059669;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .08);
+    transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.ays-notice-banner .ays-poll-upgrade-container a:hover,
+.ays-notice-banner .ays-poll-upgrade-container a:focus {
+    background: #047857;
+    color: #fff;
+    box-shadow: 0 4px 10px -6px rgba(15, 23, 42, .35);
+}
+
+.ays-notice-banner .ays-poll-upgrade-container a img {
+    width: 8px;
+    height: 13px;
+}
+
+.ays-notice-banner .ays-poll-logo-container-one-time-text {
+    margin-top: 5px;
+    color: #475569;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    font-style: italic !important;
+    white-space: nowrap;
+}
+
+.ays-notice-banner .navigation-bar #menu {
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+    gap: 6px;
+}
+
+.ays-notice-banner .navigation-bar #menu::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 32px;
+    margin-right: 20px;
+    background: #e2e8f0;
+}
+
+.ays-notice-banner .navigation-bar li {
+    margin: 0;
+    list-style: none;
+}
+
+.ays-notice-banner .navigation-bar li a {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    min-height: 36px;
+    align-items: center;
+    padding: 0 15px;
+    margin: 0;
+    border-radius: 999px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: none;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.ays-notice-banner .navigation-bar li a:hover,
+.ays-notice-banner .navigation-bar li a:focus {
+    background: #f1f5f9;
+    color: #0f172a;
+    outline: none;
+    box-shadow: none;
+}
+
+.ays-notice-banner .navigation-bar li.ays_poll_take_gift a {
+    border: 1px solid #fecdd3;
+    background: #fff1f2;
+    color: #be123c;
+    font-weight: 700;
+}
+
+.ays-notice-banner .navigation-bar li.ays_poll_take_gift a:hover,
+.ays-notice-banner .navigation-bar li.ays_poll_take_gift a:focus {
+    border-color: #fda4af;
+    background: #ffe4e6;
+    color: #be123c;
+}
+
+.ays-notice-banner .modile-ddmenu-sm,
+.ays-notice-banner .modile-ddmenu-md {
+    width: auto;
+}
+
+.ays-notice-banner #menu li a.toggle_ddmenu {
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    justify-content: center;
+    padding: 0;
+    color: #475569;
+    font-size: 18px;
+}
+
+.ays-notice-banner li ul.ddmenu {
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 220px;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 18px 40px -24px rgba(15, 23, 42, .45);
+}
+
+.ays-notice-banner li ul.ddmenu li {
+    width: 100%;
+    padding-left: 0;
+}
+
+.ays-notice-banner li ul.ddmenu li a {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.ays-notice-banner .ays-poll-checklist-open-icon {
+    position: unset;
+    flex: 0 0 auto;
+    margin-left: 4px;
+}
+
+@media screen and (min-width: 1321px) {
+    .ays-notice-banner .modile-ddmenu-lg.modile-ddmenu-lg-custom {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1320px) {
+    .ays-notice-banner .modile-ddmenu-lg {
+        display: none;
+    }
+
+    .ays-notice-banner .modile-ddmenu-md {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    div.ays-notice-banner {
+        width: calc(100% - 24px);
+        margin-top: 14px;
+    }
+
+    .ays-notice-banner #navigation-container {
+        gap: 14px;
+        padding: 0 14px;
+    }
+
+    .ays-notice-banner .navigation-bar #menu::before {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.ays-notice-banner {
+        width: calc(100% - 40px);
+    }
+
+    .ays-notice-banner #navigation-container {
+        min-height: 72px;
+    }
+
+    .ays-notice-banner .modile-ddmenu-md {
+        display: none;
+    }
+
+    .ays-notice-banner .modile-ddmenu-sm {
+        display: block;
+    }
+
+    .ays-notice-banner .navigation-bar #menu {
+        flex: 0 0 auto;
+        width: auto !important;
+        min-width: 40px !important;
+        margin-left: auto;
+    }
+
+    .ays-notice-banner .navigation-bar #menu::before {
+        display: none;
+    }
+
+    .ays-notice-banner li ul.ddmenu {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    div.ays-poll-top-banner-title {
+        display: none;
+    }
+
+    .ays-notice-banner #navigation-container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 12px;
+    }
+
+    .ays-notice-banner .ays-poll-logo-container-upgrade {
+        width: auto;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .ays-notice-banner .navigation-bar #menu {
+        margin-left: auto;
+        justify-content: flex-end;
+    }
+
+    .ays-notice-banner .ays-poll-checklist-open-icon {
+        position: unset;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .ays-notice-banner .logo-container {
+        width: 54px;
+        height: 54px;
+        flex-basis: 54px;
+    }
+
+    .ays-poll-top-banner-title {
+        min-width: 70px;
+    }
+
+    .ays-poll-top-banner-title span:first-child {
+        font-size: 14px;
+    }
+
+    .ays-notice-banner .ays-poll-upgrade-container a {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+/* Poll Maker top banner redesign | End */

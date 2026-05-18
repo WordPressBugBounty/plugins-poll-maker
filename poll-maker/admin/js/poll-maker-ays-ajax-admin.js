@@ -147,7 +147,7 @@
         });
     });
 
-    $(document).find('.ays-poll-checklist-mark-done').on('click', function () {
+    $(document).on('click', '.ays-poll-checklist-mark-done', function () {
         var $button = $(this);
         var $step = $button.closest('.ays-poll-checklist-step');
         var $checkbox = $step.find('input[type="checkbox"]');
@@ -167,7 +167,7 @@
         saveChecklist();
     });
 
-    $(document).find('.ays-poll-checklist-toggle-step').on('click', function () {
+    $(document).on('click', '.ays-poll-checklist-toggle-step', function () {
         var $step = $(this).closest('.ays-poll-checklist-step');
         var $content = $step.find('.ays-poll-checklist-step-content');
 
@@ -179,9 +179,9 @@
     });
 
     // Reopen checklist on checklist icon click
-    $(document).find('.ays-poll-checklist-open-icon').on('click', function () {
+    $(document).on('click', '.ays-poll-checklist-open-icon', function () {
         var $checklist = $(document).find('#ays-poll-checklist-container');
-        $checklist.fadeIn(200);
+        $checklist.show();
 
         $.ajax({
             type: 'POST',
@@ -196,12 +196,12 @@
     });
 
     // Hide popup permanently
-    $(document).find('.ays-poll-checklist-popup-close').on('click', function () {
+    $(document).on('click', '.ays-poll-checklist-popup-close', function () {
         var $checklist = $(this).closest('.ays-poll-checklist-popup');
         $checklist.fadeOut(200);
     });
 
-    $(document).find('.ays-poll-checklist-minimize-btn').on('click', function () {
+    $(document).on('click', '.ays-poll-checklist-minimize-btn', function () {
         var $panel = $(document).find('.ays-poll-checklist-panel');
         var $expandedIcon = $(this).find('.ays-poll-checklist-minimize-icon-expanded');
         var $collapsedIcon = $(this).find('.ays-poll-checklist-minimize-icon-collapsed');
@@ -217,7 +217,7 @@
         }
     });
 
-    $(document).find('.ays-poll-checklist-close-btn').on('click', function () {
+    $(document).on('click', '.ays-poll-checklist-close-btn', function () {
         var $checklist = $(this).closest('#ays-poll-checklist-container');
         $.ajax({
             type: 'POST',

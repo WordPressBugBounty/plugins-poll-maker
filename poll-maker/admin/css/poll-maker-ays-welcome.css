@@ -1,6 +1,5 @@
 body[class*="page_poll-maker-ays-dashboard"] .notice,
-#ays-poll-dicount-month-main,
-.ays-notice-banner{
+#ays-poll-dicount-month-main{
     display: none !important;
 }
 
@@ -34,7 +33,7 @@ body[class*="page_poll-maker-ays-dashboard"] .notice,
     transition-duration: .05s;
     transition-timing-function: ease-in-out;
     outline: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  
     background-color: #2463EB;
     border: 1px solid #2463EB;
     color: #fff;

@@ -588,6 +588,10 @@ body.ays-poll-editor-active :is(.is-desktop-preview, .is-tablet-preview, .is-mob
     cursor: pointer;
     
 }
+#wpfooter #footer-left {
+    float: none;
+    text-align: center;
+}
 @media screen and (max-width: 782px) {
     div#ays-poll-deactivate-feedback-modal .ays-poll-deactivate-feedback-dialog-input {
         min-width: 25px;
