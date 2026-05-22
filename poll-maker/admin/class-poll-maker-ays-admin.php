@@ -252,18 +252,18 @@ class Poll_Maker_Ays_Admin {
             'ajax' => admin_url('admin-ajax.php'),
             'pleaseEnterMore' =>esc_html__('Please select more', "poll-maker"),
             'urlImg' => (esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/'),
-            "emptyEmailError"               => esc_html__( 'Email field is empty', 'poll-maker'),
-            "invalidEmailError"             => esc_html__( 'Invalid Email address', 'poll-maker'),
-            'selectUser'                    => esc_html__( 'Select user', 'poll-maker'),
-            'pleaseEnterMore'               => esc_html__( "Please enter 1 or more characters", 'poll-maker' ),
-            'searching'                     => esc_html__( "Searching...", 'poll-maker' ),
-            'activated'                     => esc_html__( "Activated", 'poll-maker' ),
-            'errorMsg'                      => esc_html__( "Error", 'poll-maker' ),
-            'loadResource'                  => esc_html__( "Can't load resource.", 'poll-maker' ),
-            'somethingWentWrong'            => esc_html__( "Maybe something went wrong.", 'poll-maker' ),            
-            'greateJob'                     => esc_html__( 'Great job', 'poll-maker'),
-            'formMoreDetailed'              => esc_html__( 'For more detailed configuration visit', 'poll-maker'),
-            'greate'                        => esc_html__( 'Great!', 'poll-maker'),
+            "emptyEmailError"                   => esc_html__( 'Email field is empty', 'poll-maker'),
+            "invalidEmailError"                 => esc_html__( 'Invalid Email address', 'poll-maker'),
+            'selectUser'                        => esc_html__( 'Select user', 'poll-maker'),
+            'pleaseEnterMore'                   => esc_html__( "Please enter 1 or more characters", 'poll-maker' ),
+            'searching'                         => esc_html__( "Searching...", 'poll-maker' ),
+            'activated'                         => esc_html__( "Activated", 'poll-maker' ),
+            'errorMsg'                          => esc_html__( "Error", 'poll-maker' ),
+            'loadResource'                      => esc_html__( "Can't load resource.", 'poll-maker' ),
+            'somethingWentWrong'                => esc_html__( "Maybe something went wrong.", 'poll-maker' ),
+            'greateJob'                         => esc_html__( 'Great job', 'poll-maker'),
+            'formMoreDetailed'                  => esc_html__( 'For more detailed configuration visit', 'poll-maker'),
+            'greate'                            => esc_html__( 'Great!', 'poll-maker'),
 
         ));
 
@@ -422,10 +422,10 @@ class Poll_Maker_Ays_Admin {
         if(strpos($hook, $this->plugin_name) !== false){
             if(function_exists('wp_enqueue_code_editor')){
                 $cm_settings['codeEditor'] = wp_enqueue_code_editor(array(
-                    'type' => 'text/css',
-                    'codemirror' => array(
-                        'inputStyle' => 'contenteditable',
-                        'theme' => 'cobalt',
+                    'type'              => 'text/css',
+                    'codemirror'        => array(
+                        'inputStyle'    => 'contenteditable',
+                        'theme'         => 'cobalt',
                     )
                 ));
 
@@ -1215,16 +1215,16 @@ class Poll_Maker_Ays_Admin {
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL            => "https://" . $api_postfix . ".api.mailchimp.com/3.0/lists",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING       => "",
-                CURLOPT_MAXREDIRS      => 10,
-                CURLOPT_TIMEOUT        => 30,
-                CURLOPT_SSL_VERIFYPEER => false,
-                CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST  => "GET",
-                CURLOPT_USERPWD        => "$username:$api_key",
-                CURLOPT_HTTPAUTH       => CURLAUTH_BASIC,
+                CURLOPT_URL             => "https://" . $api_postfix . ".api.mailchimp.com/3.0/lists",
+                CURLOPT_RETURNTRANSFER  => true,
+                CURLOPT_ENCODING        => "",
+                CURLOPT_MAXREDIRS       => 10,
+                CURLOPT_TIMEOUT         => 30,
+                CURLOPT_SSL_VERIFYPEER  => false,
+                CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST   => "GET",
+                CURLOPT_USERPWD         => "$username:$api_key",
+                CURLOPT_HTTPAUTH        => CURLAUTH_BASIC,
 	   //   CURLOPT_POSTFIELDS => "undefined=",
                 CURLOPT_HTTPHEADER     => array(
                     "Content-Type: application/json",

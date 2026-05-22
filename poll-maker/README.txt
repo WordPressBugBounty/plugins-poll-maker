@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 7.0
-Stable tag: 6.3.7
+Stable tag: 6.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -330,6 +330,9 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 6.3.8 ( May 22, 2026 ) =
+* Improved: User information request handling for poll autofill
 
 = 6.3.7 ( May 15, 2026 ) =
 * Improved: Some style and content changes on the admin dashboard

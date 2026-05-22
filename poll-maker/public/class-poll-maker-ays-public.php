@@ -187,18 +187,19 @@ class Poll_Maker_Ays_Public {
 		wp_enqueue_script( $this->plugin_name . '-autosize', plugin_dir_url(__FILE__) . 'js/poll-maker-autosize.js', array( 'jquery' ), $this->version, false );
 		wp_localize_script($this->plugin_name . '-ajax-public', 'poll_maker_ajax_public',
 			array(
-				'ajax_url'      => admin_url('admin-ajax.php'),
-				'alreadyVoted'  =>esc_html__( "You have already voted" , "poll-maker" ),
-				'day'           =>esc_html__( 'day', "poll-maker" ),
-	            'days'          =>esc_html__( 'days', "poll-maker" ),
-	            'hour'          =>esc_html__( 'hour', "poll-maker" ),
-	            'hours'         =>esc_html__( 'hours', "poll-maker" ),
-	            'minute'        =>esc_html__( 'minute', "poll-maker" ),
-	            'minutes'       =>esc_html__( 'minutes', "poll-maker" ),
-	            'second'        =>esc_html__( 'second', "poll-maker" ),
-	            'seconds'       =>esc_html__( 'seconds', "poll-maker" ),
-	            'thank_message' =>esc_html__( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
-				'restart'       =>esc_html__( 'Restart', "poll-maker" ),
+				'ajax_url'      	=> admin_url('admin-ajax.php'),
+				'nonce'         	=> wp_create_nonce('ays_poll_nonce'),
+				'alreadyVoted'  	=>esc_html__( "You have already voted" , "poll-maker" ),
+				'day'           	=>esc_html__( 'day', "poll-maker" ),
+	            'days'          	=>esc_html__( 'days', "poll-maker" ),
+	            'hour'          	=>esc_html__( 'hour', "poll-maker" ),
+	            'hours'         	=>esc_html__( 'hours', "poll-maker" ),
+	            'minute'        	=>esc_html__( 'minute', "poll-maker" ),
+	            'minutes'       	=>esc_html__( 'minutes', "poll-maker" ),
+	            'second'        	=>esc_html__( 'second', "poll-maker" ),
+	            'seconds'       	=>esc_html__( 'seconds', "poll-maker" ),
+	            'thank_message' 	=>esc_html__( 'Your answer has been successfully sent to the admin. Please wait for the approval.', "poll-maker" ),
+				'restart'       	=>esc_html__( 'Restart', "poll-maker" ),
 			)
 		);
 	}
@@ -2956,16 +2957,20 @@ class Poll_Maker_Ays_Public {
 	}
 
 	public function ays_poll_get_user_information() {
-        if (is_user_logged_in()) {
-            $output = json_encode(wp_get_current_user());
-        } else {
-            $output = null;
+		if ( ! check_ajax_referer( 'ays_poll_nonce', '_ajax_nonce', false ) ) {
+            wp_send_json_error( array( 'message' => 'Invalid request' ), 403 );
+        }
+        if ( ! is_user_logged_in() ) {
+            wp_send_json_error( array( 'message' => 'User not logged in' ), 401 );
         }
 
-        ob_end_clean();
-        $ob_get_clean = ob_get_clean();
-        echo $output;
-        wp_die();
+ 		$user = wp_get_current_user();
+		
+        wp_send_json_success( array(
+            'display_name' => $user->display_name,
+            'user_email'   => $user->user_email,
+
+        ) );
     }
 
 	public function ays_finish_poll() {

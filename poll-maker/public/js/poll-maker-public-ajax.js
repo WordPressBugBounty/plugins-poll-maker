@@ -65,6 +65,7 @@
         if (pollOptions.autofill_user_data && pollOptions.autofill_user_data == "on") {
             var userData = {};
             userData.action = 'ays_poll_get_user_information';
+            userData._ajax_nonce = poll_maker_ajax_public.nonce;
             $.ajax({
                 url: poll_maker_ajax_public.ajax_url,
                 method: 'post',

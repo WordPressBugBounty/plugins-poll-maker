@@ -55,8 +55,8 @@ if (get_option('ays_poll_maker_upgrade_plugin', 'false') === 'false') {
 $api_url = "https://poll-plugin.com/poll-maker/uninstall/";
 
 wp_remote_post( $api_url, array(
-    'timeout' => 30,
-    'body' => wp_json_encode(array(
-        'type'  => 'poll-maker',
+    'timeout'       => 30,
+    'body'          => wp_json_encode(array(
+    'type'          => 'poll-maker',
     )),
 ) );
