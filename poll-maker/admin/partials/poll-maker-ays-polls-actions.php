@@ -215,6 +215,8 @@ $default_options = array(
 	'show_passed_users'           => 'off',
 	'logo_image'                  => '',
     'dont_show_poll_cont'         => 'off',
+    'show_votes_before_voting'    => 'off',
+    'show_votes_before_voting_by' => 'by_count',
     'see_result_button'           => 'on',
     'see_result_radio'            => 'ays_see_result_button',
     'loader_font_size'            => '64',
@@ -713,6 +715,13 @@ $poll_title_alignment_mobile    = ( isset($options['poll_title_alignment_mobile'
 
 // Poll view type
 $poll_view_type_for_text    = ( isset($poll['view_type']) && $poll['view_type'] == "paragraph" ) ? "paragraph" : "short_text";
+
+
+$options['show_votes_before_voting'] = isset($options['show_votes_before_voting']) ? $options['show_votes_before_voting'] : 'off';
+$show_votes_before_voting = (isset($options['show_votes_before_voting']) && $options['show_votes_before_voting'] == 'on') ? true : false;
+$show_votes_before_voting_by = (isset($options['show_votes_before_voting_by']) && $options['show_votes_before_voting_by'] != '') ? $options['show_votes_before_voting_by'] : 'by_count';
+
+
 
 // ===== Poll text type options start =====
 $poll_text_type_length_enable = ( isset($options['poll_text_type_length_enable']) && $options['poll_text_type_length_enable'] == "on" ) ? true : false;
@@ -4333,51 +4342,37 @@ $emoji = array(
                                     </div>
                                 </div> <!-- Show answers numbering -->
                                 <hr>
-                                <div class="form-group row">
-                                    <div class="col-sm-12 only_pro" style="padding:10px 15px 0 15px;">
-                                        <div class="pro_features" style="justify-content:flex-end;">
-                                        </div>
-                                        <div class="form-group row ays_toggle_parent">
-                                            <div class="col-sm-3">
-                                                <label for="ays_show_votes_before_voting">
-                                                    <?php echo esc_html__('Show votes count per answer before voting', "poll-maker"); ?>
-                                                    <a class="ays_help ays-poll-zindex-for-pro-tooltip" data-toggle="tooltip" data-placement="top"
-                                                    title="<?php echo esc_html__('Display the votes count per answer to the poll participants beforehand. It will show the last result. There are two ways to represent the votes count: by count and by percentage.', "poll-maker") ?>">
-                                                        <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
-                                                    </a>
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-1">
-                                                <input type="checkbox"/>
-                                            </div>
-                                            <div class="col-sm-8 ays_divider_left ays_toggle_target" >
-                                                <div class="d-flex">
-                                                    <div class="form-check-inline ays_poll_loader">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" value="by_count" />
-                                                            <span><?php echo esc_html__('By count', "poll-maker"); ?></span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check-inline ays_poll_loader">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" value="by_percentage"/>
-                                                            <span><?php echo esc_html__('By percentage', "poll-maker"); ?></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- Status -->
-                                        <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
-                                            <div class="ays-poll-new-upgrade-button-box" style="top: -20px;">
-                                                <div>
-                                                    <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/locked_24x24.svg'?>">
-                                                    <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
-                                                </div>
-                                                <div class="ays-poll-new-upgrade-button"><?php echo esc_html__("Upgrade", "poll-maker"); ?></div>
-                                            </div>
-                                        </a>
-                                    </div> 
-                                </div>
+            <div class="form-group row ays_toggle_parent ays_poll_option_only_for_choosing_type" style="<?php echo ($id === null || (isset($poll['type']) && $poll['type'] != 'choosing')) ? 'display: none;' : ''; ?>">
+                <div class="col-sm-3">
+                    <label for="ays_show_votes_before_voting">
+                        <?= __('Show votes count per answer before voting', "poll-maker"); ?>
+                        <a class="ays_help" data-toggle="tooltip" data-placement="top"
+                            title="<?= __('Display the votes count per answer to the poll participants beforehand. It will show the last result. There are two ways to represent the votes count: by count and by percentage.', "poll-maker") ?>">
+                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                        </a>
+                    </label>
+                </div>
+                <div class="col-sm-1">
+                    <input type="checkbox" class="ays_toggle_checkbox" id="ays_show_votes_before_voting" name="ays_show_votes_before_voting"
+                        value="on" <?php echo ($show_votes_before_voting) ? 'checked' : ''; ?> />
+                </div>
+                <div class="col-sm-8 ays_divider_left ays_toggle_target" style="<?php echo ($show_votes_before_voting) ? '' : 'display: none'; ?>">
+                    <div class="d-flex">
+                        <div class="form-check-inline ays_poll_loader">
+                            <label class="form-check-label">
+                                <input type="radio" name="ays_show_votes_before_voting_by" value="by_count" <?php echo ($show_votes_before_voting_by == 'by_count') ? 'checked' : ''; ?> />
+                                <span><?= __('By count', "poll-maker"); ?></span>
+                            </label>
+                        </div>
+                        <div class="form-check-inline ays_poll_loader">
+                            <label class="form-check-label">
+                                <input type="radio" name="ays_show_votes_before_voting_by" value="by_percentage" <?php echo ($show_votes_before_voting_by == 'by_percentage') ? 'checked' : ''; ?> />
+                                <span><?= __('By percentage', "poll-maker"); ?></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
                             </div>
                         </div>
                         <div class="only_pro" style="position: relative; display: inline-block">

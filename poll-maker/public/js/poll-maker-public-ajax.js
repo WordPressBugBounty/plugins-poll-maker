@@ -938,6 +938,18 @@
                             
                             var answerDiv = $('<div class="answer-title flex-apm"></div>'),
                             answerBar = $('<div class="answer-percent" data-percent="'+widths[i].width+'"></div>');
+                    if( answerDiv.find('.ayspoll-answers-votes-count-before-voting-width').css('display') == 'none'){
+                    answerDiv.find('.ayspoll-answers-votes-count-before-voting-width > span').css('width', '0%');
+                    answerDiv.find('.ayspoll-answers-votes-count-before-voting').css('display', 'flex');
+                    answerDiv.find('.ayspoll-answers-votes-count-before-voting-width').css('display', 'flex');
+                }
+                                    answerDiv.find('.ayspoll-answers-votes-count-before-voting').text(res_count);
+                    answerDiv.css({
+                        'pointer-events': 'none'
+                    });
+                    setTimeout(function(){
+                        answerDiv.find('.ayspoll-answers-votes-count-before-voting-width > span').css('width', notLeloadingRes[answerID].width + '%');
+                    }, 300);
                             var userMoreImage;
                             if(res.check_user_pic && res.answers[i].avatar){
                                 var userpicsMore = res.answers[widths[i].index].avatar;

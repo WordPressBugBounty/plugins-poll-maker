@@ -452,6 +452,12 @@ class Polls_List_Table extends WP_List_Table {
 			// Poll schedule container on/off
 			$poll_show_container = (isset($data['ays_show_poll_container']) && $data['ays_show_poll_container'] == 'on') ? 'on' : 'off';
 
+			// Show votes count per answers before voting
+			$show_votes_before_voting = (isset($data['ays_show_votes_before_voting']) && $data['ays_show_votes_before_voting'] == 'on') ? 'on' : 'off';
+			$show_votes_before_voting_by = (isset($data['ays_show_votes_before_voting_by']) && $data['ays_show_votes_before_voting_by'] != '') ? $data['ays_show_votes_before_voting_by'] : 'by_count';
+
+
+
 			// Poll see results button in limitations
 			$poll_see_result_button = (isset($data['ays_see_result_show']) && $data['ays_see_result_show'] == 'on') ? 'on' : 'off';
 			$poll_see_result_radio  = (isset($data['ays_poll_see_result_show']) && $data['ays_poll_see_result_show'] != '') ? sanitize_text_field($data['ays_poll_see_result_show']) : '';
@@ -795,6 +801,8 @@ class Polls_List_Table extends WP_List_Table {
                 "poll_view_more_button_count"       => $poll_view_more_button_count,
                 "answer_sort_type"			        => $poll_answer_ordering,
                 "show_answers_numbering"            => $show_answers_numbering,
+				"show_votes_before_voting"	  => $show_votes_before_voting,
+				"show_votes_before_voting_by" => $show_votes_before_voting_by,
 				// Settings tab end
 				'hide_results'                      => $hide_results,
 				'hide_result_message'               => $hide_result_message,

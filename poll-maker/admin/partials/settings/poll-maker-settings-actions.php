@@ -34,6 +34,9 @@ class Poll_Maker_Settings_Actions {
 
             $disable_ip_storing = (isset($data['ays_disable_ip_storing']) && $data['ays_disable_ip_storing'] == 'on') ? "on" : 'off';
 
+            $show_cat_title = isset($data['ays_poll_show_cat_title']) && $data['ays_poll_show_cat_title'] == 'on' ? $data['ays_poll_show_cat_title'] : 'off';
+
+
             $answer_default_count = isset($data['ays_answer_default_count']) && !empty($data['ays_answer_default_count']) ? absint( sanitize_text_field($data['ays_answer_default_count']) ) : 2;
 
             $answers_sound = isset($data['ays_poll_answers_sound']) ? sanitize_text_field($data['ays_poll_answers_sound']) : '';
@@ -72,6 +75,7 @@ class Poll_Maker_Settings_Actions {
             $options = array(
                 "disable_ip_storing"        => $disable_ip_storing,
                 "answer_default_count"      => $answer_default_count,
+                "show_cat_title"            => $show_cat_title,
                 "answers_sound"             => $answers_sound,
                 "poll_title_length"         => $poll_title_length,
                 "poll_category_title_length"=> $poll_category_title_length,

@@ -80,6 +80,7 @@ class Poll_Maker_Ays_Public {
         add_shortcode('ays_poll_all', array($this, 'ays_poll_all_generate_shortcode'));
         add_shortcode('ayspoll_results', array($this, 'ays_poll_results_generate_shortcode'));
 		add_shortcode('ays_display_polls', array($this, 'ays_generate_display_polls_method'));
+		add_shortcode('ays_poll_cat', array($this, 'ays_poll_generate_categories_method'));
     }
      
 	/**
@@ -211,6 +212,128 @@ class Poll_Maker_Ays_Public {
     //     // wp_enqueue_script( $this->plugin_name . '-column-chart', 'https://www.gstatic.com/charts/loader.js', array('jquery'), $this->version, true);
     //     wp_enqueue_script( $this->plugin_name . '-column-chart', plugin_dir_url(__FILE__) . 'js/poll-maker-chart-loader.js', array('jquery'), $this->version, true);
     // }	
+
+	// Categories shortcode
+	public function ays_poll_generate_categories_method($attr) {
+		ob_start();
+        global $wpdb;
+        $id = (isset($attr['id'])) ? absint(intval($attr['id'])) : null;
+
+        if (is_null($id)) {
+            echo "<p class='wrong_shortcode_text' style='color:red;'>" . __('Wrong shortcode initialized', 'poll-maker') . "</p>";
+            return false;
+        }
+
+        $display = ( isset($attr['display']) && $attr['display'] != '' ) ? $attr['display'] : 'all';
+        $layout  = ( isset($attr['layout']) && $attr['layout'] != '' ) ? $attr['layout'] : 'list';
+        $count   = ( isset($attr['count']) && $attr['count'] != '' ) ? absint(intval($attr['count'])) : 5;
+        $cat_polls_sorting = (isset($attr['sorting']) && $attr['sorting'] != '' ) ? $attr['sorting'] : 'date_asc';
+
+        $style = '';
+    	$conteiner_style = '';
+        if ($layout == 'grid') {
+        	$conteiner_style = 'display: flex; flex-wrap: wrap;';
+        	$style = 'margin: 5px;';
+        }
+
+        $category = $this->ays_get_poll_category($id);
+
+        $sql = "SELECT * FROM {$wpdb->prefix}ayspoll_polls WHERE  `categories` LIKE '%".$id."%'";
+
+        $content = "";
+        $random_poll_id = array();
+        if ($display === 'random') {
+            $sql .= " ORDER BY RAND() LIMIT ".$count;
+        }
+
+        $result = '';
+        if($cat_polls_sorting == 'popular_asc' && $display == 'all'){
+            $popular_asc_sql = "SELECT p.*
+                                FROM {$wpdb->prefix}ayspoll_reports AS r
+                                RIGHT JOIN {$wpdb->prefix}ayspoll_polls AS p
+                                ON r.poll_id = p.id
+                                WHERE  p.categories LIKE '%{$id}%'
+                                GROUP BY p.id
+                                ORDER BY COUNT(answer_id) ASC LIMIT ".$count;
+            $result = $wpdb->get_results($popular_asc_sql, 'ARRAY_A');
+        }elseif($cat_polls_sorting == 'popular_desc' && $display == 'all'){
+            $popular_desc_sql = "SELECT p.id
+                                FROM {$wpdb->prefix}ayspoll_reports AS r
+                                RIGHT JOIN {$wpdb->prefix}ayspoll_polls AS p
+                                ON r.poll_id = p.id
+                                WHERE  p.categories LIKE '%{$id}%'
+                                GROUP BY p.id
+                                ORDER BY COUNT(answer_id) DESC LIMIT ".$count;
+            $result = $wpdb->get_results($popular_desc_sql, 'ARRAY_A');
+        }else if($cat_polls_sorting == 'date_asc' && $display == 'all'){
+            $sql = "SELECT * FROM {$wpdb->prefix}ayspoll_polls 
+                    WHERE  `categories` 
+                    LIKE '%".$id."%' 
+                    ORDER BY id ASC LIMIT ".$count;
+            $result = $wpdb->get_results($sql, 'ARRAY_A');
+        }else if($cat_polls_sorting == 'date_desc' && $display == 'all'){
+            $sql = "SELECT * FROM {$wpdb->prefix}ayspoll_polls 
+                    WHERE  `categories` 
+                    LIKE '%".$id."%' 
+                    ORDER BY id DESC LIMIT ".$count;
+            $result = $wpdb->get_results($sql, 'ARRAY_A');
+        }else{
+            $sql = "SELECT * FROM {$wpdb->prefix}ayspoll_polls 
+                    WHERE  `categories` 
+                    LIKE '%".$id."%' 
+                    ORDER BY RAND() LIMIT ".$count;
+            $result = $wpdb->get_results($sql, 'ARRAY_A');
+        }
+
+        
+        $check_poll = false;
+        $all_poll_count = count($result);
+        foreach ($result as $val) {
+            $val = absint(intval($val['id']));
+            $options = (isset($val['styles']) && $val['styles'] != null) ? json_decode($val['styles'], true) : array();
+            $check_poll = $this->check_shedule_expired_poll( $val );
+            
+        	if (!$check_poll) {
+        		continue;
+        	}
+
+            $random_poll_id[] = $val;
+        }
+
+		$cat_settings_table = esc_sql($wpdb->prefix."ayspoll_settings");
+		$cat_key_meta = esc_sql('options');
+		$cat_sql = "SELECT meta_value FROM ".$cat_settings_table." WHERE meta_key = %s";
+		$ct_sql = $wpdb->get_var(
+            $wpdb->prepare( $cat_sql, $cat_key_meta)
+        );
+
+		$cat_options_res = ($ct_sql === false) ? json_encode(array()) : $ct_sql;
+		$cat_option_res = json_decode($cat_options_res, true);
+
+        if (isset($cat_option_res['show_cat_title']) && $cat_option_res['show_cat_title'] == 'on') {
+	        $content .= "<h2 class='ays-poll-category-title' style='text-align:center;'>
+	            <span style='font-size:3rem;'>". __( "Category", 'poll-maker') .":</span>
+	            <em>". stripslashes($category['title']) ."</em>
+	        </h2>";
+
+	        if(isset($category['description']) && $category['description'] != ''){
+	            $content .= "<div class='ays-poll-category-description'>". do_shortcode(stripslashes(wpautop($category['description']))) ."</div>";
+	        }        	
+        }
+
+   		$content .= "<div class='ays-poll-category-containers' style='".$conteiner_style."'>";
+        foreach ($random_poll_id as $poll_id) {
+       		$content .= '<div class="ays-poll-main" id="ays-poll-container-'.$poll_id.'" style="'.$style.'">';
+            	$content .= '<div class="ays-poll-category-item">';
+            		$shortcode = '[ays_poll id="'.$poll_id.'"]';
+            		$content .= do_shortcode($shortcode);
+            	$content .= '</div>';
+        	$content .= '</div>';
+        }
+    	$content .= '</div>';
+        echo $content;
+        return  str_replace(array("\r\n", "\n", "\r"), '', ob_get_clean());
+	}
 
 	public function ays_poll_results_generate_shortcode($attr) {
 		ob_start();
@@ -654,10 +777,13 @@ class Poll_Maker_Ays_Public {
 			return "";
 		}
 
-		$info_form = !empty($options['info_form']) && !empty($options['fields']);
+		$form_fields_option          = isset($options['fields']) ? $options['fields'] : array();
+		$form_required_fields_option = isset($options['required_fields']) ? $options['required_fields'] : array();
+
+		$info_form = !empty($options['info_form']) && !empty($form_fields_option);
 		$info_form_title = !empty($options['info_form_title']) ? wp_kses_post(stripslashes($options['info_form_title'])) : "<div>" .esc_html__("Please fill out the form:", "poll-maker") . "</div>";
-		$fields          = !empty($options['fields']) && !is_array($options['fields']) ? explode(",", $options['fields']) : (is_array($options['fields']) ? $options['fields'] : array());
-		$required_fields = !empty($options['required_fields']) && !is_array($options['required_fields']) ? explode(",", $options['required_fields']) : (is_array($options['required_fields']) ? $options['required_fields'] : array());
+		$fields          = !empty($form_fields_option) && !is_array($form_fields_option) ? explode(",", $form_fields_option) : (is_array($form_fields_option) ? $form_fields_option : array());
+		$required_fields = !empty($form_required_fields_option) && !is_array($form_required_fields_option) ? explode(",", $form_required_fields_option) : (is_array($form_required_fields_option) ? $form_required_fields_option : array());
 
 		$is_expired    = false;
 		$is_start_soon = false;
@@ -1335,6 +1461,10 @@ class Poll_Maker_Ays_Public {
 			height: 55px;
 		}
 
+		#".$this_poll_id." span.ayspoll-answers-votes-count-before-voting{
+            padding: 10px !important;
+        }
+
 		.$this_poll_id.ays-minimal-theme .apm-choosing input[type=radio]:checked + label, .$this_poll_id.ays-minimal-theme .apm-choosing label.ays_enable_hover:hover{
         	background-color: " . ($answer_hover_color ? $answer_hover_color : "initial") . " !important;
 		    color: $main_color !important;
@@ -1580,6 +1710,7 @@ class Poll_Maker_Ays_Public {
 		#".$this_poll_id.".box-apm .apm-answers .apm-choosing label.ays_label_poll{            
 			".$answers_box_shadow_content.";
 			border-radius: ".$poll_answer_border_radius."px;
+			position: relative;
         }
 
 		#".$this_poll_id.".box-apm.text-poll .apm-answers .ays-poll-text-types-inputs{            
@@ -1993,6 +2124,11 @@ class Poll_Maker_Ays_Public {
 
         $show_cd_and_author .= "</div>";
 
+		// Show votes count per answers before voting
+        $options['show_votes_before_voting'] = isset($options['show_votes_before_voting']) ? $options['show_votes_before_voting'] : 'off';
+        $show_votes_before_voting = (isset($options['show_votes_before_voting']) && $options['show_votes_before_voting'] == 'on') ? true : false;
+        $show_votes_before_voting_by = (isset($options['show_votes_before_voting_by']) && $options['show_votes_before_voting_by'] != '') ? $options['show_votes_before_voting_by'] : 'by_count';
+
         $poll_login_form = "";
         if($show_login_form){
             $args = array(
@@ -2306,7 +2442,9 @@ class Poll_Maker_Ays_Public {
 						}else{
 							$answer_icon_class = '';
 						}
-
+						
+						$poll_answer_votes = null;
+						$poll_answer_votes_sum = null;
 						$content .= "<div class='apm-answers $without_vote ".$answers_container."'>";
 						switch ( $poll['type'] ) {
 							case 'choosing':
@@ -2323,6 +2461,36 @@ class Poll_Maker_Ays_Public {
 								if($answers_count){
 									$numbering_type_arr = $this->ays_answer_numbering($show_answers_numbering , $answers_count);
 								}
+
+								$poll_answer_percentages = array();
+								$poll_answer_votes = array();
+								foreach ( $poll['answers'] as $index => $answer ) {
+									// if($fake_votes){
+									// 	if(intval( $answer['votes'] ) + intval( $answer['fake_votes'] ) < 0){
+									// 		$poll_answer_votes[$answer['id']] = intval( $answer['votes'] );
+									// 	}
+									// 	else{
+									// 		$poll_answer_votes[$answer['id']] = intval( $answer['votes'] ) + intval( $answer['fake_votes'] );
+									// 	}
+									// }
+									// else{
+										$poll_answer_votes[$answer['id']] = intval( $answer['votes'] );
+									// }
+								}
+								
+								$poll_answer_votes_sum = array_sum( $poll_answer_votes );
+								$poll_answer_percentages = array();
+								foreach ( $poll_answer_votes as $index => $answer_vote_count ) {
+									if( $poll_answer_votes_sum != 0 ){
+										$poll_answer_percentages[$index] = round( ( $answer_vote_count * 100 ) / $poll_answer_votes_sum, 1);
+									}else{
+										$poll_answer_percentages[$index] = 0;
+									}
+								}
+
+								// $show_votes_count = isset($options['show_votes_count']) && $options['show_votes_count'] == 1 ? true : false;
+								// $show_answer_percent = isset($options['show_res_percent']) && $options['show_res_percent'] == 1 ? true : false;
+
 								if($poll_allow_multivote){
 									$content .= "<input type='hidden' id='multivot_answer_count' value='".$multivote_answer_count."'/>";
 									$content .= $poll_multivote_min_count_content;
@@ -2346,6 +2514,27 @@ class Poll_Maker_Ays_Public {
 													$answer_style_class = 'ays_poll_display_none';
 												}
 											}
+
+											$show_votes_before_voting_display_none = "";
+											if( !$show_votes_before_voting ){
+												$show_votes_before_voting_display_none = "display:none;";
+											}
+											$opacity_bg_color_svbv = $poll['view_type'] == 'grid' ? 0.6 : 0.3;
+											$show_votes_before_voting_color = $this->rgb2hex( $text_color );
+											$show_votes_before_voting_color = $this->hex2rgba( $show_votes_before_voting_color, $opacity_bg_color_svbv );
+											
+											$show_votes_before_voting_display = "style='text-shadow: 0px 0px 5px " . $bg_color . ";'";
+											$show_votes_before_voting_display_width = "";
+											if( !$show_votes_before_voting ){
+												$show_votes_before_voting_display = "style='{$show_votes_before_voting_display_none}text-shadow: 0px 0px 5px " . $bg_color . ";'";
+												$show_votes_before_voting_display_width = "style='{$show_votes_before_voting_display_none}text-shadow: 0px 0px 5px " . $bg_color . ";'";
+											}
+
+											if( $poll['view_type'] == 'grid' ){
+												$show_votes_before_voting_display = "style='{$show_votes_before_voting_display_none}justify-content:center;font-weight:900;text-shadow: 0px 0px 5px " . $bg_color . ";'";
+												$show_votes_before_voting_display_width = "style='{$show_votes_before_voting_display_none}text-shadow: 0px 0px 5px " . $bg_color . ";'";
+											}
+
 											$pol_answer_view_type_show = 'ays_poll_list_view_item';										
 											$pol_answer_view_type_image = 'ays-poll-each-image-list';
 											$pol_answer_view_type_cont = 'ays-poll-answer-container-list';
@@ -2374,6 +2563,35 @@ class Poll_Maker_Ays_Public {
 												
                                                 $poll_class_for_answer_label_text = "ays_poll_label_text_with_padding";
 											}
+
+											$answer_votes_count_before_voting = "";
+											switch ( $show_votes_before_voting_by ) {
+												case 'by_percentage':
+													$answer_votes_count_before_voting = $poll_answer_percentages[$answer['id']] . "%";
+													// if( $show_votes_count ){
+													//     $answer_votes_count_before_voting .= " (". intval( $answer['votes'] ) .")";
+													// }
+													break;
+												default:
+													$real_votes = isset($answer['votes']) && $answer['votes'] != "" ? intval( $answer['votes'] ) : 0;
+													// $fake_votes_all = isset($answer['fake_votes']) && $answer['fake_votes'] != "0" ? intval( $answer['fake_votes'] ) : 0;
+													// if($fake_votes){
+													// 	if($real_votes + $fake_votes_all < 0){
+													// 		$answer_votes_count_before_voting = $real_votes;
+													// 	}
+													// 	else{
+													// 		$answer_votes_count_before_voting = $real_votes + $fake_votes_all;
+													// 	}
+													// }
+													// else{
+														$answer_votes_count_before_voting = $real_votes;
+													// }
+													// if( $show_answer_percent ){
+													//     $answer_votes_count_before_voting .= " (". $poll_answer_percentages[$answer['id']] . "%" .")";
+													// }
+													break;
+											}
+
 											$content .= "
 											<div class='apm-choosing answer-$this_poll_id ". $answer_style_class ." ays-poll-field ".$pol_answer_view_type_cont."' >
 											<input type=".$poll_multivote_checkbox." name='answer' id='radio-$index-$this_poll_id' value='{$answer['id']}' {$autocomplete_attr}>
@@ -2383,7 +2601,14 @@ class Poll_Maker_Ays_Public {
 												data-answers-url='".(isset($answer['redirect']) && is_string($answer['redirect']) ? esc_url($answer['redirect']) : '')."'
 											>".$poll_answer_image_show." <p style='".$poll_added_style."' class='ays-poll-answers'><span class='".$pol_answer_view_type_text_show."'>"
 											. $numbering_type . esc_attr(stripcslashes($answer['answer'])) . 
-											"</span></p></label>
+											"</span></p>";
+
+											$content .= "<span class='ayspoll-answers-votes-count-before-voting' ". $show_votes_before_voting_display .">". $answer_votes_count_before_voting ."</span>
+                                                        <span class='ayspoll-answers-votes-count-before-voting-width' ". $show_votes_before_voting_display_width .">
+                                                            <span style='width: ". $poll_answer_percentages[$answer['id']] ."%; background-color:" . $show_votes_before_voting_color . ";'></span>
+                                                        </span>";
+												
+											$content .= "	</label>
 											</div>";
 										}
 									}

@@ -89,6 +89,9 @@ $poll_fields_label_phone = (isset($fields_placeholders['poll_fields_label_phone'
 
 // Fields labels | End
 
+$show_cat_title = isset($options['show_cat_title']) && $options['show_cat_title'] == 'on' ? 'checked' : '';
+
+
 // General CSS File
 $options['poll_exclude_general_css'] = isset($options['poll_exclude_general_css']) ? esc_attr( $options['poll_exclude_general_css'] ) : 'off';
 $poll_exclude_general_css = (isset($options['poll_exclude_general_css']) && esc_attr( $options['poll_exclude_general_css'] ) == "on") ? true : false;
@@ -1523,65 +1526,94 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                         <fieldset>
                             <legend>
                                 <strong style="font-size:30px;"><i class="ays_fa ays_poll_fa-list"></i></strong>
-                                <h5><?php echo esc_html__('Poll Categories', "poll-maker")?></h5>
-                            </legend>
-                            <div class="form-group row" style="margin: 0px;">
-                                <div class="col-sm-12 only_pro" style="padding:10px;">
-                                    <div class="pro_features pro_features_popup">
-                                        <div class="pro-features-popup-conteiner">
-                                            <div class="pro-features-popup-title">
-                                                <?php echo esc_html__("Poll Categories", "poll-maker"); ?>
-                                            </div>
-                                            <div class="pro-features-popup-content" data-link="https://youtu.be/FQRFaszwTho">
-                                                <p>
-                                                    <?php echo esc_html__("Display all the polls of your desired category on one page with the Poll Categories Shortcode of the plugin.", "poll-maker"); ?>
-                                                </p>
-                                                <p>
-                                                    <?php echo esc_html__("By doing so, you will surely boost your website engagement and get instant feedback from poll takers.", "poll-maker"); ?>
-                                                </p>
-                                            </div>
-                                            <div class="pro-features-popup-button" data-link="https://ays-pro.com/wordpress/poll-maker?utm_source=dashboard&utm_medium=poll-free&utm_campaign=pro-popup-poll-categories-<?php echo esc_attr( POLL_MAKER_AYS_VERSION ); ?>">
-                                                <?php echo esc_html__("Pricing", "poll-maker"); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pro_features" style="justify-content:flex-end;">
-                                    </div>
-                                    <blockquote>
-                                        <p style="margin:0;"><?php echo esc_html__( "Paste the shortcode into any of your posts to show all/random polls from the given category by list/grid view.", "poll-maker" ); ?></p>
-                                    </blockquote>
-                                    <hr/>
-                                    <div class="form-group row">
-                                        <div class="col-sm-4">
-                                            <label for="ays_invidLead">
-                                                <?php echo esc_html__( "Poll category shortcode", "poll-maker" ); ?>
-                                                <a class="ays_help ays-poll-zindex-for-pro-tooltip" data-toggle="tooltip" title="<?php echo esc_html__('Copy the following shortcode, configure it based on your preferences and paste it into the post. Put the shortcode of your preferred category,  choose the method of displaying (all/random), and the design of the layout(list/grid). If you set the method as All, it will show all polls from the given category, if you set the method as Random, please give a value to count option too, and it will randomly display that given amount of polls from the given category.', "poll-maker")?>">
-                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
-                                                </a>
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="ays-text-input" onclick="this.setSelectionRange(0, this.value.length)" readonly="" value='[ays_poll_cat id="Your Poll Cat ID" display="all/random" count="5" layout="list/grid"]'>
-                                        </div>
-                                    </div>
-                                    <a href="https://ays-pro.com/wordpress/poll-maker" target="_blank" class="ays-poll-new-upgrade-button-link">
-                                        <div class="ays-poll-new-upgrade-button-box">
-                                            <div>
-                                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/locked_24x24.svg'?>">
-                                                <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/unlocked_24x24.svg'?>" class="ays-poll-new-upgrade-button-hover">
-                                            </div>
-                                            <div class="ays-poll-new-upgrade-button"><?php echo esc_html__("Upgrade", "poll-maker"); ?></div>
-                                        </div>
-                                    </a>
-                                    <div class="ays-poll-new-watch-video-button-box">
-                                        <div>
-                                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/video_24x24.svg'?>">
-                                            <img src="<?php echo esc_url(POLL_MAKER_AYS_ADMIN_URL).'/images/icons/pro-features-icons/video_24x24_hover.svg'?>" class="ays-poll-new-watch-video-button-hover">
-                                        </div>
-                                        <div class="ays-poll-new-watch-video-button"><?php echo esc_html__("Watch Video", "poll-maker"); ?></div>
-                                    </div>
+                                <h5><?php echo __('Poll Categories',"poll-maker")?></h5>
+                            </legend>                            
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label for="ays_invidLead">
+                                        <?php echo __( "Poll category shortcode", "poll-maker" ); ?>
+                                        <a class="ays_help" data-toggle="tooltip" title="<?php echo __('Copy the following shortcode, configure it based on your preferences and paste it into the post. Put the shortcode of your preferred category,  choose the method of displaying (all/random), and the design of the layout(list/grid). If you set the method as All, it will show all polls from the given category, if you set the method as Random, please give a value to count option too, and it will randomly display that given amount of polls from the given category.',"poll-maker")?>">
+                                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                        </a>
+                                    </label>
+                                </div>
+                                <hr/>
+                                <div class="col-sm-8">
+                                    <input type="text" id="ays_invidLead" class="ays-text-input" onclick="this.setSelectionRange(0, this.value.length)" readonly="" value='[ays_poll_cat id="Your_Poll_Cat_ID" display="all" count="5" layout="list" sorting="date_asc"]'>
                                 </div>
                             </div>
+                            <hr/>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label for='cat_show_title'>
+                                        <?= __('Show category title', "poll-maker"); ?>
+                                        <a  class="ays_help" 
+                                            data-toggle="tooltip"
+                                            data-placement="top"
+                                            title="<?= __("Show or hide the name of the category poll", "poll-maker"); ?>">
+                                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                        </a></label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" name="ays_poll_show_cat_title" id="cat_show_title"
+                                           value="on" <?= $show_cat_title ?>>
+                                </div>
+                            </div>
+                            <hr/>
+                            <blockquote>
+                                <ul>
+                                    <li>
+                                        <b><?php echo  __('Display (all/random)',"poll-maker");  ?></b>
+                                        <?php echo  __(' - Choose the method of displaying. Example:display="random".',"poll-maker");  ?>  
+                                        <ul class='ays_poll_shorcode_methodes'>
+                                            <li>
+                                                <b><?php echo  __('All',"poll-maker"); ?></b>
+                                                <?php echo  __(' - If you set the method as All, it will show all polls from the given category.',"poll-maker");  ?></li>
+                                            <li>
+                                                <b><?php echo  __('Random',"poll-maker");  ?></b>
+                                                <?php echo  __(' - If you set the method as Random, please give a value to count option too, and it will randomly display that given amount of polls from the given category.',"poll-maker");  ?></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                    <b><?php echo  __('Layout(list/grid)',"poll-maker");  ?></b>
+                                    <?php echo  __(' - Choose the design of the layout. Example:layout=grid.',"poll-maker");  ?>
+                                        <ul class='ays_poll_shorcode_methodes'>
+                                            <li>
+                                            <b><?php echo  __('List',"poll-maker");  ?></b>
+                                            <?php echo  __(' - Choose the design of the layout as list․',"poll-maker");  ?></li>
+                                            <li>
+                                            <b><?php echo  __('Grid',"poll-maker");  ?></b>
+                                            <?php echo  __(' - Choose the design of the layout as grid․',"poll-maker");  ?></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                    <b><?php echo  __('Sorting (date_asc|date_desc|popular_asc|popular_desc)',"poll-maker");  ?></b>
+                                    <?php echo  __(' - Choose the method of sorting.  Example:sorting=date_desc.',"poll-maker");  ?>
+                                        <ul class='ays_poll_shorcode_methodes'>
+                                            <li>
+                                            <b><?php echo  __('Date_asc:',"poll-maker");  ?></b>
+                                            <?php echo  __(' The earliest created polls will appear at first.',"poll-maker");  ?>
+                                            </li>
+                                            <li>
+                                            <b><?php echo  __('Date_desc:',"poll-maker");  ?></b>
+                                            <?php echo  __(' The latest created polls will appear at first.',"poll-maker");  ?>
+                                            </li>
+                                            <li>
+                                            <b><?php echo  __('Popular_asc:',"poll-maker");  ?></b>
+                                            <?php echo  __(' The most voted polls will appear at first.',"poll-maker");  ?>
+                                            </li>
+                                            <li> 
+                                            <b><?php echo  __('Popular_desc:',"poll-maker");  ?></b>   
+                                            <?php echo  __(' The most voted polls will appear in the end.',"poll-maker");  ?>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </blockquote>
+                            <hr>
+                            <blockquote>
+                                <p style="margin:0;"><?php echo __( "Paste the shortcode into any of your posts to show all/random polls from the given category by list/grid view.", "poll-maker" ); ?></p>
+                            </blockquote>
                         </fieldset>
                         <hr>
                         <fieldset>
