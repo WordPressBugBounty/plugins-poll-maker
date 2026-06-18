@@ -772,6 +772,24 @@ class Poll_Maker_Ays_Admin {
 
 	public static function set_screen( $status, $option, $value ) {
 		return $value;
+	}	
+
+    public function poll_hide_screen_options( $show_screen, $screen ) {
+    	// How check screen ID: get_current_screen()->id
+
+	    if ( empty( $screen->id ) ) {
+	        return $show_screen;
+	    }
+
+	    if (
+	        strpos( $screen->id, 'toplevel_page_poll-maker-ays' ) !== false ||
+	        strpos( $screen->id, '_page_poll-maker-ays-cats' ) !== false ||	        
+	        strpos( $screen->id, '_page_poll-maker-ays-settings' ) !== false
+	    ) {
+	        return false;
+	    }
+
+	    return $show_screen;
 	}
 
 	public function screen_option_polls() {
@@ -782,7 +800,12 @@ class Poll_Maker_Ays_Admin {
 			'option'  => 'polls_per_page',
 		);
 
-		add_screen_option($option, $args);
+		if( ! ( isset( $_GET['action'] ) && ( $_GET['action'] == 'add' || $_GET['action'] == 'edit' ) ) ){
+			add_screen_option($option, $args);
+        }else{
+    	 	add_filter('screen_options_show_screen', array($this, 'poll_hide_screen_options'), 10, 2);
+        }
+
 		$this->polls_obj = new Polls_List_Table($this->plugin_name);
         $this->settings_obj = new Poll_Maker_Settings_Actions($this->plugin_name);
 
@@ -796,7 +819,12 @@ class Poll_Maker_Ays_Admin {
 			'option'  => 'poll_cats_per_page',
 		);
 
-		add_screen_option($option, $args);
+		if( ! ( isset( $_GET['action'] ) && ( $_GET['action'] == 'add' || $_GET['action'] == 'edit' ) ) ){
+			add_screen_option($option, $args);
+        }else{
+        	add_filter('screen_options_show_screen', array($this, 'poll_hide_screen_options'), 10, 2);
+        }
+
 		$this->cats_obj = new Pma_Categories_List_Table($this->plugin_name);
 		$this->settings_obj = new Poll_Maker_Settings_Actions($this->plugin_name);
 	}
@@ -808,7 +836,7 @@ class Poll_Maker_Ays_Admin {
 			'default' => 50,
 			'option'  => 'poll_results_per_page',
 		);
-
+		
 		add_screen_option($option, $args);
 		$this->results_obj = new Pma_Results_List_Table($this->plugin_name);
 		// $this->answer_results_obj = new Poll_Answer_Results($this->plugin_name);
@@ -1200,6 +1228,7 @@ class Poll_Maker_Ays_Admin {
 	}
 
     public function screen_option_settings() {
+    	add_filter('screen_options_show_screen', array($this, 'poll_hide_screen_options'), 10, 2);
 		$this->polls_obj = new Polls_List_Table($this->plugin_name);
         $this->settings_obj = new Poll_Maker_Settings_Actions($this->plugin_name);
     }

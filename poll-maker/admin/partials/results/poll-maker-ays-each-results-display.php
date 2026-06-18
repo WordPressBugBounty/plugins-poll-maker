@@ -26,7 +26,10 @@
 <div class="wrap ays_polls_each_results_list_table">
     <div class="ays-poll-heading-box">
         <div class="ays-poll-wordpress-user-manual-box">
-            <a href="https://ays-pro.com/wordpress-poll-maker-user-manual" target="_blank"><?php echo esc_html__("View Documentation", "poll-maker"); ?></a>
+            <a href="https://ays-pro.com/wordpress-poll-maker-user-manual" target="_blank" style="text-decoration: none;font-size: 13px;">
+                <i class="ays_poll_fas ays_fa_file_text"></i>
+                <span style="margin-left: 3px;text-decoration: underline;"><?php echo esc_html__("View Documentation", "poll-maker"); ?></span>
+            </a>
         </div>
     </div>
     <h1 class="wp-heading-inline">
