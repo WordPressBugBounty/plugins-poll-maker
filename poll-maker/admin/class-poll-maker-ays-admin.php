@@ -3977,55 +3977,19 @@ class Poll_Maker_Ays_Admin {
 
     public function ays_poll_generate_message_vars_html( $poll_message_vars ) {
         $content = array();
-        $var_counter = 0; 
-
-        $allowed_tags = array(
-            'div' => array(
-                'class' 		=> true
-            ),
-            'span' => array(),
-            'a' => array(
-                'class' 		=> true,
-                'data-toggle' 	=> true,
-                'data-html' 	=> true,
-                'title' 		=> true
-            ),
-            'i' => array(
-                'class' 		=> true
-            ),
-            'label' => array(
-                'class' 		=> true
-            ),
-            'input' => array(
-                'type' 			=> true,
-                'class' 		=> true,
-                'hidden' 		=> true,
-                'id' 			=> true,
-                'name' 			=> true,
-                'value' 		=> true
-            )
-        );
 
         $content[] = '<div class="ays-poll-message-vars-box">';
             $content[] = '<div class="ays-poll-message-vars-icon">';
-                $content[] = '<div>';
-                    $content[] = '<i class="ays_poll_fa ays_fa_link"></i>';
-                $content[] = '</div>';
-                $content[] = '<div>';
-                    $content[] = '<span>'.esc_html__("Message Variables" , "poll-maker") .'</span>';
-                    $content[] = '<a class="ays_help" data-toggle="tooltip" data-html="true" title="'.esc_html__("Insert your preferred message variable into the editor by clicking." , "poll-maker") .'">';
-                        $content[] = '<i class="fas fa-info-circle"></i>';
-                    $content[] = '</a>';
-                $content[] = '</div>';
+                $content[] = '<span class="ays-poll-message-vars-braces" aria-hidden="true">{ }</span>';
+                $content[] = '<span>'. esc_html__( "Message Variables" , 'poll-maker') .'</span>';
+                $content[] = '<span class="ays-poll-message-vars-chevron" aria-hidden="true"></span>';
             $content[] = '</div>';
             $content[] = '<div class="ays-poll-message-vars-data">';
                 foreach($poll_message_vars as $var => $var_name){
-                    $var_counter++;
-                    $content[] = '<label class="ays-poll-message-vars-each-data-label">';
-                        $content[] = '<input type="radio" class="ays-poll-message-vars-each-data-checker" hidden id="ays_poll_message_var_count_'. $var_counter .'" name="ays_poll_message_var_count">';
+                    $content[] = '<label class="ays-poll-message-vars-each-data-label">';                       
                         $content[] = '<div class="ays-poll-message-vars-each-data">';
-                            $content[] = '<input type="hidden" class="ays-poll-message-vars-each-var" value="'. $var .'">';
-                            $content[] = '<span>'. $var_name .'</span>';
+                            $content[] = '<input type="hidden" class="ays-poll-message-vars-each-var" value="'. esc_attr( $var ) .'">';
+                            $content[] = '<span>'. esc_html( $var_name ) .'</span>';
                         $content[] = '</div>';
                     $content[] = '</label>';
                 }
@@ -4034,7 +3998,7 @@ class Poll_Maker_Ays_Admin {
 
         $content = implode( '', $content );
 
-        return wp_kses( $content, $allowed_tags );
+        return $content;
     }
 
     /**

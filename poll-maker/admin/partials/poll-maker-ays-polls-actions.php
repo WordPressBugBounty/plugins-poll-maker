@@ -6187,33 +6187,7 @@ $emoji = array(
                                                             </label>
                                                         </div>
                                                         <?php
-                                                        $allowed_tags = array(
-                                                            'div' => array(
-                                                                'class' => true
-                                                            ),
-                                                            'i' => array(
-                                                                'class' => true
-                                                            ),
-                                                            'span' => array(),
-                                                            'a' => array(
-                                                                'class' => true,
-                                                                'data-toggle' => true,
-                                                                'data-html' => true,
-                                                                'title' => true
-                                                            ),
-                                                            'label' => array(
-                                                                'class' => true
-                                                            ),
-                                                            'input' => array(
-                                                                'type' => true,
-                                                                'class' => true,
-                                                                'hidden' => true,
-                                                                'id' => true,
-                                                                'name' => true,
-                                                                'value' => true
-                                                            )
-                                                        );
-                                                        echo wp_kses($poll_message_vars_html, $allowed_tags);
+                                                        echo $poll_message_vars_html;
                                                         $content   = !empty($options['hide_results_text']) ? stripslashes($options['hide_results_text']) : stripslashes($default_options['hide_results_text']);
                                                         $editor_id = 'ays-poll-hide-results-text';
                                                         $settings  = array(
@@ -6253,33 +6227,8 @@ $emoji = array(
                                             <div class="col-sm-12 if_poll_hide_result_message ays_toggle_target"  style="margin-top: 15px; <?php echo isset($options['hide_result_message']) && $options['hide_result_message'] ? '' : 'display:none;'; ?>">
                                                 <?php
                                                 $res_def_message = isset($poll['type']) && $poll['type'] == 'text' ?  '<p style="text-align: center;">'.esc_html__("Thank you!", "poll-maker") .'</p>' : '';
-                                                $allowed_tags = array(
-                                                    'div' => array(
-                                                        'class' => true
-                                                    ),
-                                                    'i' => array(
-                                                        'class' => true
-                                                    ),
-                                                    'span' => array(),
-                                                    'a' => array(
-                                                        'class' => true,
-                                                        'data-toggle' => true,
-                                                        'data-html' => true,
-                                                        'title' => true
-                                                    ),
-                                                    'label' => array(
-                                                        'class' => true
-                                                    ),
-                                                    'input' => array(
-                                                        'type' => true,
-                                                        'class' => true,
-                                                        'hidden' => true,
-                                                        'id' => true,
-                                                        'name' => true,
-                                                        'value' => true
-                                                    )
-                                                );
-                                                echo wp_kses($poll_message_vars_html, $allowed_tags);
+                                                
+                                                echo $poll_message_vars_html;
                                                 $content = wpautop(stripslashes((isset($options['result_message'])) ? $options['result_message'] : $res_def_message));
                                                 $editor_id = 'ays_result_message';
                                                 $settings = array('editor_height' => $poll_wp_editor_height, 'textarea_name' => 'ays_result_message', 'editor_class' => 'ays-textarea', 'media_elements' => false);

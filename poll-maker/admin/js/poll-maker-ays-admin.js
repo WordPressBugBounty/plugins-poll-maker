@@ -3031,10 +3031,10 @@
 
         checkType($(this).attr("data-type"));
         
-        var $checklistPanel = $(document).find('.ays-poll-checklist-panel');
-        if ($checklistPanel.length > 0) {
-            $checklistPanel.show();
-        }
+        // var $checklistPanel = $(document).find('.ays-poll-checklist-panel');
+        // if ($checklistPanel.length > 0) {
+        //     $checklistPanel.show();
+        // }
     })
     
     // Add body class when modal is visible
@@ -3267,7 +3267,9 @@
 
     // Select message vars galleries page | Start
         $(document).find('.ays-poll-message-vars-icon').on('click', function(e){
-            $(this).parents(".ays-poll-message-vars-box").find(".ays-poll-message-vars-data").toggle('fast');
+            var messageVarsBox = $(this).parents(".ays-poll-message-vars-box");
+            messageVarsBox.toggleClass("ays-poll-message-vars-open");
+            messageVarsBox.find(".ays-poll-message-vars-data").toggle('fast');
         });
         
         $(document).on( "click" , function(e){
@@ -3275,6 +3277,7 @@
             } 
             else{
                 $(document).find(".ays-poll-message-vars-box .ays-poll-message-vars-data").hide('fast');
+                $(document).find(".ays-poll-message-vars-box").removeClass("ays-poll-message-vars-open");
             }
         });
 
