@@ -673,6 +673,7 @@ class Polls_List_Table extends WP_List_Table {
                 'vkontakte_link' => '',
                 'youtube_link' => '',
                 'tiktok_link' => '',
+                'instagram_link' => '',
             );
             
             $linkedin_link = isset($ays_social_links['ays_linkedin_link']) && sanitize_text_field( $ays_social_links['ays_linkedin_link'] ) != '' ? sanitize_text_field( $ays_social_links['ays_linkedin_link'] ) : '';
@@ -681,6 +682,7 @@ class Polls_List_Table extends WP_List_Table {
             $vkontakte_link = isset($ays_social_links['ays_vkontakte_link']) && sanitize_text_field( $ays_social_links['ays_vkontakte_link'] ) != '' ? sanitize_text_field( $ays_social_links['ays_vkontakte_link'] ) : '';
             $youtube_link = isset($ays_social_links['ays_youtube_link']) && sanitize_text_field( $ays_social_links['ays_youtube_link'] ) != '' ? sanitize_text_field( $ays_social_links['ays_youtube_link'] ) : '';
             $tiktok_link = isset($ays_social_links['ays_tiktok_link']) && sanitize_text_field( $ays_social_links['ays_tiktok_link'] ) != '' ? sanitize_text_field( $ays_social_links['ays_tiktok_link'] ) : '';
+            $instagram_link = isset($ays_social_links['ays_instagram_link']) && sanitize_text_field( $ays_social_links['ays_instagram_link'] ) != '' ? sanitize_text_field( $ays_social_links['ays_instagram_link'] ) : '';
             
             $social_links = array(
                 'linkedin_link'     => $linkedin_link,
@@ -689,6 +691,7 @@ class Polls_List_Table extends WP_List_Table {
                 'vkontakte_link'    => $vkontakte_link,
                 'youtube_link'    	=> $youtube_link,
                 'tiktok_link'    	=> $tiktok_link,
+                'instagram_link'   	=> $instagram_link,
             );
 
             $show_chart_type = (isset($_POST['ays_poll_show_result_chart']) && sanitize_text_field( $_POST['ays_poll_show_result_chart'] ) != "") ? sanitize_text_field( $_POST['ays_poll_show_result_chart'] ) : 'default_bar_chart';

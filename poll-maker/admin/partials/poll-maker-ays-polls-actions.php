@@ -820,6 +820,7 @@ $twitter_link = isset($social_links['twitter_link']) && $social_links['twitter_l
 $vkontakte_link = isset($social_links['vkontakte_link']) && $social_links['vkontakte_link'] != '' ? $social_links['vkontakte_link'] : '';
 $youtube_link = isset($social_links['youtube_link']) && $social_links['youtube_link'] != '' ? $social_links['youtube_link'] : '';
 $tiktok_link = isset($social_links['tiktok_link']) && $social_links['tiktok_link'] != '' ? $social_links['tiktok_link'] : '';
+$instagram_link = isset($social_links['instagram_link']) && $social_links['instagram_link'] != '' ? $social_links['instagram_link'] : '';
 $poll_social_links_heading = ( isset( $options[ 'poll_social_links_heading' ] ) && $options[ 'poll_social_links_heading' ] != '' ) ? stripslashes( wpautop( $options[ 'poll_social_links_heading' ] ) ) : '';
 
 $show_chart_type = (isset($options['show_chart_type']) && $options['show_chart_type'] != "") ? $options['show_chart_type'] : 'google_bar_chart';
@@ -6803,9 +6804,10 @@ $emoji = array(
                                                     value="<?php echo $youtube_link; ?>" />
                                             </div>
                                         </div>
+                                        <hr>
                                         <div class="form-group row">
                                             <div class="col-sm-4">
-                                                <label for="ays_youtube_link">
+                                                <label for="ays_tiktok_link">
                                                     <i class="ays_fa ays_fa_vk"></i>
                                                     <?php echo esc_html__('TikTok link', "poll-maker")?>
                                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Tiktok profile or page link for showing after poll finish.', "poll-maker")?>">
@@ -6814,8 +6816,24 @@ $emoji = array(
                                                 </label>
                                             </div>
                                             <div class="col-sm-8">
-                                                <input type="text" class="ays-text-input" id="ays_youtube_link" name="ays_poll_social_links[ays_tiktok_link]"
+                                                <input type="text" class="ays-text-input" id="ays_tiktok_link" name="ays_poll_social_links[ays_tiktok_link]"
                                                     value="<?php echo $tiktok_link; ?>" />
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <div class="col-sm-4">
+                                                <label for="ays_instagram_link">
+                                                    <i class="ays_fa ays_fa_vk"></i>
+                                                    <?php echo esc_html__('Instagram link', "poll-maker")?>
+                                                    <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Tiktok profile or page link for showing after poll finish.', "poll-maker")?>">
+                                                        <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                    </a>
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="ays-text-input" id="ays_instagram_link" name="ays_poll_social_links[ays_instagram_link]"
+                                                    value="<?php echo $instagram_link; ?>" />
                                             </div>
                                         </div>
                                     </div>
