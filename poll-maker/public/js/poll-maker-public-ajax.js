@@ -951,7 +951,7 @@
                     answerDiv.find('.ayspoll-answers-votes-count-before-voting').css('display', 'flex');
                     answerDiv.find('.ayspoll-answers-votes-count-before-voting-width').css('display', 'flex');
                 }
-                                    answerDiv.find('.ayspoll-answers-votes-count-before-voting').text(res_count);
+                    // answerDiv.find('.ayspoll-answers-votes-count-before-voting').text(res_count);
                     answerDiv.css({
                         'pointer-events': 'none'
                     });

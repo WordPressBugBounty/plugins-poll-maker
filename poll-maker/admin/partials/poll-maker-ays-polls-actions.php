@@ -6760,7 +6760,10 @@ $emoji = array(
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_twitter_link">
-                                                    <i class="ays_fa ays_fa_twitter_square"></i>
+                                                    <!-- <i class="ays_fa ays_fa_twitter_square"></i> -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="16">
+                                                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+                                                    </svg>
                                                     <?php echo esc_html__('X link', "poll-maker")?>
                                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('X profile or page link for showing after poll finish.', "poll-maker")?>">
                                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -6776,7 +6779,7 @@ $emoji = array(
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_vkontakte_link">
-                                                    <i class="ays_fa ays_fa_vk"></i>
+                                                    <i class="ays_fa ays_fa_vk_square"></i>
                                                     <?php echo esc_html__('VKontakte link', "poll-maker")?>
                                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('VKontakte profile or page link for showing after poll finish.', "poll-maker")?>">
                                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -6792,7 +6795,7 @@ $emoji = array(
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_youtube_link">
-                                                    <i class="ays_fa ays_fa_vk"></i>
+                                                    <i class="ays_fa ays_fa_youtube_square"></i>
                                                     <?php echo esc_html__('YouTube link', "poll-maker")?>
                                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('YouTube profile or page link for showing after poll finish.', "poll-maker")?>">
                                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -6808,7 +6811,10 @@ $emoji = array(
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_tiktok_link">
-                                                    <i class="ays_fa ays_fa_vk"></i>
+                                                    <!-- <i class="ays_fa ays_fa_tiktok_square"></i> -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="16">
+                                                        <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path>
+                                                    </svg>
                                                     <?php echo esc_html__('TikTok link', "poll-maker")?>
                                                     <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Tiktok profile or page link for showing after poll finish.', "poll-maker")?>">
                                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
@@ -6824,9 +6830,9 @@ $emoji = array(
                                         <div class="form-group row">
                                             <div class="col-sm-4">
                                                 <label for="ays_instagram_link">
-                                                    <i class="ays_fa ays_fa_vk"></i>
+                                                    <i class="ays_fa ays_fa_instagram_square"></i>
                                                     <?php echo esc_html__('Instagram link', "poll-maker")?>
-                                                    <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Tiktok profile or page link for showing after poll finish.', "poll-maker")?>">
+                                                    <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Instagram profile or page link for showing after poll finish.', "poll-maker")?>">
                                                         <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
                                                     </a>
                                                 </label>

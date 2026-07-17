@@ -125,6 +125,36 @@ div.ays-notice-banner{
     font-weight: 900;
 }
 
+.ays_fa_linkedin_square:before {
+    content: "\f08c";
+    font-weight: 400;
+}
+
+.ays_fa_facebook_square:before {
+    content: "\f082";
+    font-weight: 400;
+}
+
+.ays_fa_vk_square::before {
+    content: "\f189";
+    font-weight: 400;
+}
+
+.ays_fa_youtube_square::before {
+    content: "\f16a";
+    font-weight: 400;
+}
+
+.ays_fa_tiktok_square::before {
+    content: "\e07b";
+    font-weight: 400;
+}
+
+.ays_fa_instagram_square::before {
+    content: "\f16d";
+    font-weight: 400;
+}
+
 .ays_fa_file_code::before {
     content: "\f1c9";
     font-weight: 400;
@@ -150,7 +180,7 @@ div.ays-notice-banner{
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: "Font Awesome 5 Free";
+    /*font-family: "Font Awesome 5 Free";*/
 }
 
 .ays_poll_fa_question_circle:before {
