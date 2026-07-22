@@ -2709,6 +2709,16 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">
                                 <p class="vmessage">
                                     <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%current_poll_author_registered%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "Shows the current poll author's registered date that was filled in their WordPress profile.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">
+                                <p class="vmessage">
+                                    <strong>
                                         <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%admin_email%%" class='ays-poll-message-variables-inputs'/>
                                     </strong>
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
