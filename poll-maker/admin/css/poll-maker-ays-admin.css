@@ -168,6 +168,10 @@ div.ays-notice-banner{
     content: "\f0c1";
 }
 
+.ays_fa_bell::before {
+    content: "\f0f3 ";
+}
+
 .ays_label_flex{
     display: flex;
     justify-content: space-between;

@@ -96,6 +96,10 @@ $show_cat_title = isset($options['show_cat_title']) && $options['show_cat_title'
 $options['poll_exclude_general_css'] = isset($options['poll_exclude_general_css']) ? esc_attr( $options['poll_exclude_general_css'] ) : 'off';
 $poll_exclude_general_css = (isset($options['poll_exclude_general_css']) && esc_attr( $options['poll_exclude_general_css'] ) == "on") ? true : false;
 
+// Menu notifications
+$options['poll_disable_poll_menu_notification'] = isset($options['poll_disable_poll_menu_notification']) ? esc_attr( $options['poll_disable_poll_menu_notification'] ) : 'off';
+$poll_disable_poll_menu_notification = (isset($options['poll_disable_poll_menu_notification']) && esc_attr( $options['poll_disable_poll_menu_notification'] ) == "on") ? true : false;
+
 // WP Editor height
 $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['poll_wp_editor_height'] != '' && $options['poll_wp_editor_height'] != 0) ? absint( sanitize_text_field($options['poll_wp_editor_height']) ) : 50 ;
 
@@ -422,6 +426,26 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 </div>
                             </div>
                         </fieldset> <!-- Exclude General CSS -->
+                        <hr>
+                        <fieldset>
+                            <legend>
+                                <strong style="font-size:30px;"><i class="ays_poll_fas ays_fa_bell"></i></strong>
+                                <h5><?php echo esc_html__('Menu notifications', "poll-maker"); ?></h5>
+                            </legend>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label for="ays_poll_disable_poll_menu_notification">
+                                        <?php echo esc_html__( "Disable Poll maker menu item notification", "poll-maker" ); ?>
+                                        <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_attr__( 'Enable this option and the notifications will not be displayed in the Poll Maker menu.', "poll-maker" ); ?>">
+                                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                        </a>
+                                    </label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="checkbox" name="ays_poll_disable_poll_menu_notification" id="ays_poll_disable_poll_menu_notification" value="on" <?php echo $poll_disable_poll_menu_notification ? 'checked' : ''; ?>>
+                                </div>
+                            </div>
+                        </fieldset> <!-- Menu notifications -->
                         <hr>
                         <fieldset>
                             <legend>

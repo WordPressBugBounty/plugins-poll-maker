@@ -69,6 +69,9 @@ class Poll_Maker_Settings_Actions {
             // General CSS File
             $poll_exclude_general_css = (isset( $data['ays_poll_exclude_general_css'] ) && sanitize_text_field( $data['ays_poll_exclude_general_css'] ) == 'on') ? 'on' : 'off';
 
+            // Menu notifications
+            $poll_disable_poll_menu_notification = (isset( $data['ays_poll_disable_poll_menu_notification'] ) && sanitize_text_field( $data['ays_poll_disable_poll_menu_notification'] ) == 'on') ? 'on' : 'off';
+
             // WP Editor height
             $poll_wp_editor_height = (isset($data['ays_poll_wp_editor_height']) && $data['ays_poll_wp_editor_height'] != '' && $data['ays_poll_wp_editor_height'] != 0) ? absint( sanitize_text_field($data['ays_poll_wp_editor_height']) ) : 50;
 
@@ -87,6 +90,7 @@ class Poll_Maker_Settings_Actions {
                 "poll_animation_top"        => $poll_animation_top,
                 "poll_enable_animation_top" => $poll_enable_animation_top,
                 "poll_exclude_general_css"  => $poll_exclude_general_css,
+                "poll_disable_poll_menu_notification" => $poll_disable_poll_menu_notification,
                 "poll_wp_editor_height"     => $poll_wp_editor_height,
             );
 

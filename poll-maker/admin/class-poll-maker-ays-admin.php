@@ -455,14 +455,27 @@ class Poll_Maker_Ays_Admin {
 
 	public function add_plugin_admin_menu() {
 
-		/*
-		 * Check unread results
-		 *
-		 */
-		global $wpdb;
-		$sql            = "SELECT COUNT(unread) FROM {$wpdb->prefix}ayspoll_reports WHERE unread=1";
-		$unread_results = $wpdb->get_var($sql);
-		$show           = $unread_results > 0 ? '' : "apm-no-results";
+		$settings_actions = new Poll_Maker_Settings_Actions($this->plugin_name);
+		$options_setting = $settings_actions->ays_get_setting('options');
+		$options = ($options_setting === false) ? array() : json_decode(stripcslashes($options_setting), true);
+		$options = is_array($options) ? $options : array();
+		$disable_poll_menu_notification = isset($options['poll_disable_poll_menu_notification']) && esc_attr($options['poll_disable_poll_menu_notification']) === 'on';
+
+		$menu_item = 'Poll Maker';
+		if (!$disable_poll_menu_notification) {
+			/*
+			 * Check unread results
+			 *
+			 */
+			global $wpdb;
+			$sql            = "SELECT COUNT(unread) FROM {$wpdb->prefix}ayspoll_reports WHERE unread=1";
+			$unread_results = $wpdb->get_var($sql);
+
+			if ($unread_results > 0) {
+				$menu_item .= '<span style="margin-right: 10px;" class="apm-badge badge badge-danger">' . $unread_results . '</span>';
+			}
+		}
+
 		/*
 		 * Add a settings page for this plugin to the Settings menu.
 		 *
@@ -471,8 +484,6 @@ class Poll_Maker_Ays_Admin {
 		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 		 *
 		 */
-
-		$menu_item = ($unread_results == 0) ? 'Poll Maker' : 'Poll Maker' . '<span style="margin-right: 10px;" class="apm-badge badge badge-danger '.$show.'">' . $unread_results . '</span>';
 
 		$this->capability = $this->poll_maker_capabilities();
         $capability = $this->poll_maker_capabilities();
