@@ -1293,6 +1293,12 @@ class Poll_Maker_Ays_Public {
 		// Poll title font size mobile
 		$poll_title_font_size_mobile    = (isset($options['poll_title_font_size_mobile']) && $options['poll_title_font_size_mobile'] != "") ? absint(intval(esc_attr($options['poll_title_font_size_mobile']))) : "20";
 
+		// Poll title font weight
+		$poll_title_font_weight    = (isset($options['poll_title_font_weight']) && $options['poll_title_font_weight'] != "") ? esc_attr($options['poll_title_font_weight']) : "normal";
+
+		// Poll title font weight mobile
+		$poll_title_font_weight_mobile    = (isset($options['poll_title_font_weight_mobile']) && $options['poll_title_font_weight_mobile'] != "") ? esc_attr($options['poll_title_font_weight_mobile']) : $poll_title_font_weight;
+
 		// Poll title alignment
 		$poll_title_alignment    = ( isset($options['poll_title_alignment']) && $options['poll_title_alignment'] != "" ) ? esc_attr($options['poll_title_alignment']) : "center";
 
@@ -1671,6 +1677,7 @@ class Poll_Maker_Ays_Public {
 
         #".$this_poll_id.".box-apm .apm-title-box div{
 			font-size: ".$poll_title_font_size."px;
+			font-weight: ".$poll_title_font_weight.";
 			word-break: break-word;
 			word-wrap: break-word;
 			text-align: ".$poll_title_alignment.";
@@ -1930,6 +1937,7 @@ class Poll_Maker_Ays_Public {
 		$content .= "
 			#".$this_poll_id.".box-apm .apm-title-box div{
 				font-size: ".$poll_title_font_size_mobile."px;
+				font-weight: ".$poll_title_font_weight_mobile.";
 				text-align: ".$poll_title_alignment_mobile.";
 				word-break: break-word;
 				word-wrap: break-word;

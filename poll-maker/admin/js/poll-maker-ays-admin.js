@@ -1539,7 +1539,7 @@
         $('.apm-title-box h5').text(val);
     });   
     var checkAnswerStyle = $(document).find("#ays_poll_enable_answer_style").prop("checked");
-    $(document).on('change', '.ays-poll-question-font-size,#ays_poll_question_image_height,#ays_answers_view,#ays_poll_answer_img_height,#ays_poll_answer_image_border_radius,#ays_poll_image_background_size,#ays_poll_answers_padding,#ays_poll_answers_margin,#ays_poll_title_font_size,#ays_poll_title_alignment,#ays_poll_text_type_placeholder,#ays_poll_question_image_object_fit,#ays_poll_answers_box_shadow_enable,#ays_poll_answers_box_shadow_color,#ays_poll_answer_border_radius,#ays_poll_answer_box_shadow_x_offset,#ays_poll_answer_box_shadow_y_offset,#ays_poll_answer_box_shadow_z_offset' , function () {
+    $(document).on('change', '.ays-poll-question-font-size,#ays_poll_question_image_height,#ays_answers_view,#ays_poll_answer_img_height,#ays_poll_answer_image_border_radius,#ays_poll_image_background_size,#ays_poll_answers_padding,#ays_poll_answers_margin,#ays_poll_title_font_size,#ays_poll_title_font_weight,#ays_poll_title_alignment,#ays_poll_text_type_placeholder,#ays_poll_question_image_object_fit,#ays_poll_answers_box_shadow_enable,#ays_poll_answers_box_shadow_color,#ays_poll_answer_border_radius,#ays_poll_answer_box_shadow_x_offset,#ays_poll_answer_box_shadow_y_offset,#ays_poll_answer_box_shadow_z_offset' , function () {
         var checkAnswerStyleOnChange = $(document).find("#ays_poll_enable_answer_style").prop("checked");
         refreshLivePreview(checkAnswerStyleOnChange);
     });    
@@ -1934,6 +1934,7 @@
         var answerDefaultFontSize = "16";
         var answerDefaultFontSizeMobile = "16";
         var titleDefaultFontSize  = "20";
+        var titleDefaultFontWeight  = "normal";
         var answersBorderRadiusDefault = "0";
 
         // Boxes
@@ -1977,6 +1978,9 @@
         // Title font size
         var titleFontSizeBox     = $(document).find("#ays_poll_title_font_size");
         var titleFontSize        = titleFontSizeBox.val();
+        // Title font weight
+        var titleFontWeightBox     = $(document).find("#ays_poll_title_font_weight");
+        var titleFontWeight        = titleFontWeightBox.val();
         // Poll text type placeholder
         var textPlaceholder     = $(document).find("#ays_poll_text_type_placeholder");
         var textPlaceholderVal  = textPlaceholder.val();
@@ -2029,6 +2033,8 @@
             answerFontSize      = answerDefaultFontSize;
             answerFontSizeMain.val(answerDefaultFontSize);
             answerFontSizeMobileMain.val(answerDefaultFontSize);
+            titleFontWeight     = titleDefaultFontWeight;
+            titleFontWeightBox.val(titleDefaultFontWeight);
             answersBorderRadius = answersBorderRadiusDefault;
             answersBorderRadiusMain.val(answersBorderRadiusDefault);
         }
@@ -2074,6 +2080,7 @@
         }
         $(document).find('.apm-title-box h5').css({
             "font-size" : titleFontSize + "px",
+            "font-weight" : titleFontWeight,
             "text-align" : titleAlignment,
         });
         if(viewType == 'list'){
@@ -3187,6 +3194,8 @@
         $(document).find("#ays_poll_answers_box_shadow_enable").prop('checked' , false).change();
         $(document).find('input#ays_poll_title_font_size').val('20').change();
         $(document).find('input#ays_poll_title_font_size_mobile').val('20').change();
+        $(document).find('#ays_poll_title_font_weight').val('normal').change();
+        $(document).find('#ays_poll_title_font_weight_mobile').val('normal').change();
         $(document).find('#ays_poll_title_alignment').val('center').change();
         $(document).find('#ays_poll_title_alignment_mobile').val('center').change();
         $(document).find("#ays_poll_enable_title_text_shadow").prop('checked' , false).change();

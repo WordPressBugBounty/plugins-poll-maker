@@ -615,6 +615,12 @@ class Polls_List_Table extends WP_List_Table {
 			// Poll title font size for mobile
 			$poll_title_font_size_mobile    = (isset($data['ays_poll_title_font_size_mobile']) && $data['ays_poll_title_font_size_mobile'] != "" && $data['ays_poll_title_font_size_mobile'] > 0) ? sanitize_text_field($data['ays_poll_title_font_size_mobile']) : "20";
 
+			// Poll title font weight
+			$poll_title_font_weight    = (isset($data['ays_poll_title_font_weight']) && $data['ays_poll_title_font_weight'] != "") ? sanitize_text_field($data['ays_poll_title_font_weight']) : "normal";
+
+			// Poll title font weight for mobile
+			$poll_title_font_weight_mobile    = (isset($data['ays_poll_title_font_weight_mobile']) && $data['ays_poll_title_font_weight_mobile'] != "") ? sanitize_text_field($data['ays_poll_title_font_weight_mobile']) : "normal";
+
 			// Poll title alignment
 			$poll_title_alignment    = ( isset($data['ays_poll_title_alignment']) && $data['ays_poll_title_alignment'] != "" ) ? sanitize_text_field($data['ays_poll_title_alignment']) : "center";
 
@@ -727,6 +733,8 @@ class Polls_List_Table extends WP_List_Table {
 				'title_bg_color'                    => $title_bg_color, //aray
 				'poll_title_font_size'              => $poll_title_font_size,
 				'poll_title_font_size_mobile'       => $poll_title_font_size_mobile,
+				'poll_title_font_weight'            => $poll_title_font_weight,
+				'poll_title_font_weight_mobile'     => $poll_title_font_weight_mobile,
 				'icon_size'                         => $icon_size,
 				'width'                             => $width,
 				'width_for_mobile'                  => $width_for_mobile,

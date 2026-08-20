@@ -230,6 +230,8 @@ $default_options = array(
     'poll_question_image_object_fit' => "cover",
     'poll_title_font_size'        => 20,
     'poll_title_font_size_mobile' => 20,
+    'poll_title_font_weight'      => "normal",
+    'poll_title_font_weight_mobile' => "normal",
     'poll_title_alignment'        => "center",
     'poll_title_alignment_mobile' => "center",
     'poll_text_type_length_enable' => "off",
@@ -707,6 +709,12 @@ $poll_title_font_size    = (isset($options['poll_title_font_size']) && $options[
 
 // Poll title font size for mobile
 $poll_title_font_size_mobile    = (isset($options['poll_title_font_size_mobile']) && $options['poll_title_font_size_mobile'] != "") ? absint(intval(esc_attr($options['poll_title_font_size_mobile']))) : "20";
+
+// Poll title font weight
+$poll_title_font_weight    = (isset($options['poll_title_font_weight']) && $options['poll_title_font_weight'] != "") ? esc_attr($options['poll_title_font_weight']) : "normal";
+
+// Poll title font weight mobile
+$poll_title_font_weight_mobile    = (isset($options['poll_title_font_weight_mobile']) && $options['poll_title_font_weight_mobile'] != "") ? esc_attr($options['poll_title_font_weight_mobile']) : $poll_title_font_weight;
 
 // Poll title alignment
 $poll_title_alignment    = ( isset($options['poll_title_alignment']) && $options['poll_title_alignment'] != "" ) ? esc_attr($options['poll_title_alignment']) : "center";
@@ -2090,6 +2098,75 @@ $emoji = array(
                                                         </div>
                                                         <div>
                                                             <input type="number" class="ays-text-input ays-text-input-short" name="ays_poll_title_font_size_mobile" id="ays_poll_title_font_size_mobile" value="<?php echo esc_attr($poll_title_font_size_mobile);?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    <label for='ays_poll_title_font_weight'>
+                                                        <?php echo esc_html__('Title font weight', "poll-maker"); ?>
+                                                        <a class="ays_help"
+                                                        data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        title="<?php echo esc_html__("Specify the font weight of the title.", "poll-maker"); ?>">
+                                                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-8 ays_divider_left">
+                                                    <div>
+                                                        <div>
+                                                            <label for='ays_poll_title_font_weight'>
+                                                                <?php echo esc_html__('On desktop', "poll-maker"); ?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Define the font weight for PC devices.', "poll-maker")?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <select class="ays_poll_aysDropdown ays-select-short" id="ays_poll_title_font_weight" name="ays_poll_title_font_weight">
+                                                                <option value="normal" <?php echo ($poll_title_font_weight == "normal") ? "selected" : "";?>><?php echo esc_html__("Normal", "poll-maker"); ?></option>
+                                                                <option value="bold" <?php echo ($poll_title_font_weight == "bold") ? "selected" : "";?>><?php echo esc_html__("Bold", "poll-maker"); ?></option>
+                                                                <option value="bolder" <?php echo ($poll_title_font_weight == "bolder") ? "selected" : "";?>><?php echo esc_html__("Bolder", "poll-maker"); ?></option>
+                                                                <option value="100" <?php echo ($poll_title_font_weight == "100") ? "selected" : "";?>><?php echo esc_html__("100", "poll-maker"); ?></option>
+                                                                <option value="200" <?php echo ($poll_title_font_weight == "200") ? "selected" : "";?>><?php echo esc_html__("200", "poll-maker"); ?></option>
+                                                                <option value="300" <?php echo ($poll_title_font_weight == "300") ? "selected" : "";?>><?php echo esc_html__("300", "poll-maker"); ?></option>
+                                                                <option value="400" <?php echo ($poll_title_font_weight == "400") ? "selected" : "";?>><?php echo esc_html__("400", "poll-maker"); ?></option>
+                                                                <option value="500" <?php echo ($poll_title_font_weight == "500") ? "selected" : "";?>><?php echo esc_html__("500", "poll-maker"); ?></option>
+                                                                <option value="600" <?php echo ($poll_title_font_weight == "600") ? "selected" : "";?>><?php echo esc_html__("600", "poll-maker"); ?></option>
+                                                                <option value="700" <?php echo ($poll_title_font_weight == "700") ? "selected" : "";?>><?php echo esc_html__("700", "poll-maker"); ?></option>
+                                                                <option value="800" <?php echo ($poll_title_font_weight == "800") ? "selected" : "";?>><?php echo esc_html__("800", "poll-maker"); ?></option>
+                                                                <option value="900" <?php echo ($poll_title_font_weight == "900") ? "selected" : "";?>><?php echo esc_html__("900", "poll-maker"); ?></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div>
+                                                        <div>
+                                                            <label for='ays_poll_title_font_weight_mobile'>
+                                                                <?php echo esc_html__('On mobile', "poll-maker"); ?>
+                                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_html__('Define the font weight for mobile devices.', "poll-maker")?>">
+                                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                                </a>
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <select class="ays_poll_aysDropdown ays-select-short" id="ays_poll_title_font_weight_mobile" name="ays_poll_title_font_weight_mobile">
+                                                                <option value="normal" <?php echo ($poll_title_font_weight_mobile == "normal") ? "selected" : "";?>><?php echo esc_html__("Normal", "poll-maker"); ?></option>
+                                                                <option value="bold" <?php echo ($poll_title_font_weight_mobile == "bold") ? "selected" : "";?>><?php echo esc_html__("Bold", "poll-maker"); ?></option>
+                                                                <option value="bolder" <?php echo ($poll_title_font_weight_mobile == "bolder") ? "selected" : "";?>><?php echo esc_html__("Bolder", "poll-maker"); ?></option>
+                                                                <option value="100" <?php echo ($poll_title_font_weight_mobile == "100") ? "selected" : "";?>><?php echo esc_html__("100", "poll-maker"); ?></option>
+                                                                <option value="200" <?php echo ($poll_title_font_weight_mobile == "200") ? "selected" : "";?>><?php echo esc_html__("200", "poll-maker"); ?></option>
+                                                                <option value="300" <?php echo ($poll_title_font_weight_mobile == "300") ? "selected" : "";?>><?php echo esc_html__("300", "poll-maker"); ?></option>
+                                                                <option value="400" <?php echo ($poll_title_font_weight_mobile == "400") ? "selected" : "";?>><?php echo esc_html__("400", "poll-maker"); ?></option>
+                                                                <option value="500" <?php echo ($poll_title_font_weight_mobile == "500") ? "selected" : "";?>><?php echo esc_html__("500", "poll-maker"); ?></option>
+                                                                <option value="600" <?php echo ($poll_title_font_weight_mobile == "600") ? "selected" : "";?>><?php echo esc_html__("600", "poll-maker"); ?></option>
+                                                                <option value="700" <?php echo ($poll_title_font_weight_mobile == "700") ? "selected" : "";?>><?php echo esc_html__("700", "poll-maker"); ?></option>
+                                                                <option value="800" <?php echo ($poll_title_font_weight_mobile == "800") ? "selected" : "";?>><?php echo esc_html__("800", "poll-maker"); ?></option>
+                                                                <option value="900" <?php echo ($poll_title_font_weight_mobile == "900") ? "selected" : "";?>><?php echo esc_html__("900", "poll-maker"); ?></option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
