@@ -234,6 +234,7 @@ $default_options = array(
     'poll_title_font_weight_mobile' => "normal",
     'poll_title_alignment'        => "center",
     'poll_title_alignment_mobile' => "center",
+    'poll_title_text_transform'   => "none",
     'poll_text_type_length_enable' => "off",
     'poll_text_type_limit_type'    => "characters",
     'poll_text_type_limit_length'  => "",
@@ -721,6 +722,9 @@ $poll_title_alignment    = ( isset($options['poll_title_alignment']) && $options
 
 // Poll title alignment mobile
 $poll_title_alignment_mobile    = ( isset($options['poll_title_alignment_mobile']) && $options['poll_title_alignment_mobile'] != "" ) ? esc_attr($options['poll_title_alignment_mobile']) : $poll_title_alignment;
+
+// Poll title text transform
+$poll_title_text_transform    = ( isset($options['poll_title_text_transform']) && $options['poll_title_text_transform'] != "" ) ? esc_attr($options['poll_title_text_transform']) : "none";
 
 // Poll view type
 $poll_view_type_for_text    = ( isset($poll['view_type']) && $poll['view_type'] == "paragraph" ) ? "paragraph" : "short_text";
@@ -2220,6 +2224,28 @@ $emoji = array(
                                                             </select>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    <label for='ays_poll_title_text_transform'>
+                                                        <?php echo esc_html__('Title text transform', "poll-maker"); ?>
+                                                        <a class="ays_help"
+                                                        data-toggle="tooltip"
+                                                        data-placement="top"
+                                                        title="<?php echo esc_html__("Specify the text transformation of the title.", "poll-maker"); ?>">
+                                                            <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-8 ays_divider_left">
+                                                    <select class="ays_poll_aysDropdown ays-select-short" id="ays_poll_title_text_transform" name="ays_poll_title_text_transform">
+                                                        <option value="none" <?php echo ($poll_title_text_transform == "none") ? "selected" : "";?>><?php echo esc_html__("None", "poll-maker"); ?></option>
+                                                        <option value="capitalize" <?php echo ($poll_title_text_transform == "capitalize") ? "selected" : "";?>><?php echo esc_html__("Capitalize", "poll-maker"); ?></option>
+                                                        <option value="uppercase" <?php echo ($poll_title_text_transform == "uppercase") ? "selected" : "";?>><?php echo esc_html__("Uppercase", "poll-maker"); ?></option>
+                                                        <option value="lowercase" <?php echo ($poll_title_text_transform == "lowercase") ? "selected" : "";?>><?php echo esc_html__("Lowercase", "poll-maker"); ?></option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <hr>

@@ -1305,6 +1305,9 @@ class Poll_Maker_Ays_Public {
 		// Poll title alignment mobile
 		$poll_title_alignment_mobile    = ( isset($options['poll_title_alignment_mobile']) && $options['poll_title_alignment_mobile'] != "" ) ? esc_attr($options['poll_title_alignment_mobile']) : $poll_title_alignment;
 
+		// Poll title text transform
+		$poll_title_text_transform    = ( isset($options['poll_title_text_transform']) && $options['poll_title_text_transform'] != "" ) ? esc_attr($options['poll_title_text_transform']) : "none";
+
 		// ===== Poll text type options start =====
 		$poll_view_type_text = isset($poll['view_type']) && $poll['view_type'] != "" ? $poll['view_type'] : "short_text";
 
@@ -1681,6 +1684,7 @@ class Poll_Maker_Ays_Public {
 			word-break: break-word;
 			word-wrap: break-word;
 			text-align: ".$poll_title_alignment.";
+			text-transform: ".$poll_title_text_transform.";
         }
 
         #".$this_poll_id.".box-apm .ays-poll-answer-container-list{			
@@ -1939,6 +1943,7 @@ class Poll_Maker_Ays_Public {
 				font-size: ".$poll_title_font_size_mobile."px;
 				font-weight: ".$poll_title_font_weight_mobile.";
 				text-align: ".$poll_title_alignment_mobile.";
+				text-transform: ".$poll_title_text_transform.";
 				word-break: break-word;
 				word-wrap: break-word;
 			}

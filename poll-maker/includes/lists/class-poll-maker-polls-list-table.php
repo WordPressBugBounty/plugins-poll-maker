@@ -627,6 +627,9 @@ class Polls_List_Table extends WP_List_Table {
 			// Poll title alignment mobile
 			$poll_title_alignment_mobile = ( isset($data['ays_poll_title_alignment_mobile']) && $data['ays_poll_title_alignment_mobile'] != "" ) ? sanitize_text_field($data['ays_poll_title_alignment_mobile']) : "center";
 
+			// Poll title text transform
+			$poll_title_text_transform = ( isset($data['ays_poll_title_text_transform']) && $data['ays_poll_title_text_transform'] != "" ) ? sanitize_text_field($data['ays_poll_title_text_transform']) : "none";
+
 			// ===== Poll text type options start =====
 			$poll_text_type_length_enable = ( isset($data['ays_poll_enable_question_length']) && $data['ays_poll_enable_question_length'] != "" ) ? sanitize_text_field($data['ays_poll_enable_question_length']) : "off";
 			$poll_text_type_limit_type    = ( isset($data['ays_poll_question_limit_text_type']) && $data['ays_poll_question_limit_text_type'] != "" ) ? sanitize_text_field($data['ays_poll_question_limit_text_type']) : "characters";
@@ -879,6 +882,7 @@ class Polls_List_Table extends WP_List_Table {
 				'poll_answer_image_border_radius'   => $poll_answer_image_border_radius,
 				'poll_title_alignment'              => $poll_title_alignment,
 				'poll_title_alignment_mobile'       => $poll_title_alignment_mobile,
+				'poll_title_text_transform'         => $poll_title_text_transform,
 				// Text type options
 				'poll_text_type_length_enable'      => $poll_text_type_length_enable,
 				'poll_text_type_limit_type'         => $poll_text_type_limit_type,

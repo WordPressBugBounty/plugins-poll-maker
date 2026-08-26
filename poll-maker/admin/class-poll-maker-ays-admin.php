@@ -4846,6 +4846,7 @@ class Poll_Maker_Ays_Admin {
 			"poll_title_font_weight_mobile" => "normal",
 			"poll_title_alignment" => "center",
 			"poll_title_alignment_mobile" => "center",
+			"poll_title_text_transform" => "none",
 			"poll_enable_answer_image_after_voting" => "off",
 			"poll_text_type_length_enable" => "off",
 			"poll_text_type_limit_type" => "characters",
