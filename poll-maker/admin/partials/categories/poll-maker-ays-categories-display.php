@@ -24,6 +24,7 @@ $plus_icon_svg = "<span class=''><img src='". esc_url(POLL_MAKER_AYS_ADMIN_URL) 
             <div id="post-body-content">
                 <div class="meta-box-sortables ui-sortable">
                     <form method="post">
+                        <input type="hidden" name="page" value="<?php echo isset( $_REQUEST['page'] ) ? esc_attr( sanitize_key( wp_unslash( $_REQUEST['page'] ) ) ) : ''; ?>">
                         <?php
                             $this->cats_obj->prepare_items();
                             $search =esc_html__("Search", "poll-maker");

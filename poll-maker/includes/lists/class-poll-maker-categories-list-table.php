@@ -34,9 +34,20 @@ class Pma_Categories_List_Table extends WP_List_Table {
 		$args = array();
 
 		if( $search != '' ){
-            $where[] = $search;
+         	$where[] = $wpdb->prepare( "title LIKE %s", '%' . $wpdb->esc_like( $search ) . '%' );
         }
 		
+		$description_filter = self::get_description_filter();
+        if ( 'with' === $description_filter ) {
+            $where[] = "description != ''";
+        } elseif ( 'without' === $description_filter ) {
+            $where[] = "description = ''";
+        }
+
+		if( ! empty($where) ){
+            $sql .= " WHERE " . implode( " AND ", $where );
+        }
+
 		// Get where condition to filter
 		$where = self::get_where_condition();
 		$sql .= $where;
@@ -184,8 +195,15 @@ class Pma_Categories_List_Table extends WP_List_Table {
 		$sql = "SELECT COUNT(*) FROM ".$cat_table;		
 
         $search = ( isset( $_REQUEST['s'] ) ) ? sanitize_text_field( $_REQUEST['s'] ) : false;
-        if( $search ){
-            $filter[] = sprintf(" title LIKE '%%%s%%' ", esc_sql( $wpdb->esc_like( $search ) ) );
+        if( $search ){            
+            $filter[] = $wpdb->prepare( "title LIKE %s", '%' . $wpdb->esc_like( $search ) . '%' );
+        }
+
+        $description_filter = self::get_description_filter();
+        if ( 'with' === $description_filter ) {
+            $filter[] = "description != ''";
+        } elseif ( 'without' === $description_filter ) {
+            $filter[] = "description = ''";
         }
 
         if(count($filter) !== 0){
@@ -199,6 +217,19 @@ class Pma_Categories_List_Table extends WP_List_Table {
 	public function no_items() {
 		_e('There are no poll categories yet.', "poll-maker");
 	}
+
+	/**
+     * Get a validated description filter value from the request.
+     *
+     * @return string
+     */
+    private static function get_description_filter() {
+        $filter = isset( $_REQUEST['filterbyDescription'] )
+            ? sanitize_key( wp_unslash( $_REQUEST['filterbyDescription'] ) )
+            : '';
+
+        return in_array( $filter, array( 'with', 'without' ), true ) ? $filter : '';
+    }
 
 	/**
 	 * Render a column when no column specific method exist.
@@ -334,6 +365,31 @@ class Pma_Categories_List_Table extends WP_List_Table {
 	}
 
 	/**
+     * Render the description filter above and below the table.
+     *
+     * @param string $which Navigation position.
+     */
+    protected function extra_tablenav( $which ) {
+        $description_filter = self::get_description_filter();
+        $page = isset( $_REQUEST['page'] ) ? sanitize_key( wp_unslash( $_REQUEST['page'] ) ) : '';
+        $clear_url = add_query_arg( 'page', $page, admin_url( 'admin.php' ) );
+        ?>
+        <div class="alignleft actions">
+            <label class="screen-reader-text" for="filterbyDescription-<?php echo esc_attr( $which ); ?>">
+                <?php echo esc_html__( 'Filter by description', 'poll-maker' ); ?>
+            </label>
+            <select name="filterbyDescription-<?php echo esc_attr( $which ); ?>" id="filterbyDescription-<?php echo esc_attr( $which ); ?>">
+                <option value=""><?php echo esc_html__( 'With/without description', 'poll-maker' ); ?></option>
+                <option value="with" <?php selected( $description_filter, 'with' ); ?>><?php echo esc_html__( 'With description', 'poll-maker' ); ?></option>
+                <option value="without" <?php selected( $description_filter, 'without' ); ?>><?php echo esc_html__( 'Without description', 'poll-maker' ); ?></option>
+            </select>
+            <input type="button" class="description-filter-apply-<?php echo esc_attr( $which ); ?> button action-button" value="<?php echo esc_attr__( 'Filter', 'poll-maker' ); ?>">
+            <a class="button action-button" href="<?php echo esc_url( $clear_url ); ?>"><?php echo esc_html__( 'Clear filters', 'poll-maker' ); ?></a>
+        </div>
+        <?php
+    }
+
+	/**
 	 * Handles data query and filter, sorting, and pagination.
 	 */
 	public function prepare_items() {
@@ -352,11 +408,9 @@ class Pma_Categories_List_Table extends WP_List_Table {
 			'per_page'    => $per_page, //WE have to determine how many items to show on a page
 		));
 
-		$search = ( isset( $_REQUEST['s'] ) ) ? sanitize_text_field( $_REQUEST['s'] ) : false;
-        
-        $do_search = ( $search ) ? sprintf(" title LIKE '%%%s%%' ", $search ) : '';
+		$search = ( isset( $_REQUEST['s'] ) ) ? sanitize_text_field( $_REQUEST['s'] ) : false;        
 
-		$this->items = self::get_poll_categories($per_page, $current_page, $do_search);
+		$this->items = self::get_poll_categories( $per_page, $current_page, $search );
 
 	}
 

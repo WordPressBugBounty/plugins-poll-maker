@@ -495,7 +495,7 @@ class Poll_Maker_Ays_Admin {
 			$this->plugin_name, 
 			array($this,'display_plugin_polls_page'),
 			esc_url(POLL_MAKER_AYS_ADMIN_URL) . '/images/icons/icon-poll-maker-128x128.svg',
-			'6.33'
+			'25.20'
 		);
 
 		add_action("load-$hook_poll", array($this, 'screen_option_polls'));

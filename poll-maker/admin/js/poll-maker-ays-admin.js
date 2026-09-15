@@ -2178,7 +2178,7 @@
         }
     });
 
-    $(document).find('.ays-poll-question-tab-all-filter-button-top, .ays-poll-question-tab-all-filter-button-bottom').on('click', function(e) {
+    $(document).find('.ays-poll-question-tab-all-filter-button-top, .ays-poll-question-tab-all-filter-button-bottom, .description-filter-apply-top, .description-filter-apply-bottom').on('click', function(e) {
         e.preventDefault();
         var $this = $(this);
         var parent = $this.parents('.tablenav');
@@ -2195,6 +2195,7 @@
         }
 
         var catFilter = $(document).find('select[name="filterby-'+ top_or_bottom +'"]').val();
+        var catDescFilter = $(document).find('select[name="filterbyDescription-'+ top_or_bottom +'"]').val();
         var authorFilter = $(document).find('select[name="filterbyauthor-'+ top_or_bottom +'"]').val();
         var typeFilter = $(document).find('select[name="filterbytype-'+ top_or_bottom +'"]').val();
         var link = location.href;
@@ -2203,6 +2204,12 @@
             link = catFilterForListTable(link, searchValue, {
                 what: 'filterby',
                 value: catFilter
+            });
+        }
+        if (typeof catDescFilter != "undefined") {
+            link = catFilterForListTable(link, searchValue, {
+                what: 'filterbyDescription',
+                value: catDescFilter
             });
         }
         if (typeof authorFilter != "undefined") {
@@ -2229,8 +2236,9 @@
                 if ( linkModified[i].split("=")[0] == "ays_result_tab" ) {
                     linkModified.splice(i, 1, "ays_result_tab=poststuff");
                 }
-                if(linkModified[i].split("=")[0] == options.what){
+                if(linkModified[i].split("=")[0] == options.what || linkModified[i].split("=")[0] == 'paged'){
                     linkModified.splice(i, 1);
+                    i--;
                 }
             }
             linkModified = linkModified.join('&');
@@ -2242,8 +2250,9 @@
             var linkModifiedStart = link.split('?')[0];
             var linkModified = link.split('?')[1].split('&');
             for(var i = 0; i < linkModified.length; i++){
-                if(linkModified[i].split("=")[0] == options.what){
+                if(linkModified[i].split("=")[0] == options.what || linkModified[i].split("=")[0] == 'paged'){
                     linkModified.splice(i, 1);
+                    i--;
                 }
             }
             linkModified = linkModified.join('&');
