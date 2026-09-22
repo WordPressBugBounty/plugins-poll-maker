@@ -3175,6 +3175,26 @@ class Poll_Maker_Ays_Public {
 		return $result;
 	}
 
+	public static function get_poll_category_by_ids($ids){
+        global $wpdb;
+
+        $ids = array_map('intval', explode(',', $ids));
+        $ids = array_filter($ids);
+
+        if (empty($ids)) {
+            return [];
+        }
+
+        $ids_sql = implode(',', $ids);
+
+        $sql = "SELECT *
+                FROM {$wpdb->prefix}ayspoll_categories
+                WHERE id IN ($ids_sql)
+                ORDER BY FIELD(id, $ids_sql)";
+
+        return $wpdb->get_results($sql, ARRAY_A);
+    }
+
 	public function get_poll_status($id) {
 		global $wpdb;
 		$poll_id = absint(intval($id));
@@ -3285,6 +3305,20 @@ class Poll_Maker_Ays_Public {
 			$added_answer_id = array();
 
 			$poll_title = (isset($poll['title']) && $poll['title'] != '')  ? stripslashes( sanitize_text_field( $poll['title'] ) ) : '';
+
+			// Poll category title
+            $poll_category_title = "";
+
+            $poll_cats = isset( $poll['categories'] ) ? trim( $poll['categories'], ',' ) : '';
+			$poll_category_ids = $poll_cats !== '' ? sanitize_text_field( $poll_cats ) : '';
+
+            if ( $poll_category_ids != '' ) {
+                $categories = self::get_poll_category_by_ids( $poll_category_ids );
+                $category_names = wp_list_pluck( $categories, 'title' );
+
+                $poll_category_title = implode( ', ', $category_names );
+            }
+
 			$poll_vote_reason_text = "";
 			$poll_vote_reason = false;
 			$show_answers_numbering = (isset($options['show_answers_numbering']) && sanitize_text_field( $options['show_answers_numbering'] ) != '') ? sanitize_text_field( $options['show_answers_numbering'] ) : 'none';
@@ -3643,6 +3677,7 @@ class Poll_Maker_Ays_Public {
 					'user_email'  				  				=> $form_apm_email,
 					'user_phone'  				  				=> $form_apm_phone,
 					'poll_title'       		      				=> $poll_title,
+					'poll_category_title'       		      	=> $poll_category_title,
 					'poll_id'       		      				=> $poll_id,
 					'users_first_name' 		      				=> $user_first_name,
 					'users_last_name'  		      				=> $user_last_name,

@@ -2593,6 +2593,16 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <hr class="ays-poll-message-variables-text-divider-for-mobile">   
                                 <p class="vmessage">
                                     <strong>
+                                        <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%poll_category_title%%" class='ays-poll-message-variables-inputs'/>
+                                    </strong>
+                                    <span class="ays-poll-message-variables-text-divider"> - </span>
+                                    <span class="ays-poll-message-variables-hint-text">
+                                        <?php echo esc_html__( "The title of the poll category.", "poll-maker"); ?>
+                                    </span>
+                                </p>
+                                <hr class="ays-poll-message-variables-text-divider-for-mobile">   
+                                <p class="vmessage">
+                                    <strong>
                                         <input type="text" onClick="this.setSelectionRange(0, this.value.length)" readonly value="%%poll_id%%" class='ays-poll-message-variables-inputs'/>
                                     </strong>
                                     <span class="ays-poll-message-variables-text-divider"> - </span>
