@@ -4,7 +4,7 @@ Donate link: https://ays-pro.com/wordpress/poll-maker
 Tags:  WordPress Poll, vote, poll plugin, polls, polling
 Requires at least: 4.0
 Tested up to: 7.1
-Stable tag: 6.5.0
+Stable tag: 6.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -330,6 +330,10 @@ By this, you will save your already created data (quizzes with questions). You c
 
 
 == Changelog ==
+
+= 6.5.1 ( Sep 29, 2026 ) =
+* Tested: Compatible up to WordPress 7.1.2
+* Fixed: Improved validation of the User IP Address message variable
 
 = 6.5.0 ( Sep 22, 2026 ) =
 * Added: Poll Category Title message variable on the general settings

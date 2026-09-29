@@ -207,11 +207,7 @@ class Poll_Maker_Ays_Public {
 
 	public function show_chart_js() {
 		wp_enqueue_script( $this->plugin_name . '-charts-google', plugin_dir_url(__FILE__) . 'js/google-chart.js', array('jquery'), $this->version, true);
-	}
-    // public function show_column_chart_js() {
-    //     // wp_enqueue_script( $this->plugin_name . '-column-chart', 'https://www.gstatic.com/charts/loader.js', array('jquery'), $this->version, true);
-    //     wp_enqueue_script( $this->plugin_name . '-column-chart', plugin_dir_url(__FILE__) . 'js/poll-maker-chart-loader.js', array('jquery'), $this->version, true);
-    // }	
+	}    	
 
 	// Categories shortcode
 	public function ays_poll_generate_categories_method($attr) {
@@ -371,7 +367,6 @@ class Poll_Maker_Ays_Public {
 		$chart_style = false;
 		if (isset( $result_option_res['show_result_view']) && ( $result_option_res['show_result_view'] == 'pie_chart' ||  $result_option_res['show_result_view'] == 'column_chart' )) {
 			$this->show_chart_js();
-			// $this->show_column_chart_js();
 			$chart_style = true;
 		}
 
@@ -920,12 +915,7 @@ class Poll_Maker_Ays_Public {
 
 		$bg_color        	= $options['bg_color'];
 		$bg_image = isset($options['bg_image']) && $options['bg_image'] != '' ? esc_url($options['bg_image']): '';
-		// if ($bg_image != '') {
-		// 	if ( !(filter_var($bg_image, FILTER_VALIDATE_URL) && wp_http_validate_url($bg_image)) ) {
-		// 		// invalid URL, handle accordingly
-		// 		$bg_image = '';
-		// 	}
-		// }
+		
 		if( $bg_image != "" ){
 			$check_if_current_image_exists = Poll_Maker_Ays_Admin::ays_poll_check_if_current_image_exists($bg_image);
 
@@ -2478,17 +2468,8 @@ class Poll_Maker_Ays_Public {
 								$poll_answer_percentages = array();
 								$poll_answer_votes = array();
 								foreach ( $poll['answers'] as $index => $answer ) {
-									// if($fake_votes){
-									// 	if(intval( $answer['votes'] ) + intval( $answer['fake_votes'] ) < 0){
-									// 		$poll_answer_votes[$answer['id']] = intval( $answer['votes'] );
-									// 	}
-									// 	else{
-									// 		$poll_answer_votes[$answer['id']] = intval( $answer['votes'] ) + intval( $answer['fake_votes'] );
-									// 	}
-									// }
-									// else{
-										$poll_answer_votes[$answer['id']] = intval( $answer['votes'] );
-									// }
+									
+									$poll_answer_votes[$answer['id']] = intval( $answer['votes'] );
 								}
 								
 								$poll_answer_votes_sum = array_sum( $poll_answer_votes );
@@ -2499,10 +2480,7 @@ class Poll_Maker_Ays_Public {
 									}else{
 										$poll_answer_percentages[$index] = 0;
 									}
-								}
-
-								// $show_votes_count = isset($options['show_votes_count']) && $options['show_votes_count'] == 1 ? true : false;
-								// $show_answer_percent = isset($options['show_res_percent']) && $options['show_res_percent'] == 1 ? true : false;
+								}								
 
 								if($poll_allow_multivote){
 									$content .= "<input type='hidden' id='multivot_answer_count' value='".$multivote_answer_count."'/>";
@@ -2581,27 +2559,12 @@ class Poll_Maker_Ays_Public {
 											switch ( $show_votes_before_voting_by ) {
 												case 'by_percentage':
 													$answer_votes_count_before_voting = $poll_answer_percentages[$answer['id']] . "%";
-													// if( $show_votes_count ){
-													//     $answer_votes_count_before_voting .= " (". intval( $answer['votes'] ) .")";
-													// }
 													break;
 												default:
 													$real_votes = isset($answer['votes']) && $answer['votes'] != "" ? intval( $answer['votes'] ) : 0;
-													// $fake_votes_all = isset($answer['fake_votes']) && $answer['fake_votes'] != "0" ? intval( $answer['fake_votes'] ) : 0;
-													// if($fake_votes){
-													// 	if($real_votes + $fake_votes_all < 0){
-													// 		$answer_votes_count_before_voting = $real_votes;
-													// 	}
-													// 	else{
-													// 		$answer_votes_count_before_voting = $real_votes + $fake_votes_all;
-													// 	}
-													// }
-													// else{
-														$answer_votes_count_before_voting = $real_votes;
-													// }
-													// if( $show_answer_percent ){
-													//     $answer_votes_count_before_voting .= " (". $poll_answer_percentages[$answer['id']] . "%" .")";
-													// }
+													
+													$answer_votes_count_before_voting = $real_votes;
+													
 													break;
 											}
 
@@ -3072,7 +3035,9 @@ class Poll_Maker_Ays_Public {
 	}
 
 	private static function get_user_ip() {
-		$ipaddress = '';
+
+		$ipaddress = false;
+
 		if (getenv('HTTP_CLIENT_IP')) {
 			$ipaddress = getenv('HTTP_CLIENT_IP');
 		} else if (getenv('HTTP_X_FORWARDED_FOR')) {
@@ -3083,13 +3048,18 @@ class Poll_Maker_Ays_Public {
 			$ipaddress = getenv('HTTP_FORWARDED_FOR');
 		} else if (getenv('HTTP_FORWARDED')) {
 			$ipaddress = getenv('HTTP_FORWARDED');
-		} else if (getenv('REMOTE_ADDR')) {
-			$ipaddress = getenv('REMOTE_ADDR');
-		} else {
-			$ipaddress = 'UNKNOWN';
 		}
 
-		return $ipaddress;
+		if ( $ipaddress !== false && filter_var( $ipaddress, FILTER_VALIDATE_IP ) !== false ) {
+            return $ipaddress;
+        }
+
+        $remote_address = getenv('REMOTE_ADDR');
+        if ( $remote_address !== false && filter_var( $remote_address, FILTER_VALIDATE_IP ) !== false ) {
+            return $remote_address;
+        }
+
+        return 'UNKNOWN';
 	}
 
 	public static function get_user_ip_validated(){
