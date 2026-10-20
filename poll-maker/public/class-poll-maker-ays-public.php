@@ -3278,6 +3278,7 @@ class Poll_Maker_Ays_Public {
 
 			// Poll category title
             $poll_category_title = "";
+            $poll_category_description = "";
 
             $poll_cats = isset( $poll['categories'] ) ? trim( $poll['categories'], ',' ) : '';
 			$poll_category_ids = $poll_cats !== '' ? sanitize_text_field( $poll_cats ) : '';
@@ -3285,8 +3286,17 @@ class Poll_Maker_Ays_Public {
             if ( $poll_category_ids != '' ) {
                 $categories = self::get_poll_category_by_ids( $poll_category_ids );
                 $category_names = wp_list_pluck( $categories, 'title' );
+                $category_desc_names = wp_list_pluck( $categories, 'description' );
+
+                $category_description_names = array();
+                foreach ($category_desc_names as $desc_names_value) {
+                    if ( !empty( $desc_names_value ) ) {
+                        $category_description_names[] = $desc_names_value;
+                    }
+                }
 
                 $poll_category_title = implode( ', ', $category_names );
+                $poll_category_description = implode( ', ', $category_description_names );
             }
 
 			$poll_vote_reason_text = "";
@@ -3643,50 +3653,51 @@ class Poll_Maker_Ays_Public {
 				$form_apm_phone = (isset($_POST['apm_phone']) && $_POST['apm_phone'] != "") ? esc_attr($_POST['apm_phone']) : "";
 				
 				$message_data = array(
-					'user_name'   				  				=> $form_apm_name,
-					'user_email'  				  				=> $form_apm_email,
-					'user_phone'  				  				=> $form_apm_phone,
-					'poll_title'       		      				=> $poll_title,
-					'poll_category_title'       		      	=> $poll_category_title,
-					'poll_id'       		      				=> $poll_id,
-					'users_first_name' 		      				=> $user_first_name,
-					'users_last_name'  		      				=> $user_last_name,
-					'creation_date'    		      				=> $creation_date,
-					'current_date'                				=> $poll_current_date,
-					'current_time'                				=> $poll_current_time,
-					'current_day'                				=> $poll_current_day,
-					'current_month'                				=> $poll_current_month,
-					'current_poll_page_link'      				=> $current_poll_page_link_html,
-					'current_poll_author'         				=> $current_poll_author,
-					'current_poll_author_email'   				=> $current_poll_author_email,
-					'current_poll_author_nickname'   			=> $current_poll_author_nickname,
-					'current_poll_author_display_name' 			=> $current_poll_author_display_name,
-					'current_poll_author_website_url'  			=> $current_poll_author_website_url,
-					'current_poll_author_registered'  			=> $current_poll_author_registered,
-					'admin_email'   							=> $super_admin_email,
-					'user_nickname'   		      				=> $user_nickname,
-					'user_first_name'   		      			=> $user_first_name,
-					'user_display_name'   	      				=> $user_display_name,
-					'user_wordpress_email'        				=> $user_wordpress_email,
-					'user_wordpress_roles'        				=> $user_wordpress_roles,
-					'poll_pass_count'  			  				=> $pass_count,
-					'passed_poll_count_per_user'  				=> $passed_poll_count_per_user,
-					'user_wordpress_website'	  				=> $user_wordpress_website,
-					'user_ip_address'			  				=> $user_ip_address,
-					'user_id'			  						=> $current_user_id,
-					'user_registered'                     		=> $user_registered,
-					'post_title'			  					=> $post_title,
-					'post_author_email'			  				=> $post_author_email,
-					'post_author_display_name'					=> $post_author_display_name,
-					'post_author_nickname'						=> $post_author_nickname,
-					'post_author_first_name'					=> $post_author_first_name,
-					'post_author_last_name'						=> $post_author_last_name,
-					'post_author_website_url'					=> $post_author_website_url,
-					'post_author_roles'                			=> $post_author_roles,
-					'post_id'			  						=> $post_id,
-					'site_title'			  					=> $get_site_title,
-					'site_description'			  				=> $get_site_description,
-					'home_page_url'			  					=> $home_page_url,
+					'user_name'   				  					=> $form_apm_name,
+					'user_email'  				  					=> $form_apm_email,
+					'user_phone'  				  					=> $form_apm_phone,
+					'poll_title'       		      					=> $poll_title,
+					'poll_category_title'       		      		=> $poll_category_title,
+					'poll_category_description'       		      	=> $poll_category_description,
+					'poll_id'       		      					=> $poll_id,
+					'users_first_name' 		      					=> $user_first_name,
+					'users_last_name'  		      					=> $user_last_name,
+					'creation_date'    		      					=> $creation_date,
+					'current_date'                					=> $poll_current_date,
+					'current_time'                					=> $poll_current_time,
+					'current_day'                					=> $poll_current_day,
+					'current_month'                					=> $poll_current_month,
+					'current_poll_page_link'      					=> $current_poll_page_link_html,
+					'current_poll_author'         					=> $current_poll_author,
+					'current_poll_author_email'   					=> $current_poll_author_email,
+					'current_poll_author_nickname'   				=> $current_poll_author_nickname,
+					'current_poll_author_display_name' 				=> $current_poll_author_display_name,
+					'current_poll_author_website_url'  				=> $current_poll_author_website_url,
+					'current_poll_author_registered'  				=> $current_poll_author_registered,
+					'admin_email'   								=> $super_admin_email,
+					'user_nickname'   		      					=> $user_nickname,
+					'user_first_name'   		      				=> $user_first_name,
+					'user_display_name'   	      					=> $user_display_name,
+					'user_wordpress_email'        					=> $user_wordpress_email,
+					'user_wordpress_roles'        					=> $user_wordpress_roles,
+					'poll_pass_count'  			  					=> $pass_count,
+					'passed_poll_count_per_user'  					=> $passed_poll_count_per_user,
+					'user_wordpress_website'	  					=> $user_wordpress_website,
+					'user_ip_address'			  					=> $user_ip_address,
+					'user_id'			  							=> $current_user_id,
+					'user_registered'                     			=> $user_registered,
+					'post_title'			  						=> $post_title,
+					'post_author_email'			  					=> $post_author_email,
+					'post_author_display_name'						=> $post_author_display_name,
+					'post_author_nickname'							=> $post_author_nickname,
+					'post_author_first_name'						=> $post_author_first_name,
+					'post_author_last_name'							=> $post_author_last_name,
+					'post_author_website_url'						=> $post_author_website_url,
+					'post_author_roles'                				=> $post_author_roles,
+					'post_id'			  							=> $post_id,
+					'site_title'			  						=> $get_site_title,
+					'site_description'			  					=> $get_site_description,
+					'home_page_url'			  						=> $home_page_url,
 				);
 				
 				$user_ip = esc_sql($user_ips);
