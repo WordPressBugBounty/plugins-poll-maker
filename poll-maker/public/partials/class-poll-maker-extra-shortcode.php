@@ -63,6 +63,7 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         add_shortcode('ays_poll_user_first_name', array($this, 'ays_generate_user_first_name_method'));
         add_shortcode('ays_poll_user_last_name', array($this, 'ays_generate_user_last_name_method'));
         add_shortcode('ays_poll_user_display_name', array($this, 'ays_generate_user_display_name_method'));
+        add_shortcode('ays_poll_title', array($this, 'ays_generate_poll_title_method'));
         add_shortcode('ays_poll_creation_date', array($this, 'ays_generate_creation_date_method'));
         add_shortcode('ays_poll_user_email', array($this, 'ays_generate_user_email_method'));
         add_shortcode('ays_poll_user_passed_polls_count', array($this, 'ays_generate_user_passed_polls_count_method'));
@@ -200,6 +201,54 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
     /*
     ==========================================
         Show User Display name | End
+    ==========================================
+    */
+
+    /*
+    ==========================================
+        Poll show title | Start
+    ==========================================
+    */
+    public function ays_generate_poll_title_method( $attr ){
+
+        $id = (isset($attr['id']) && $attr['id'] != '') ? absint( sanitize_text_field($attr['id']) ) : null;
+
+        if (is_null($id) || $id == 0 ) {
+            $poll_title_html = "<p class='wrong_shortcode_text' style='color:red;'>" .esc_html__('Wrong shortcode initialized', "poll-maker") . "</p>";
+            return str_replace(array("\r\n", "\n", "\r"), "\n", $poll_title_html);
+        }
+
+        $unique_id = uniqid();
+        $this->unique_id = $unique_id;
+        $this->unique_id_in_class = $id . "-" . $unique_id;
+
+
+        $poll_title_html = $this->ays_poll_title_html( $id );
+        return str_replace(array("\r\n", "\n", "\r"), "\n", $poll_title_html);
+    }
+    
+    public function ays_poll_title_html( $id ){
+
+        $results = $this->get_curent_poll_title($id);
+
+        $content_html = array();
+
+        if($results === null){
+            $content_html = "<p style='text-align: center;font-style:italic;'>" .esc_html__( "There are no results yet.", "poll-maker" ) . "</p>";
+            return $content_html;
+        }
+
+        $content_html[] = "<span class='". $this->html_name_prefix ."creation-date-box' id='". $this->html_name_prefix ."creation-date-box-". $this->unique_id_in_class ."' data-id='". $this->unique_id ."'>";
+            $content_html[] = $results;
+        $content_html[] = "</span>";
+
+        $content_html = implode( '' , $content_html);
+
+        return $content_html;
+    }
+    /*
+    ==========================================
+        Poll show title | End
     ==========================================
     */
 
@@ -356,7 +405,29 @@ class Ays_Poll_Maker_Extra_Shortcodes_Public
         return sanitize_text_field( $creation_date );
     }
 
-        /*
+    public function get_curent_poll_title( $id ){
+        global $wpdb;
+
+        $polls_table = esc_sql( $wpdb->prefix . "ayspoll_polls" );
+
+        if (is_null($id) || $id == 0 ) {
+            return null;
+        }
+
+        $id = absint( $id );
+
+        $sql = "SELECT title FROM `{$polls_table}` WHERE `id` = {$id}";
+
+        $results = $wpdb->get_var($sql);
+        if ( is_null( $results ) || $results == "" ) {
+            $results = null;
+        }
+
+        return sanitize_text_field( $results );
+    }
+
+
+    /*
     ==========================================
         Passed polls count per user | Start
     ==========================================

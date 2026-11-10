@@ -2339,6 +2339,24 @@ $poll_wp_editor_height = (isset($options['poll_wp_editor_height']) && $options['
                                 <div class="col-sm-12" style="padding:20px;">
                                     <div class="form-group row">
                                         <div class="col-sm-4">
+                                            <label for="ays_poll_title">
+                                                <?php echo esc_html__( "Show poll title", "poll-maker" ); ?>
+                                                <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_attr(esc_html__("You need to insert Your Poll ID in the shortcode. It will show the title of the particular poll. If there is no poll available/found with that particular Poll ID, the shortcode will be empty.", "poll-maker") ); ?>">
+                                                    <i class="ays_poll_fas ays_poll_fa-info-circle"></i>
+                                                </a>
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="ays_poll_title" class="ays-text-input" onclick="this.setSelectionRange(0, this.value.length)" readonly="" value='[ays_poll_title id="Your_Poll_ID"]'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group row" style="padding:0px;margin:0;">
+                                <div class="col-sm-12" style="padding:20px;">
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
                                             <label for="ays_poll_user_email">
                                                 <?php echo esc_html__( "Show poll creation date", "poll-maker" ); ?>
                                                 <a class="ays_help" data-toggle="tooltip" title="<?php echo esc_attr(esc_html__("You need to insert Your Poll ID in the shortcode. It will show the creation date of the particular poll. If there is no poll available/found with that particular Poll ID, the shortcode will be empty.", "poll-maker") ); ?>">
